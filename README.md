@@ -4,7 +4,7 @@
 - JAVA 11
 - Gradle
 - Spring Boot
-- MariaDB
+- Mysql
 - React
 - Android
 
