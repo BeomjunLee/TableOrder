@@ -9,6 +9,7 @@
 - Android
 
 ### Entity 매핑
-<img src="https://user-images.githubusercontent.com/69130921/118507157-efa54680-b768-11eb-82ff-af6ff6656613.png"><br>
+<img src="https://user-images.githubusercontent.com/69130921/120928903-94d88c80-c721-11eb-8c11-240582bebc19.png"><br>
+
 
 
