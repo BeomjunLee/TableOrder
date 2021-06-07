@@ -13,7 +13,7 @@ import javax.persistence.*;
 @Entity
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-@javax.persistence.Table(name = "order")
+@javax.persistence.Table(name = "orders")
 public class Order extends BaseEntity {
 
     @Id @GeneratedValue
@@ -29,6 +29,10 @@ public class Order extends BaseEntity {
     @Column(nullable = false)
     private String request;
 
+    @Column(nullable = false)
+    @Enumerated(EnumType.STRING)
+    private OrderStatus orderStatus;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "table_id")
     private Table table;
@@ -40,4 +44,9 @@ public class Order extends BaseEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "customer_id")
     private Customer customer;
+
+
+    private void ordered() {
+        this.orderStatus = OrderStatus.ORDER;
+    }
 }

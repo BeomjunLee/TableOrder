@@ -13,6 +13,7 @@ import java.util.List;
 @Entity
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
+@javax.persistence.Table(name = "order_table")
 public class Table {
 
     @Id @GeneratedValue
@@ -36,4 +37,15 @@ public class Table {
 
     @OneToMany(mappedBy = "table", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Order> orders = new ArrayList<>();
+
+
+
+
+    public boolean isOpen() {
+        if(tableStatus == TableStatus.OPEN)
+            return true;
+        return false;
+    }
+
+
 }
