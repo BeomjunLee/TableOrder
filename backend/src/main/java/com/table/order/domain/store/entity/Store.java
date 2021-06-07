@@ -1,13 +1,14 @@
 package com.table.order.domain.store.entity;
 
+import com.table.order.domain.item.entity.Category;
+import com.table.order.domain.user.entity.User;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Getter
@@ -17,4 +18,14 @@ public class Store {
     @Id @GeneratedValue
     @Column(name = "store_id")
     private Long id;
+
+    @Column(nullable = false)
+    private String name;
+
+    @OneToMany(mappedBy = "store",cascade = CascadeType.ALL,orphanRemoval = true)
+    List<Category> categories = new ArrayList<>();
+
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    private User user;
 }

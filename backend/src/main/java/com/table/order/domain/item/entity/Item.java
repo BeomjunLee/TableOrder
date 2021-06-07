@@ -16,10 +16,13 @@ public class Item {
     @Column(name = "item_id")
     private Long id;
 
+    @Column(nullable = false)
     private String name;
 
+    @Column(nullable = false)
     private String description;
 
+    @Column(nullable = false)
     private int price;
 
     private String image;

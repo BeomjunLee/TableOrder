@@ -1,11 +1,14 @@
 package com.table.order.domain.table.entity;
 
+import com.table.order.domain.order.entity.Order;
 import com.table.order.domain.store.entity.Store;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Getter
@@ -19,10 +22,8 @@ public class Table {
     @Column(nullable = false)
     private String name;
 
-    @Column(nullable = false)
     private int numberOfPeople;
 
-    @Column(nullable = false)
     private int totalPrice;
 
     @Enumerated(EnumType.STRING)
@@ -32,4 +33,7 @@ public class Table {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "store_id")
     private Store store;
+
+    @OneToMany(mappedBy = "table", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Order> orders = new ArrayList<>();
 }

@@ -1,44 +1,30 @@
 package com.table.order.domain.customer.entity;
 
+import com.table.order.domain.item.entity.Item;
+import com.table.order.domain.order.entity.Order;
 import com.table.order.domain.store.entity.Store;
 import com.table.order.domain.table.entity.Table;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Entity
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-@javax.persistence.Table(name = "users")
 public class Customer {
 
     @Id @GeneratedValue
-    @Column(name = "user_id")
+    @Column(name = "customer_id")
     private Long id;
 
-    @Column(unique = true, nullable = false)
+    @Column(nullable = false)
     private String username;
 
-    @Column(nullable = false)
-    private String password;
-
-    @Column(nullable = false)
-    private String name;
-
-    @Column(nullable = false)
-    private String phoneNum;
-
-    @Column(nullable = false)
-    private String address;
-
-    @Column(nullable = false)
-    private String licenseImage;
-
-    @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
-    private UserRole userRole;
+    private int visitCount;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "table_id")
@@ -47,4 +33,7 @@ public class Customer {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "store_id")
     private Store store;
+
+    @OneToMany(mappedBy = "category")
+    private List<Order> orders = new ArrayList<>();
 }
