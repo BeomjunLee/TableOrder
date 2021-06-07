@@ -6,8 +6,8 @@
 - Spring Boot
 - Mysql
 - React
-- Android
+- Android 
 
 ### Entity 매핑
-<img src="https://user-images.githubusercontent.com/69130921/121010667-a9279280-c7d0-11eb-8228-9d3259103aa6.png"><br>
+<img src="https://user-images.githubusercontent.com/69130921/121010831-d96f3100-c7d0-11eb-94da-3a16dfab9158.png"><br>
 
