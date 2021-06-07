@@ -1,5 +1,6 @@
 package com.table.order.domain.order.entity;
 
+import com.table.order.domain.BaseEntity;
 import com.table.order.domain.customer.entity.Customer;
 import com.table.order.domain.item.entity.Item;
 import com.table.order.domain.table.entity.Table;
@@ -13,7 +14,7 @@ import javax.persistence.*;
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @javax.persistence.Table(name = "order")
-public class Order {
+public class Order extends BaseEntity {
 
     @Id @GeneratedValue
     @Column(name = "order_id")

@@ -1,5 +1,6 @@
 package com.table.order.domain.user.entity;
 
+import com.table.order.domain.BaseEntity;
 import com.table.order.domain.store.entity.Store;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -11,7 +12,7 @@ import javax.persistence.*;
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @javax.persistence.Table(name = "users")
-public class User {
+public class User extends BaseEntity {
 
     @Id
     @GeneratedValue

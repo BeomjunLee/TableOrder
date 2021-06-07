@@ -1,39 +1,38 @@
-package com.table.order.domain.item.entity;
+package com.table.order.domain.log.entity;
 
-import com.table.order.domain.category.entity.Category;
 import com.table.order.domain.BaseEntity;
+import com.table.order.domain.order.entity.Order;
 import com.table.order.domain.store.entity.Store;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class Item extends BaseEntity {
+public class TableLog extends BaseEntity {
 
     @Id @GeneratedValue
-    @Column(name = "item_id")
+    @Column(name = "table_log_id")
     private Long id;
 
     @Column(nullable = false)
     private String name;
 
     @Column(nullable = false)
-    private String description;
+    private int numberOfPeople;
 
     @Column(nullable = false)
-    private int price;
-
-    private String image;
+    private int totalPrice;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "store_id")
     private Store store;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "category_id")
-    private Category category;
+    @OneToMany(mappedBy = "table", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Order> orders = new ArrayList<>();
 }

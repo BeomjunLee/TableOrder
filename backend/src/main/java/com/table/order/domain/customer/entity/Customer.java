@@ -1,6 +1,6 @@
 package com.table.order.domain.customer.entity;
 
-import com.table.order.domain.item.entity.Item;
+import com.table.order.domain.BaseEntity;
 import com.table.order.domain.order.entity.Order;
 import com.table.order.domain.store.entity.Store;
 import com.table.order.domain.table.entity.Table;
@@ -15,7 +15,7 @@ import java.util.List;
 @Entity
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class Customer {
+public class Customer extends BaseEntity {
 
     @Id @GeneratedValue
     @Column(name = "customer_id")

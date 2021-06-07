@@ -1,5 +1,6 @@
-package com.table.order.domain.item.entity;
+package com.table.order.domain.category.entity;
 
+import com.table.order.domain.item.entity.Item;
 import com.table.order.domain.store.entity.Store;
 import lombok.AccessLevel;
 import lombok.Getter;

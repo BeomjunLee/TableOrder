@@ -1,6 +1,7 @@
 package com.table.order.domain.store.entity;
 
-import com.table.order.domain.item.entity.Category;
+import com.table.order.domain.BaseEntity;
+import com.table.order.domain.category.entity.Category;
 import com.table.order.domain.user.entity.User;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -13,7 +14,7 @@ import java.util.List;
 @Entity
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class Store {
+public class Store extends BaseEntity {
 
     @Id @GeneratedValue
     @Column(name = "store_id")
