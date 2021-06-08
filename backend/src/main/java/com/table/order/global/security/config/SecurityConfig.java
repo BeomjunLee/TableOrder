@@ -8,6 +8,7 @@ import com.table.order.global.security.provider.JwtProvider;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
@@ -52,8 +53,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
-                .authorizeRequests().anyRequest().permitAll()
-                .and()
                 .addFilterBefore(new JwtFilter(jwtProvider, objectMapper), UsernamePasswordAuthenticationFilter.class)
                 .exceptionHandling()
                 .accessDeniedHandler(jwtAccessDeniedHandler)
@@ -65,7 +64,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         web
                 //필터 무시
                 .ignoring().antMatchers(
-    "/customers/login",
+    "/**",
+                "/customers/login",
+                "/docs/**",
                 "/swagger-ui**");
     }
 }

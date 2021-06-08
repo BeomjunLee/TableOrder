@@ -34,13 +34,11 @@ public class CustomerService {
      * @return 응답 dto
      */
     public ResponseLogin scanQrCode(RequestCustomerLogin requestCustomerLogin) {
-        String accessToken = jwtProvider.generateToken(requestCustomerLogin);
-
         if(isInUseCustomer(requestCustomerLogin))
             return ResponseLogin.builder()
                     .status(RE_LOGIN.getStatus())
                     .message(RE_LOGIN.getMessage())
-                    .accessToken(accessToken)
+                    .accessToken(jwtProvider.generateToken(requestCustomerLogin))
                     .expiredAt(LocalDateTime.now().plusSeconds(jwtProvider.getAccessTokenValidMilliSeconds()/1000))
                     .build();
 
@@ -52,7 +50,7 @@ public class CustomerService {
         return ResponseLogin.builder()
                 .status(SIGN_UP.getStatus())
                 .message(SIGN_UP.getMessage())
-                .accessToken(accessToken)
+                .accessToken(jwtProvider.generateToken(requestCustomerLogin))
                 .expiredAt(LocalDateTime.now().plusSeconds(jwtProvider.getAccessTokenValidMilliSeconds()/1000))
                 .build();
     }
