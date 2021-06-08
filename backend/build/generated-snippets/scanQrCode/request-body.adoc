@@ -1,0 +1,4 @@
+[source,options="nowrap"]
+----
+{"username":"test","storeId":2,"tableId":1}
+----

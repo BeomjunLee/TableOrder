@@ -1,0 +1,16 @@
+|===
+|Path|Type|Description
+
+|`+username+`
+|`+String+`
+|핸드폰 고유 번호 (아이디)
+
+|`+tableId+`
+|`+Number+`
+|테이블 고유 id
+
+|`+storeId+`
+|`+Number+`
+|매장 고유 id
+
+|===

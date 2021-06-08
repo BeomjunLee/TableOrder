@@ -1,0 +1,4 @@
+[source,options="nowrap"]
+----
+{"status":200,"message":"회원가입 성공","accessToken":"accessToken","expiredAt":"2021-06-08T23:50:51.367888"}
+----
