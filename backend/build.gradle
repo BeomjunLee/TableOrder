@@ -29,7 +29,7 @@ dependencies {
 	asciidoctor 'org.springframework.restdocs:spring-restdocs-asciidoctor'
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'com.querydsl:querydsl-jpa'
-//	implementation 'org.springframework.boot:spring-boot-starter-security'
+	implementation 'org.springframework.boot:spring-boot-starter-security'
 	implementation 'org.springframework.boot:spring-boot-starter-validation'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	compileOnly 'org.projectlombok:lombok'
@@ -40,6 +40,9 @@ dependencies {
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.springframework.restdocs:spring-restdocs-mockmvc'
 	testImplementation 'org.springframework.security:spring-security-test'
+
+	compile'io.jsonwebtoken:jjwt-api:0.11.2'
+	runtime'io.jsonwebtoken:jjwt-impl:0.11.2', 'io.jsonwebtoken:jjwt-jackson:0.11.2'
 }
 
 test {

@@ -14,7 +14,7 @@
 |access 토큰
 
 |`+expiredAt+`
-|`+Number+`
+|`+String+`
 |토큰 만료 시간
 
 |===

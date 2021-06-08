@@ -17,7 +17,13 @@ spring:
         show_sql: true
         format_sql: true
 
-
+jwt:
+  header: Authorization
+  secretKey : leebeomjunleebeomjunleebeomjunleebeomjunleebeomjunleebeomjun
+  #1h
+  accessToken-valid-seconds : 600
+  #24h
+  refreshToken-valid-seconds : 86400
 
 
 

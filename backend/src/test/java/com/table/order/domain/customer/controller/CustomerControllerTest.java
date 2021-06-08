@@ -6,6 +6,10 @@ import com.table.order.domain.customer.dto.response.ResponseLogin;
 import com.table.order.domain.customer.repository.CustomerRepository;
 import com.table.order.domain.customer.service.CustomerService;
 import com.table.order.domain.table.repository.TableQueryRepository;
+import com.table.order.global.common.code.ResultCode;
+import com.table.order.global.security.exception.JwtAccessDeniedHandler;
+import com.table.order.global.security.exception.JwtAuthenticationEntryPoint;
+import com.table.order.global.security.provider.JwtProvider;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -20,9 +24,13 @@ import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.HttpStatus;
 import org.springframework.restdocs.payload.JsonFieldType;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.ResultActions;
 
+import java.time.LocalDateTime;
+
+import static com.table.order.global.common.code.ResultCode.SIGN_UP;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.given;
@@ -40,10 +48,16 @@ class CustomerControllerTest {
 
     @MockBean
     private CustomerService customerService;
-
+    @MockBean
+    private JwtProvider jwtProvider;
+    @MockBean
+    private JwtAuthenticationEntryPoint jwtAuthenticationEntryPoint;
+    @MockBean
+    private JwtAccessDeniedHandler jwtAccessDeniedHandler;
+    @MockBean
+    private PasswordEncoder passwordEncoder;
     @Autowired
     private ObjectMapper objectMapper;
-
     @Autowired
     private MockMvc mockMvc;
 
@@ -53,9 +67,9 @@ class CustomerControllerTest {
         //given
         ResponseLogin responseLogin = ResponseLogin.builder()
                 .status(HttpStatus.OK.value())
-                .message("")
-                .accessToken("") //TODO
-                .expiredAt(1000) //TODO
+                .message(SIGN_UP.getMessage())
+                .accessToken("accessToken")
+                .expiredAt(LocalDateTime.now().plusSeconds(100))
                 .build();
 
         given(customerService.scanQrCode(any(RequestCustomerLogin.class)))
@@ -87,7 +101,7 @@ class CustomerControllerTest {
                             fieldWithPath("status").type(JsonFieldType.NUMBER).description("상태 코드"),
                             fieldWithPath("message").type(JsonFieldType.STRING).description("결과 메세지"),
                             fieldWithPath("accessToken").type(JsonFieldType.STRING).description("access 토큰"),
-                            fieldWithPath("expiredAt").type(JsonFieldType.NUMBER).description("토큰 만료 시간")
+                            fieldWithPath("expiredAt").type(JsonFieldType.STRING).description("토큰 만료 시간")
                         )
                 ));
 

@@ -1,7 +1,6 @@
 package com.table.order.global.common;
 
-import com.table.order.domain.customer.dto.response.ResponseLogin;
-import com.table.order.domain.customer.exception.AlreadyInUseService;
+import com.table.order.global.common.exception.CustomIllegalArgumentException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -14,15 +13,15 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 @Slf4j
 public class ExceptionController {
 
-    @ExceptionHandler(AlreadyInUseService.class)
-    public ResponseEntity ticketDuplicated(AlreadyInUseService e) {
+    @ExceptionHandler(CustomIllegalArgumentException.class)
+    public ResponseEntity illegalArgumentException(CustomIllegalArgumentException e) {
         log.error(e.getMessage());
-        ResponseLogin response = ResponseLogin.builder()
-                .status(HttpStatus.OK.value())
+
+        ResponseError response = ResponseError.builder()
+                .errorCode(e.getErrorCode())
+                .status(HttpStatus.BAD_REQUEST.value())
                 .message(e.getMessage())
-                .accessToken("") //TODO
-                .expiredAt(1000) //TODO
                 .build();
-        return ResponseEntity.status(HttpStatus.OK).body(response);
+        return ResponseEntity.badRequest().body(response);
     }
 }
