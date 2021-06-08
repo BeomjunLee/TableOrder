@@ -1,8 +1,6 @@
 package com.table.order.domain.table.repository;
 
 import com.querydsl.jpa.impl.JPAQueryFactory;
-import com.table.order.domain.store.entity.QStore;
-import com.table.order.domain.table.entity.QTable;
 import com.table.order.domain.table.entity.Table;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;

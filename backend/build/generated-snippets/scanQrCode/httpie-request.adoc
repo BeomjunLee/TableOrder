@@ -1,0 +1,6 @@
+[source,bash]
+----
+$ echo '{"username":"test","storeId":2,"tableId":1}' | http POST 'http://localhost:8080/customers/login' \
+    'Content-Type:application/json;charset=UTF-8' \
+    'Accept:application/json'
+----

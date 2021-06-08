@@ -1,0 +1,4 @@
+[source,options="nowrap"]
+----
+{"status":200,"message":"","accessToken":"","expiredAt":1000}
+----

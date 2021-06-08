@@ -1,0 +1,8 @@
+[source,http,options="nowrap"]
+----
+HTTP/1.1 200 OK
+Content-Type: application/json
+Content-Length: 61
+
+{"status":200,"message":"","accessToken":"","expiredAt":1000}
+----

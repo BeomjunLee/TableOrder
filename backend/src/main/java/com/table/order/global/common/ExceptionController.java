@@ -21,7 +21,7 @@ public class ExceptionController {
                 .status(HttpStatus.OK.value())
                 .message(e.getMessage())
                 .accessToken("") //TODO
-                .expiredAt(null) //TODO
+                .expiredAt(1000) //TODO
                 .build();
         return ResponseEntity.status(HttpStatus.OK).body(response);
     }

@@ -27,6 +27,8 @@ public class QCustomer extends EntityPathBase<Customer> {
     //inherited
     public final DateTimePath<java.time.LocalDateTime> createdDate = _super.createdDate;
 
+    public final EnumPath<CustomerStatus> customerStatus = createEnum("customerStatus", CustomerStatus.class);
+
     public final NumberPath<Long> id = createNumber("id", Long.class);
 
     public final ListPath<com.table.order.domain.order.entity.Order, com.table.order.domain.order.entity.QOrder> orders = this.<com.table.order.domain.order.entity.Order, com.table.order.domain.order.entity.QOrder>createList("orders", com.table.order.domain.order.entity.Order.class, com.table.order.domain.order.entity.QOrder.class, PathInits.DIRECT2);
