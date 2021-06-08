@@ -16,7 +16,7 @@ public class CustomerController {
 
     private final CustomerService customerService;
 
-    @PostMapping("/login")
+    @PostMapping("")
     public ResponseLogin scanQrCode(@RequestBody RequestCustomerLogin requestCustomerLogin) {
         return customerService.scanQrCode(requestCustomerLogin);
     }

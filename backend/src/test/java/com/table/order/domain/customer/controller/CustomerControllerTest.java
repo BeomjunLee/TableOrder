@@ -3,14 +3,10 @@ package com.table.order.domain.customer.controller;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.table.order.domain.customer.dto.request.RequestCustomerLogin;
 import com.table.order.domain.customer.dto.response.ResponseLogin;
-import com.table.order.domain.customer.repository.CustomerRepository;
 import com.table.order.domain.customer.service.CustomerService;
-import com.table.order.domain.table.repository.TableQueryRepository;
-import com.table.order.global.common.code.ResultCode;
 import com.table.order.global.security.exception.JwtAccessDeniedHandler;
 import com.table.order.global.security.exception.JwtAuthenticationEntryPoint;
 import com.table.order.global.security.provider.JwtProvider;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,8 +19,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.ResultActions;
 import java.time.LocalDateTime;
-import static com.table.order.global.common.code.ResultCode.SIGN_UP;
-import static org.junit.jupiter.api.Assertions.*;
+import static com.table.order.global.common.code.ResultCode.RESULT_SIGN_UP;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.given;
 import static org.springframework.http.MediaType.APPLICATION_JSON;
@@ -59,7 +54,7 @@ class CustomerControllerTest {
         //given
         ResponseLogin responseLogin = ResponseLogin.builder()
                 .status(HttpStatus.OK.value())
-                .message(SIGN_UP.getMessage())
+                .message(RESULT_SIGN_UP.getMessage())
                 .accessToken("accessToken")
                 .expiredAt(LocalDateTime.now().plusSeconds(1800))
                 .build();
@@ -75,7 +70,7 @@ class CustomerControllerTest {
                 .build();
 
         ResultActions result = mockMvc.perform(
-                post("/customers/login")
+                post("/customers")
                         .contentType(APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(requestCustomerLogin))
                         .accept(APPLICATION_JSON))

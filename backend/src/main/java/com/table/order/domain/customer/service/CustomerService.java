@@ -16,8 +16,8 @@ import org.springframework.transaction.annotation.Transactional;
 import java.time.LocalDateTime;
 
 import static com.table.order.global.common.code.CustomErrorCode.ERROR_NOT_FOUND_TABLE_STORE;
-import static com.table.order.global.common.code.ResultCode.RE_LOGIN;
-import static com.table.order.global.common.code.ResultCode.SIGN_UP;
+import static com.table.order.global.common.code.ResultCode.RESULT_RE_LOGIN;
+import static com.table.order.global.common.code.ResultCode.RESULT_SIGN_UP;
 
 @Service
 @RequiredArgsConstructor
@@ -30,14 +30,14 @@ public class CustomerService {
 
     /**
      * QR 코드 스캔 후 회원가입 + 로그인
-     * @param requestCustomerLogin 클라이언트 요청 dto
+     * @param requestCustomerLogin 클라이언트 요청 form
      * @return 응답 dto
      */
     public ResponseLogin scanQrCode(RequestCustomerLogin requestCustomerLogin) {
         if(isInUseCustomer(requestCustomerLogin))
             return ResponseLogin.builder()
-                    .status(RE_LOGIN.getStatus())
-                    .message(RE_LOGIN.getMessage())
+                    .status(RESULT_RE_LOGIN.getStatus())
+                    .message(RESULT_RE_LOGIN.getMessage())
                     .accessToken(jwtProvider.generateToken(requestCustomerLogin))
                     .expiredAt(LocalDateTime.now().plusSeconds(jwtProvider.getAccessTokenValidMilliSeconds()/1000))
                     .build();
@@ -48,8 +48,8 @@ public class CustomerService {
         customerRepository.save(customer);
 
         return ResponseLogin.builder()
-                .status(SIGN_UP.getStatus())
-                .message(SIGN_UP.getMessage())
+                .status(RESULT_SIGN_UP.getStatus())
+                .message(RESULT_SIGN_UP.getMessage())
                 .accessToken(jwtProvider.generateToken(requestCustomerLogin))
                 .expiredAt(LocalDateTime.now().plusSeconds(jwtProvider.getAccessTokenValidMilliSeconds()/1000))
                 .build();

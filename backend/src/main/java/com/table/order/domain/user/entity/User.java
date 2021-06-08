@@ -1,7 +1,6 @@
 package com.table.order.domain.user.entity;
 
 import com.table.order.domain.BaseEntity;
-import com.table.order.domain.store.entity.Store;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -41,11 +40,9 @@ public class User extends BaseEntity {
     @Column(nullable = false)
     private UserRole userRole;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "table_id")
-    private com.table.order.domain.table.entity.Table table;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "store_id")
-    private Store store;
+    public boolean isUser() {
+        if(userRole == UserRole.USER)
+            return true;
+        return false;
+    }
 }

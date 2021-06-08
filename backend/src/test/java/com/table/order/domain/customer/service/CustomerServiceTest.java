@@ -61,7 +61,7 @@ class CustomerServiceTest {
 
         //then
         assertThat(responseLogin.getAccessToken()).isEqualTo("accessToken");
-        assertThat(responseLogin.getMessage()).isEqualTo(RE_LOGIN.getMessage());
+        assertThat(responseLogin.getMessage()).isEqualTo(RESULT_RE_LOGIN.getMessage());
     }
 
     @Test

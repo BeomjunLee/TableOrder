@@ -3,7 +3,10 @@ package com.table.order.domain.customer.entity;
 import com.table.order.domain.BaseEntity;
 import com.table.order.domain.order.entity.Order;
 import com.table.order.domain.store.entity.Store;
+import com.table.order.domain.store.exception.CustomAccessDeniedException;
 import com.table.order.domain.table.entity.Table;
+import com.table.order.global.common.code.CustomErrorCode;
+import com.table.order.global.common.exception.CustomIllegalArgumentException;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
@@ -11,6 +14,8 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+
+import static com.table.order.global.common.code.CustomErrorCode.ERROR_IN_USE_TABLE;
 
 
 @Entity
@@ -50,7 +55,6 @@ public class Customer extends BaseEntity {
         this.store = store;
     }
 
-
     public static Customer createCustomer(String username, Table table, Store store) {
         Customer customer = Customer.builder()
                 .username(username)
@@ -66,7 +70,7 @@ public class Customer extends BaseEntity {
 
     private void validate() {
         if(!table.isOpen())
-            throw new IllegalArgumentException("사용중인 테이블입니다");
+            throw new CustomAccessDeniedException(ERROR_IN_USE_TABLE.getErrorCode(), ERROR_IN_USE_TABLE.getMessage());
     }
 
 }

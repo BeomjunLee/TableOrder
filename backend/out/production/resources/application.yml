@@ -2,6 +2,12 @@ spring:
   profiles:
     active: local
 
+---
+spring:
+  config:
+    activate:
+      on-profile: local
+
   datasource:
     driver-class-name: org.h2.Driver
     username: sa
@@ -14,6 +20,7 @@ spring:
       hibernate:
         show_sql: true
         format_sql: true
+
 jwt:
   header: Authorization
   secretKey : leebeomjunleebeomjunleebeomjunleebeomjunleebeomjunleebeomjun
@@ -24,11 +31,15 @@ jwt:
 
 ---
 spring:
-  profiles: prod
+  config:
+    activate:
+      on-profile: dev
 
 ---
 spring:
-  profiles: dev
+  config:
+    activate:
+      on-profile: prod
 
 
 
