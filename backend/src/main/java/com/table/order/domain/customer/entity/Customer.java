@@ -1,9 +1,13 @@
 package com.table.order.domain.customer.entity;
 
 import com.table.order.domain.BaseEntity;
+import com.table.order.domain.customer.dto.request.RequestLoginCustomer;
 import com.table.order.domain.order.entity.Order;
 import com.table.order.domain.store.entity.Store;
+import com.table.order.domain.store.exception.CustomAccessDeniedException;
 import com.table.order.domain.table.entity.Table;
+import com.table.order.global.common.code.CustomErrorCode;
+import com.table.order.global.common.exception.CustomIllegalArgumentException;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
@@ -11,6 +15,8 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+
+import static com.table.order.global.common.code.CustomErrorCode.ERROR_IN_USE_TABLE;
 
 
 @Entity
@@ -43,17 +49,18 @@ public class Customer extends BaseEntity {
     private List<Order> orders = new ArrayList<>();
 
     @Builder
-    public Customer(String username, CustomerStatus customerStatus, Table table, Store store) {
+    public Customer(String username, int visitCount, CustomerStatus customerStatus, Table table, Store store) {
         this.username = username;
+        this.visitCount = visitCount;
         this.customerStatus = customerStatus;
         this.table = table;
         this.store = store;
     }
 
-
     public static Customer createCustomer(String username, Table table, Store store) {
         Customer customer = Customer.builder()
                 .username(username)
+                .visitCount(1)
                 .customerStatus(CustomerStatus.IN)
                 .table(table)
                 .store(store)
@@ -66,7 +73,24 @@ public class Customer extends BaseEntity {
 
     private void validate() {
         if(!table.isOpen())
-            throw new IllegalArgumentException("사용중인 테이블입니다");
+            throw new CustomAccessDeniedException(ERROR_IN_USE_TABLE.getErrorCode(), ERROR_IN_USE_TABLE.getMessage());
     }
 
+    public boolean isInUse() {
+        if(customerStatus == CustomerStatus.IN)
+            return true;
+        return false;
+    }
+
+    public boolean isVisited(RequestLoginCustomer requestLoginCustomer) {
+        if(!isInUse())
+            return true;
+        return false;
+    }
+
+    public void updateTable(Table table) {
+        this.table = table;
+        this.visitCount++;
+        this.customerStatus = CustomerStatus.IN;
+    }
 }

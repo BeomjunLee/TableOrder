@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - OrderApplicationTests</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>OrderApplicationTests</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/com.table.order.html">com.table.order</a> &gt; OrderApplicationTests</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">1</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">0.094s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Tests</a>
+</li>
+<li>
+<a href="#tab1">Standard output</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">contextLoads()</td>
+<td class="success">0.094s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div id="tab1" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>01:53:24.725 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating CacheAwareContextLoaderDelegate from class [org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate]
+01:53:24.734 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating BootstrapContext using constructor [public org.springframework.test.context.support.DefaultBootstrapContext(java.lang.Class,org.springframework.test.context.CacheAwareContextLoaderDelegate)]
+01:53:24.759 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating TestContextBootstrapper for test class [com.table.order.OrderApplicationTests] from class [org.springframework.boot.test.context.SpringBootTestContextBootstrapper]
+01:53:24.767 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.table.order.OrderApplicationTests], using SpringBootContextLoader
+01:53:24.770 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [com.table.order.OrderApplicationTests]: class path resource [com/table/order/OrderApplicationTests-context.xml] does not exist
+01:53:24.771 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [com.table.order.OrderApplicationTests]: class path resource [com/table/order/OrderApplicationTestsContext.groovy] does not exist
+01:53:24.771 [Test worker] INFO org.springframework.test.context.support.AbstractContextLoader - Could not detect default resource locations for test class [com.table.order.OrderApplicationTests]: no resource found for suffixes {-context.xml, Context.groovy}.
+01:53:24.771 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.table.order.OrderApplicationTests]: OrderApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+01:53:24.801 [Test worker] DEBUG org.springframework.test.context.support.ActiveProfilesUtils - Could not find an 'annotation declaring class' for annotation type [org.springframework.test.context.ActiveProfiles] and class [com.table.order.OrderApplicationTests]
+01:53:24.839 [Test worker] DEBUG org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider - Identified candidate component class: file [/Users/leebeomjun/Desktop/git/TableOrder/backend/build/classes/java/main/com/table/order/OrderApplication.class]
+01:53:24.840 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.table.order.OrderApplication for test class com.table.order.OrderApplicationTests
+01:53:24.909 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - @TestExecutionListeners is not present for class [com.table.order.OrderApplicationTests]: using defaults.
+01:53:24.909 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.security.test.context.support.WithSecurityContextTestExecutionListener, org.springframework.security.test.context.support.ReactorContextTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+01:53:24.922 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@57b0423e, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@4011ceec, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@1cbe243e, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@1ac7d635, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@4f33d6e1, org.springframework.test.context.support.DirtiesContextTestExecutionListener@19b0745, org.springframework.test.context.transaction.TransactionalTestExecutionListener@6c694c9c, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@48bb495a, org.springframework.security.test.context.support.WithSecurityContextTestExecutionListener@196e0a72, org.springframework.test.context.event.EventPublishingTestExecutionListener@40169735, org.springframework.security.test.context.support.ReactorContextTestExecutionListener@663d3e07, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@74de5a03, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@1d0af370, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@695170db, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@6613b6f0, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@609be673, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@2ac00863]
+01:53:24.925 [Test worker] DEBUG org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener - Before test class: context [DefaultTestContext@3ed8dc13 testClass = OrderApplicationTests, testInstance = [null], testMethod = [null], testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@3507561d testClass = OrderApplicationTests, locations = '{}', classes = '{class com.table.order.OrderApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.actuate.metrics.MetricsExportContextCustomizerFactory$DisableMetricExportContextCustomizer@1caf6adf, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@7d86e22, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@2cbd94fa, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@5e658b6b, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@7aa36318, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@495cf3d6], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -&gt; true]], class annotated with @DirtiesContext [false] with mode [null].
+01:53:24.956 [Test worker] DEBUG org.springframework.test.context.support.TestPropertySourceUtils - Adding inlined properties to environment: {spring.jmx.enabled=false, org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v2.4.5)
+
+2021-06-10 01:53:25.186  INFO 51766 --- [    Test worker] com.table.order.OrderApplicationTests    : Starting OrderApplicationTests using Java 11.0.10 on ibeomjun-ui-MacBookPro.local with PID 51766 (started by leebeomjun in /Users/leebeomjun/Desktop/git/TableOrder/backend)
+2021-06-10 01:53:25.187  INFO 51766 --- [    Test worker] com.table.order.OrderApplicationTests    : The following profiles are active: local
+2021-06-10 01:53:25.792  INFO 51766 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-06-10 01:53:25.868  INFO 51766 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 70 ms. Found 8 JPA repository interfaces.
+2021-06-10 01:53:26.224  INFO 51766 --- [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@265386b5' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-06-10 01:53:26.238  INFO 51766 --- [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-06-10 01:53:26.449  INFO 51766 --- [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-06-10 01:53:26.501  INFO 51766 --- [    Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.30.Final
+2021-06-10 01:53:26.644  INFO 51766 --- [    Test worker] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-06-10 01:53:26.731  INFO 51766 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-06-10 01:53:26.799  INFO 51766 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-06-10 01:53:26.830  INFO 51766 --- [    Test worker] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+Hibernate: 
+    
+    drop table if exists category CASCADE 
+Hibernate: 
+    
+    drop table if exists customer CASCADE 
+Hibernate: 
+    
+    drop table if exists item CASCADE 
+Hibernate: 
+    
+    drop table if exists order_table CASCADE 
+Hibernate: 
+    
+    drop table if exists orders CASCADE 
+Hibernate: 
+    
+    drop table if exists store CASCADE 
+Hibernate: 
+    
+    drop table if exists table_log CASCADE 
+Hibernate: 
+    
+    drop table if exists users CASCADE 
+Hibernate: 
+    
+    drop sequence if exists hibernate_sequence
+Hibernate: create sequence hibernate_sequence start with 1 increment by 1
+Hibernate: 
+    
+    create table category (
+       category_id bigint not null,
+        name varchar(255) not null,
+        store_id bigint,
+        primary key (category_id)
+    )
+Hibernate: 
+    
+    create table customer (
+       customer_id bigint not null,
+        created_date timestamp,
+        updated_date timestamp,
+        customer_status varchar(255) not null,
+        username varchar(255) not null,
+        visit_count integer not null,
+        store_id bigint,
+        table_id bigint,
+        primary key (customer_id)
+    )
+Hibernate: 
+    
+    create table item (
+       item_id bigint not null,
+        created_date timestamp,
+        updated_date timestamp,
+        description varchar(255) not null,
+        image varchar(255),
+        name varchar(255) not null,
+        price integer not null,
+        category_id bigint,
+        store_id bigint,
+        primary key (item_id)
+    )
+Hibernate: 
+    
+    create table order_table (
+       table_id bigint not null,
+        name varchar(255) not null,
+        number_of_people integer not null,
+        table_status varchar(255) not null,
+        total_price integer not null,
+        store_id bigint,
+        primary key (table_id)
+    )
+Hibernate: 
+    
+    create table orders (
+       order_id bigint not null,
+        created_date timestamp,
+        updated_date timestamp,
+        count integer not null,
+        order_price integer not null,
+        order_status varchar(255) not null,
+        request varchar(255) not null,
+        customer_id bigint,
+        item_id bigint,
+        table_id bigint,
+        primary key (order_id)
+    )
+Hibernate: 
+    
+    create table store (
+       store_id bigint not null,
+        created_date timestamp,
+        updated_date timestamp,
+        description varchar(255),
+        license_image varchar(255) not null,
+        name varchar(255) not null,
+        store_status varchar(255) not null,
+        user_id bigint,
+        primary key (store_id)
+    )
+Hibernate: 
+    
+    create table table_log (
+       table_log_id bigint not null,
+        created_date timestamp,
+        updated_date timestamp,
+        name varchar(255) not null,
+        number_of_people integer not null,
+        total_price integer not null,
+        store_id bigint,
+        primary key (table_log_id)
+    )
+Hibernate: 
+    
+    create table users (
+       user_id bigint not null,
+        created_date timestamp,
+        updated_date timestamp,
+        address varchar(255) not null,
+        name varchar(255) not null,
+        password varchar(255) not null,
+        phone_num varchar(255) not null,
+        refresh_token varchar(255),
+        user_role varchar(255) not null,
+        username varchar(255) not null,
+        primary key (user_id)
+    )
+Hibernate: 
+    
+    alter table store 
+       add constraint UK_bjqth9sjo3phwbmybuysm65be unique (user_id)
+Hibernate: 
+    
+    alter table users 
+       add constraint UK_r43af9ap4edm43mmtq01oddj6 unique (username)
+Hibernate: 
+    
+    alter table category 
+       add constraint FKqdaotwkf5g9vmdox82ttt50i5 
+       foreign key (store_id) 
+       references store
+Hibernate: 
+    
+    alter table customer 
+       add constraint FK4b6xs77vaijup4s0q2s06mvdo 
+       foreign key (store_id) 
+       references store
+Hibernate: 
+    
+    alter table customer 
+       add constraint FKakooxgfnpaex1cpvb17u99bg4 
+       foreign key (table_id) 
+       references order_table
+Hibernate: 
+    
+    alter table item 
+       add constraint FK2n9w8d0dp4bsfra9dcg0046l4 
+       foreign key (category_id) 
+       references category
+Hibernate: 
+    
+    alter table item 
+       add constraint FKi0c87m5jy5qxw8orrf2pugs6h 
+       foreign key (store_id) 
+       references store
+Hibernate: 
+    
+    alter table order_table 
+       add constraint FK7r53cdaofcjmrickykbcbe0qc 
+       foreign key (store_id) 
+       references store
+Hibernate: 
+    
+    alter table orders 
+       add constraint FK624gtjin3po807j3vix093tlf 
+       foreign key (customer_id) 
+       references customer
+Hibernate: 
+    
+    alter table orders 
+       add constraint FK1f1jovhxtx7fax217fq0gi17 
+       foreign key (item_id) 
+       references item
+Hibernate: 
+    
+    alter table orders 
+       add constraint FKcd7x3pjy025j43yii2uav1qi7 
+       foreign key (table_id) 
+       references order_table
+Hibernate: 
+    
+    alter table store 
+       add constraint FK7ybuab3162rs43dkcpsmrd0ub 
+       foreign key (user_id) 
+       references users
+Hibernate: 
+    
+    alter table table_log 
+       add constraint FKhvoymv6o9gl3rnxarkv76vxt6 
+       foreign key (store_id) 
+       references store
+2021-06-10 01:53:27.621  INFO 51766 --- [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-06-10 01:53:27.629  INFO 51766 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-06-10 01:53:28.290  WARN 51766 --- [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-06-10 01:53:28.445  INFO 51766 --- [    Test worker] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/**'] with []
+2021-06-10 01:53:28.445  INFO 51766 --- [    Test worker] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/docs/**'] with []
+2021-06-10 01:53:28.445  INFO 51766 --- [    Test worker] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/swagger-ui**'] with []
+2021-06-10 01:53:28.499  INFO 51766 --- [    Test worker] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2872676d, org.springframework.security.web.context.SecurityContextPersistenceFilter@5590ed2c, org.springframework.security.web.header.HeaderWriterFilter@7b7de929, org.springframework.security.web.authentication.logout.LogoutFilter@457c8918, com.table.order.global.security.filter.JwtFilter@9671f32, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4415ef86, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@75a9b498, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2ec0cbc0, org.springframework.security.web.session.SessionManagementFilter@cd0e414, org.springframework.security.web.access.ExceptionTranslationFilter@45d4e694]
+2021-06-10 01:53:28.892  INFO 51766 --- [    Test worker] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-06-10 01:53:29.232  INFO 51766 --- [    Test worker] com.table.order.OrderApplicationTests    : Started OrderApplicationTests in 4.27 seconds (JVM running for 5.165)
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 6.8.3</a> at 2021. 6. 10. 오전 1:53:32</p>
+</div>
+</div>
+</body>
+</html>

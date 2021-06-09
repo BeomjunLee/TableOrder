@@ -1,12 +1,13 @@
 package com.table.order.global.security.provider;
 
-import com.table.order.domain.customer.dto.request.RequestCustomerLogin;
+import com.table.order.domain.customer.dto.request.RequestLoginCustomer;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
 import lombok.Getter;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -72,7 +73,7 @@ public class JwtProvider {
      * jwt 생성 Customer
      * @return 생성된 토큰
      */
-    public String generateToken(RequestCustomerLogin customerLogin) {
+    public String generateToken(RequestLoginCustomer customerLogin) {
         long now = (new Date()).getTime();
         Date validateDay = new Date(now + this.accessTokenValidMilliSeconds);
 

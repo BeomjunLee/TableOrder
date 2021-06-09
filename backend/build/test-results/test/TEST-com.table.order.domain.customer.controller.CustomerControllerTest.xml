@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.table.order.domain.customer.controller.CustomerControllerTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2021-06-09T16:53:31" hostname="ibeomjun-ui-MacBookPro.local" time="0.08">
+  <properties/>
+  <testcase name="QR 코드 스캔 테스트 (회원가입)" classname="com.table.order.domain.customer.controller.CustomerControllerTest" time="0.034"/>
+  <testcase name="QR 코드 스캔 테스트 (재로그인)" classname="com.table.order.domain.customer.controller.CustomerControllerTest" time="0.022"/>
+  <testcase name="QR 코드 스캔 테스트 (재방문)" classname="com.table.order.domain.customer.controller.CustomerControllerTest" time="0.022"/>
+  <system-out><![CDATA[2021-06-10 01:53:30.987  INFO 51766 --- [    Test worker] .b.t.a.w.s.WebMvcTestContextBootstrapper : Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.table.order.domain.customer.controller.CustomerControllerTest], using SpringBootContextLoader
+2021-06-10 01:53:30.988  INFO 51766 --- [    Test worker] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [com.table.order.domain.customer.controller.CustomerControllerTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+2021-06-10 01:53:30.989  INFO 51766 --- [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.table.order.domain.customer.controller.CustomerControllerTest]: CustomerControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2021-06-10 01:53:31.001  INFO 51766 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.table.order.OrderApplication for test class com.table.order.domain.customer.controller.CustomerControllerTest
+2021-06-10 01:53:31.002  INFO 51766 --- [    Test worker] .b.t.a.w.s.WebMvcTestContextBootstrapper : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.security.test.context.support.WithSecurityContextTestExecutionListener, org.springframework.security.test.context.support.ReactorContextTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+2021-06-10 01:53:31.003  INFO 51766 --- [    Test worker] .b.t.a.w.s.WebMvcTestContextBootstrapper : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@212d7a83, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@47b7ad55, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@b9358e4, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@51921d16, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@1ba18cc5, org.springframework.test.context.support.DirtiesContextTestExecutionListener@618647e1, org.springframework.test.context.transaction.TransactionalTestExecutionListener@70c3674d, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@3178beee, org.springframework.security.test.context.support.WithSecurityContextTestExecutionListener@2628cba0, org.springframework.test.context.event.EventPublishingTestExecutionListener@75c239cb, org.springframework.security.test.context.support.ReactorContextTestExecutionListener@1e50c131, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@6aab83db, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@abe30e5, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@6ed65c18, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@761741ba, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@4094b1f8, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@3b568817]
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v2.4.5)
+
+2021-06-10 01:53:31.041  INFO 51766 --- [    Test worker] c.t.o.d.c.c.CustomerControllerTest       : Starting CustomerControllerTest using Java 11.0.10 on ibeomjun-ui-MacBookPro.local with PID 51766 (started by leebeomjun in /Users/leebeomjun/Desktop/git/TableOrder/backend)
+2021-06-10 01:53:31.041  INFO 51766 --- [    Test worker] c.t.o.d.c.c.CustomerControllerTest       : The following profiles are active: local
+2021-06-10 01:53:31.309  INFO 51766 --- [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@3bbadd72' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-06-10 01:53:31.316  INFO 51766 --- [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-06-10 01:53:31.454  INFO 51766 --- [    Test worker] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/**'] with []
+2021-06-10 01:53:31.454  INFO 51766 --- [    Test worker] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/docs/**'] with []
+2021-06-10 01:53:31.454  INFO 51766 --- [    Test worker] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/swagger-ui**'] with []
+2021-06-10 01:53:31.503  INFO 51766 --- [    Test worker] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@45a4fb46, org.springframework.security.web.context.SecurityContextPersistenceFilter@100021ab, org.springframework.security.web.header.HeaderWriterFilter@7ad31ebc, org.springframework.security.web.authentication.logout.LogoutFilter@522f18b9, com.table.order.global.security.filter.JwtFilter@16ce93d8, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@23768d4f, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@41b25163, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4e059e00, org.springframework.security.web.session.SessionManagementFilter@6f09e76, org.springframework.security.web.access.ExceptionTranslationFilter@5fdd930f]
+2021-06-10 01:53:31.635  INFO 51766 --- [    Test worker] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-06-10 01:53:31.862  INFO 51766 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2021-06-10 01:53:31.862  INFO 51766 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2021-06-10 01:53:31.863  INFO 51766 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2021-06-10 01:53:31.888  INFO 51766 --- [    Test worker] c.t.o.d.c.c.CustomerControllerTest       : Started CustomerControllerTest in 0.879 seconds (JVM running for 7.821)
+
+MockHttpServletRequest:
+      HTTP Method = POST
+      Request URI = /customers
+       Parameters = {}
+          Headers = [Content-Type:"application/json;charset=UTF-8", Accept:"application/json", Content-Length:"55"]
+             Body = {"username":"7c982859267771f3","storeId":2,"tableId":1}
+    Session Attrs = {}
+
+Handler:
+             Type = com.table.order.domain.customer.controller.CustomerController
+           Method = com.table.order.domain.customer.controller.CustomerController#scanQrCode(RequestLoginCustomer)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 201
+    Error message = null
+          Headers = [Content-Type:"application/json"]
+     Content type = application/json
+             Body = {"status":201,"message":"í]]>&#x9a;<![CDATA[]]>&#x8c;<![CDATA[ì]]>&#x9b;<![CDATA[]]>&#x90;<![CDATA[ê°]]>&#x80;<![CDATA[ì]]>&#x9e;<![CDATA[ ì]]>&#x84;<![CDATA[±ê³µ","accessToken":"(accessToken)","expiredAt":"2021-06-10T02:23:31.896326"}
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+
+MockHttpServletRequest:
+      HTTP Method = POST
+      Request URI = /customers
+       Parameters = {}
+          Headers = [Content-Type:"application/json;charset=UTF-8", Accept:"application/json", Content-Length:"55"]
+             Body = {"username":"7c982859267771f3","storeId":2,"tableId":1}
+    Session Attrs = {}
+
+Handler:
+             Type = com.table.order.domain.customer.controller.CustomerController
+           Method = com.table.order.domain.customer.controller.CustomerController#scanQrCode(RequestLoginCustomer)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 200
+    Error message = null
+          Headers = [Content-Type:"application/json"]
+     Content type = application/json
+             Body = {"status":200,"message":"ì]]>&#x9e;<![CDATA[¬ë¡]]>&#x9c;<![CDATA[ê·¸ì]]>&#x9d;<![CDATA[¸ ì]]>&#x84;<![CDATA[±ê³µ","accessToken":"(accessToken)","expiredAt":"2021-06-10T02:23:31.929566"}
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+
+MockHttpServletRequest:
+      HTTP Method = POST
+      Request URI = /customers
+       Parameters = {}
+          Headers = [Content-Type:"application/json;charset=UTF-8", Accept:"application/json", Content-Length:"55"]
+             Body = {"username":"7c982859267771f3","storeId":2,"tableId":1}
+    Session Attrs = {}
+
+Handler:
+             Type = com.table.order.domain.customer.controller.CustomerController
+           Method = com.table.order.domain.customer.controller.CustomerController#scanQrCode(RequestLoginCustomer)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 200
+    Error message = null
+          Headers = [Content-Type:"application/json"]
+     Content type = application/json
+             Body = {"status":200,"message":"ì]]>&#x8b;<![CDATA[]]>&#x9d;<![CDATA[ë]]>&#x8b;<![CDATA[¹ ì]]>&#x9e;<![CDATA[¬ë°©ë¬¸ ì]]>&#x84;<![CDATA[±ê³µ","accessToken":"(accessToken)","expiredAt":"2021-06-10T02:23:31.952996"}
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

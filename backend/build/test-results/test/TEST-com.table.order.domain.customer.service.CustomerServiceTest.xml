@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.table.order.domain.customer.service.CustomerServiceTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2021-06-09T16:53:31" hostname="ibeomjun-ui-MacBookPro.local" time="0.055">
+  <properties/>
+  <testcase name="QR 코드 스캔 테스트 (회원가입)" classname="com.table.order.domain.customer.service.CustomerServiceTest" time="0.046"/>
+  <testcase name="QR 코드 스캔 테스트 (재로그인)" classname="com.table.order.domain.customer.service.CustomerServiceTest" time="0.004"/>
+  <testcase name="테이블 식당 검증 실패" classname="com.table.order.domain.customer.service.CustomerServiceTest" time="0.002"/>
+  <testcase name="QR 코드 스캔 테스트 (재방문)" classname="com.table.order.domain.customer.service.CustomerServiceTest" time="0.002"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

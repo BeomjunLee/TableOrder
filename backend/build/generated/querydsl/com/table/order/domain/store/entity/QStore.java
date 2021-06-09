@@ -29,9 +29,15 @@ public class QStore extends EntityPathBase<Store> {
     //inherited
     public final DateTimePath<java.time.LocalDateTime> createdDate = _super.createdDate;
 
+    public final StringPath description = createString("description");
+
     public final NumberPath<Long> id = createNumber("id", Long.class);
 
+    public final StringPath licenseImage = createString("licenseImage");
+
     public final StringPath name = createString("name");
+
+    public final EnumPath<StoreStatus> storeStatus = createEnum("storeStatus", StoreStatus.class);
 
     //inherited
     public final DateTimePath<java.time.LocalDateTime> updatedDate = _super.updatedDate;
@@ -56,7 +62,7 @@ public class QStore extends EntityPathBase<Store> {
 
     public QStore(Class<? extends Store> type, PathMetadata metadata, PathInits inits) {
         super(type, metadata, inits);
-        this.user = inits.isInitialized("user") ? new com.table.order.domain.user.entity.QUser(forProperty("user"), inits.get("user")) : null;
+        this.user = inits.isInitialized("user") ? new com.table.order.domain.user.entity.QUser(forProperty("user")) : null;
     }
 
 }

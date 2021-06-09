@@ -87,8 +87,8 @@ public class JwtFilter extends OncePerRequestFilter {
         response.setStatus(HttpStatus.UNAUTHORIZED.value());
         response.setContentType(MediaType.APPLICATION_JSON_VALUE);
         response.getWriter().write(objectMapper.writeValueAsString(ResponseError.builder()
-                .errorCode(ERROR_LOGIN_FAIL.getErrorCode())
-                .status(ERROR_LOGIN_FAIL.getStatus())
+                .errorCode(ERROR_NOT_FOUND_TOKEN.getErrorCode())
+                .status(ERROR_NOT_FOUND_TOKEN.getStatus())
                 .message(message)
                 .build()));
     }

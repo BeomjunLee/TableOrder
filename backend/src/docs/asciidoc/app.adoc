@@ -1,0 +1,98 @@
+  = REST API Guide
+:doctype: book
+:icons: font
+:source-highlighter: highlightjs
+:toc: left
+:toclevels: 4
+:sectlinks:
+:operation-curl-request-title: Example request
+:operation-http-response-title: Example response
+
+[[overview-http-verbs]]
+== HTTP 동사
+
+본 REST API에서 사용하는 HTTP 동사(verbs)는 가능한한 표준 HTTP와 REST 규약을 따릅니다.
+
+|===
+| 동사 | 용례
+
+| `GET`
+| 리소스를 가져올 때 사용
+
+| `POST`
+| 새 리소스를 만들 때 사용
+
+| `PUT`
+| 기존 리소스를 수정할 때 사용
+
+| `PATCH`
+| 기존 리소스의 일부를 수정할 때 사용
+
+| `DELETE`
+| 기존 리소스를 삭제할 떄 사용
+|===
+
+[[overview-http-status-codes]]
+== HTTP 상태 코드
+
+본 REST API에서 사용하는 HTTP 상태 코드는 가능한한 표준 HTTP와 REST 규약을 따릅니다.
+
+|===
+| 상태 코드 | 용례
+
+| `200 OK`
+| 요청을 성공적으로 처리함
+
+| `201 Created`
+| 새 리소스를 성공적으로 생성함. 응답의 `Location` 헤더에 해당 리소스의 URI가 담겨있다.
+
+| `204 No Content`
+| 기존 리소스를 성공적으로 수정함.
+
+| `400 Bad Request`
+| 잘못된 요청을 보낸 경우. 응답 본문에 더 오류에 대한 정보가 담겨있다.
+
+| `404 Not Found`
+| 요청한 리소스가 없음.
+|===
+
+[[overview-hypermedia]]
+== 하이퍼미디어
+
+본 REST API는 하이퍼미디어와 사용하며 응답에 담겨있는 리소스는 다른 리소스에 대한 링크를 가지고 있다.
+응답은 http://stateless.co/hal_specification.html[Hypertext Application from resource to resource. Language (HAL)] 형식을 따른다.
+링크는 `_links`라는 키로 제공한다. 본 API의 사용자(클라이언트)는 URI를 직접 생성하지 않아야 하며, 리소스에서 제공하는 링크를 사용해야 한다.
+
+
+
+
+== App api 문서
+
+어플 서비스 api 문서
+
+=== QR 코드 (회원가입 + 로그인)
+
+`POST` QR 코드를 찍고 회원가입 후 accessToken 발급.
+
+include::{snippets}/scanQrCode/http-request.adoc[]
+include::{snippets}/scanQrCode/request-fields.adoc[]
+include::{snippets}/scanQrCode/http-response.adoc[]
+include::{snippets}/scanQrCode/response-fields.adoc[]
+
+=== QR 코드 (재로그인)
+
+`POST` QR 코드를 찍고 accessToken 발급.
+
+include::{snippets}/scanQrCodeReLogin/http-request.adoc[]
+include::{snippets}/scanQrCodeReLogin/request-fields.adoc[]
+include::{snippets}/scanQrCodeReLogin/http-response.adoc[]
+include::{snippets}/scanQrCodeReLogin/response-fields.adoc[]
+
+=== QR 코드 (재방문)
+
+`POST` QR 코드를 찍고 accessToken 발급.
+
+include::{snippets}/scanQrCodeReVisit/http-request.adoc[]
+include::{snippets}/scanQrCodeReVisit/request-fields.adoc[]
+include::{snippets}/scanQrCodeReVisit/http-response.adoc[]
+include::{snippets}/scanQrCodeReVisit/response-fields.adoc[]

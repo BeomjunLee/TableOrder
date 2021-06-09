@@ -1,0 +1,8 @@
+[source,http,options="nowrap"]
+----
+HTTP/1.1 201 Created
+Content-Type: application/json
+Content-Length: 165
+
+{"status":201,"message":"회원 가입 성공","data":{"id":1,"username":"beomjun","name":"이범준","phoneNum":"01012345678","address":"서울시 강남구 0000"}}
+----

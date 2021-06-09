@@ -1,0 +1,7 @@
+[source,bash]
+----
+$ curl 'http://localhost:8080/users' -i -X POST \
+    -H 'Content-Type: application/json;charset=UTF-8' \
+    -H 'Accept: application/json' \
+    -d '{"username":"beomjun","password":"1234","name":"이범준","phoneNum":"01012345678","address":"서울시 강남구 0000"}'
+----
