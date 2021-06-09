@@ -1,4 +1,4 @@
-## TableOrder
+# TableOrder
 테이블의 QR 코드를 이용해 자리에서 핸드폰으로 주문을 할 수 있는 시비스입니다.(진행중)
 
 - JAVA 11
@@ -69,5 +69,5 @@
        - 시간표시: 우측 상단에 해당 접수가 얼마나 경과되었는지 확인 할 수 있다.
 
 ### Entity 매핑
-<img src="https://user-images.githubusercontent.com/69130921/121398601-7deba180-c990-11eb-91d1-c0f20b17bbe5.png"><br>
+<img src="https://user-images.githubusercontent.com/69130921/121398708-9a87d980-c990-11eb-8b99-178cc1e8264d.png"><br>
 
