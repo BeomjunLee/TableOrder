@@ -59,6 +59,7 @@ public class Store extends BaseEntity {
         Store store = Store.builder()
                 .name(requestEnrollStore.getName())
                 .description(requestEnrollStore.getDescription())
+                .licenseImage(requestEnrollStore.getLicenseImage())
                 .storeStatus(StoreStatus.INVALID)
                 .user(user)
                 .build();

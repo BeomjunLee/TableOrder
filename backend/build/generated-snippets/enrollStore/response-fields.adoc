@@ -1,0 +1,28 @@
+|===
+|Path|Type|Description
+
+|`+status+`
+|`+Number+`
+|상태 코드
+
+|`+message+`
+|`+String+`
+|결과 메세지
+
+|`+data.id+`
+|`+Number+`
+|식당 고유 id
+
+|`+data.name+`
+|`+String+`
+|식당명
+
+|`+data.description+`
+|`+String+`
+|설명
+
+|`+data.licenseImage+`
+|`+String+`
+|사업자등록증
+
+|===

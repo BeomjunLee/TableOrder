@@ -16,6 +16,7 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.table.order.global.common.code.CustomErrorCode.ERROR_INVALID_STORE;
 import static com.table.order.global.common.code.CustomErrorCode.ERROR_IN_USE_TABLE;
 
 
@@ -74,15 +75,21 @@ public class Customer extends BaseEntity {
     private void validate() {
         if(!table.isOpen())
             throw new CustomAccessDeniedException(ERROR_IN_USE_TABLE.getErrorCode(), ERROR_IN_USE_TABLE.getMessage());
+        if(!store.isValid())
+            throw new CustomAccessDeniedException(ERROR_INVALID_STORE.getErrorCode(), ERROR_INVALID_STORE.getMessage());
     }
 
     public boolean isInUse() {
+        validate();
+
         if(customerStatus == CustomerStatus.IN)
             return true;
         return false;
     }
 
-    public boolean isVisited(RequestLoginCustomer requestLoginCustomer) {
+    public boolean isVisited() {
+        validate();
+
         if(!isInUse())
             return true;
         return false;

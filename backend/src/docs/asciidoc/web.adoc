@@ -88,3 +88,12 @@ include::{snippets}/loginUser/request-fields.adoc[]
 include::{snippets}/loginUser/http-response.adoc[]
 include::{snippets}/loginUser/response-fields.adoc[]
 
+=== 식당 생성
+
+`POST` 회원은 식당을 하나만 생성할 수 있다. (유효한 accessToken 을 보내야한다)
+
+include::{snippets}/enrollStore/request-headers.adoc[]
+include::{snippets}/enrollStore/http-request.adoc[]
+include::{snippets}/enrollStore/request-fields.adoc[]
+include::{snippets}/enrollStore/http-response.adoc[]
+include::{snippets}/enrollStore/response-fields.adoc[]

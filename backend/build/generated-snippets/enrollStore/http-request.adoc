@@ -1,0 +1,11 @@
+[source,http,options="nowrap"]
+----
+POST /stores HTTP/1.1
+Content-Type: application/json;charset=UTF-8
+Authorization: Bearer (accessToken)
+Accept: application/json
+Content-Length: 81
+Host: localhost:8080
+
+{"name":"식당","description":"식당 설명","licenseImage":"이미지 주소"}
+----

@@ -1,0 +1,16 @@
+|===
+|Path|Type|Description
+
+|`+name+`
+|`+String+`
+|식당명
+
+|`+description+`
+|`+String+`
+|설명
+
+|`+licenseImage+`
+|`+String+`
+|사업자등록증
+
+|===

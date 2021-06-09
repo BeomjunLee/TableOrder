@@ -2,6 +2,8 @@ package com.table.order.domain.table.entity;
 
 import com.table.order.domain.order.entity.Order;
 import com.table.order.domain.store.entity.Store;
+import com.table.order.domain.store.exception.CustomAccessDeniedException;
+import com.table.order.domain.table.dto.request.RequestAddTable;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
@@ -10,6 +12,8 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+
+import static com.table.order.global.common.code.CustomErrorCode.ERROR_INVALID_STORE;
 
 @Entity
 @Getter
@@ -45,6 +49,24 @@ public class Table {
         this.numberOfPeople = numberOfPeople;
         this.tableStatus = tableStatus;
         this.store = store;
+    }
+
+    public static Table createTable(RequestAddTable requestAddTable, Store store) {
+        Table table = Table.builder()
+                .name(requestAddTable.getName())
+                .numberOfPeople(requestAddTable.getNumberOfPeople())
+                .tableStatus(TableStatus.OPEN)
+                .store(store)
+                .build();
+
+        table.validate();
+
+        return table;
+    }
+
+    private void validate() {
+        if(!store.isValid())
+            throw new CustomAccessDeniedException(ERROR_INVALID_STORE.getErrorCode(), ERROR_INVALID_STORE.getMessage());
     }
 
     public boolean isOpen() {

@@ -8,6 +8,7 @@ import com.table.order.domain.customer.repository.CustomerQueryRepository;
 import com.table.order.domain.customer.repository.CustomerRepository;
 import com.table.order.domain.store.entity.Store;
 import com.table.order.domain.store.entity.StoreStatus;
+import com.table.order.domain.store.exception.CustomAccessDeniedException;
 import com.table.order.domain.table.entity.Table;
 import com.table.order.domain.table.entity.TableStatus;
 import com.table.order.domain.table.repository.TableQueryRepository;
@@ -25,7 +26,7 @@ import org.springframework.http.HttpStatus;
 import java.time.LocalDateTime;
 import java.util.Optional;
 
-import static com.table.order.global.common.code.CustomErrorCode.ERROR_NOT_FOUND_TABLE_STORE;
+import static com.table.order.global.common.code.CustomErrorCode.*;
 import static com.table.order.global.common.code.ResultCode.*;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
@@ -165,5 +166,61 @@ class CustomerServiceTest {
         assertThatThrownBy(() -> {
             customerService.scanQrCode(requestLoginCustomer);
         }).isInstanceOf(CustomIllegalArgumentException.class).hasMessageContaining(ERROR_NOT_FOUND_TABLE_STORE.getMessage());
+    }
+
+    @Test
+    @DisplayName("QR 코드 스캔 실패 테스트 (테이블 상태가 OPEN 이 아닐 때)")
+    public void scanQrCodeTableStatusIsNotOpen() throws Exception{
+        //given
+        table = Table.builder()
+                .name("테이블")
+                .numberOfPeople(5)
+                .tableStatus(TableStatus.ORDER)
+                .store(store)
+                .build();
+
+        customer = Customer.builder()
+                .username(requestLoginCustomer.getUsername())
+                .visitCount(1)
+                .customerStatus(CustomerStatus.IN)
+                .table(table)
+                .store(store)
+                .build();
+
+        given(customerQueryRepository.findByUsernameJoinStore(any(RequestLoginCustomer.class))).willReturn(Optional.ofNullable(customer));
+        given(tableQueryRepository.findTableJoinStore(anyLong(), anyLong())).willReturn(Optional.of(table));
+
+        //when then
+        assertThatThrownBy(() -> {
+            customerService.scanQrCode(requestLoginCustomer);
+        }).isInstanceOf(CustomAccessDeniedException.class).hasMessageContaining(ERROR_IN_USE_TABLE.getMessage());
+    }
+
+    @Test
+    @DisplayName("QR 코드 스캔 실패 테스트 (식당이 미승인 상태일 때)")
+    public void scanQrCodeStoreStatusIsInvalid() throws Exception{
+        //given
+        store = Store.builder()
+                .name("식당")
+                .description("식당 설명")
+                .licenseImage("이미지 주소")
+                .storeStatus(StoreStatus.INVALID)
+                .build();
+
+        customer = Customer.builder()
+                .username(requestLoginCustomer.getUsername())
+                .visitCount(1)
+                .customerStatus(CustomerStatus.IN)
+                .table(table)
+                .store(store)
+                .build();
+
+        given(customerQueryRepository.findByUsernameJoinStore(any(RequestLoginCustomer.class))).willReturn(Optional.ofNullable(customer));
+        given(tableQueryRepository.findTableJoinStore(anyLong(), anyLong())).willReturn(Optional.of(table));
+
+        //when then
+        assertThatThrownBy(() -> {
+            customerService.scanQrCode(requestLoginCustomer);
+        }).isInstanceOf(CustomAccessDeniedException.class).hasMessageContaining(ERROR_INVALID_STORE.getMessage());
     }
 }

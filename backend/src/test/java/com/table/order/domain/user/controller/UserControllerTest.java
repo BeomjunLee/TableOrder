@@ -1,16 +1,12 @@
 package com.table.order.domain.user.controller;
-
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.table.order.domain.user.dto.UserDto;
 import com.table.order.domain.user.dto.request.RequestLoginUser;
 import com.table.order.domain.user.dto.request.RequestSignUpUser;
 import com.table.order.domain.user.dto.response.ResponseLoginUser;
 import com.table.order.domain.user.dto.response.ResponseSignUpUser;
-import com.table.order.domain.user.entity.User;
-import com.table.order.domain.user.repository.UserRepository;
 import com.table.order.domain.user.service.SecurityService;
 import com.table.order.domain.user.service.UserService;
-import com.table.order.global.common.code.ResultCode;
 import com.table.order.global.security.exception.JwtAccessDeniedHandler;
 import com.table.order.global.security.exception.JwtAuthenticationEntryPoint;
 import com.table.order.global.security.provider.JwtProvider;
@@ -31,13 +27,10 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.given;
 import static org.springframework.http.MediaType.APPLICATION_JSON;
-import static org.springframework.restdocs.headers.HeaderDocumentation.headerWithName;
-import static org.springframework.restdocs.headers.HeaderDocumentation.requestHeaders;
 import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.document;
 import static org.springframework.restdocs.mockmvc.RestDocumentationRequestBuilders.post;
 import static org.springframework.restdocs.payload.PayloadDocumentation.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.header;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @WebMvcTest(UserController.class)

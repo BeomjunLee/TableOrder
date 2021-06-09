@@ -50,7 +50,7 @@ public class CustomerService {
                         .expiredAt(LocalDateTime.now().plusSeconds(jwtProvider.getAccessTokenValidMilliSeconds()/1000))
                         .build();
             }
-            if (findCustomer.isVisited(requestLoginCustomer)) {
+            if (findCustomer.isVisited()) {
                 findCustomer.updateTable(findTable);
                 return ResponseLoginCustomer.builder()
                         .status(RESULT_RE_VISIT.getStatus())

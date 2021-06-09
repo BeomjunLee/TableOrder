@@ -5,10 +5,8 @@ import com.table.order.domain.store.dto.response.ResponseEnrollStore;
 import com.table.order.domain.store.service.StoreService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
-
-import java.security.Principal;
-
 import static org.springframework.http.HttpStatus.CREATED;
 
 @RestController
@@ -20,9 +18,9 @@ public class StoreController {
 
     @PostMapping("")
     @ResponseStatus(CREATED)
-//    @PreAuthorize("hasRole('ROLE_USER')")
+    @PreAuthorize("hasRole('ROLE_USER')")
     public ResponseEnrollStore createStore(@RequestBody RequestEnrollStore requestEnrollStore,
-                                           Principal principal) {
-        return storeService.createStore(requestEnrollStore, principal.getName());
+                                           Authentication authentication) {
+        return storeService.createStore(requestEnrollStore, authentication.getName());
     }
 }
