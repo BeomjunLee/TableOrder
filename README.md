@@ -69,5 +69,5 @@
        - 시간표시: 우측 상단에 해당 접수가 얼마나 경과되었는지 확인 할 수 있다.
 
 ### Entity 매핑
-<img src="https://user-images.githubusercontent.com/69130921/121074213-86b46a00-c80e-11eb-89c8-063023fa8231.png"><br>
+<img src="https://user-images.githubusercontent.com/69130921/121398601-7deba180-c990-11eb-91d1-c0f20b17bbe5.png"><br>
 
