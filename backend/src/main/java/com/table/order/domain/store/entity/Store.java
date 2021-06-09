@@ -3,6 +3,7 @@ package com.table.order.domain.store.entity;
 import com.table.order.domain.BaseEntity;
 import com.table.order.domain.category.entity.Category;
 import com.table.order.domain.store.dto.request.RequestEnrollStore;
+import com.table.order.domain.store.exception.CustomAccessDeniedException;
 import com.table.order.domain.user.entity.User;
 import com.table.order.global.common.code.CustomErrorCode;
 import com.table.order.global.common.exception.CustomIllegalArgumentException;
@@ -31,17 +32,26 @@ public class Store extends BaseEntity {
 
     private String description;
 
+    @Column(nullable = false)
+    private String licenseImage;
+
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private StoreStatus storeStatus;
+
     @OneToMany(mappedBy = "store", cascade = CascadeType.ALL, orphanRemoval = true)
     List<Category> categories = new ArrayList<>();
 
     @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "user_id", unique = true)
     private User user;
 
     @Builder
-    public Store(String name, String description, User user) {
+    public Store(String name, String description, String licenseImage, StoreStatus storeStatus, User user) {
         this.name = name;
         this.description = description;
+        this.licenseImage = licenseImage;
+        this.storeStatus = storeStatus;
         this.user = user;
     }
 
@@ -49,16 +59,17 @@ public class Store extends BaseEntity {
         Store store = Store.builder()
                 .name(requestEnrollStore.getName())
                 .description(requestEnrollStore.getDescription())
+                .storeStatus(StoreStatus.INVALID)
                 .user(user)
                 .build();
-        store.validate();
 
         return store;
     }
 
-    private void validate() {
-        if(!user.isUser())
-            throw new CustomIllegalArgumentException(ERROR_ACCESS_DENIED.getErrorCode(), ERROR_ACCESS_DENIED.getMessage());
+    public boolean isValid() {
+        if(storeStatus == StoreStatus.VALID)
+            return true;
+        return false;
     }
 
 }

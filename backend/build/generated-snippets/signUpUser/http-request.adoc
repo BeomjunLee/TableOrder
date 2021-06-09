@@ -1,0 +1,10 @@
+[source,http,options="nowrap"]
+----
+POST /users HTTP/1.1
+Content-Type: application/json;charset=UTF-8
+Accept: application/json
+Content-Length: 121
+Host: localhost:8080
+
+{"username":"beomjun","password":"1234","name":"이범준","phoneNum":"01012345678","address":"서울시 강남구 0000"}
+----

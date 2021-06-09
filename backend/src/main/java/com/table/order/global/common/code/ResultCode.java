@@ -9,8 +9,11 @@ import static org.springframework.http.HttpStatus.OK;
 @Getter
 public enum ResultCode {
 
-    RESULT_SIGN_UP(OK.value(), "회원가입 성공"),  //가입 후 바로 accessToken 발급해야해서 (201 대신 200 적용)
+    RESULT_CUSTOMER_SIGN_UP(CREATED.value(), "회원가입 성공"),  //가입 후 바로 accessToken 발급해야해서 (201 대신 200 적용)
     RESULT_RE_LOGIN(OK.value(), "재로그인 성공"),
+    RESULT_LOGIN(OK.value(), "로그인 성공"),
+    RESULT_RE_VISIT(OK.value(), "식당 재방문 성공"),
+    RESULT_SIGNUP_USER(CREATED.value(), "회원 가입 성공"),
     RESULT_ENROLL_STORE(CREATED.value(), "식당 생성 성공")
     ;
 

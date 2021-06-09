@@ -1,0 +1,32 @@
+|===
+|Path|Type|Description
+
+|`+status+`
+|`+Number+`
+|상태 코드
+
+|`+message+`
+|`+String+`
+|결과 메세지
+
+|`+data.id+`
+|`+Number+`
+|회원 고유 id
+
+|`+data.username+`
+|`+String+`
+|아이디
+
+|`+data.name+`
+|`+String+`
+|이름
+
+|`+data.phoneNum+`
+|`+String+`
+|전화번호
+
+|`+data.address+`
+|`+String+`
+|주소
+
+|===

@@ -25,7 +25,7 @@ jwt:
   header: Authorization
   secretKey : leebeomjunleebeomjunleebeomjunleebeomjunleebeomjunleebeomjun
   #3h
-  accessToken-valid-seconds : 1800
+  accessToken-valid-seconds : 10800
   #24h
   refreshToken-valid-seconds : 86400
 

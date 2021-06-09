@@ -68,14 +68,31 @@
 
 == App api 문서
 
-어플 api 문서
+어플 서비스 api 문서
 
-=== QR 코드로 accessToken 발
+=== QR 코드 (회원가입 + 로그인)
 
-`POST` QR 코드를 찍고 회원가입 후 accessToken 발급 (이미 테이블을 사용중이라면 accessToken 재발급).
+`POST` QR 코드를 찍고 회원가입 후 accessToken 발급.
 
-include::{snippets}/scanQrCode/curl-request.adoc[]
 include::{snippets}/scanQrCode/http-request.adoc[]
 include::{snippets}/scanQrCode/request-fields.adoc[]
 include::{snippets}/scanQrCode/http-response.adoc[]
 include::{snippets}/scanQrCode/response-fields.adoc[]
+
+=== QR 코드 (재로그인)
+
+`POST` QR 코드를 찍고 accessToken 발급.
+
+include::{snippets}/scanQrCodeReLogin/http-request.adoc[]
+include::{snippets}/scanQrCodeReLogin/request-fields.adoc[]
+include::{snippets}/scanQrCodeReLogin/http-response.adoc[]
+include::{snippets}/scanQrCodeReLogin/response-fields.adoc[]
+
+=== QR 코드 (재방문)
+
+`POST` QR 코드를 찍고 accessToken 발급.
+
+include::{snippets}/scanQrCodeReVisit/http-request.adoc[]
+include::{snippets}/scanQrCodeReVisit/request-fields.adoc[]
+include::{snippets}/scanQrCodeReVisit/http-response.adoc[]
+include::{snippets}/scanQrCodeReVisit/response-fields.adoc[]

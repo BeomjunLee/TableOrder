@@ -1,6 +1,12 @@
+com/table/order/domain/store/controller/StoreControllerTest.java
+ com.table.order.domain.store.controller.StoreControllerTest
 com/table/order/OrderApplicationTests.java
  com.table.order.OrderApplicationTests
-com/table/order/domain/customer/controller/CustomerControllerTest.java
- com.table.order.domain.customer.controller.CustomerControllerTest
+com/table/order/domain/user/service/UserServiceTest.java
+ com.table.order.domain.user.service.UserServiceTest
 com/table/order/domain/customer/service/CustomerServiceTest.java
  com.table.order.domain.customer.service.CustomerServiceTest
+com/table/order/domain/user/controller/UserControllerTest.java
+ com.table.order.domain.user.controller.UserControllerTest
+com/table/order/domain/customer/controller/CustomerControllerTest.java
+ com.table.order.domain.customer.controller.CustomerControllerTest

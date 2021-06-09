@@ -4,12 +4,12 @@ import lombok.Getter;
 
 @Getter
 public enum UserRole {
-    BEFORE("ROLE_BEFORE"), USER("ROLE_USER"), ADMIN("ROLE_ADMIN");
+    USER("ROLE_USER"), ADMIN("ROLE_ADMIN");
 
-    private String role;
+    private String roleName;
 
-    UserRole(String role) {
-        this.role = role;
+    UserRole(String roleName) {
+        this.roleName = roleName;
     }
 }
 
