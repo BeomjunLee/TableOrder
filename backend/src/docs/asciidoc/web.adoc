@@ -88,3 +88,22 @@ include::{snippets}/loginUser/request-fields.adoc[]
 include::{snippets}/loginUser/http-response.adoc[]
 include::{snippets}/loginUser/response-fields.adoc[]
 
+=== 식당 등록
+
+`POST` 회원은 식당을 하나만 등록할 수 있다.
+
+include::{snippets}/enrollStore/request-headers.adoc[]
+include::{snippets}/enrollStore/http-request.adoc[]
+include::{snippets}/enrollStore/request-fields.adoc[]
+include::{snippets}/enrollStore/http-response.adoc[]
+include::{snippets}/enrollStore/response-fields.adoc[]
+
+=== 테이블 추가
+
+`POST` 회원은 테이블을 추가할 수 있다. (식당을 등록한 상태여야 한다)
+
+include::{snippets}/addTable/request-headers.adoc[]
+include::{snippets}/addTable/http-request.adoc[]
+include::{snippets}/addTable/request-fields.adoc[]
+include::{snippets}/addTable/http-response.adoc[]
+include::{snippets}/addTable/response-fields.adoc[]

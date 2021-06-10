@@ -1,6 +1,6 @@
 package com.table.order.global.security.filter;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.table.order.global.common.ResponseError;
+import com.table.order.global.common.response.ResponseError;
 import com.table.order.global.security.exception.TokenNotFoundException;
 import com.table.order.global.security.provider.JwtProvider;
 import io.jsonwebtoken.ExpiredJwtException;

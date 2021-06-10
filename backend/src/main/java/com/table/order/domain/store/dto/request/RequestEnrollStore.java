@@ -10,10 +10,12 @@ import lombok.NoArgsConstructor;
 public class RequestEnrollStore {
     private String name;
     private String description;
+    private String licenseImage;
 
     @Builder
-    public RequestEnrollStore(String name, String description) {
+    public RequestEnrollStore(String name, String description, String licenseImage) {
         this.name = name;
         this.description = description;
+        this.licenseImage = licenseImage;
     }
 }

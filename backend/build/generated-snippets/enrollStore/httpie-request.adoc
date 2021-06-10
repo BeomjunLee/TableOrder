@@ -1,0 +1,7 @@
+[source,bash]
+----
+$ echo '{"name":"식당","description":"식당 설명","licenseImage":"이미지 주소"}' | http POST 'http://localhost:8080/stores' \
+    'Content-Type:application/json;charset=UTF-8' \
+    'Authorization:Bearer (accessToken)' \
+    'Accept:application/json'
+----

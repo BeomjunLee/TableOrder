@@ -1,0 +1,7 @@
+[source,bash]
+----
+$ echo '{"name":"테이블 1","numberOfPeople":5}' | http POST 'http://localhost:8080/tables' \
+    'Content-Type:application/json;charset=UTF-8' \
+    'Authorization:Bearer (accessToken)' \
+    'Accept:application/json'
+----

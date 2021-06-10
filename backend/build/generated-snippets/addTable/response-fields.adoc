@@ -1,0 +1,28 @@
+|===
+|Path|Type|Description
+
+|`+status+`
+|`+Number+`
+|상태 코드
+
+|`+message+`
+|`+String+`
+|결과 메세지
+
+|`+data.id+`
+|`+Number+`
+|테이블 고유 id
+
+|`+data.name+`
+|`+String+`
+|테이블명
+
+|`+data.numberOfPeople+`
+|`+Number+`
+|테이블 좌석 수
+
+|`+data.tableStatus+`
+|`+String+`
+|테이블 상태
+
+|===

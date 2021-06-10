@@ -37,6 +37,7 @@ public class StoreService {
                 .id(savedStore.getId())
                 .name(savedStore.getName())
                 .description(savedStore.getDescription())
+                .licenseImage(savedStore.getLicenseImage())
                 .build();
 
         return ResponseEnrollStore.builder()
