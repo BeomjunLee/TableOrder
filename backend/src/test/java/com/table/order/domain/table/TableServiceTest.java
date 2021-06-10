@@ -66,6 +66,7 @@ class TableServiceTest {
         responseAddTable = ResponseAddTable.builder()
                 .status(RESULT_ADD_TABLE.getStatus())
                 .message(RESULT_ADD_TABLE.getMessage())
+                .data(tableDto)
                 .build();
 
         store = Store.builder()
@@ -92,12 +93,12 @@ class TableServiceTest {
         //then
         assertThat(response).extracting("status", "message", "data.id", "data.name", "data.numberOfPeople", "data.tableStatus")
                 .containsExactly(
-                        response.getStatus(),
-                        response.getMessage(),
-                        response.getData().getId(),
-                        response.getData().getName(),
-                        response.getData().getNumberOfPeople(),
-                        response.getData().getTableStatus());
+                        responseAddTable.getStatus(),
+                        responseAddTable.getMessage(),
+                        responseAddTable.getData().getId(),
+                        responseAddTable.getData().getName(),
+                        responseAddTable.getData().getNumberOfPeople(),
+                        responseAddTable.getData().getTableStatus());
     }
 
     @Test
