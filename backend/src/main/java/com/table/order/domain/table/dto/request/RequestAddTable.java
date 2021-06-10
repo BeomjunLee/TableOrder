@@ -1,6 +1,4 @@
 package com.table.order.domain.table.dto.request;
-
-import com.table.order.domain.table.entity.TableStatus;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;

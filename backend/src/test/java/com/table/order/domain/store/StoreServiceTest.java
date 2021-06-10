@@ -70,7 +70,7 @@ class StoreServiceTest {
                 .build();
 
         storeDto = StoreDto.builder()
-                .id(1L)
+                .id(null)
                 .name("식당")
                 .description("식당 설명")
                 .licenseImage("이미지 주소")
@@ -94,10 +94,11 @@ class StoreServiceTest {
         ResponseEnrollStore response = storeService.createStore(requestEnrollStore, anyString());
 
         //then
-        assertThat(response).extracting("status", "message", "data.name", "data.description", "data.licenseImage")
+        assertThat(response).extracting("status", "message", "data.id", "data.name", "data.description", "data.licenseImage")
                 .containsExactly(
                         responseEnrollStore.getStatus(),
                         responseEnrollStore.getMessage(),
+                        responseEnrollStore.getData().getId(),
                         responseEnrollStore.getData().getName(),
                         responseEnrollStore.getData().getDescription(),
                         responseEnrollStore.getData().getLicenseImage()
