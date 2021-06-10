@@ -1,0 +1,8 @@
+[source,bash]
+----
+$ curl 'http://localhost:8080/tables' -i -X POST \
+    -H 'Content-Type: application/json;charset=UTF-8' \
+    -H 'Authorization: Bearer (accessToken)' \
+    -H 'Accept: application/json' \
+    -d '{"name":"테이블 1","numberOfPeople":5}'
+----

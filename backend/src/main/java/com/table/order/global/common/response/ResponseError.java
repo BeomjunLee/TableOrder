@@ -1,4 +1,4 @@
-package com.table.order.global.common;
+package com.table.order.global.common.response;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;

@@ -1,7 +1,7 @@
 package com.table.order.global.security.exception;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.table.order.global.common.ResponseError;
+import com.table.order.global.common.response.ResponseError;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;

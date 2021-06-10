@@ -1,6 +1,7 @@
-package com.table.order.global.common;
+package com.table.order.global.common.controller;
 
 import com.table.order.domain.store.exception.CustomAccessDeniedException;
+import com.table.order.global.common.response.ResponseError;
 import com.table.order.global.common.exception.CustomIllegalArgumentException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

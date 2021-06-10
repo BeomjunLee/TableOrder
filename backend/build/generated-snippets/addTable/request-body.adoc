@@ -1,0 +1,4 @@
+[source,options="nowrap"]
+----
+{"name":"테이블 1","numberOfPeople":5}
+----

@@ -1,0 +1,4 @@
+[source,options="nowrap"]
+----
+{"status":201,"message":"테이블 추가 성공","data":{"id":1,"name":"테이블 1","numberOfPeople":5,"tableStatus":"OPEN"}}
+----
