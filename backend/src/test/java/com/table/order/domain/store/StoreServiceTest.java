@@ -1,4 +1,4 @@
-package com.table.order.domain.store.service;
+package com.table.order.domain.store;
 
 import com.table.order.domain.store.dto.StoreDto;
 import com.table.order.domain.store.dto.request.RequestEnrollStore;
@@ -6,6 +6,7 @@ import com.table.order.domain.store.dto.response.ResponseEnrollStore;
 import com.table.order.domain.store.entity.Store;
 import com.table.order.domain.store.entity.StoreStatus;
 import com.table.order.domain.store.repository.StoreRepository;
+import com.table.order.domain.store.service.StoreService;
 import com.table.order.domain.user.entity.User;
 import com.table.order.domain.user.entity.UserRole;
 import com.table.order.domain.user.repository.UserRepository;

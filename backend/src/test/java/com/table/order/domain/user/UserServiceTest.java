@@ -1,4 +1,4 @@
-package com.table.order.domain.user.service;
+package com.table.order.domain.user;
 
 import com.table.order.domain.user.dto.UserDto;
 import com.table.order.domain.user.dto.request.RequestLoginUser;
@@ -7,6 +7,7 @@ import com.table.order.domain.user.dto.response.ResponseLoginUser;
 import com.table.order.domain.user.dto.response.ResponseSignUpUser;
 import com.table.order.domain.user.entity.User;
 import com.table.order.domain.user.repository.UserRepository;
+import com.table.order.domain.user.service.UserService;
 import com.table.order.global.common.code.CustomErrorCode;
 import com.table.order.global.common.exception.CustomIllegalArgumentException;
 import com.table.order.global.security.provider.JwtProvider;

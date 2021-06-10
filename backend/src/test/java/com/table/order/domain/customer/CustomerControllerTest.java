@@ -1,6 +1,7 @@
-package com.table.order.domain.customer.controller;
+package com.table.order.domain.customer;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.table.order.domain.customer.controller.CustomerController;
 import com.table.order.domain.customer.dto.request.RequestLoginCustomer;
 import com.table.order.domain.customer.dto.response.ResponseLoginCustomer;
 import com.table.order.domain.customer.service.CustomerService;

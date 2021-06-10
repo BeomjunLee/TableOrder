@@ -1,4 +1,4 @@
-package com.table.order.domain.customer.service;
+package com.table.order.domain.customer;
 
 import com.table.order.domain.customer.dto.request.RequestLoginCustomer;
 import com.table.order.domain.customer.dto.response.ResponseLoginCustomer;
@@ -6,6 +6,7 @@ import com.table.order.domain.customer.entity.Customer;
 import com.table.order.domain.customer.entity.CustomerStatus;
 import com.table.order.domain.customer.repository.CustomerQueryRepository;
 import com.table.order.domain.customer.repository.CustomerRepository;
+import com.table.order.domain.customer.service.CustomerService;
 import com.table.order.domain.store.entity.Store;
 import com.table.order.domain.store.entity.StoreStatus;
 import com.table.order.domain.store.exception.CustomAccessDeniedException;

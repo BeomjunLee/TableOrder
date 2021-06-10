@@ -1,6 +1,7 @@
-package com.table.order.domain.store.controller;
+package com.table.order.domain.store;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.table.order.domain.store.controller.StoreController;
 import com.table.order.domain.store.dto.StoreDto;
 import com.table.order.domain.store.dto.request.RequestEnrollStore;
 import com.table.order.domain.store.dto.response.ResponseEnrollStore;

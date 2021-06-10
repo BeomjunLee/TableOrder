@@ -1,5 +1,6 @@
-package com.table.order.domain.user.controller;
+package com.table.order.domain.user;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.table.order.domain.user.controller.UserController;
 import com.table.order.domain.user.dto.UserDto;
 import com.table.order.domain.user.dto.request.RequestLoginUser;
 import com.table.order.domain.user.dto.request.RequestSignUpUser;
