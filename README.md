@@ -8,6 +8,9 @@
 - React
 - Android 
 
+## WBS
+[wbs 링크](https://docs.google.com/spreadsheets/d/10HF0dJNTQ_49pUTCzdZiGQYHhlVW0PRulTBQQK-qIwQ/edit?usp=sharing)
+
 ## APP 이용 방법
 1. 사용자가 매장 QR코드를 인식하면 해당 매장의 메뉴 페이지로 이동한다.
    - 메뉴 페이지에는 매장에 대한 설명 및 대표 메뉴, 사이드 메뉴, 모든 메뉴가 표시된다.
