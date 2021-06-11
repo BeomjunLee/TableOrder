@@ -107,3 +107,13 @@ include::{snippets}/addTable/http-request.adoc[]
 include::{snippets}/addTable/request-fields.adoc[]
 include::{snippets}/addTable/http-response.adoc[]
 include::{snippets}/addTable/response-fields.adoc[]
+
+=== 테이블 전체 조회
+
+`GET` 회원은 테이블을 전체 조회할 수 있으며 각각의 테이블에 주문이 있을 경우 주문도 포함된다. (페이징 처리)
+
+include::{snippets}/findTables/request-headers.adoc[]
+include::{snippets}/findTables/http-request.adoc[]
+include::{snippets}/findTables/request-parameters.adoc[]
+include::{snippets}/findTables/http-response.adoc[]
+include::{snippets}/findTables/response-fields.adoc[]

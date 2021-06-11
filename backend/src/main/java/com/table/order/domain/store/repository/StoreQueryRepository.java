@@ -23,4 +23,5 @@ public class StoreQueryRepository {
                 .fetchOne();
         return Optional.ofNullable(findStore);
     }
+
 }

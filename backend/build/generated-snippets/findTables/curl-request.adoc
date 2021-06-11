@@ -1,0 +1,7 @@
+[source,bash]
+----
+$ curl 'http://localhost:8080/tables?page=0&size=10' -i -X GET \
+    -H 'Content-Type: application/json;charset=UTF-8' \
+    -H 'Authorization: Bearer (accessToken)' \
+    -H 'Accept: application/json'
+----

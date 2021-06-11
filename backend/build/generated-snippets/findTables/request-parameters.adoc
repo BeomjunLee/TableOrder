@@ -1,0 +1,10 @@
+|===
+|Parameter|Description
+
+|`+page+`
+|현재 페이지
+
+|`+size+`
+|한 페이지당 조회할 데이터 개수(생략하면 default 값)
+
+|===

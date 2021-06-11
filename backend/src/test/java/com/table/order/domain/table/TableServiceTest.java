@@ -1,5 +1,9 @@
 package com.table.order.domain.table;
 
+import com.table.order.domain.item.entity.Item;
+import com.table.order.domain.order.dto.OrderDto;
+import com.table.order.domain.order.entity.Order;
+import com.table.order.domain.order.entity.OrderStatus;
 import com.table.order.domain.store.entity.Store;
 import com.table.order.domain.store.entity.StoreStatus;
 import com.table.order.domain.store.exception.CustomAccessDeniedException;
@@ -7,8 +11,10 @@ import com.table.order.domain.store.repository.StoreQueryRepository;
 import com.table.order.domain.table.dto.TableDto;
 import com.table.order.domain.table.dto.request.RequestAddTable;
 import com.table.order.domain.table.dto.response.ResponseAddTable;
+import com.table.order.domain.table.dto.response.ResponseTables;
 import com.table.order.domain.table.entity.Table;
 import com.table.order.domain.table.entity.TableStatus;
+import com.table.order.domain.table.repository.TableQueryRepository;
 import com.table.order.domain.table.repository.TableRepository;
 import com.table.order.domain.table.service.TableService;
 import com.table.order.global.common.code.CustomErrorCode;
@@ -22,12 +28,19 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 import static com.table.order.global.common.code.CustomErrorCode.ERROR_INVALID_STORE;
 import static com.table.order.global.common.code.CustomErrorCode.ERROR_NOT_FOUND_STORE;
 import static com.table.order.global.common.code.ResultCode.RESULT_ADD_TABLE;
+import static com.table.order.global.common.code.ResultCode.RESULT_SELECT_TABLES;
 import static org.assertj.core.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
@@ -42,6 +55,8 @@ class TableServiceTest {
     private TableRepository tableRepository;
     @Mock
     private StoreQueryRepository storeQueryRepository;
+    @Mock
+    private TableQueryRepository tableQueryRepository;
 
     private RequestAddTable requestAddTable;
     private ResponseAddTable responseAddTable;
@@ -60,6 +75,7 @@ class TableServiceTest {
                 .id(null)
                 .name("테이블 1")
                 .numberOfPeople(5)
+                .totalPrice(0)
                 .tableStatus(TableStatus.OPEN)
                 .build();
 
@@ -131,5 +147,70 @@ class TableServiceTest {
         assertThatThrownBy(() -> {
             tableService.addTable(requestAddTable, anyString());
         }).isInstanceOf(CustomIllegalArgumentException.class).hasMessageContaining(ERROR_NOT_FOUND_STORE.getMessage());
+    }
+    
+    @Test
+    @DisplayName("테이블 전체 조회 테스트")
+    public void findTables() throws Exception{
+        //given
+        List<OrderDto> orderDtos = new ArrayList<>();
+        for (int i = 1; i <= 2; i++) {
+            OrderDto orderDto = OrderDto.builder()
+                    .orderPrice(i * 5000)
+                    .name("메뉴"+i)
+                    .count(i)
+                    .request("잘부탁드립니다")
+                    .orderStatus(OrderStatus.ORDER)
+                    .build();
+            orderDtos.add(orderDto);
+        }
+        List<TableDto> tableDtos = new ArrayList<>();
+        for (int i = 1; i <= 2; i++) {
+            TableDto tableDto = TableDto.builder()
+                    .name("테이블"+i)
+                    .numberOfPeople(5)
+                    .tableStatus(TableStatus.OPEN)
+                    .orders(orderDtos)
+                    .build();
+            tableDtos.add(tableDto);
+        }
+        Pageable pageable = PageRequest.of(0, 10);
+        Page<TableDto> pageResultDto = new PageImpl<TableDto>(tableDtos, pageable, 2);
+
+        List<Table> tables = new ArrayList<>();
+        for (int i = 1; i <= 2; i++) {
+            Table table = Table.builder()
+                    .name("테이블"+i)
+                    .numberOfPeople(5)
+                    .tableStatus(TableStatus.OPEN)
+                    .build();
+            for (int j = 1; j <= 2 ; j++) {
+                Order order = Order.builder()
+                        .orderPrice(j * 5000)
+                        .count(j)
+                        .request("잘부탁드립니다")
+                        .orderStatus(OrderStatus.ORDER)
+                        .item(Item.builder().name("메뉴"+j).build())
+                        .build();
+
+                table.getOrders().add(order);
+            }
+            tables.add(table);
+        }
+        Page<Table> pageResultTable = new PageImpl<Table>(tables, pageable, 2);
+
+        given(tableQueryRepository.findAllJoinStoreUserOrder("test", pageable)).willReturn(pageResultTable);
+
+        ResponseTables responseTables = ResponseTables.builder()
+                .status(RESULT_SELECT_TABLES.getStatus())
+                .message(RESULT_SELECT_TABLES.getMessage())
+                .data(pageResultDto)
+                .build();
+
+        //when
+        ResponseTables response = tableService.findTables("test", pageable);
+
+        //then
+        assertThat(response).usingRecursiveComparison().isEqualTo(responseTables);
     }
 }
