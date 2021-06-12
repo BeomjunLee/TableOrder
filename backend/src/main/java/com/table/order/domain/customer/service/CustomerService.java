@@ -65,8 +65,8 @@ public class CustomerService {
         customerRepository.save(customer);
 
         return ResponseLoginCustomer.builder()
-                .status(RESULT_CUSTOMER_SIGN_UP.getStatus())
-                .message(RESULT_CUSTOMER_SIGN_UP.getMessage())
+                .status(RESULT_SIGN_UP_CUSTOMER.getStatus())
+                .message(RESULT_SIGN_UP_CUSTOMER.getMessage())
                 .accessToken(jwtProvider.generateToken(requestLoginCustomer))
                 .expiredAt(LocalDateTime.now().plusSeconds(jwtProvider.getAccessTokenValidMilliSeconds()/1000))
                 .build();

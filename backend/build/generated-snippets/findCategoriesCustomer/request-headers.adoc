@@ -1,0 +1,7 @@
+|===
+|Name|Description
+
+|`+Authorization+`
+|Bearer + (로그인 요청 access 토큰)
+
+|===

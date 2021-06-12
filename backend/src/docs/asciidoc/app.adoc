@@ -96,3 +96,12 @@ include::{snippets}/scanQrCodeReVisit/http-request.adoc[]
 include::{snippets}/scanQrCodeReVisit/request-fields.adoc[]
 include::{snippets}/scanQrCodeReVisit/http-response.adoc[]
 include::{snippets}/scanQrCodeReVisit/response-fields.adoc[]
+
+=== 전체 카테고리별 메뉴 조회
+
+`GET` 손님은 카테고리별 메뉴들을 조회할 수 있다.
+
+include::{snippets}/findCategoriesItemsCustomer/request-headers.adoc[]
+include::{snippets}/findCategoriesItemsCustomer/http-request.adoc[]
+include::{snippets}/findCategoriesItemsCustomer/http-response.adoc[]
+include::{snippets}/findCategoriesItemsCustomer/response-fields.adoc[]

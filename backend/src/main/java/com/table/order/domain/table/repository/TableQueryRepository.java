@@ -47,7 +47,7 @@ public class TableQueryRepository {
 
     public Page<Table> findAllJoinStoreUserOrder(String username, Pageable pageable) {
         QueryResults<Table> results = queryFactory
-                .select(table)
+                .selectDistinct(table)
                 .from(table)
                 .join(table.store, store)
                 .join(store.user, user)

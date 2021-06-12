@@ -108,7 +108,7 @@ include::{snippets}/addTable/request-fields.adoc[]
 include::{snippets}/addTable/http-response.adoc[]
 include::{snippets}/addTable/response-fields.adoc[]
 
-=== 테이블 전체 조회
+=== 전체 테이블 조회
 
 `GET` 회원은 테이블을 전체 조회할 수 있으며 각각의 테이블에 주문이 있을 경우 주문도 포함된다. (페이징 처리)
 
@@ -137,4 +137,13 @@ include::{snippets}/addItem/http-request.adoc[]
 include::{snippets}/addItem/request-fields.adoc[]
 include::{snippets}/addItem/http-response.adoc[]
 include::{snippets}/addItem/response-fields.adoc[]
+
+=== 전체 카테고리별 메뉴 조회
+
+`GET` 회원은 카테고리별 메뉴들을 조회할 수 있다.
+
+include::{snippets}/findCategoriesItemsUser/request-headers.adoc[]
+include::{snippets}/findCategoriesItemsUser/http-request.adoc[]
+include::{snippets}/findCategoriesItemsUser/http-response.adoc[]
+include::{snippets}/findCategoriesItemsUser/response-fields.adoc[]
 

@@ -22,7 +22,6 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.http.HttpStatus;
 
 import java.time.LocalDateTime;
 import java.util.Optional;
@@ -62,8 +61,8 @@ class CustomerServiceTest {
                 .build();
 
         responseLoginCustomer = ResponseLoginCustomer.builder()
-                .status(RESULT_CUSTOMER_SIGN_UP.getStatus())
-                .message(RESULT_CUSTOMER_SIGN_UP.getMessage())
+                .status(RESULT_SIGN_UP_CUSTOMER.getStatus())
+                .message(RESULT_SIGN_UP_CUSTOMER.getMessage())
                 .accessToken("(accessToken)")
                 .expiredAt(LocalDateTime.now().plusSeconds(1800))
                 .build();
@@ -224,4 +223,6 @@ class CustomerServiceTest {
             customerService.scanQrCode(requestLoginCustomer);
         }).isInstanceOf(CustomAccessDeniedException.class).hasMessageContaining(ERROR_INVALID_STORE.getMessage());
     }
+
+
 }

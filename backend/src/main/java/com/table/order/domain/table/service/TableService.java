@@ -11,7 +11,6 @@ import com.table.order.domain.table.dto.response.ResponseTables;
 import com.table.order.domain.table.entity.Table;
 import com.table.order.domain.table.repository.TableQueryRepository;
 import com.table.order.domain.table.repository.TableRepository;
-import com.table.order.global.common.code.ResultCode;
 import com.table.order.global.common.exception.CustomIllegalArgumentException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -19,12 +18,11 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
 import java.util.stream.Collectors;
 
 import static com.table.order.global.common.code.CustomErrorCode.ERROR_NOT_FOUND_STORE;
 import static com.table.order.global.common.code.ResultCode.RESULT_ADD_TABLE;
-import static com.table.order.global.common.code.ResultCode.RESULT_SELECT_TABLES;
+import static com.table.order.global.common.code.ResultCode.RESULT_FIND_TABLES;
 
 @Service
 @RequiredArgsConstructor
@@ -90,8 +88,8 @@ public class TableService {
                 .build());
 
         return ResponseTables.builder()
-                .status(RESULT_SELECT_TABLES.getStatus())
-                .message(RESULT_SELECT_TABLES.getMessage())
+                .status(RESULT_FIND_TABLES.getStatus())
+                .message(RESULT_FIND_TABLES.getMessage())
                 .data(results)
                 .build();
     }
