@@ -25,7 +25,7 @@ public class CategoryQueryRepository {
                 .selectDistinct(category)
                 .from(category)
                 .join(category.store.user, user)
-                .join(category.items, item).fetchJoin()
+                .leftJoin(category.items, item).fetchJoin()
                 .where(user.username.eq(username))
                 .fetch();
         return categories;
@@ -37,7 +37,7 @@ public class CategoryQueryRepository {
                 .from(category)
                 .join(category.store, store)
                 .join(customer).on(customer.store.id.eq(store.id)).fetchJoin()
-                .join(category.items, item).fetchJoin()
+                .leftJoin(category.items, item).fetchJoin()
                 .where(customer.username.eq(username))
                 .fetch();
         return categories;
