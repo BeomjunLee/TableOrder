@@ -75,5 +75,8 @@ public class Table {
         return false;
     }
 
+    public void updateTotalPrice(int totalPrice) {
+        this.totalPrice = totalPrice;
+    }
 
 }

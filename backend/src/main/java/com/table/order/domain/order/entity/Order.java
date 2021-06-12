@@ -2,7 +2,10 @@ package com.table.order.domain.order.entity;
 
 import com.table.order.domain.BaseEntity;
 import com.table.order.domain.customer.entity.Customer;
+import com.table.order.domain.item.dto.OrderItemDto;
 import com.table.order.domain.item.entity.Item;
+import com.table.order.domain.order.dto.request.RequestCreateOrder;
+import com.table.order.domain.store.exception.CustomAccessDeniedException;
 import com.table.order.domain.table.entity.Table;
 import lombok.AccessLevel;
 import lombok.Builder;
@@ -10,6 +13,10 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
+
+import static com.table.order.global.common.code.CustomErrorCode.ERROR_IN_USE_TABLE;
 
 @Entity
 @Getter
@@ -53,6 +60,36 @@ public class Order extends BaseEntity {
         this.request = request;
         this.orderStatus = orderStatus;
         this.item = item;
+    }
+
+    public static List<Order> createOrder(List<OrderItemDto> orderItemDtos, List<Item> items, Customer customer) {
+        List<Order> orders = new ArrayList<>();
+        int totalPrice = customer.getTable().getTotalPrice();
+
+        for (int i = 0; i < items.size(); i++) {
+            Order order = Order.builder()
+                    .orderPrice(items.get(i).getPrice() * orderItemDtos.get(i).getCount())
+                    .count(orderItemDtos.get(i).getCount())
+                    .request(orderItemDtos.get(i).getRequest())
+                    .orderStatus(OrderStatus.ORDER)
+                    .item(items.get(i))
+                    .build();
+            order.setTable(customer.getTable());
+            order.setCustomer(customer);
+            order.validate();
+
+            totalPrice += order.getOrderPrice();
+
+            orders.add(order);
+        }
+        customer.getTable().updateTotalPrice(totalPrice);
+
+        return orders;
+    }
+
+    private void validate() {
+        if(!table.isOpen())
+            throw new CustomAccessDeniedException(ERROR_IN_USE_TABLE.getErrorCode(), ERROR_IN_USE_TABLE.getMessage());
     }
 
     private void ordered() {
