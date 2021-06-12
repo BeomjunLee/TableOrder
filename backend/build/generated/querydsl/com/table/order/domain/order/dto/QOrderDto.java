@@ -13,8 +13,8 @@ public class QOrderDto extends ConstructorExpression<OrderDto> {
 
     private static final long serialVersionUID = 1888269213L;
 
-    public QOrderDto(com.querydsl.core.types.Expression<Long> id, com.querydsl.core.types.Expression<Integer> orderPrice, com.querydsl.core.types.Expression<Integer> count, com.querydsl.core.types.Expression<String> request, com.querydsl.core.types.Expression<com.table.order.domain.order.entity.OrderStatus> orderStatus) {
-        super(OrderDto.class, new Class<?>[]{long.class, int.class, int.class, String.class, com.table.order.domain.order.entity.OrderStatus.class}, id, orderPrice, count, request, orderStatus);
+    public QOrderDto(com.querydsl.core.types.Expression<Long> id, com.querydsl.core.types.Expression<String> name, com.querydsl.core.types.Expression<Integer> orderPrice, com.querydsl.core.types.Expression<Integer> count, com.querydsl.core.types.Expression<String> request, com.querydsl.core.types.Expression<com.table.order.domain.order.entity.OrderStatus> orderStatus) {
+        super(OrderDto.class, new Class<?>[]{long.class, String.class, int.class, int.class, String.class, com.table.order.domain.order.entity.OrderStatus.class}, id, name, orderPrice, count, request, orderStatus);
     }
 
 }

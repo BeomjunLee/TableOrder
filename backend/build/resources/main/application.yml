@@ -15,7 +15,7 @@ spring:
     url: jdbc:h2:tcp://localhost/~/tableOrder;
   jpa:
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
     properties:
       hibernate:
         show_sql: true

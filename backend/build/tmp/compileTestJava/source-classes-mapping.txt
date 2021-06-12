@@ -1,12 +1,26 @@
-com/table/order/domain/store/controller/StoreControllerTest.java
- com.table.order.domain.store.controller.StoreControllerTest
 com/table/order/OrderApplicationTests.java
  com.table.order.OrderApplicationTests
-com/table/order/domain/user/service/UserServiceTest.java
- com.table.order.domain.user.service.UserServiceTest
-com/table/order/domain/customer/service/CustomerServiceTest.java
- com.table.order.domain.customer.service.CustomerServiceTest
-com/table/order/domain/user/controller/UserControllerTest.java
- com.table.order.domain.user.controller.UserControllerTest
-com/table/order/domain/customer/controller/CustomerControllerTest.java
- com.table.order.domain.customer.controller.CustomerControllerTest
+com/table/order/domain/table/TableControllerTest.java
+ com.table.order.domain.table.TableControllerTest
+com/table/order/domain/item/ItemServiceTest.java
+ com.table.order.domain.item.ItemServiceTest
+com/table/order/domain/customer/CustomerServiceTest.java
+ com.table.order.domain.customer.CustomerServiceTest
+com/table/order/domain/category/CategoryServiceTest.java
+ com.table.order.domain.category.CategoryServiceTest
+com/table/order/domain/user/UserServiceTest.java
+ com.table.order.domain.user.UserServiceTest
+com/table/order/domain/store/StoreControllerTest.java
+ com.table.order.domain.store.StoreControllerTest
+com/table/order/domain/user/UserControllerTest.java
+ com.table.order.domain.user.UserControllerTest
+com/table/order/domain/item/ItemControllerTest.java
+ com.table.order.domain.item.ItemControllerTest
+com/table/order/domain/customer/CustomerControllerTest.java
+ com.table.order.domain.customer.CustomerControllerTest
+com/table/order/domain/category/CategoryControllerTest.java
+ com.table.order.domain.category.CategoryControllerTest
+com/table/order/domain/table/TableServiceTest.java
+ com.table.order.domain.table.TableServiceTest
+com/table/order/domain/store/StoreServiceTest.java
+ com.table.order.domain.store.StoreServiceTest

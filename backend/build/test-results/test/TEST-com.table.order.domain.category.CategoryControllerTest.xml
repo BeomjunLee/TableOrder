@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.table.order.domain.category.CategoryControllerTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2021-06-12T18:38:37" hostname="ibeomjun-ui-MacBookPro.local" time="0.253">
+  <properties/>
+  <testcase name="카테고리 추가 테스트" classname="com.table.order.domain.category.CategoryControllerTest" time="0.193"/>
+  <testcase name="카테고리, 메뉴 전체 조회 테스트 (손님)" classname="com.table.order.domain.category.CategoryControllerTest" time="0.033"/>
+  <testcase name="카테고리, 메뉴 전체 조회 테스트 (회원)" classname="com.table.order.domain.category.CategoryControllerTest" time="0.022"/>
+  <system-out><![CDATA[2021-06-13 03:38:36.434  INFO 89534 --- [    Test worker] .b.t.a.w.s.WebMvcTestContextBootstrapper : Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.table.order.domain.category.CategoryControllerTest], using SpringBootContextLoader
+2021-06-13 03:38:36.435  INFO 89534 --- [    Test worker] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [com.table.order.domain.category.CategoryControllerTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+2021-06-13 03:38:36.435  INFO 89534 --- [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.table.order.domain.category.CategoryControllerTest]: CategoryControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2021-06-13 03:38:36.452  INFO 89534 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.table.order.OrderApplication for test class com.table.order.domain.category.CategoryControllerTest
+2021-06-13 03:38:36.453  INFO 89534 --- [    Test worker] .b.t.a.w.s.WebMvcTestContextBootstrapper : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.security.test.context.support.WithSecurityContextTestExecutionListener, org.springframework.security.test.context.support.ReactorContextTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+2021-06-13 03:38:36.453  INFO 89534 --- [    Test worker] .b.t.a.w.s.WebMvcTestContextBootstrapper : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@70174555, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@6f3e4e5, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@68f60fb6, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@478f3674, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@d78fe3d, org.springframework.test.context.support.DirtiesContextTestExecutionListener@14b5e7bb, org.springframework.test.context.transaction.TransactionalTestExecutionListener@4ce6d124, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@7264625a, org.springframework.security.test.context.support.WithSecurityContextTestExecutionListener@3827f33d, org.springframework.test.context.event.EventPublishingTestExecutionListener@31453bd, org.springframework.security.test.context.support.ReactorContextTestExecutionListener@7981cd0a, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@28a616d2, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@2f9fa6e0, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@eb79115, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@79a9f454, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@61216d35, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@335b7f57]
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v2.4.5)
+
+2021-06-13 03:38:36.475  INFO 89534 --- [    Test worker] c.t.o.d.category.CategoryControllerTest  : Starting CategoryControllerTest using Java 11.0.10 on ibeomjun-ui-MacBookPro.local with PID 89534 (started by leebeomjun in /Users/leebeomjun/Desktop/git/TableOrder/backend)
+2021-06-13 03:38:36.475  INFO 89534 --- [    Test worker] c.t.o.d.category.CategoryControllerTest  : The following profiles are active: local
+2021-06-13 03:38:36.673  INFO 89534 --- [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@3855ea2f' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-06-13 03:38:36.678  INFO 89534 --- [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-06-13 03:38:36.796  INFO 89534 --- [    Test worker] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/app/customers'] with []
+2021-06-13 03:38:36.796  INFO 89534 --- [    Test worker] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/users/login'] with []
+2021-06-13 03:38:36.796  INFO 89534 --- [    Test worker] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/users'] with []
+2021-06-13 03:38:36.796  INFO 89534 --- [    Test worker] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/docs/**'] with []
+2021-06-13 03:38:36.796  INFO 89534 --- [    Test worker] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/swagger-ui**'] with []
+2021-06-13 03:38:36.837  INFO 89534 --- [    Test worker] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@14461611, org.springframework.security.web.context.SecurityContextPersistenceFilter@a340703, org.springframework.security.web.header.HeaderWriterFilter@18a02b3a, org.springframework.security.web.authentication.logout.LogoutFilter@306314e4, com.table.order.global.security.filter.JwtFilter@29db99fc, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@57ae75ec, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4ece7dd8, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1b097863, org.springframework.security.web.session.SessionManagementFilter@6ea74f1e, org.springframework.security.web.access.ExceptionTranslationFilter@67275c1d]
+2021-06-13 03:38:36.917  INFO 89534 --- [    Test worker] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-06-13 03:38:37.127  INFO 89534 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2021-06-13 03:38:37.128  INFO 89534 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2021-06-13 03:38:37.129  INFO 89534 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2021-06-13 03:38:37.146  INFO 89534 --- [    Test worker] c.t.o.d.category.CategoryControllerTest  : Started CategoryControllerTest in 0.69 seconds (JVM running for 6.406)
+2021-06-13 03:38:37.202  INFO 89534 --- [    Test worker] c.t.o.global.security.filter.JwtFilter   : (accessToken) 추출 완료
+2021-06-13 03:38:37.203  INFO 89534 --- [    Test worker] c.t.o.global.security.filter.JwtFilter   : UsernamePasswordAuthenticationToken [Principal=test, Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[ROLE_USER]] Authentication 생성
+
+MockHttpServletRequest:
+      HTTP Method = POST
+      Request URI = /categories
+       Parameters = {}
+          Headers = [Content-Type:"application/json;charset=UTF-8", Authorization:"Bearer (accessToken)", Accept:"application/json", Content-Length:"25"]
+             Body = {"name":"카테고리 1"}
+    Session Attrs = {}
+
+Handler:
+             Type = com.table.order.domain.category.controller.CategoryController
+           Method = com.table.order.domain.category.controller.CategoryController#addCategory(RequestAddCategory, Authentication)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 201
+    Error message = null
+          Headers = [Content-Type:"application/json", X-Content-Type-Options:"nosniff", X-XSS-Protection:"1; mode=block", Cache-Control:"no-cache, no-store, max-age=0, must-revalidate", Pragma:"no-cache", Expires:"0", X-Frame-Options:"DENY"]
+     Content type = application/json
+             Body = {"status":201,"message":"ì¹´í]]>&#x8c;<![CDATA[ê³ ë¦¬ ì¶]]>&#x94;<![CDATA[ê°]]>&#x80;<![CDATA[ ì]]>&#x84;<![CDATA[±ê³µ","data":{"id":1,"name":"ì¹´í]]>&#x8c;<![CDATA[ê³ ë¦¬ 1"}}
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+2021-06-13 03:38:37.352  INFO 89534 --- [    Test worker] c.t.o.global.security.filter.JwtFilter   : (accessToken) 추출 완료
+2021-06-13 03:38:37.352  INFO 89534 --- [    Test worker] c.t.o.global.security.filter.JwtFilter   : UsernamePasswordAuthenticationToken [Principal=test, Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[ROLE_USER]] Authentication 생성
+
+MockHttpServletRequest:
+      HTTP Method = GET
+      Request URI = /app/categories/items
+       Parameters = {}
+          Headers = [Content-Type:"application/json;charset=UTF-8", Authorization:"Bearer (accessToken)", Accept:"application/json"]
+             Body = null
+    Session Attrs = {}
+
+Handler:
+             Type = com.table.order.domain.category.controller.CategoryController
+           Method = com.table.order.domain.category.controller.CategoryController#findCategoriesItemsCustomer(Authentication)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 200
+    Error message = null
+          Headers = [Content-Type:"application/json", X-Content-Type-Options:"nosniff", X-XSS-Protection:"1; mode=block", Cache-Control:"no-cache, no-store, max-age=0, must-revalidate", Pragma:"no-cache", Expires:"0", X-Frame-Options:"DENY"]
+     Content type = application/json
+             Body = {"status":200,"message":"ì¹´í]]>&#x8c;<![CDATA[ê³ ë¦¬, ë©]]>&#x94;<![CDATA[ë]]>&#x89;<![CDATA[´ ê²]]>&#x80;<![CDATA[ì]]>&#x83;<![CDATA[]]>&#x89;<![CDATA[ ì]]>&#x84;<![CDATA[±ê³µ","data":[{"id":5,"name":"ì¹´í]]>&#x8c;<![CDATA[ê³ ë¦¬1","items":[{"id":1,"name":"ë©]]>&#x94;<![CDATA[ë]]>&#x89;<![CDATA[´1","description":"ë©]]>&#x94;<![CDATA[ë]]>&#x89;<![CDATA[´ ì]]>&#x84;<![CDATA[¤ëª","price":2000,"image":"ì]]>&#x9d;<![CDATA[´ë¯¸ì§]]>&#x80;<![CDATA[ ì£¼ì]]>&#x86;<![CDATA[]]>&#x8c;<![CDATA["},{"id":2,"name":"ë©]]>&#x94;<![CDATA[ë]]>&#x89;<![CDATA[´2","description":"ë©]]>&#x94;<![CDATA[ë]]>&#x89;<![CDATA[´ ì]]>&#x84;<![CDATA[¤ëª","price":4000,"image":"ì]]>&#x9d;<![CDATA[´ë¯¸ì§]]>&#x80;<![CDATA[ ì£¼ì]]>&#x86;<![CDATA[]]>&#x8c;<![CDATA["}]},{"id":6,"name":"ì¹´í]]>&#x8c;<![CDATA[ê³ ë¦¬2","items":[{"id":3,"name":"ë©]]>&#x94;<![CDATA[ë]]>&#x89;<![CDATA[´1","description":"ë©]]>&#x94;<![CDATA[ë]]>&#x89;<![CDATA[´ ì]]>&#x84;<![CDATA[¤ëª","price":2000,"image":"ì]]>&#x9d;<![CDATA[´ë¯¸ì§]]>&#x80;<![CDATA[ ì£¼ì]]>&#x86;<![CDATA[]]>&#x8c;<![CDATA["},{"id":4,"name":"ë©]]>&#x94;<![CDATA[ë]]>&#x89;<![CDATA[´2","description":"ë©]]>&#x94;<![CDATA[ë]]>&#x89;<![CDATA[´ ì]]>&#x84;<![CDATA[¤ëª","price":4000,"image":"ì]]>&#x9d;<![CDATA[´ë¯¸ì§]]>&#x80;<![CDATA[ ì£¼ì]]>&#x86;<![CDATA[]]>&#x8c;<![CDATA["}]}]}
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+2021-06-13 03:38:37.384  INFO 89534 --- [    Test worker] c.t.o.global.security.filter.JwtFilter   : (accessToken) 추출 완료
+2021-06-13 03:38:37.384  INFO 89534 --- [    Test worker] c.t.o.global.security.filter.JwtFilter   : UsernamePasswordAuthenticationToken [Principal=test, Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[ROLE_USER]] Authentication 생성
+
+MockHttpServletRequest:
+      HTTP Method = GET
+      Request URI = /categories/items
+       Parameters = {}
+          Headers = [Content-Type:"application/json;charset=UTF-8", Authorization:"Bearer (accessToken)", Accept:"application/json"]
+             Body = null
+    Session Attrs = {}
+
+Handler:
+             Type = com.table.order.domain.category.controller.CategoryController
+           Method = com.table.order.domain.category.controller.CategoryController#findCategoriesItemsUser(Authentication)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 200
+    Error message = null
+          Headers = [Content-Type:"application/json", X-Content-Type-Options:"nosniff", X-XSS-Protection:"1; mode=block", Cache-Control:"no-cache, no-store, max-age=0, must-revalidate", Pragma:"no-cache", Expires:"0", X-Frame-Options:"DENY"]
+     Content type = application/json
+             Body = {"status":200,"message":"ì¹´í]]>&#x8c;<![CDATA[ê³ ë¦¬, ë©]]>&#x94;<![CDATA[ë]]>&#x89;<![CDATA[´ ê²]]>&#x80;<![CDATA[ì]]>&#x83;<![CDATA[]]>&#x89;<![CDATA[ ì]]>&#x84;<![CDATA[±ê³µ","data":[{"id":5,"name":"ì¹´í]]>&#x8c;<![CDATA[ê³ ë¦¬1","items":[{"id":1,"name":"ë©]]>&#x94;<![CDATA[ë]]>&#x89;<![CDATA[´1","description":"ë©]]>&#x94;<![CDATA[ë]]>&#x89;<![CDATA[´ ì]]>&#x84;<![CDATA[¤ëª","price":2000,"image":"ì]]>&#x9d;<![CDATA[´ë¯¸ì§]]>&#x80;<![CDATA[ ì£¼ì]]>&#x86;<![CDATA[]]>&#x8c;<![CDATA["},{"id":2,"name":"ë©]]>&#x94;<![CDATA[ë]]>&#x89;<![CDATA[´2","description":"ë©]]>&#x94;<![CDATA[ë]]>&#x89;<![CDATA[´ ì]]>&#x84;<![CDATA[¤ëª","price":4000,"image":"ì]]>&#x9d;<![CDATA[´ë¯¸ì§]]>&#x80;<![CDATA[ ì£¼ì]]>&#x86;<![CDATA[]]>&#x8c;<![CDATA["}]},{"id":6,"name":"ì¹´í]]>&#x8c;<![CDATA[ê³ ë¦¬2","items":[{"id":3,"name":"ë©]]>&#x94;<![CDATA[ë]]>&#x89;<![CDATA[´1","description":"ë©]]>&#x94;<![CDATA[ë]]>&#x89;<![CDATA[´ ì]]>&#x84;<![CDATA[¤ëª","price":2000,"image":"ì]]>&#x9d;<![CDATA[´ë¯¸ì§]]>&#x80;<![CDATA[ ì£¼ì]]>&#x86;<![CDATA[]]>&#x8c;<![CDATA["},{"id":4,"name":"ë©]]>&#x94;<![CDATA[ë]]>&#x89;<![CDATA[´2","description":"ë©]]>&#x94;<![CDATA[ë]]>&#x89;<![CDATA[´ ì]]>&#x84;<![CDATA[¤ëª","price":4000,"image":"ì]]>&#x9d;<![CDATA[´ë¯¸ì§]]>&#x80;<![CDATA[ ì£¼ì]]>&#x86;<![CDATA[]]>&#x8c;<![CDATA["}]}]}
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

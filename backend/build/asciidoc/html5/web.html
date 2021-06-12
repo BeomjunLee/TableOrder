@@ -508,7 +508,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>201 Created</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">새 리소스를 성공적으로 생성함. 응답의 <code>Location</code> 헤더에 해당 리소스의 URI가 담겨있다.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">새 리소스를 성공적으로 생성함.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>204 No Content</code></p></td>
@@ -519,8 +519,20 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <td class="tableblock halign-left valign-top"><p class="tableblock">잘못된 요청을 보낸 경우. 응답 본문에 더 오류에 대한 정보가 담겨있다.</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>401 Unauthorized</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">클라이언트가 해당 리소스에 대한 인증이 필요함.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>403 Forbidden</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">서버가 요청을 이해했지만 승인을 거부함.</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>404 Not Found</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">요청한 리소스가 없음.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>500 Internal Server Error</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">서버 내부의 문제로 오류가 발생한 경우.</p></td>
 </tr>
 </tbody>
 </table>
@@ -566,12 +578,89 @@ Unresolved directive in web.adoc - include::{snippets}/loginUser/http-response.a
 Unresolved directive in web.adoc - include::{snippets}/loginUser/response-fields.adoc[]</p>
 </div>
 </div>
+<div class="sect2">
+<h3 id="_식당_등록">식당 등록</h3>
+<div class="paragraph">
+<p><code>POST</code> 회원은 식당을 하나만 등록할 수 있다.</p>
+</div>
+<div class="paragraph">
+<p>Unresolved directive in web.adoc - include::{snippets}/enrollStore/request-headers.adoc[]
+Unresolved directive in web.adoc - include::{snippets}/enrollStore/http-request.adoc[]
+Unresolved directive in web.adoc - include::{snippets}/enrollStore/request-fields.adoc[]
+Unresolved directive in web.adoc - include::{snippets}/enrollStore/http-response.adoc[]
+Unresolved directive in web.adoc - include::{snippets}/enrollStore/response-fields.adoc[]</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_테이블_추가">테이블 추가</h3>
+<div class="paragraph">
+<p><code>POST</code> 회원은 테이블을 추가할 수 있다. (식당을 등록한 상태여야 한다)</p>
+</div>
+<div class="paragraph">
+<p>Unresolved directive in web.adoc - include::{snippets}/addTable/request-headers.adoc[]
+Unresolved directive in web.adoc - include::{snippets}/addTable/http-request.adoc[]
+Unresolved directive in web.adoc - include::{snippets}/addTable/request-fields.adoc[]
+Unresolved directive in web.adoc - include::{snippets}/addTable/http-response.adoc[]
+Unresolved directive in web.adoc - include::{snippets}/addTable/response-fields.adoc[]</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_전체_테이블_조회">전체 테이블 조회</h3>
+<div class="paragraph">
+<p><code>GET</code> 회원은 테이블을 전체 조회할 수 있으며 각각의 테이블에 주문이 있을 경우 주문도 포함된다. (페이징 처리)</p>
+</div>
+<div class="paragraph">
+<p>Unresolved directive in web.adoc - include::{snippets}/findTables/request-headers.adoc[]
+Unresolved directive in web.adoc - include::{snippets}/findTables/http-request.adoc[]
+Unresolved directive in web.adoc - include::{snippets}/findTables/request-parameters.adoc[]
+Unresolved directive in web.adoc - include::{snippets}/findTables/http-response.adoc[]
+Unresolved directive in web.adoc - include::{snippets}/findTables/response-fields.adoc[]</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_카테고리_추가">카테고리 추가</h3>
+<div class="paragraph">
+<p><code>POST</code> 회원은 필요한 카테고리를 추가할 수 있다. (식당을 등록한 상태여야 한다)</p>
+</div>
+<div class="paragraph">
+<p>Unresolved directive in web.adoc - include::{snippets}/addCategory/request-headers.adoc[]
+Unresolved directive in web.adoc - include::{snippets}/addCategory/http-request.adoc[]
+Unresolved directive in web.adoc - include::{snippets}/addCategory/request-fields.adoc[]
+Unresolved directive in web.adoc - include::{snippets}/addCategory/http-response.adoc[]
+Unresolved directive in web.adoc - include::{snippets}/addCategory/response-fields.adoc[]</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_메뉴_추가">메뉴 추가</h3>
+<div class="paragraph">
+<p><code>POST</code> 회원은 메뉴를 추가할 수 있다. (식당을 등록한 상태여야 한다, 추가된 카테고리여야 한다)</p>
+</div>
+<div class="paragraph">
+<p>Unresolved directive in web.adoc - include::{snippets}/addItem/request-headers.adoc[]
+Unresolved directive in web.adoc - include::{snippets}/addItem/http-request.adoc[]
+Unresolved directive in web.adoc - include::{snippets}/addItem/request-fields.adoc[]
+Unresolved directive in web.adoc - include::{snippets}/addItem/http-response.adoc[]
+Unresolved directive in web.adoc - include::{snippets}/addItem/response-fields.adoc[]</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_전체_카테고리별_메뉴_조회">전체 카테고리별 메뉴 조회</h3>
+<div class="paragraph">
+<p><code>GET</code> 회원은 카테고리별 메뉴들을 조회할 수 있다.</p>
+</div>
+<div class="paragraph">
+<p>Unresolved directive in web.adoc - include::{snippets}/findCategoriesItemsUser/request-headers.adoc[]
+Unresolved directive in web.adoc - include::{snippets}/findCategoriesItemsUser/http-request.adoc[]
+Unresolved directive in web.adoc - include::{snippets}/findCategoriesItemsUser/http-response.adoc[]
+Unresolved directive in web.adoc - include::{snippets}/findCategoriesItemsUser/response-fields.adoc[]</p>
+</div>
+</div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-06-09 20:39:38 KST
+Last updated 2021-06-13 03:37:59 KST
 </div>
 </div>
 </body>
