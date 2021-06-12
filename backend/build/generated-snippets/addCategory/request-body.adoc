@@ -1,0 +1,4 @@
+[source,options="nowrap"]
+----
+{"name":"카테고리 1"}
+----

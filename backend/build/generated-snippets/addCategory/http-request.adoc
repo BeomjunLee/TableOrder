@@ -1,0 +1,11 @@
+[source,http,options="nowrap"]
+----
+POST /categories HTTP/1.1
+Content-Type: application/json;charset=UTF-8
+Authorization: Bearer (accessToken)
+Accept: application/json
+Content-Length: 25
+Host: localhost:8080
+
+{"name":"카테고리 1"}
+----

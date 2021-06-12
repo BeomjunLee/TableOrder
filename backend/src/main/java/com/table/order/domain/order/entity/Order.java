@@ -5,6 +5,7 @@ import com.table.order.domain.customer.entity.Customer;
 import com.table.order.domain.item.entity.Item;
 import com.table.order.domain.table.entity.Table;
 import lombok.AccessLevel;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -45,8 +46,26 @@ public class Order extends BaseEntity {
     @JoinColumn(name = "customer_id")
     private Customer customer;
 
+    @Builder
+    public Order(int orderPrice, int count, String request, OrderStatus orderStatus, Item item) {
+        this.orderPrice = orderPrice;
+        this.count = count;
+        this.request = request;
+        this.orderStatus = orderStatus;
+        this.item = item;
+    }
 
     private void ordered() {
         this.orderStatus = OrderStatus.ORDER;
+    }
+
+    public void setTable(Table table) {
+        this.table = table;
+        table.getOrders().add(this);
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+        customer.getOrders().add(this);
     }
 }

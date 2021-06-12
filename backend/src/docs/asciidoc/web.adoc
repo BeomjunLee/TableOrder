@@ -107,3 +107,34 @@ include::{snippets}/addTable/http-request.adoc[]
 include::{snippets}/addTable/request-fields.adoc[]
 include::{snippets}/addTable/http-response.adoc[]
 include::{snippets}/addTable/response-fields.adoc[]
+
+=== 테이블 전체 조회
+
+`GET` 회원은 테이블을 전체 조회할 수 있으며 각각의 테이블에 주문이 있을 경우 주문도 포함된다. (페이징 처리)
+
+include::{snippets}/findTables/request-headers.adoc[]
+include::{snippets}/findTables/http-request.adoc[]
+include::{snippets}/findTables/request-parameters.adoc[]
+include::{snippets}/findTables/http-response.adoc[]
+include::{snippets}/findTables/response-fields.adoc[]
+
+=== 카테고리 추가
+
+`POST` 회원은 필요한 카테고리를 추가할 수 있다. (식당을 등록한 상태여야 한다)
+
+include::{snippets}/addCategory/request-headers.adoc[]
+include::{snippets}/addCategory/http-request.adoc[]
+include::{snippets}/addCategory/request-fields.adoc[]
+include::{snippets}/addCategory/http-response.adoc[]
+include::{snippets}/addCategory/response-fields.adoc[]
+
+=== 메뉴 추가
+
+`POST` 회원은 메뉴를 추가할 수 있다. (식당을 등록한 상태여야 한다, 추가된 카테고리여야 한다)
+
+include::{snippets}/addItem/request-headers.adoc[]
+include::{snippets}/addItem/http-request.adoc[]
+include::{snippets}/addItem/request-fields.adoc[]
+include::{snippets}/addItem/http-response.adoc[]
+include::{snippets}/addItem/response-fields.adoc[]
+

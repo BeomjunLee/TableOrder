@@ -1,25 +1,38 @@
 package com.table.order.domain.table.service;
 
+import com.table.order.domain.order.dto.OrderDto;
+import com.table.order.domain.order.entity.OrderStatus;
 import com.table.order.domain.store.entity.Store;
 import com.table.order.domain.store.repository.StoreQueryRepository;
 import com.table.order.domain.table.dto.TableDto;
 import com.table.order.domain.table.dto.request.RequestAddTable;
 import com.table.order.domain.table.dto.response.ResponseAddTable;
+import com.table.order.domain.table.dto.response.ResponseTables;
 import com.table.order.domain.table.entity.Table;
+import com.table.order.domain.table.repository.TableQueryRepository;
 import com.table.order.domain.table.repository.TableRepository;
 import com.table.order.global.common.code.ResultCode;
 import com.table.order.global.common.exception.CustomIllegalArgumentException;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 import static com.table.order.global.common.code.CustomErrorCode.ERROR_NOT_FOUND_STORE;
 import static com.table.order.global.common.code.ResultCode.RESULT_ADD_TABLE;
+import static com.table.order.global.common.code.ResultCode.RESULT_SELECT_TABLES;
 
 @Service
 @RequiredArgsConstructor
+@Transactional
 public class TableService {
 
     private final TableRepository tableRepository;
+    private final TableQueryRepository tableQueryRepository;
     private final StoreQueryRepository storeQueryRepository;
 
     /**
@@ -39,6 +52,7 @@ public class TableService {
                 .id(savedTable.getId())
                 .name(savedTable.getName())
                 .numberOfPeople(savedTable.getNumberOfPeople())
+                .totalPrice(savedTable.getTotalPrice())
                 .tableStatus(savedTable.getTableStatus())
                 .build();
 
@@ -46,6 +60,39 @@ public class TableService {
                 .status(RESULT_ADD_TABLE.getStatus())
                 .message(RESULT_ADD_TABLE.getMessage())
                 .data(dto)
+                .build();
+    }
+
+    /**
+     * 테이블 전체 조회
+     * @param username 회원 아이디
+     * @param pageable 페이징
+     * @return 응답 dto
+     */
+    @Transactional(readOnly = true)
+    public ResponseTables findTables(String username, Pageable pageable) {
+        Page<Table> tables = tableQueryRepository.findAllJoinStoreUserOrder(username, pageable);
+
+        Page<TableDto> results = tables.map(table -> TableDto.builder()
+                .id(table.getId())
+                .name(table.getName())
+                .numberOfPeople(table.getNumberOfPeople())
+                .totalPrice(table.getTotalPrice())
+                .tableStatus(table.getTableStatus())
+                .orders(table.getOrders().stream().filter(order -> order.getOrderStatus() == OrderStatus.ORDER).map(order -> OrderDto.builder()
+                        .id(order.getId())
+                        .name(order.getItem().getName())
+                        .orderPrice(order.getOrderPrice())
+                        .count(order.getCount())
+                        .request(order.getRequest())
+                        .orderStatus(order.getOrderStatus())
+                        .build()).collect(Collectors.toList()))
+                .build());
+
+        return ResponseTables.builder()
+                .status(RESULT_SELECT_TABLES.getStatus())
+                .message(RESULT_SELECT_TABLES.getMessage())
+                .data(results)
                 .build();
     }
 }

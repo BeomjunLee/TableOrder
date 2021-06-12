@@ -1,0 +1,4 @@
+[source,options="nowrap"]
+----
+{"name":"메뉴 1","description":"메뉴 설명","price":1000,"image":"이미지","categoryId":1}
+----

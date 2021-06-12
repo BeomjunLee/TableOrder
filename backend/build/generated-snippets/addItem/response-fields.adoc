@@ -1,0 +1,32 @@
+|===
+|Path|Type|Description
+
+|`+status+`
+|`+Number+`
+|상태 코드
+
+|`+message+`
+|`+String+`
+|결과 메세지
+
+|`+data.id+`
+|`+Number+`
+|메뉴 고유 id
+
+|`+data.name+`
+|`+String+`
+|메뉴명
+
+|`+data.description+`
+|`+String+`
+|설명
+
+|`+data.price+`
+|`+Number+`
+|가격
+
+|`+data.image+`
+|`+String+`
+|이미지 주소
+
+|===

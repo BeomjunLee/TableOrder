@@ -1,0 +1,132 @@
+|===
+|Path|Type|Description
+
+|`+status+`
+|`+Number+`
+|상태 코드
+
+|`+message+`
+|`+String+`
+|결과 메세지
+
+|`+data.content.[].id+`
+|`+Number+`
+|테이블 고유 id
+
+|`+data.content.[].name+`
+|`+String+`
+|테이블명
+
+|`+data.content.[].numberOfPeople+`
+|`+Number+`
+|테이블 좌석 수
+
+|`+data.content.[].totalPrice+`
+|`+Number+`
+|테이블 총 주문 가격
+
+|`+data.content.[].tableStatus+`
+|`+String+`
+|테이블 상태
+
+|`+data.content.[].orders.[].id+`
+|`+Number+`
+|주문 고유 id
+
+|`+data.content.[].orders.[].name+`
+|`+String+`
+|메뉴 이름
+
+|`+data.content.[].orders.[].orderPrice+`
+|`+Number+`
+|주문 가격
+
+|`+data.content.[].orders.[].count+`
+|`+Number+`
+|주문 갯수
+
+|`+data.content.[].orders.[].request+`
+|`+String+`
+|주문 요청사항
+
+|`+data.content.[].orders.[].orderStatus+`
+|`+String+`
+|주문 상태
+
+|`+data.pageable.sort.sorted+`
+|`+Boolean+`
+|정렬 됐는지 여부
+
+|`+data.pageable.sort.unsorted+`
+|`+Boolean+`
+|정렬 안됐는지 여부
+
+|`+data.pageable.sort.empty+`
+|`+Boolean+`
+|데이터가 비었는지 여부
+
+|`+data.pageable.pageNumber+`
+|`+Number+`
+|현제 페이지 번호
+
+|`+data.pageable.pageSize+`
+|`+Number+`
+|한 페이지당 조회할 데이터 개수
+
+|`+data.pageable.offset+`
+|`+Number+`
+|몇번째 데이터인지 (0부터 시작)
+
+|`+data.pageable.paged+`
+|`+Boolean+`
+|페이징 정보를 포함하는지 여부
+
+|`+data.pageable.unpaged+`
+|`+Boolean+`
+|페이징 정보를 안포함하는지 여부
+
+|`+data.last+`
+|`+Boolean+`
+|마지막 페이지인지 여부
+
+|`+data.totalPages+`
+|`+Number+`
+|전체 페이지 개수
+
+|`+data.totalElements+`
+|`+Number+`
+|테이블 총 데이터 개수
+
+|`+data.first+`
+|`+Boolean+`
+|첫번째 페이지인지 여부
+
+|`+data.numberOfElements+`
+|`+Number+`
+|요청 페이지에서 조회 된 데이터 개수
+
+|`+data.number+`
+|`+Number+`
+|현제 페이지 번호
+
+|`+data.size+`
+|`+Number+`
+|한 페이지당 조회할 데이터 개수
+
+|`+data.sort.sorted+`
+|`+Boolean+`
+|정렬 됐는지 여부
+
+|`+data.sort.unsorted+`
+|`+Boolean+`
+|정렬 안됐는지 여부
+
+|`+data.sort.empty+`
+|`+Boolean+`
+|데이터가 비었는지 여부
+
+|`+data.empty+`
+|`+Boolean+`
+|데이터가 비었는지 여부
+
+|===

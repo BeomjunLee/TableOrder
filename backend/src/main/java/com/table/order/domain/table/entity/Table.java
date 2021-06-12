@@ -40,7 +40,7 @@ public class Table {
     @JoinColumn(name = "store_id")
     private Store store;
 
-    @OneToMany(mappedBy = "table", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "table", orphanRemoval = true)
     private List<Order> orders = new ArrayList<>();
 
     @Builder

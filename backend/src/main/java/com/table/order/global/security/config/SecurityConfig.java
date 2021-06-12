@@ -67,6 +67,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 //필터 무시
                 .ignoring().antMatchers(
     "/customers/**",
+                "/users/login",
                 "/users",
                 "/docs/**",
                 "/swagger-ui**");

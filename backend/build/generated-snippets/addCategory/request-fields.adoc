@@ -1,0 +1,8 @@
+|===
+|Path|Type|Description
+
+|`+name+`
+|`+String+`
+|카테고리명
+
+|===

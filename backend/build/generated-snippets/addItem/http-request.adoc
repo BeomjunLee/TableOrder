@@ -1,0 +1,11 @@
+[source,http,options="nowrap"]
+----
+POST /items HTTP/1.1
+Content-Type: application/json;charset=UTF-8
+Authorization: Bearer (accessToken)
+Accept: application/json
+Content-Length: 97
+Host: localhost:8080
+
+{"name":"메뉴 1","description":"메뉴 설명","price":1000,"image":"이미지","categoryId":1}
+----

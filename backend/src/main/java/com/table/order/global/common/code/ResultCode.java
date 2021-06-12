@@ -15,7 +15,10 @@ public enum ResultCode {
     RESULT_RE_VISIT(OK.value(), "식당 재방문 성공"),
     RESULT_SIGNUP_USER(CREATED.value(), "회원 가입 성공"),
     RESULT_ENROLL_STORE(CREATED.value(), "식당 등록 성공"),
-    RESULT_ADD_TABLE(CREATED.value(), "테이블 추가 성공")
+    RESULT_ADD_TABLE(CREATED.value(), "테이블 추가 성공"),
+    RESULT_ADD_CATEGORY(CREATED.value(), "카테고리 추가 성공"),
+    RESULT_ADD_ITEM(CREATED.value(), "메뉴 추가 성공"),
+    RESULT_SELECT_TABLES(OK.value(), "테이블 검색 성공")
     ;
 
     private final int status;
