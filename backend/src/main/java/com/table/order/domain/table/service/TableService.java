@@ -79,7 +79,7 @@ public class TableService {
                 .numberOfPeople(table.getNumberOfPeople())
                 .totalPrice(table.getTotalPrice())
                 .tableStatus(table.getTableStatus())
-                .orders(table.getOrders().stream().map(order -> OrderDto.builder()
+                .orders(table.getOrders().stream().filter(order -> order.getOrderStatus() == OrderStatus.ORDER).map(order -> OrderDto.builder()
                         .id(order.getId())
                         .name(order.getItem().getName())
                         .orderPrice(order.getOrderPrice())

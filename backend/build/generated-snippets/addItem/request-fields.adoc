@@ -1,0 +1,24 @@
+|===
+|Path|Type|Description
+
+|`+name+`
+|`+String+`
+|메뉴명
+
+|`+description+`
+|`+String+`
+|설명
+
+|`+price+`
+|`+Number+`
+|가격
+
+|`+image+`
+|`+String+`
+|이미지 주소
+
+|`+categoryId+`
+|`+Number+`
+|카테고리 고유 id
+
+|===

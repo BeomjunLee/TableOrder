@@ -12,9 +12,10 @@ public enum CustomErrorCode {
     ERROR_NOT_FOUND_TABLE_STORE(3, BAD_REQUEST.value(), "테이블 또는 식당을 찾을 수 없습니다"),
     ERROR_NOT_FOUND_USER(4, BAD_REQUEST.value(), "회원을 찾을 수 없습니다"),
     ERROR_NOT_FOUND_STORE(5, BAD_REQUEST.value(), "식당을 찾을 수 없습니다"),
-    ERROR_IN_USE_TABLE(6, FORBIDDEN.value(), "사용중인 테이블입니다"),
-    ERROR_INVALID_STORE(7, FORBIDDEN.value(), "승인되지 않은 매장입니다"),
-    ERROR_DUPLICATE_USERNAME(8, BAD_REQUEST.value(), "중복된 아이디입니다")
+    ERROR_NOT_FOUND_CATEGORY(6, BAD_REQUEST.value(), "카테고리를 찾을 수 없습니다"),
+    ERROR_IN_USE_TABLE(7, FORBIDDEN.value(), "사용중인 테이블입니다"),
+    ERROR_INVALID_STORE(8, FORBIDDEN.value(), "승인되지 않은 매장입니다"),
+    ERROR_DUPLICATE_USERNAME(9, BAD_REQUEST.value(), "중복된 아이디입니다")
     ;
 
     private final int errorCode;

@@ -1,0 +1,4 @@
+[source,options="nowrap"]
+----
+{"status":201,"message":"카테고리 추가 성공","data":{"id":1,"name":"카테고리 1"}}
+----

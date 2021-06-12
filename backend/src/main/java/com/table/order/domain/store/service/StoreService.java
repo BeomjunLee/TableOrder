@@ -10,12 +10,14 @@ import com.table.order.domain.user.repository.UserRepository;
 import com.table.order.global.common.exception.CustomIllegalArgumentException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import static com.table.order.global.common.code.CustomErrorCode.ERROR_NOT_FOUND_USER;
 import static com.table.order.global.common.code.ResultCode.RESULT_ENROLL_STORE;
 
 @Service
 @RequiredArgsConstructor
+@Transactional
 public class StoreService {
 
     private final StoreRepository storeRepository;

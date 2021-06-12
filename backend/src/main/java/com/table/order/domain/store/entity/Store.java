@@ -2,6 +2,7 @@ package com.table.order.domain.store.entity;
 
 import com.table.order.domain.BaseEntity;
 import com.table.order.domain.category.entity.Category;
+import com.table.order.domain.item.dto.request.RequestAddItem;
 import com.table.order.domain.store.dto.request.RequestEnrollStore;
 import com.table.order.domain.store.exception.CustomAccessDeniedException;
 import com.table.order.domain.user.entity.User;
@@ -15,6 +16,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import static com.table.order.global.common.code.CustomErrorCode.ERROR_ACCESS_DENIED;
 
