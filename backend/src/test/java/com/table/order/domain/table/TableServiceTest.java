@@ -17,10 +17,7 @@ import com.table.order.domain.table.entity.TableStatus;
 import com.table.order.domain.table.repository.TableQueryRepository;
 import com.table.order.domain.table.repository.TableRepository;
 import com.table.order.domain.table.service.TableService;
-import com.table.order.global.common.code.CustomErrorCode;
-import com.table.order.global.common.code.ResultCode;
 import com.table.order.global.common.exception.CustomIllegalArgumentException;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -40,9 +37,8 @@ import java.util.Optional;
 import static com.table.order.global.common.code.CustomErrorCode.ERROR_INVALID_STORE;
 import static com.table.order.global.common.code.CustomErrorCode.ERROR_NOT_FOUND_STORE;
 import static com.table.order.global.common.code.ResultCode.RESULT_ADD_TABLE;
-import static com.table.order.global.common.code.ResultCode.RESULT_SELECT_TABLES;
+import static com.table.order.global.common.code.ResultCode.RESULT_FIND_TABLES;
 import static org.assertj.core.api.Assertions.*;
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.BDDMockito.given;
@@ -202,8 +198,8 @@ class TableServiceTest {
         given(tableQueryRepository.findAllJoinStoreUserOrder("test", pageable)).willReturn(pageResultTable);
 
         ResponseTables responseTables = ResponseTables.builder()
-                .status(RESULT_SELECT_TABLES.getStatus())
-                .message(RESULT_SELECT_TABLES.getMessage())
+                .status(RESULT_FIND_TABLES.getStatus())
+                .message(RESULT_FIND_TABLES.getMessage())
                 .data(pageResultDto)
                 .build();
 

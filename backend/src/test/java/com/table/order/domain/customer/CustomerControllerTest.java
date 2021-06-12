@@ -5,8 +5,6 @@ import com.table.order.domain.customer.controller.CustomerController;
 import com.table.order.domain.customer.dto.request.RequestLoginCustomer;
 import com.table.order.domain.customer.dto.response.ResponseLoginCustomer;
 import com.table.order.domain.customer.service.CustomerService;
-import com.table.order.domain.store.repository.StoreRepository;
-import com.table.order.domain.table.repository.TableRepository;
 import com.table.order.domain.user.service.SecurityService;
 import com.table.order.global.security.exception.JwtAccessDeniedHandler;
 import com.table.order.global.security.exception.JwtAuthenticationEntryPoint;
@@ -17,7 +15,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.restdocs.AutoConfigureRestDocs;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.http.HttpStatus;
 import org.springframework.restdocs.payload.JsonFieldType;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.test.web.servlet.MockMvc;
@@ -59,8 +56,8 @@ class CustomerControllerTest {
     public void scanQrCode() throws Exception{
         //given
         ResponseLoginCustomer responseLoginCustomer = ResponseLoginCustomer.builder()
-                .status(RESULT_CUSTOMER_SIGN_UP.getStatus())
-                .message(RESULT_CUSTOMER_SIGN_UP.getMessage())
+                .status(RESULT_SIGN_UP_CUSTOMER.getStatus())
+                .message(RESULT_SIGN_UP_CUSTOMER.getMessage())
                 .accessToken("(accessToken)")
                 .expiredAt(LocalDateTime.now().plusSeconds(1800))
                 .build();
@@ -76,7 +73,7 @@ class CustomerControllerTest {
                 .build();
 
         ResultActions result = mockMvc.perform(
-                post("/customers")
+                post("/app/customers")
                         .contentType(APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(requestLoginCustomer))
                         .accept(APPLICATION_JSON))
@@ -121,7 +118,7 @@ class CustomerControllerTest {
                 .build();
 
         ResultActions result = mockMvc.perform(
-                post("/customers")
+                post("/app/customers")
                         .contentType(APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(requestLoginCustomer))
                         .accept(APPLICATION_JSON))
@@ -166,7 +163,7 @@ class CustomerControllerTest {
                 .build();
 
         ResultActions result = mockMvc.perform(
-                post("/customers")
+                post("/app/customers")
                         .contentType(APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(requestLoginCustomer))
                         .accept(APPLICATION_JSON))

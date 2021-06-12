@@ -7,7 +7,6 @@ import com.table.order.domain.table.dto.TableDto;
 import com.table.order.domain.table.dto.request.RequestAddTable;
 import com.table.order.domain.table.dto.response.ResponseAddTable;
 import com.table.order.domain.table.dto.response.ResponseTables;
-import com.table.order.domain.table.entity.Table;
 import com.table.order.domain.table.entity.TableStatus;
 import com.table.order.domain.table.service.TableService;
 import com.table.order.domain.user.entity.UserRole;
@@ -37,8 +36,7 @@ import java.util.List;
 
 import static com.table.order.global.common.RoleToCollection.authorities;
 import static com.table.order.global.common.code.ResultCode.RESULT_ADD_TABLE;
-import static com.table.order.global.common.code.ResultCode.RESULT_SELECT_TABLES;
-import static org.junit.jupiter.api.Assertions.*;
+import static com.table.order.global.common.code.ResultCode.RESULT_FIND_TABLES;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.BDDMockito.given;
@@ -169,8 +167,8 @@ class TableControllerTest {
         Page<TableDto> pageResult = new PageImpl<TableDto>(tables, pageable, 2);
 
         ResponseTables responseTables = ResponseTables.builder()
-                .status(RESULT_SELECT_TABLES.getStatus())
-                .message(RESULT_SELECT_TABLES.getMessage())
+                .status(RESULT_FIND_TABLES.getStatus())
+                .message(RESULT_FIND_TABLES.getMessage())
                 .data(pageResult)
                 .build();
 

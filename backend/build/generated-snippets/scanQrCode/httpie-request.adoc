@@ -1,6 +1,6 @@
 [source,bash]
 ----
-$ echo '{"username":"7c982859267771f3","storeId":2,"tableId":1}' | http POST 'http://localhost:8080/customers' \
+$ echo '{"username":"7c982859267771f3","storeId":2,"tableId":1}' | http POST 'http://localhost:8080/app/customers' \
     'Content-Type:application/json;charset=UTF-8' \
     'Accept:application/json'
 ----

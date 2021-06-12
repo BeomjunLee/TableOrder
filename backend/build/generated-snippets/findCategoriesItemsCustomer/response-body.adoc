@@ -1,0 +1,4 @@
+[source,options="nowrap"]
+----
+{"status":200,"message":"카테고리, 메뉴 검색 성공","data":[{"id":5,"name":"카테고리1","items":[{"id":1,"name":"메뉴1","description":"메뉴 설명","price":2000,"image":"이미지 주소"},{"id":2,"name":"메뉴2","description":"메뉴 설명","price":4000,"image":"이미지 주소"}]},{"id":6,"name":"카테고리2","items":[{"id":3,"name":"메뉴1","description":"메뉴 설명","price":2000,"image":"이미지 주소"},{"id":4,"name":"메뉴2","description":"메뉴 설명","price":4000,"image":"이미지 주소"}]}]}
+----

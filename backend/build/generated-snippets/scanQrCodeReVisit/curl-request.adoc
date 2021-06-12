@@ -1,6 +1,6 @@
 [source,bash]
 ----
-$ curl 'http://localhost:8080/customers' -i -X POST \
+$ curl 'http://localhost:8080/app/customers' -i -X POST \
     -H 'Content-Type: application/json;charset=UTF-8' \
     -H 'Accept: application/json' \
     -d '{"username":"7c982859267771f3","storeId":2,"tableId":1}'

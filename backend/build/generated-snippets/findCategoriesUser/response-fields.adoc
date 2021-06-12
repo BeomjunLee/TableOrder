@@ -1,0 +1,40 @@
+|===
+|Path|Type|Description
+
+|`+status+`
+|`+Number+`
+|상태 코드
+
+|`+message+`
+|`+String+`
+|결과 메세지
+
+|`+data.[].id+`
+|`+Number+`
+|카테고리 고유 id
+
+|`+data.[].name+`
+|`+String+`
+|카테고리명
+
+|`+data.[].items.[].id+`
+|`+Number+`
+|메뉴 고유 id
+
+|`+data.[].items.[].name+`
+|`+String+`
+|메뉴명
+
+|`+data.[].items.[].description+`
+|`+String+`
+|메뉴 설명
+
+|`+data.[].items.[].price+`
+|`+Number+`
+|메뉴 가격
+
+|`+data.[].items.[].image+`
+|`+String+`
+|메뉴 이미지
+
+|===

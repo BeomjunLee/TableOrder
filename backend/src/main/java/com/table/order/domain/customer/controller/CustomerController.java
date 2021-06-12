@@ -16,7 +16,7 @@ import static org.springframework.http.HttpStatus.CREATED;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/customers")
+@RequestMapping("/app/customers")
 public class CustomerController {
 
     private final CustomerService customerService;
