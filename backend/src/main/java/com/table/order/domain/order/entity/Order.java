@@ -2,7 +2,10 @@ package com.table.order.domain.order.entity;
 
 import com.table.order.domain.BaseEntity;
 import com.table.order.domain.customer.entity.Customer;
+import com.table.order.domain.item.dto.OrderItemDto;
 import com.table.order.domain.item.entity.Item;
+import com.table.order.domain.order.dto.request.RequestCreateOrder;
+import com.table.order.domain.store.exception.CustomAccessDeniedException;
 import com.table.order.domain.table.entity.Table;
 import lombok.AccessLevel;
 import lombok.Builder;
@@ -10,6 +13,11 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
+
+import static com.table.order.global.common.code.CustomErrorCode.ERROR_ALREADY_COMP;
+import static com.table.order.global.common.code.CustomErrorCode.ERROR_IN_USE_TABLE;
 
 @Entity
 @Getter
@@ -53,6 +61,32 @@ public class Order extends BaseEntity {
         this.request = request;
         this.orderStatus = orderStatus;
         this.item = item;
+    }
+
+    public static List<Order> createOrder(RequestCreateOrder requestCreateOrder, List<Item> items, Customer customer) {
+        List<Order> orders = new ArrayList<>();
+
+        for (int i = 0; i < items.size(); i++) {
+            Order order = Order.builder()
+                    .orderPrice(items.get(i).getPrice() * requestCreateOrder.getItems().get(i).getCount())
+                    .count(requestCreateOrder.getItems().get(i).getCount())
+                    .request(requestCreateOrder.getRequest())
+                    .orderStatus(OrderStatus.ORDER)
+                    .item(items.get(i))
+                    .build();
+            order.setTable(customer.getTable());
+            order.setCustomer(customer);
+            order.validate();
+
+            orders.add(order);
+        }
+
+        return orders;
+    }
+
+    private void validate() {
+        if(table.isComp())
+            throw new CustomAccessDeniedException(ERROR_ALREADY_COMP.getErrorCode(), ERROR_ALREADY_COMP.getMessage());
     }
 
     private void ordered() {

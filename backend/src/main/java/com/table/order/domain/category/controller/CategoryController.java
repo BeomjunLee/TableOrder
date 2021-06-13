@@ -1,5 +1,4 @@
 package com.table.order.domain.category.controller;
-
 import com.table.order.domain.category.dto.request.RequestAddCategory;
 import com.table.order.domain.category.dto.response.ResponseAddCategory;
 import com.table.order.domain.category.dto.response.ResponseCategoriesItems;
@@ -8,8 +7,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 import static org.springframework.http.HttpStatus.CREATED;
 
@@ -29,12 +26,12 @@ public class CategoryController {
 
     @GetMapping("/categories/items")
     @PreAuthorize("hasRole('ROLE_USER')")
-    public ResponseCategoriesItems findCategoriesUser(Authentication authentication) {
+    public ResponseCategoriesItems findCategoriesItemsUser(Authentication authentication) {
         return categoryService.findCategoriesUser(authentication.getName());
     }
 
     @GetMapping("/app/categories/items")
-    public ResponseCategoriesItems findCategoriesCustomer(Authentication authentication) {
+    public ResponseCategoriesItems findCategoriesItemsCustomer(Authentication authentication) {
         return categoryService.findCategoriesCustomer(authentication.getName());
     }
 }

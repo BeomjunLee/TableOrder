@@ -30,8 +30,6 @@ public class Table {
 
     private int numberOfPeople;
 
-    private int totalPrice;
-
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private TableStatus tableStatus;
@@ -75,5 +73,10 @@ public class Table {
         return false;
     }
 
+    public boolean isComp() {
+        if(tableStatus == TableStatus.COMP)
+            return true;
+        return false;
+    }
 
 }

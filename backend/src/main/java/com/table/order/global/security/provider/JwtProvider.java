@@ -93,12 +93,12 @@ public class JwtProvider {
     public Authentication getAuthentication(String token) {
         Claims claims = Jwts.parserBuilder().setSigningKey(key).build().parseClaimsJws(token).getBody();
 
-        if(claims.get("roles") == null || claims.get("tableId") == null)
-            return new UsernamePasswordAuthenticationToken(claims.getSubject(), "", null);
+        if(claims.get("tableId") != null)
+            return new UsernamePasswordAuthenticationToken(claims.getSubject(), claims.get("tableId"), null);
 
         String[] roles = claims.get("roles").toString().split(",");
         List<SimpleGrantedAuthority> authorities = Arrays.stream(roles).map(role -> new SimpleGrantedAuthority(role)).collect(Collectors.toList());
 
-        return new UsernamePasswordAuthenticationToken(claims.getSubject(), claims.get("tableId"), authorities);
+        return new UsernamePasswordAuthenticationToken(claims.getSubject(), "", authorities);
     }
 }

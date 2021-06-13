@@ -8,7 +8,7 @@ Cache-Control: no-cache, no-store, max-age=0, must-revalidate
 Pragma: no-cache
 Expires: 0
 X-Frame-Options: DENY
-Content-Length: 127
+Content-Length: 146
 
-{"status":201,"message":"테이블 추가 성공","data":{"id":1,"name":"테이블 1","numberOfPeople":5,"tableStatus":"OPEN"}}
+{"status":201,"message":"테이블 추가 성공","data":{"id":1,"name":"테이블 1","numberOfPeople":5,"totalPrice":10000,"tableStatus":"OPEN"}}
 ----

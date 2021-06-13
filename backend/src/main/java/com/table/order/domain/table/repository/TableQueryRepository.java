@@ -45,15 +45,15 @@ public class TableQueryRepository {
         return Optional.ofNullable(findTable);
     }
 
-    public Page<Table> findAllJoinStoreUserOrder(String username, Pageable pageable) {
+    public Page<Table> findAllJoinStoreUserOrder(String username, OrderStatus orderStatus, Pageable pageable) {
         QueryResults<Table> results = queryFactory
                 .selectDistinct(table)
                 .from(table)
                 .join(table.store, store)
                 .join(store.user, user)
                 .leftJoin(table.orders, order).fetchJoin()
-                .leftJoin(order.item, item)
-                .where(user.username.eq(username))
+                .leftJoin(order.item, item).fetchJoin()
+                .where(user.username.eq(username), order.orderStatus.eq(orderStatus))
                 .offset(pageable.getOffset())
                 .limit(pageable.getPageSize())
                 .fetchResults();

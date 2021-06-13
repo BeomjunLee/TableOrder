@@ -1,0 +1,7 @@
+[source,bash]
+----
+$ echo '{"items":[{"id":1,"count":1},{"id":2,"count":2},{"id":3,"count":3}],"request":"잘부탁드립니다"}' | http POST 'http://localhost:8080/app/orders' \
+    'Content-Type:application/json;charset=UTF-8' \
+    'Authorization:Bearer (accessToken)' \
+    'Accept:application/json'
+----

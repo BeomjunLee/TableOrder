@@ -1,5 +1,6 @@
 package com.table.order.domain.category.dto;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.table.order.domain.item.dto.ItemDto;
 import lombok.AccessLevel;
 import lombok.Builder;
@@ -10,6 +11,7 @@ import java.util.List;
 
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class CategoryDto {
     private Long id;
     private String name;

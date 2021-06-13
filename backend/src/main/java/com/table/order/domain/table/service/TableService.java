@@ -1,6 +1,7 @@
 package com.table.order.domain.table.service;
 
 import com.table.order.domain.order.dto.OrderDto;
+import com.table.order.domain.order.entity.Order;
 import com.table.order.domain.order.entity.OrderStatus;
 import com.table.order.domain.store.entity.Store;
 import com.table.order.domain.store.repository.StoreQueryRepository;
@@ -50,7 +51,6 @@ public class TableService {
                 .id(savedTable.getId())
                 .name(savedTable.getName())
                 .numberOfPeople(savedTable.getNumberOfPeople())
-                .totalPrice(savedTable.getTotalPrice())
                 .tableStatus(savedTable.getTableStatus())
                 .build();
 
@@ -69,22 +69,23 @@ public class TableService {
      */
     @Transactional(readOnly = true)
     public ResponseTables findTables(String username, Pageable pageable) {
-        Page<Table> tables = tableQueryRepository.findAllJoinStoreUserOrder(username, pageable);
+        Page<Table> tables = tableQueryRepository.findAllJoinStoreUserOrder(username, OrderStatus.ORDER, pageable);
 
         Page<TableDto> results = tables.map(table -> TableDto.builder()
                 .id(table.getId())
                 .name(table.getName())
                 .numberOfPeople(table.getNumberOfPeople())
-                .totalPrice(table.getTotalPrice())
                 .tableStatus(table.getTableStatus())
-                .orders(table.getOrders().stream().filter(order -> order.getOrderStatus() == OrderStatus.ORDER).map(order -> OrderDto.builder()
+                .orders(table.getOrders().stream().map(order -> OrderDto.builder()
                         .id(order.getId())
                         .name(order.getItem().getName())
                         .orderPrice(order.getOrderPrice())
                         .count(order.getCount())
                         .request(order.getRequest())
                         .orderStatus(order.getOrderStatus())
-                        .build()).collect(Collectors.toList()))
+                        .build())
+                        .collect(Collectors.toList()))
+                .totalPrice(table.getOrders().stream().mapToInt(order -> order.getOrderPrice()).sum())
                 .build());
 
         return ResponseTables.builder()

@@ -1,0 +1,36 @@
+|===
+|Path|Type|Description
+
+|`+status+`
+|`+Number+`
+|상태 코드
+
+|`+message+`
+|`+String+`
+|결과 메세지
+
+|`+data.[].id+`
+|`+Number+`
+|주문 고유 id
+
+|`+data.[].name+`
+|`+String+`
+|메뉴 이름
+
+|`+data.[].orderPrice+`
+|`+Number+`
+|주문 가격
+
+|`+data.[].count+`
+|`+Number+`
+|주문 갯수
+
+|`+data.[].request+`
+|`+String+`
+|주문 요청사항
+
+|`+data.[].orderStatus+`
+|`+String+`
+|주문 상태
+
+|===

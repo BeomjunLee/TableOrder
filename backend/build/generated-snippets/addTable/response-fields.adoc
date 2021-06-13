@@ -21,6 +21,10 @@
 |`+Number+`
 |테이블 좌석 수
 
+|`+data.totalPrice+`
+|`+Number+`
+|테이블 총 주문 가격
+
 |`+data.tableStatus+`
 |`+String+`
 |테이블 상태
