@@ -74,7 +74,8 @@
        - 수정: 음식들 우측에 x표시가 나타나고 누른다음 수정 완료를 클릭하여 해당 음식을 접수내역에서 삭제 및 수량 조절을 할 수 있다.
        - 삭제: 접수 내역을 삭제한다.
        - 시간표시: 우측 상단에 해당 접수가 얼마나 경과되었는지 확인 할 수 있다.
+<br>
 
 ### Entity 매핑
-<img src="https://user-images.githubusercontent.com/69130921/121398708-9a87d980-c990-11eb-8b99-178cc1e8264d.png"><br>
+<img src="https://user-images.githubusercontent.com/69130921/121806580-5eec5880-cc8b-11eb-97c4-c45b4688ea8d.png"><br>
 
