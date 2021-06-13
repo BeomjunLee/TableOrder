@@ -165,6 +165,7 @@ class TableServiceTest {
             TableDto tableDto = TableDto.builder()
                     .name("테이블"+i)
                     .numberOfPeople(5)
+                    .totalPrice(15000)
                     .tableStatus(TableStatus.OPEN)
                     .orders(orderDtos)
                     .build();
@@ -195,7 +196,7 @@ class TableServiceTest {
         }
         Page<Table> pageResultTable = new PageImpl<Table>(tables, pageable, 2);
 
-        given(tableQueryRepository.findAllJoinStoreUserOrder("test", pageable)).willReturn(pageResultTable);
+        given(tableQueryRepository.findAllJoinStoreUserOrder("test", OrderStatus.ORDER, pageable)).willReturn(pageResultTable);
 
         ResponseTables responseTables = ResponseTables.builder()
                 .status(RESULT_FIND_TABLES.getStatus())

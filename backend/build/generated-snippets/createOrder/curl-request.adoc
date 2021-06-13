@@ -1,0 +1,8 @@
+[source,bash]
+----
+$ curl 'http://localhost:8080/app/orders' -i -X POST \
+    -H 'Content-Type: application/json;charset=UTF-8' \
+    -H 'Authorization: Bearer (accessToken)' \
+    -H 'Accept: application/json' \
+    -d '{"items":[{"id":1,"count":1},{"id":2,"count":2},{"id":3,"count":3}],"request":"잘부탁드립니다"}'
+----

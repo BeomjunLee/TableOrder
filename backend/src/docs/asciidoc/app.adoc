@@ -115,3 +115,13 @@ include::{snippets}/findCategoriesItemsCustomer/request-headers.adoc[]
 include::{snippets}/findCategoriesItemsCustomer/http-request.adoc[]
 include::{snippets}/findCategoriesItemsCustomer/http-response.adoc[]
 include::{snippets}/findCategoriesItemsCustomer/response-fields.adoc[]
+
+=== 주문 생성
+
+`POST` 손님은 장바구니에 담긴 메뉴들을 한번에 주문할 수 있다.
+
+include::{snippets}/createOrder/request-headers.adoc[]
+include::{snippets}/createOrder/http-request.adoc[]
+include::{snippets}/createOrder/request-fields.adoc[]
+include::{snippets}/createOrder/http-response.adoc[]
+include::{snippets}/createOrder/response-fields.adoc[]

@@ -10,12 +10,10 @@ import lombok.NoArgsConstructor;
 public class OrderItemDto {
     private Long id;
     private int count;
-    private String request;
 
     @Builder
-    public OrderItemDto(Long id, int count, String request) {
+    public OrderItemDto(Long id, int count) {
         this.id = id;
         this.count = count;
-        this.request = request;
     }
 }

@@ -9,7 +9,6 @@ import com.table.order.domain.order.dto.request.RequestCreateOrder;
 import com.table.order.domain.order.dto.response.ResponseCreateOrder;
 import com.table.order.domain.order.entity.Order;
 import com.table.order.domain.order.repository.OrderRepository;
-import com.table.order.global.common.code.CustomErrorCode;
 import com.table.order.global.common.exception.CustomIllegalArgumentException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -20,7 +19,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static com.table.order.global.common.code.CustomErrorCode.ERROR_NOT_FOUND_USER_TABLE;
+import static com.table.order.global.common.code.CustomErrorCode.ERROR_NOT_FOUND_CUSTOMER_TABLE;
 import static com.table.order.global.common.code.ResultCode.*;
 
 @Service
@@ -40,7 +39,7 @@ public class OrderService {
      */
     public ResponseCreateOrder createOrder(RequestCreateOrder requestCreateOrder, String username) {
         Customer findCustomer = customerQueryRepository.findByUsernameJoinTable(username)
-                .orElseThrow(() -> new CustomIllegalArgumentException(ERROR_NOT_FOUND_USER_TABLE.getErrorCode(), ERROR_NOT_FOUND_USER_TABLE.getMessage()));
+                .orElseThrow(() -> new CustomIllegalArgumentException(ERROR_NOT_FOUND_CUSTOMER_TABLE.getErrorCode(), ERROR_NOT_FOUND_CUSTOMER_TABLE.getMessage()));
 
         List<OrderItemDto> orderItemDtos = requestCreateOrder.getItems().stream()
                 .sorted(Comparator.comparing(item -> item.getId()))
@@ -48,7 +47,7 @@ public class OrderService {
 
         List<Item> findItems = itemQueryRepository.findAllByItemIds(orderItemDtos);
 
-        List<Order> orders = Order.createOrder(orderItemDtos, findItems, findCustomer);
+        List<Order> orders = Order.createOrder(requestCreateOrder, findItems, findCustomer);
         List<Order> savedOrders = orderRepository.saveAll(orders);
 
         return ResponseCreateOrder.builder()
@@ -57,6 +56,7 @@ public class OrderService {
                 .data(transferOrderDtos(findItems, savedOrders))
                 .build();
     }
+
 
     private List<OrderDto> transferOrderDtos(List<Item> findItems, List<Order> savedOrders) {
         List<OrderDto> orderDtos = new ArrayList<>();

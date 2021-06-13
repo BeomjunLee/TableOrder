@@ -1,0 +1,16 @@
+|===
+|Path|Type|Description
+
+|`+items.[].id+`
+|`+Number+`
+|메뉴 고유 id
+
+|`+items.[].count+`
+|`+Number+`
+|메뉴 주문 개수
+
+|`+request+`
+|`+String+`
+|주문 요청사항
+
+|===

@@ -1,0 +1,14 @@
+[source,http,options="nowrap"]
+----
+HTTP/1.1 201 Created
+Content-Type: application/json
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 1; mode=block
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Pragma: no-cache
+Expires: 0
+X-Frame-Options: DENY
+Content-Length: 386
+
+{"status":201,"message":"주문 생성 성공","data":[{"id":1,"name":"메뉴1","orderPrice":1000,"count":1,"request":"잘부탁드립니다","orderStatus":"ORDER"},{"id":2,"name":"메뉴2","orderPrice":2000,"count":2,"request":"잘부탁드립니다","orderStatus":"ORDER"},{"id":3,"name":"메뉴3","orderPrice":3000,"count":3,"request":"잘부탁드립니다","orderStatus":"ORDER"}]}
+----

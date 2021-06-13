@@ -16,6 +16,7 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.table.order.global.common.code.CustomErrorCode.ERROR_ALREADY_COMP;
 import static com.table.order.global.common.code.CustomErrorCode.ERROR_IN_USE_TABLE;
 
 @Entity
@@ -62,15 +63,14 @@ public class Order extends BaseEntity {
         this.item = item;
     }
 
-    public static List<Order> createOrder(List<OrderItemDto> orderItemDtos, List<Item> items, Customer customer) {
+    public static List<Order> createOrder(RequestCreateOrder requestCreateOrder, List<Item> items, Customer customer) {
         List<Order> orders = new ArrayList<>();
-        int totalPrice = customer.getTable().getTotalPrice();
 
         for (int i = 0; i < items.size(); i++) {
             Order order = Order.builder()
-                    .orderPrice(items.get(i).getPrice() * orderItemDtos.get(i).getCount())
-                    .count(orderItemDtos.get(i).getCount())
-                    .request(orderItemDtos.get(i).getRequest())
+                    .orderPrice(items.get(i).getPrice() * requestCreateOrder.getItems().get(i).getCount())
+                    .count(requestCreateOrder.getItems().get(i).getCount())
+                    .request(requestCreateOrder.getRequest())
                     .orderStatus(OrderStatus.ORDER)
                     .item(items.get(i))
                     .build();
@@ -78,18 +78,15 @@ public class Order extends BaseEntity {
             order.setCustomer(customer);
             order.validate();
 
-            totalPrice += order.getOrderPrice();
-
             orders.add(order);
         }
-        customer.getTable().updateTotalPrice(totalPrice);
 
         return orders;
     }
 
     private void validate() {
-        if(!table.isOpen())
-            throw new CustomAccessDeniedException(ERROR_IN_USE_TABLE.getErrorCode(), ERROR_IN_USE_TABLE.getMessage());
+        if(table.isComp())
+            throw new CustomAccessDeniedException(ERROR_ALREADY_COMP.getErrorCode(), ERROR_ALREADY_COMP.getMessage());
     }
 
     private void ordered() {

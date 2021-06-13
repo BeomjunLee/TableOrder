@@ -1,9 +1,11 @@
 [source,http,options="nowrap"]
 ----
-GET /categories/items HTTP/1.1
+POST /app/orders HTTP/1.1
 Content-Type: application/json;charset=UTF-8
 Authorization: Bearer (accessToken)
 Accept: application/json
+Content-Length: 102
 Host: localhost:8080
 
+{"items":[{"id":1,"count":1},{"id":2,"count":2},{"id":3,"count":3}],"request":"잘부탁드립니다"}
 ----
