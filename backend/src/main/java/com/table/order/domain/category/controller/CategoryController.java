@@ -38,12 +38,14 @@ public class CategoryController {
     }
 
     @DeleteMapping("/categories/{categoryId}")
+    @PreAuthorize("hasRole('ROLE_USER')")
     public ResponseResult deleteCategory(@PathVariable Long categoryId,
                                          Authentication authentication) {
         return categoryService.deleteCategory(categoryId, authentication.getName());
     }
 
     @PutMapping("/categories/{categoryId}")
+    @PreAuthorize("hasRole('ROLE_USER')")
     public ResponseResult updateCategory(@PathVariable Long categoryId,
                                          @RequestBody RequestUpdateCategory requestUpdateCategory,
                                          Authentication authentication) {
