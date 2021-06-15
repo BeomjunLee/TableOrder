@@ -11,6 +11,7 @@ import com.table.order.domain.item.dto.ItemDto;
 import com.table.order.domain.store.entity.Store;
 import com.table.order.domain.store.repository.StoreQueryRepository;
 import com.table.order.global.common.exception.CustomIllegalArgumentException;
+import com.table.order.global.common.response.ResponseResult;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -18,9 +19,8 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static com.table.order.global.common.code.CustomErrorCode.ERROR_NOT_FOUND_STORE;
-import static com.table.order.global.common.code.ResultCode.RESULT_ADD_CATEGORY;
-import static com.table.order.global.common.code.ResultCode.RESULT_FIND_CATEGORIES_ITEMS;
+import static com.table.order.global.common.code.CustomErrorCode.*;
+import static com.table.order.global.common.code.ResultCode.*;
 
 @Service
 @RequiredArgsConstructor
@@ -102,6 +102,23 @@ public class CategoryService {
                 .status(RESULT_FIND_CATEGORIES_ITEMS.getStatus())
                 .message(RESULT_FIND_CATEGORIES_ITEMS.getMessage())
                 .data(categoryDtos)
+                .build();
+    }
+
+    /**
+     * 카테고리 삭제 (삭제시 관련 item 들도 다 삭제)
+     * @param categoryId 카테고리 고유 id
+     * @param username 회원 아이디
+     * @return 응답 dto
+     */
+    public ResponseResult deleteCategory(Long categoryId, String username) {
+        Category findCategory = categoryQueryRepository.findByIdJoinStoreUser(categoryId, username)
+                .orElseThrow(() -> new CustomIllegalArgumentException(ERROR_DELETE_CATEGORY.getErrorCode(), ERROR_DELETE_CATEGORY.getMessage()));
+
+        categoryRepository.delete(findCategory);
+        return ResponseResult.builder()
+                .status(RESULT_DELETE_CATEGORY.getStatus())
+                .message(RESULT_DELETE_CATEGORY.getMessage())
                 .build();
     }
 }

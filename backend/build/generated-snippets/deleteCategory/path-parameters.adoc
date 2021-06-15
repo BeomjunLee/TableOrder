@@ -1,0 +1,8 @@
+.+/categories/{categoryId}+
+|===
+|Parameter|Description
+
+|`+categoryId+`
+|카테고리 고유 id
+
+|===
