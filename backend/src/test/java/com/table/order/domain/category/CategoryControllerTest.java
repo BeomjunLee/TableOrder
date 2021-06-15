@@ -3,12 +3,14 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.table.order.domain.category.controller.CategoryController;
 import com.table.order.domain.category.dto.CategoryDto;
 import com.table.order.domain.category.dto.request.RequestAddCategory;
+import com.table.order.domain.category.dto.request.RequestUpdateCategory;
 import com.table.order.domain.category.dto.response.ResponseAddCategory;
 import com.table.order.domain.category.dto.response.ResponseCategoriesItems;
 import com.table.order.domain.category.service.CategoryService;
 import com.table.order.domain.item.dto.ItemDto;
 import com.table.order.domain.user.entity.UserRole;
 import com.table.order.domain.user.service.SecurityService;
+import com.table.order.global.common.response.ResponseResult;
 import com.table.order.global.security.exception.JwtAccessDeniedHandler;
 import com.table.order.global.security.exception.JwtAuthenticationEntryPoint;
 import com.table.order.global.security.provider.JwtProvider;
@@ -29,18 +31,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static com.table.order.global.common.RoleToCollection.authorities;
-import static com.table.order.global.common.code.ResultCode.RESULT_ADD_CATEGORY;
-import static com.table.order.global.common.code.ResultCode.RESULT_FIND_CATEGORIES_ITEMS;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.anyString;
+import static com.table.order.global.common.code.ResultCode.*;
+import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.BDDMockito.given;
 import static org.springframework.restdocs.headers.HeaderDocumentation.headerWithName;
 import static org.springframework.restdocs.headers.HeaderDocumentation.requestHeaders;
 import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.document;
-import static org.springframework.restdocs.mockmvc.RestDocumentationRequestBuilders.get;
-import static org.springframework.restdocs.mockmvc.RestDocumentationRequestBuilders.post;
+import static org.springframework.restdocs.mockmvc.RestDocumentationRequestBuilders.*;
 import static org.springframework.restdocs.payload.PayloadDocumentation.*;
 import static org.springframework.restdocs.payload.PayloadDocumentation.fieldWithPath;
+import static org.springframework.restdocs.request.RequestDocumentation.parameterWithName;
+import static org.springframework.restdocs.request.RequestDocumentation.pathParameters;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -263,6 +264,84 @@ class CategoryControllerTest {
                                 fieldWithPath("data.[].items.[].description").type(JsonFieldType.STRING).description("메뉴 설명"),
                                 fieldWithPath("data.[].items.[].price").type(JsonFieldType.NUMBER).description("메뉴 가격"),
                                 fieldWithPath("data.[].items.[].image").type(JsonFieldType.STRING).description("메뉴 이미지")
+                        )
+                ));
+    }
+
+    @Test
+    @DisplayName("카테고리 삭제 테스트")
+    public void deleteCategory() throws Exception{
+        //given
+        ResponseResult responseResult = ResponseResult.builder()
+                .status(RESULT_DELETE_CATEGORY.getStatus())
+                .message(RESULT_DELETE_CATEGORY.getMessage())
+                .build();
+
+        UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken("test", "1234", authorities(UserRole.USER));
+        given(jwtProvider.getAuthentication(anyString())).willReturn(authentication);
+        given(categoryService.deleteCategory(anyLong(), anyString())).willReturn(responseResult);
+        //when
+        ResultActions result = mockMvc.perform(
+                delete("/categories/{categoryId}", 1L).header("Authorization","Bearer (accessToken)")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .accept(MediaType.APPLICATION_JSON))
+                .andDo(print());
+
+        //then
+        result.andExpect(status().isOk())
+                .andDo(document("deleteCategory",
+                        requestHeaders(
+                                headerWithName("Authorization").description("Bearer + (로그인 요청 access 토큰)")
+                        ),
+                        pathParameters(
+                                parameterWithName("categoryId").description("카테고리 고유 id")
+                        ),
+                        responseFields(
+                                fieldWithPath("status").type(JsonFieldType.NUMBER).description("상태 코드"),
+                                fieldWithPath("message").type(JsonFieldType.STRING).description("결과 메세지")
+                        )
+                ));
+    }
+
+    @Test
+    @DisplayName("카테고리 수정 테스트")
+    public void updateCategory() throws Exception{
+        //given
+        ResponseResult responseResult = ResponseResult.builder()
+                .status(RESULT_UPDATE_CATEGORY.getStatus())
+                .message(RESULT_UPDATE_CATEGORY.getMessage())
+                .build();
+
+        UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken("test", "1234", authorities(UserRole.USER));
+        given(jwtProvider.getAuthentication(anyString())).willReturn(authentication);
+        given(categoryService.updateCategory(anyLong(), anyString(), any(RequestUpdateCategory.class))).willReturn(responseResult);
+        //when
+        RequestUpdateCategory requestUpdateCategory = RequestUpdateCategory.builder()
+                .name("수정된 카테고리명")
+                .build();
+
+        ResultActions result = mockMvc.perform(
+                put("/categories/{categoryId}", 1L).header("Authorization","Bearer (accessToken)")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .accept(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(requestUpdateCategory)))
+                .andDo(print());
+
+        //then
+        result.andExpect(status().isOk())
+                .andDo(document("updateCategory",
+                        requestHeaders(
+                                headerWithName("Authorization").description("Bearer + (로그인 요청 access 토큰)")
+                        ),
+                        pathParameters(
+                                parameterWithName("categoryId").description("카테고리 고유 id")
+                        ),
+                        requestFields(
+                                fieldWithPath("name").type(JsonFieldType.STRING).description("카테고리명")
+                        ),
+                        responseFields(
+                                fieldWithPath("status").type(JsonFieldType.NUMBER).description("상태 코드"),
+                                fieldWithPath("message").type(JsonFieldType.STRING).description("결과 메세지")
                         )
                 ));
     }

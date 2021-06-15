@@ -20,7 +20,9 @@ public enum ResultCode {
     RESULT_ADD_ITEM(CREATED.value(), "메뉴 추가 성공"),
     RESULT_CREATE_ORDER(CREATED.value(), "주문 생성 성공"),
     RESULT_FIND_TABLES(OK.value(), "테이블 검색 성공"),
-    RESULT_FIND_CATEGORIES_ITEMS(OK.value(), "카테고리, 메뉴 검색 성공")
+    RESULT_FIND_CATEGORIES_ITEMS(OK.value(), "카테고리, 메뉴 검색 성공"),
+    RESULT_DELETE_CATEGORY(OK.value(), "카테고리 삭제 성공"),
+    RESULT_UPDATE_CATEGORY(OK.value(), "카테고리 수정 성공")
     ;
 
     private final int status;

@@ -1,8 +1,10 @@
 package com.table.order.domain.category.controller;
 import com.table.order.domain.category.dto.request.RequestAddCategory;
+import com.table.order.domain.category.dto.request.RequestUpdateCategory;
 import com.table.order.domain.category.dto.response.ResponseAddCategory;
 import com.table.order.domain.category.dto.response.ResponseCategoriesItems;
 import com.table.order.domain.category.service.CategoryService;
+import com.table.order.global.common.response.ResponseResult;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
@@ -33,5 +35,20 @@ public class CategoryController {
     @GetMapping("/app/categories/items")
     public ResponseCategoriesItems findCategoriesItemsCustomer(Authentication authentication) {
         return categoryService.findCategoriesCustomer(authentication.getName());
+    }
+
+    @DeleteMapping("/categories/{categoryId}")
+    @PreAuthorize("hasRole('ROLE_USER')")
+    public ResponseResult deleteCategory(@PathVariable Long categoryId,
+                                         Authentication authentication) {
+        return categoryService.deleteCategory(categoryId, authentication.getName());
+    }
+
+    @PutMapping("/categories/{categoryId}")
+    @PreAuthorize("hasRole('ROLE_USER')")
+    public ResponseResult updateCategory(@PathVariable Long categoryId,
+                                         @RequestBody RequestUpdateCategory requestUpdateCategory,
+                                         Authentication authentication) {
+        return categoryService.updateCategory(categoryId, authentication.getName(), requestUpdateCategory);
     }
 }

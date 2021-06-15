@@ -14,12 +14,11 @@ import static org.springframework.http.HttpStatus.CREATED;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/tables")
 public class TableController {
 
     private final TableService tableService;
 
-    @PostMapping("")
+    @PostMapping("/tables")
     @ResponseStatus(CREATED)
     @PreAuthorize("hasRole('ROLE_USER')")
     public ResponseAddTable addTable(@RequestBody RequestAddTable requestAddTable,
@@ -27,7 +26,7 @@ public class TableController {
         return tableService.addTable(requestAddTable, authentication.getName());
     }
 
-    @GetMapping("")
+    @GetMapping("/tables")
     @PreAuthorize("hasRole('ROLE_USER')")
     public ResponseTables findTables(Pageable pageable, Authentication authentication) {
         return tableService.findTables(authentication.getName(), pageable);

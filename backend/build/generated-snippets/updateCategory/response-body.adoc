@@ -1,0 +1,4 @@
+[source,options="nowrap"]
+----
+{"status":200,"message":"카테고리 수정 성공"}
+----
