@@ -1,6 +1,7 @@
 package com.table.order.domain.category.entity;
 
 import com.table.order.domain.category.dto.request.RequestAddCategory;
+import com.table.order.domain.category.dto.request.RequestUpdateCategory;
 import com.table.order.domain.item.entity.Item;
 import com.table.order.domain.store.entity.Store;
 import com.table.order.domain.store.exception.CustomAccessDeniedException;
@@ -51,6 +52,10 @@ public class Category {
     private void validate() {
         if(!store.isValid())
             throw new CustomAccessDeniedException(ERROR_INVALID_STORE.getErrorCode(), ERROR_INVALID_STORE.getMessage());
+    }
+
+    public void updateCategory(RequestUpdateCategory requestUpdateCategory) {
+        this.name = requestUpdateCategory.getName();
     }
 
     public void setStore(Store store) {

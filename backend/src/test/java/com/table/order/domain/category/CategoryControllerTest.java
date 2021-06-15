@@ -3,6 +3,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.table.order.domain.category.controller.CategoryController;
 import com.table.order.domain.category.dto.CategoryDto;
 import com.table.order.domain.category.dto.request.RequestAddCategory;
+import com.table.order.domain.category.dto.request.RequestUpdateCategory;
 import com.table.order.domain.category.dto.response.ResponseAddCategory;
 import com.table.order.domain.category.dto.response.ResponseCategoriesItems;
 import com.table.order.domain.category.service.CategoryService;
@@ -294,6 +295,49 @@ class CategoryControllerTest {
                         ),
                         pathParameters(
                                 parameterWithName("categoryId").description("카테고리 고유 id")
+                        ),
+                        responseFields(
+                                fieldWithPath("status").type(JsonFieldType.NUMBER).description("상태 코드"),
+                                fieldWithPath("message").type(JsonFieldType.STRING).description("결과 메세지")
+                        )
+                ));
+    }
+
+    @Test
+    @DisplayName("카테고리 수정 테스트")
+    public void updateCategory() throws Exception{
+        //given
+        ResponseResult responseResult = ResponseResult.builder()
+                .status(RESULT_UPDATE_CATEGORY.getStatus())
+                .message(RESULT_UPDATE_CATEGORY.getMessage())
+                .build();
+
+        UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken("test", "1234", authorities(UserRole.USER));
+        given(jwtProvider.getAuthentication(anyString())).willReturn(authentication);
+        given(categoryService.updateCategory(anyLong(), anyString(), any(RequestUpdateCategory.class))).willReturn(responseResult);
+        //when
+        RequestUpdateCategory requestUpdateCategory = RequestUpdateCategory.builder()
+                .name("수정된 카테고리명")
+                .build();
+
+        ResultActions result = mockMvc.perform(
+                put("/categories/{categoryId}", 1L).header("Authorization","Bearer (accessToken)")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .accept(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(requestUpdateCategory)))
+                .andDo(print());
+
+        //then
+        result.andExpect(status().isOk())
+                .andDo(document("updateCategory",
+                        requestHeaders(
+                                headerWithName("Authorization").description("Bearer + (로그인 요청 access 토큰)")
+                        ),
+                        pathParameters(
+                                parameterWithName("categoryId").description("카테고리 고유 id")
+                        ),
+                        requestFields(
+                                fieldWithPath("name").type(JsonFieldType.STRING).description("카테고리명")
                         ),
                         responseFields(
                                 fieldWithPath("status").type(JsonFieldType.NUMBER).description("상태 코드"),

@@ -2,6 +2,7 @@ package com.table.order.domain.category;
 
 import com.table.order.domain.category.dto.CategoryDto;
 import com.table.order.domain.category.dto.request.RequestAddCategory;
+import com.table.order.domain.category.dto.request.RequestUpdateCategory;
 import com.table.order.domain.category.dto.response.ResponseAddCategory;
 import com.table.order.domain.category.dto.response.ResponseCategoriesItems;
 import com.table.order.domain.category.entity.Category;
@@ -248,7 +249,7 @@ class CategoryServiceTest {
                 .message(RESULT_DELETE_CATEGORY.getMessage())
                 .build();
 
-        given(categoryQueryRepository.findByIdJoinStoreUser(anyLong(), anyString())).willReturn(Optional.ofNullable(category));
+        given(categoryQueryRepository.findByIdJoinItemStoreUser(anyLong(), anyString())).willReturn(Optional.ofNullable(category));
 
         //when
         ResponseResult response = categoryService.deleteCategory(anyLong(), anyString());
@@ -261,12 +262,50 @@ class CategoryServiceTest {
     @DisplayName("카테고리 삭제 실패 테스트")
     public void deleteCategoryFail() throws Exception{
         //given
-        given(categoryQueryRepository.findByIdJoinStoreUser(anyLong(), anyString())).willReturn(Optional.ofNullable(null));
+        given(categoryQueryRepository.findByIdJoinItemStoreUser(anyLong(), anyString())).willReturn(Optional.ofNullable(null));
 
         //when then
         assertThatThrownBy(() -> {
             categoryService.deleteCategory(anyLong(), anyString());
         }).isInstanceOf(CustomIllegalArgumentException.class).hasMessageContaining(ERROR_DELETE_CATEGORY.getMessage());
-
     }
+
+    @Test
+    @DisplayName("카테고리 수정 테스트")
+    public void updateCategory() throws Exception{
+        //given
+        ResponseResult responseResult = ResponseResult.builder()
+                .status(RESULT_UPDATE_CATEGORY.getStatus())
+                .message(RESULT_UPDATE_CATEGORY.getMessage())
+                .build();
+
+        RequestUpdateCategory requestUpdateCategory = RequestUpdateCategory.builder()
+                .name("수정된 카테고리")
+                .build();
+
+        given(categoryQueryRepository.findByIdJoinStoreUser(anyLong(), anyString())).willReturn(Optional.ofNullable(category));
+
+        //when
+        ResponseResult response = categoryService.updateCategory(anyLong(), anyString(), requestUpdateCategory);
+
+        //then
+        assertThat(response).usingRecursiveComparison().isEqualTo(responseResult);
+    }
+
+    @Test
+    @DisplayName("카테고리 수정 실패 테스트")
+    public void updateCategoryFail() throws Exception{
+        //given
+        RequestUpdateCategory requestUpdateCategory = RequestUpdateCategory.builder()
+                .name("수정된 카테고리")
+                .build();
+
+        given(categoryQueryRepository.findByIdJoinStoreUser(anyLong(), anyString())).willReturn(Optional.ofNullable(null));
+
+        //when then
+        assertThatThrownBy(() -> {
+            categoryService.updateCategory(anyLong(), anyString(), requestUpdateCategory);
+        }).isInstanceOf(CustomIllegalArgumentException.class).hasMessageContaining(ERROR_UPDATE_CATEGORY.getMessage());
+    }
+
 }

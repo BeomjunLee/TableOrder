@@ -2,6 +2,7 @@ package com.table.order.domain.category.service;
 
 import com.table.order.domain.category.dto.CategoryDto;
 import com.table.order.domain.category.dto.request.RequestAddCategory;
+import com.table.order.domain.category.dto.request.RequestUpdateCategory;
 import com.table.order.domain.category.dto.response.ResponseAddCategory;
 import com.table.order.domain.category.dto.response.ResponseCategoriesItems;
 import com.table.order.domain.category.entity.Category;
@@ -112,13 +113,24 @@ public class CategoryService {
      * @return 응답 dto
      */
     public ResponseResult deleteCategory(Long categoryId, String username) {
-        Category findCategory = categoryQueryRepository.findByIdJoinStoreUser(categoryId, username)
+        Category findCategory = categoryQueryRepository.findByIdJoinItemStoreUser(categoryId, username)
                 .orElseThrow(() -> new CustomIllegalArgumentException(ERROR_DELETE_CATEGORY.getErrorCode(), ERROR_DELETE_CATEGORY.getMessage()));
 
         categoryRepository.delete(findCategory);
         return ResponseResult.builder()
                 .status(RESULT_DELETE_CATEGORY.getStatus())
                 .message(RESULT_DELETE_CATEGORY.getMessage())
+                .build();
+    }
+
+    public ResponseResult updateCategory(Long categoryId, String username, RequestUpdateCategory requestUpdateCategory) {
+        Category findCategory = categoryQueryRepository.findByIdJoinStoreUser(categoryId, username)
+                .orElseThrow(() -> new CustomIllegalArgumentException(ERROR_UPDATE_CATEGORY.getErrorCode(), ERROR_UPDATE_CATEGORY.getMessage()));
+
+        findCategory.updateCategory(requestUpdateCategory);
+        return ResponseResult.builder()
+                .status(RESULT_UPDATE_CATEGORY.getStatus())
+                .message(RESULT_UPDATE_CATEGORY.getMessage())
                 .build();
     }
 }

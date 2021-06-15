@@ -1,5 +1,6 @@
 package com.table.order.domain.category.controller;
 import com.table.order.domain.category.dto.request.RequestAddCategory;
+import com.table.order.domain.category.dto.request.RequestUpdateCategory;
 import com.table.order.domain.category.dto.response.ResponseAddCategory;
 import com.table.order.domain.category.dto.response.ResponseCategoriesItems;
 import com.table.order.domain.category.service.CategoryService;
@@ -40,5 +41,12 @@ public class CategoryController {
     public ResponseResult deleteCategory(@PathVariable Long categoryId,
                                          Authentication authentication) {
         return categoryService.deleteCategory(categoryId, authentication.getName());
+    }
+
+    @PutMapping("/categories/{categoryId}")
+    public ResponseResult updateCategory(@PathVariable Long categoryId,
+                                         @RequestBody RequestUpdateCategory requestUpdateCategory,
+                                         Authentication authentication) {
+        return categoryService.updateCategory(categoryId, authentication.getName(), requestUpdateCategory);
     }
 }

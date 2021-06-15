@@ -48,7 +48,7 @@ public class CategoryQueryRepository {
         return categories;
     }
 
-    public Optional<Category> findByIdJoinStoreUser(Long categoryId, String username) {
+    public Optional<Category> findByIdJoinItemStoreUser(Long categoryId, String username) {
         Category findCategory = queryFactory
                 .selectFrom(category)
                 .join(category.items, item).fetchJoin()
@@ -59,4 +59,16 @@ public class CategoryQueryRepository {
                 .fetchOne();
         return Optional.ofNullable(findCategory);
     }
+
+    public Optional<Category> findByIdJoinStoreUser(Long categoryId, String username) {
+        Category findCategory = queryFactory
+                .selectFrom(category)
+                .join(category.store, store)
+                .join(store.user, user)
+                .where(category.id.eq(categoryId),
+                        user.username.eq(username))
+                .fetchOne();
+        return Optional.ofNullable(findCategory);
+    }
+
 }

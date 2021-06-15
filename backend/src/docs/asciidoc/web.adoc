@@ -161,8 +161,19 @@ include::{snippets}/findCategoriesItemsUser/response-fields.adoc[]
 `DELETE` 회원은 카테고리를 삭제할 수 있다. (삭제 시 해당 카테고리 메뉴들은 다 삭제된다.)
 
 include::{snippets}/deleteCategory/request-headers.adoc[]
-include::{snippets}/deleteCategory/http-request.adoc[]
 include::{snippets}/deleteCategory/path-parameters.adoc[]
+include::{snippets}/deleteCategory/http-request.adoc[]
 include::{snippets}/deleteCategory/http-response.adoc[]
 include::{snippets}/deleteCategory/response-fields.adoc[]
+
+=== 카테고리 수정
+
+`DELETE` 회원은 카테고리를 수정할 수 있다.
+
+include::{snippets}/updateCategory/request-headers.adoc[]
+include::{snippets}/updateCategory/path-parameters.adoc[]
+include::{snippets}/updateCategory/http-request.adoc[]
+include::{snippets}/updateCategory/request-fields.adoc[]
+include::{snippets}/updateCategory/http-response.adoc[]
+include::{snippets}/updateCategory/response-fields.adoc[]
 
