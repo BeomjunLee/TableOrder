@@ -4,6 +4,7 @@ import com.table.order.domain.order.entity.Order;
 import com.table.order.domain.store.entity.Store;
 import com.table.order.domain.store.exception.CustomAccessDeniedException;
 import com.table.order.domain.table.dto.request.RequestAddTable;
+import com.table.order.global.common.exception.CustomConflictException;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
@@ -64,7 +65,19 @@ public class Table {
 
     private void validate() {
         if(!store.isValid())
-            throw new CustomAccessDeniedException(ERROR_INVALID_STORE.getErrorCode(), ERROR_INVALID_STORE.getMessage());
+            throw new CustomConflictException(ERROR_INVALID_STORE.getErrorCode(), ERROR_INVALID_STORE.getMessage());
+    }
+
+    public void opened() {
+        this.tableStatus = TableStatus.OPEN;
+    }
+
+    public void inUsed(){
+        this.tableStatus = TableStatus.INUSE;
+    }
+
+    public void completed() {
+        this.tableStatus = TableStatus.COMP;
     }
 
     public boolean isOpen() {

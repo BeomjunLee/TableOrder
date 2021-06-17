@@ -17,6 +17,7 @@ import com.table.order.domain.table.entity.TableStatus;
 import com.table.order.domain.table.repository.TableQueryRepository;
 import com.table.order.domain.table.repository.TableRepository;
 import com.table.order.domain.table.service.TableService;
+import com.table.order.global.common.exception.CustomConflictException;
 import com.table.order.global.common.exception.CustomIllegalArgumentException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -130,7 +131,7 @@ class TableServiceTest {
         //when then
         assertThatThrownBy(() -> {
             tableService.addTable(requestAddTable, anyString());
-        }).isInstanceOf(CustomAccessDeniedException.class).hasMessageContaining(ERROR_INVALID_STORE.getMessage());
+        }).isInstanceOf(CustomConflictException.class).hasMessageContaining(ERROR_INVALID_STORE.getMessage());
     }
 
     @Test

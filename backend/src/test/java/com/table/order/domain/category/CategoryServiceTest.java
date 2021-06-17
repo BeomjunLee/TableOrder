@@ -15,6 +15,7 @@ import com.table.order.domain.store.entity.Store;
 import com.table.order.domain.store.entity.StoreStatus;
 import com.table.order.domain.store.exception.CustomAccessDeniedException;
 import com.table.order.domain.store.repository.StoreQueryRepository;
+import com.table.order.global.common.exception.CustomConflictException;
 import com.table.order.global.common.exception.CustomIllegalArgumentException;
 import com.table.order.global.common.response.ResponseResult;
 import org.junit.jupiter.api.BeforeEach;
@@ -121,7 +122,7 @@ class CategoryServiceTest {
         //when then
         assertThatThrownBy(() -> {
             categoryService.addCategory(requestAddCategory, anyString());
-        }).isInstanceOf(CustomAccessDeniedException.class).hasMessageContaining(ERROR_INVALID_STORE.getMessage());
+        }).isInstanceOf(CustomConflictException.class).hasMessageContaining(ERROR_INVALID_STORE.getMessage());
     }
 
     @Test

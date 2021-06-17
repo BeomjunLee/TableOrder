@@ -9,12 +9,14 @@ import com.table.order.domain.order.dto.request.RequestCreateOrder;
 import com.table.order.domain.order.dto.response.ResponseCreateOrder;
 import com.table.order.domain.order.entity.Order;
 import com.table.order.domain.order.entity.OrderStatus;
+import com.table.order.domain.order.repository.OrderQueryRepository;
 import com.table.order.domain.order.repository.OrderRepository;
 import com.table.order.domain.order.service.OrderService;
-import com.table.order.domain.store.exception.CustomAccessDeniedException;
 import com.table.order.domain.table.entity.Table;
 import com.table.order.domain.table.entity.TableStatus;
+import com.table.order.global.common.exception.CustomConflictException;
 import com.table.order.global.common.exception.CustomIllegalArgumentException;
+import com.table.order.global.common.response.ResponseResult;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -25,8 +27,9 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import static com.table.order.global.common.code.CustomErrorCode.ERROR_ALREADY_COMP;
-import static com.table.order.global.common.code.CustomErrorCode.ERROR_NOT_FOUND_CUSTOMER_TABLE;
+
+import static com.table.order.global.common.code.CustomErrorCode.*;
+import static com.table.order.global.common.code.ResultCode.RESULT_CANCEL_ORDER;
 import static com.table.order.global.common.code.ResultCode.RESULT_CREATE_ORDER;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
@@ -43,6 +46,8 @@ class OrderServiceTest {
     private ItemQueryRepository itemQueryRepository;
     @Mock
     private CustomerQueryRepository customerQueryRepository;
+    @Mock
+    private OrderQueryRepository orderQueryRepository;
 
     public RequestCreateOrder requestCreateOrder;
     private ResponseCreateOrder responseCreateOrder;
@@ -163,7 +168,106 @@ class OrderServiceTest {
         //when then
         assertThatThrownBy(() -> {
             orderService.createOrder(requestCreateOrder, anyString());
-        }).isInstanceOf(CustomAccessDeniedException.class).hasMessageContaining(ERROR_ALREADY_COMP.getMessage());
+        }).isInstanceOf(CustomConflictException.class).hasMessageContaining(ERROR_ALREADY_COMP.getMessage());
     }
 
+    @Test
+    @DisplayName("손님 주문 취소 테스트")
+    public void cancelOrderCustomer() throws Exception{
+        //given
+        ResponseResult responseResult = ResponseResult.builder()
+                .status(RESULT_CANCEL_ORDER.getStatus())
+                .message(RESULT_CANCEL_ORDER.getMessage())
+                .build();
+
+        given(orderQueryRepository.findByIdJoinCustomer(anyLong(), anyString())).willReturn(Optional.ofNullable(order));
+
+        //when
+        ResponseResult response = orderService.cancelOrderCustomer(anyLong(), anyString());
+
+        //then
+        assertThat(response).usingRecursiveComparison().isEqualTo(responseResult);
+        assertThat(order.getOrderStatus()).isEqualTo(OrderStatus.CANCEL);
+    }
+
+    @Test
+    @DisplayName("회원 주문 취소 테스트")
+    public void cancelOrderUser() throws Exception{
+        //given
+        ResponseResult responseResult = ResponseResult.builder()
+                .status(RESULT_CANCEL_ORDER.getStatus())
+                .message(RESULT_CANCEL_ORDER.getMessage())
+                .build();
+
+        given(orderQueryRepository.findByIdJoinTableStoreUser(anyLong(), anyString())).willReturn(Optional.ofNullable(order));
+
+        //when
+        ResponseResult response = orderService.cancelOrderUser(anyLong(), anyString());
+
+        //then
+        assertThat(response).usingRecursiveComparison().isEqualTo(responseResult);
+        assertThat(order.getOrderStatus()).isEqualTo(OrderStatus.CANCEL);
+    }
+
+    @Test
+    @DisplayName("손님 주문 취소 실패 테스트 (이미 조리중일시)")
+    public void cancelOrderFailCustomerByCook() throws Exception{
+        //given
+        order = Order.builder()
+                .request("잘부탁드립니다")
+                .orderPrice(item.getPrice())
+                .orderStatus(OrderStatus.COOK)
+                .item(item)
+                .build();
+
+        given(orderQueryRepository.findByIdJoinCustomer(anyLong(), anyString())).willReturn(Optional.ofNullable(order));
+
+        //when then
+        assertThatThrownBy(() -> {
+            orderService.cancelOrderCustomer(anyLong(), anyString());
+        }).isInstanceOf(CustomConflictException.class).hasMessageContaining(ERROR_DENIED_CANCEL_ORDER_BY_COOK.getMessage());
+    }
+
+    @Test
+    @DisplayName("손님 주문 취소 실패 테스트 (결제 완료시)")
+    public void cancelOrderFailCustomerByComp() throws Exception{
+        //given
+        order = Order.builder()
+                .request("잘부탁드립니다")
+                .orderPrice(item.getPrice())
+                .orderStatus(OrderStatus.COMP)
+                .item(item)
+                .build();
+
+        given(orderQueryRepository.findByIdJoinCustomer(anyLong(), anyString())).willReturn(Optional.ofNullable(order));
+
+        //when then
+        assertThatThrownBy(() -> {
+            orderService.cancelOrderCustomer(anyLong(), anyString());
+        }).isInstanceOf(CustomConflictException.class).hasMessageContaining(ERROR_DENIED_CANCEL_ORDER_BY_COMP.getMessage());
+    }
+
+    @Test
+    @DisplayName("손님 주문 취소 실패 테스트 (해당 주문을 찾을 수 없음)")
+    public void cancelOrderFailCustomerNotFoundOrder() throws Exception{
+        //given
+        given(orderQueryRepository.findByIdJoinCustomer(anyLong(), anyString())).willReturn(Optional.ofNullable(null));
+
+        //when then
+        assertThatThrownBy(() -> {
+            orderService.cancelOrderCustomer(anyLong(), anyString());
+        }).isInstanceOf(CustomIllegalArgumentException.class).hasMessageContaining(ERROR_NOT_FOUND_ORDER.getMessage());
+    }
+
+    @Test
+    @DisplayName("회원 주문 취소 실패 테스트 (해당 주문을 찾을 수 없음)")
+    public void cancelOrderFailUserNotFoundOrder() throws Exception{
+        //given
+        given(orderQueryRepository.findByIdJoinTableStoreUser(anyLong(), anyString())).willReturn(Optional.ofNullable(null));
+
+        //when then
+        assertThatThrownBy(() -> {
+            orderService.cancelOrderUser(anyLong(), anyString());
+        }).isInstanceOf(CustomIllegalArgumentException.class).hasMessageContaining(ERROR_NOT_FOUND_ORDER.getMessage());
+    }
 }

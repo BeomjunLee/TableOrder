@@ -9,10 +9,10 @@ import com.table.order.domain.customer.repository.CustomerRepository;
 import com.table.order.domain.customer.service.CustomerService;
 import com.table.order.domain.store.entity.Store;
 import com.table.order.domain.store.entity.StoreStatus;
-import com.table.order.domain.store.exception.CustomAccessDeniedException;
 import com.table.order.domain.table.entity.Table;
 import com.table.order.domain.table.entity.TableStatus;
 import com.table.order.domain.table.repository.TableQueryRepository;
+import com.table.order.global.common.exception.CustomConflictException;
 import com.table.order.global.common.exception.CustomIllegalArgumentException;
 import com.table.order.global.security.provider.JwtProvider;
 import org.junit.jupiter.api.BeforeEach;
@@ -175,7 +175,7 @@ class CustomerServiceTest {
         table = Table.builder()
                 .name("테이블")
                 .numberOfPeople(5)
-                .tableStatus(TableStatus.ORDER)
+                .tableStatus(TableStatus.INUSE)
                 .store(store)
                 .build();
 
@@ -193,7 +193,7 @@ class CustomerServiceTest {
         //when then
         assertThatThrownBy(() -> {
             customerService.scanQrCode(requestLoginCustomer);
-        }).isInstanceOf(CustomAccessDeniedException.class).hasMessageContaining(ERROR_IN_USE_TABLE.getMessage());
+        }).isInstanceOf(CustomConflictException.class).hasMessageContaining(ERROR_IN_USE_TABLE.getMessage());
     }
 
     @Test
@@ -221,7 +221,7 @@ class CustomerServiceTest {
         //when then
         assertThatThrownBy(() -> {
             customerService.scanQrCode(requestLoginCustomer);
-        }).isInstanceOf(CustomAccessDeniedException.class).hasMessageContaining(ERROR_INVALID_STORE.getMessage());
+        }).isInstanceOf(CustomConflictException.class).hasMessageContaining(ERROR_INVALID_STORE.getMessage());
     }
 
 

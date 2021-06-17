@@ -14,6 +14,7 @@ import com.table.order.domain.store.dto.response.ResponseEnrollStore;
 import com.table.order.domain.store.service.StoreService;
 import com.table.order.domain.user.entity.UserRole;
 import com.table.order.domain.user.service.SecurityService;
+import com.table.order.global.common.response.ResponseResult;
 import com.table.order.global.security.exception.JwtAccessDeniedHandler;
 import com.table.order.global.security.exception.JwtAuthenticationEntryPoint;
 import com.table.order.global.security.provider.JwtProvider;
@@ -34,11 +35,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static com.table.order.global.common.RoleToCollection.authorities;
-import static com.table.order.global.common.code.ResultCode.RESULT_CREATE_ORDER;
-import static com.table.order.global.common.code.ResultCode.RESULT_ENROLL_STORE;
+import static com.table.order.global.common.code.ResultCode.*;
+import static com.table.order.global.common.code.ResultCode.RESULT_CANCEL_ORDER;
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.anyString;
+import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.BDDMockito.given;
 import static org.springframework.restdocs.headers.HeaderDocumentation.headerWithName;
 import static org.springframework.restdocs.headers.HeaderDocumentation.requestHeaders;
@@ -46,6 +46,8 @@ import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.docu
 import static org.springframework.restdocs.mockmvc.RestDocumentationRequestBuilders.post;
 import static org.springframework.restdocs.payload.PayloadDocumentation.*;
 import static org.springframework.restdocs.payload.PayloadDocumentation.fieldWithPath;
+import static org.springframework.restdocs.request.RequestDocumentation.parameterWithName;
+import static org.springframework.restdocs.request.RequestDocumentation.pathParameters;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -138,6 +140,78 @@ class OrderControllerTest {
                                 fieldWithPath("data.[].request").type(JsonFieldType.STRING).description("주문 요청사항"),
                                 fieldWithPath("data.[].orderStatus").type(JsonFieldType.STRING).description("주문 상태")
                         )
+                ));
+    }
+
+    @Test
+    @DisplayName("회원 주문 취소 테스트")
+    public void cancelOrderUser() throws Exception{
+        //given
+        ResponseResult responseResult = ResponseResult.builder()
+                .status(RESULT_CANCEL_ORDER.getStatus())
+                .message(RESULT_CANCEL_ORDER.getMessage())
+                .build();
+
+        UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken("test", "1234", authorities(UserRole.USER));
+        given(jwtProvider.getAuthentication(anyString())).willReturn(authentication);
+        given(orderService.cancelOrderUser(anyLong(), anyString())).willReturn(responseResult);
+
+        //when
+        ResultActions result = mockMvc.perform(
+                post("/orders/{orderId}/cancel", 1L).header("Authorization","Bearer (accessToken)")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .accept(MediaType.APPLICATION_JSON))
+                .andDo(print());
+
+        //then
+        result.andExpect(status().isOk())
+                .andDo(document("cancelOrderUser",
+                        requestHeaders(
+                                headerWithName("Authorization").description("Bearer + (로그인 요청 access 토큰)")
+                        ),
+                        pathParameters(
+                                parameterWithName("orderId").description("주문 고유 id")
+                        ),
+                        responseFields(
+                                fieldWithPath("status").type(JsonFieldType.NUMBER).description("상태 코드"),
+                                fieldWithPath("message").type(JsonFieldType.STRING).description("결과 메세지")
+                        )
+                ));
+    }
+
+    @Test
+    @DisplayName("손님 주문 취소 테스트")
+    public void cancelOrderCustomer() throws Exception{
+        //given
+        ResponseResult responseResult = ResponseResult.builder()
+                .status(RESULT_CANCEL_ORDER.getStatus())
+                .message(RESULT_CANCEL_ORDER.getMessage())
+                .build();
+
+        UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken("test", "1234", authorities(UserRole.USER));
+        given(jwtProvider.getAuthentication(anyString())).willReturn(authentication);
+        given(orderService.cancelOrderCustomer(anyLong(), anyString())).willReturn(responseResult);
+
+        //when
+        ResultActions result = mockMvc.perform(
+                post("/app/orders/{orderId}/cancel", 1L).header("Authorization","Bearer (accessToken)")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .accept(MediaType.APPLICATION_JSON))
+                .andDo(print());
+
+        //then
+        result.andExpect(status().isOk())
+                .andDo(document("cancelOrderCustomer",
+                        requestHeaders(
+                                headerWithName("Authorization").description("Bearer + (로그인 요청 access 토큰)")
+                        ),
+                        pathParameters(
+                                parameterWithName("orderId").description("주문 고유 id")
+                        ),
+                        responseFields(
+                                fieldWithPath("status").type(JsonFieldType.NUMBER).description("상태 코드"),
+                                fieldWithPath("message").type(JsonFieldType.STRING).description("결과 메세지")
+                                )
                 ));
     }
 }

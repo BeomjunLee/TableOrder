@@ -54,6 +54,8 @@ public class TableQueryRepository {
                 .leftJoin(table.orders, order).fetchJoin()
                 .leftJoin(order.item, item).fetchJoin()
                 .where(user.username.eq(username), order.orderStatus.eq(orderStatus))
+                //TODO 테이블 상태별 조회 동적 쿼리 추가
+                //TODO 조리중 조리완료 뺄지 말지 고민
                 .offset(pageable.getOffset())
                 .limit(pageable.getPageSize())
                 .fetchResults();

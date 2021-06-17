@@ -10,6 +10,7 @@ import com.table.order.domain.store.entity.Store;
 import com.table.order.domain.store.entity.StoreStatus;
 import com.table.order.domain.store.exception.CustomAccessDeniedException;
 import com.table.order.domain.store.repository.StoreQueryRepository;
+import com.table.order.global.common.exception.CustomConflictException;
 import com.table.order.global.common.exception.CustomIllegalArgumentException;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -120,7 +121,7 @@ class ItemServiceTest {
         //when then
         assertThatThrownBy(() -> {
             itemService.addItem(requestAddItem, anyString());
-        }).isInstanceOf(CustomAccessDeniedException.class).hasMessageContaining(ERROR_INVALID_STORE.getMessage());
+        }).isInstanceOf(CustomConflictException.class).hasMessageContaining(ERROR_INVALID_STORE.getMessage());
     }
 
     @Test
