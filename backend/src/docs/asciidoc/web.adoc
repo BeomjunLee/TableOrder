@@ -177,3 +177,13 @@ include::{snippets}/updateCategory/request-fields.adoc[]
 include::{snippets}/updateCategory/http-response.adoc[]
 include::{snippets}/updateCategory/response-fields.adoc[]
 
+=== 주문 취소
+
+`POST` 회원은 손님들의 주문을 취소할 수 있다.
+
+include::{snippets}/cancelOrderUser/request-headers.adoc[]
+include::{snippets}/cancelOrderUser/path-parameters.adoc[]
+include::{snippets}/cancelOrderUser/http-request.adoc[]
+include::{snippets}/cancelOrderUser/http-response.adoc[]
+include::{snippets}/cancelOrderUser/response-fields.adoc[]
+

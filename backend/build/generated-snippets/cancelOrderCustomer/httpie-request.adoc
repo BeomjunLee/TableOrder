@@ -1,0 +1,7 @@
+[source,bash]
+----
+$ http POST 'http://localhost:8080/app/orders/1/cancel' \
+    'Content-Type:application/json;charset=UTF-8' \
+    'Authorization:Bearer (accessToken)' \
+    'Accept:application/json'
+----

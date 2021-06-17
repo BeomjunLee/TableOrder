@@ -2,7 +2,9 @@ package com.table.order.domain.order.controller;
 import com.table.order.domain.order.dto.request.RequestCreateOrder;
 import com.table.order.domain.order.dto.response.ResponseCreateOrder;
 import com.table.order.domain.order.service.OrderService;
+import com.table.order.global.common.response.ResponseResult;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,5 +20,18 @@ public class OrderController {
     public ResponseCreateOrder createOrder(@RequestBody RequestCreateOrder requestCreateOrder,
                                            Authentication authentication) {
         return orderService.createOrder(requestCreateOrder, authentication.getName());
+    }
+
+    @PostMapping("/app/orders/{orderId}/cancel")
+    public ResponseResult cancelOrderCustomer(@PathVariable Long orderId,
+                                              Authentication authentication) {
+        return orderService.cancelOrderCustomer(orderId, authentication.getName());
+    }
+
+    @PostMapping("/orders/{orderId}/cancel")
+    @PreAuthorize("hasRole('ROLE_USER')")
+    public ResponseResult cancelOrderUser(@PathVariable Long orderId,
+                                          Authentication authentication) {
+        return orderService.cancelOrderUser(orderId, authentication.getName());
     }
 }

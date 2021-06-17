@@ -125,3 +125,13 @@ include::{snippets}/createOrder/http-request.adoc[]
 include::{snippets}/createOrder/request-fields.adoc[]
 include::{snippets}/createOrder/http-response.adoc[]
 include::{snippets}/createOrder/response-fields.adoc[]
+
+=== 주문 취소
+
+`POST` 손님은 주문을 취소할 수 있다. (조리중이거나 이미 결제완료 했을시에는 불가능)
+
+include::{snippets}/cancelOrderCustomer/request-headers.adoc[]
+include::{snippets}/cancelOrderCustomer/path-parameters.adoc[]
+include::{snippets}/cancelOrderCustomer/http-request.adoc[]
+include::{snippets}/cancelOrderCustomer/http-response.adoc[]
+include::{snippets}/cancelOrderCustomer/response-fields.adoc[]

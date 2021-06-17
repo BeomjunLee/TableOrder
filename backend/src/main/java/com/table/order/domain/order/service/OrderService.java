@@ -8,8 +8,10 @@ import com.table.order.domain.order.dto.OrderDto;
 import com.table.order.domain.order.dto.request.RequestCreateOrder;
 import com.table.order.domain.order.dto.response.ResponseCreateOrder;
 import com.table.order.domain.order.entity.Order;
+import com.table.order.domain.order.repository.OrderQueryRepository;
 import com.table.order.domain.order.repository.OrderRepository;
 import com.table.order.global.common.exception.CustomIllegalArgumentException;
+import com.table.order.global.common.response.ResponseResult;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -20,6 +22,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import static com.table.order.global.common.code.CustomErrorCode.ERROR_NOT_FOUND_CUSTOMER_TABLE;
+import static com.table.order.global.common.code.CustomErrorCode.ERROR_NOT_FOUND_ORDER;
 import static com.table.order.global.common.code.ResultCode.*;
 
 @Service
@@ -28,6 +31,7 @@ import static com.table.order.global.common.code.ResultCode.*;
 public class OrderService {
 
     private final OrderRepository orderRepository;
+    private final OrderQueryRepository orderQueryRepository;
     private final ItemQueryRepository itemQueryRepository;
     private final CustomerQueryRepository customerQueryRepository;
 
@@ -57,7 +61,12 @@ public class OrderService {
                 .build();
     }
 
-
+    /**
+     * OrderDto 리스트로 변환
+     * @param findItems 주문한 메뉴 목록
+     * @param savedOrders save 한 주문 목록
+     * @return 응답 dto
+     */
     private List<OrderDto> transferOrderDtos(List<Item> findItems, List<Order> savedOrders) {
         List<OrderDto> orderDtos = new ArrayList<>();
 
@@ -74,4 +83,38 @@ public class OrderService {
         }
         return orderDtos;
     }
+
+    /**
+     * 주문 취소 -손님-
+     * @param orderId 주문 고유 id
+     * @param username 손님 아이디
+     * @return 응답 dto
+     */
+    public ResponseResult cancelOrderCustomer(Long orderId, String username) {
+        Order findOrder = orderQueryRepository.findByIdJoinCustomer(orderId, username)
+                .orElseThrow(() -> new CustomIllegalArgumentException(ERROR_NOT_FOUND_ORDER.getErrorCode(), ERROR_NOT_FOUND_ORDER.getMessage()));
+        findOrder.customerCanceled();
+        return ResponseResult.builder()
+                .status(RESULT_CANCEL_ORDER.getStatus())
+                .message(RESULT_CANCEL_ORDER.getMessage())
+                .build();
+    }
+
+    /**
+     * 주문 취소 -회원-
+     * @param orderId 주문 고유 id
+     * @param username 회원 아이디
+     * @return 응답 dto
+     */
+    public ResponseResult cancelOrderUser(Long orderId, String username) {
+        Order findOrder = orderQueryRepository.findByIdJoinTableStoreUser(orderId, username)
+                .orElseThrow(() -> new CustomIllegalArgumentException(ERROR_NOT_FOUND_ORDER.getErrorCode(), ERROR_NOT_FOUND_ORDER.getMessage()));
+        findOrder.userCanceled();
+        return ResponseResult.builder()
+                .status(RESULT_CANCEL_ORDER.getStatus())
+                .message(RESULT_CANCEL_ORDER.getMessage())
+                .build();
+    }
+
+    //TODO 주문별 조리중 으로 변경
 }

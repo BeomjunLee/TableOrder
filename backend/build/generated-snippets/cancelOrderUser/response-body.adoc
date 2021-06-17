@@ -1,0 +1,4 @@
+[source,options="nowrap"]
+----
+{"status":200,"message":"주문 취소 성공"}
+----
