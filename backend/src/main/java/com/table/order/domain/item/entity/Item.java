@@ -6,6 +6,7 @@ import com.table.order.domain.item.dto.request.RequestAddItem;
 import com.table.order.domain.store.entity.Store;
 import com.table.order.domain.store.exception.CustomAccessDeniedException;
 import com.table.order.global.common.code.CustomErrorCode;
+import com.table.order.global.common.exception.CustomConflictException;
 import com.table.order.global.common.exception.CustomIllegalArgumentException;
 import lombok.AccessLevel;
 import lombok.Builder;
@@ -73,7 +74,7 @@ public class Item extends BaseEntity {
 
     private Category validate(RequestAddItem requestAddItem) {
         if(!store.isValid())
-            throw new CustomAccessDeniedException(ERROR_INVALID_STORE.getErrorCode(), ERROR_INVALID_STORE.getMessage());
+            throw new CustomConflictException(ERROR_INVALID_STORE.getErrorCode(), ERROR_INVALID_STORE.getMessage());
 
         List<Category> categories = filteringRequestCategory(requestAddItem);
 

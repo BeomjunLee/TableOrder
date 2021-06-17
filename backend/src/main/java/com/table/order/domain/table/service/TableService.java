@@ -94,4 +94,12 @@ public class TableService {
                 .data(results)
                 .build();
     }
+
+    //TODO 테이블 오픈 (테이블 초기화)
+    //TODO 조리중
+    //TODO 계산 완료
+    //TODO 회원들도 테이블 보기 (계산서)
+    //TODO 테이블 삭제
+    //TODO 테이블 수정
+    //TODO 조리중 조리완료 뺄지 말지 고민
 }

@@ -14,12 +14,15 @@ public enum CustomErrorCode {
     ERROR_NOT_FOUND_CUSTOMER_TABLE(5, BAD_REQUEST.value(), "손님 또는 테이블을 찾을 수 없습니다"),
     ERROR_NOT_FOUND_STORE(6, BAD_REQUEST.value(), "식당을 찾을 수 없습니다"),
     ERROR_NOT_FOUND_CATEGORY(7, BAD_REQUEST.value(), "카테고리를 찾을 수 없습니다"),
-    ERROR_IN_USE_TABLE(8, FORBIDDEN.value(), "사용중인 테이블입니다"),
-    ERROR_ALREADY_COMP(9, FORBIDDEN.value(), "이미 결제가 완료된 테이블입니다"),
-    ERROR_INVALID_STORE(10, FORBIDDEN.value(), "승인되지 않은 매장입니다"),
+    ERROR_IN_USE_TABLE(8, CONFLICT.value(), "사용중인 테이블입니다"),
+    ERROR_ALREADY_COMP(9, CONFLICT.value(), "이미 결제가 완료된 테이블입니다"),
+    ERROR_INVALID_STORE(10, CONFLICT.value(), "승인되지 않은 매장입니다"),
     ERROR_DUPLICATE_USERNAME(11, BAD_REQUEST.value(), "중복된 아이디입니다"),
     ERROR_DELETE_CATEGORY(12, BAD_REQUEST.value(), "카테고리 삭제 실패"),
-    ERROR_UPDATE_CATEGORY(12, BAD_REQUEST.value(), "카테고리 수정 실패")
+    ERROR_UPDATE_CATEGORY(13, BAD_REQUEST.value(), "카테고리 수정 실패"),
+    ERROR_NOT_FOUND_ORDER(14, BAD_REQUEST.value(), "주문을 찾을 수 없습니다"),
+    ERROR_DENIED_CANCEL_ORDER_BY_COOK(15, CONFLICT.value(), "조리에 들어간 주문은 취소할 수 없습니다"),
+    ERROR_DENIED_CANCEL_ORDER_BY_COMP(16, CONFLICT.value(), "이미 결제가 완료된 주문은 취소할 수 없습니다")
     ;
 
     private final int errorCode;

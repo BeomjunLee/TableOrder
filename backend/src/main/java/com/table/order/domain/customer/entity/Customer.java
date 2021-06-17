@@ -7,6 +7,7 @@ import com.table.order.domain.store.entity.Store;
 import com.table.order.domain.store.exception.CustomAccessDeniedException;
 import com.table.order.domain.table.entity.Table;
 import com.table.order.global.common.code.CustomErrorCode;
+import com.table.order.global.common.exception.CustomConflictException;
 import com.table.order.global.common.exception.CustomIllegalArgumentException;
 import lombok.AccessLevel;
 import lombok.Builder;
@@ -74,9 +75,9 @@ public class Customer extends BaseEntity {
 
     private void validate() {
         if(!table.isOpen())
-            throw new CustomAccessDeniedException(ERROR_IN_USE_TABLE.getErrorCode(), ERROR_IN_USE_TABLE.getMessage());
+            throw new CustomConflictException(ERROR_IN_USE_TABLE.getErrorCode(), ERROR_IN_USE_TABLE.getMessage());
         if(!store.isValid())
-            throw new CustomAccessDeniedException(ERROR_INVALID_STORE.getErrorCode(), ERROR_INVALID_STORE.getMessage());
+            throw new CustomConflictException(ERROR_INVALID_STORE.getErrorCode(), ERROR_INVALID_STORE.getMessage());
     }
 
     public boolean isInUse() {

@@ -1,6 +1,7 @@
 package com.table.order.global.common.controller;
 
 import com.table.order.domain.store.exception.CustomAccessDeniedException;
+import com.table.order.global.common.exception.CustomConflictException;
 import com.table.order.global.common.response.ResponseError;
 import com.table.order.global.common.exception.CustomIllegalArgumentException;
 import lombok.RequiredArgsConstructor;
@@ -9,8 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
-import static org.springframework.http.HttpStatus.BAD_REQUEST;
-import static org.springframework.http.HttpStatus.FORBIDDEN;
+import static org.springframework.http.HttpStatus.*;
 
 @ControllerAdvice
 @RequiredArgsConstructor
@@ -39,5 +39,17 @@ public class ExceptionController {
                 .message(e.getMessage())
                 .build();
         return ResponseEntity.status(FORBIDDEN).body(response);
+    }
+
+    @ExceptionHandler(CustomConflictException.class)
+    public ResponseEntity conflict(CustomConflictException e) {
+        log.error(e.getMessage());
+
+        ResponseError response = ResponseError.builder()
+                .errorCode(e.getErrorCode())
+                .status(CONFLICT.value())
+                .message(e.getMessage())
+                .build();
+        return ResponseEntity.status(CONFLICT).body(response);
     }
 }
