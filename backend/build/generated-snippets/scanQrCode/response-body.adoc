@@ -1,4 +1,4 @@
 [source,options="nowrap"]
 ----
-{"status":201,"message":"회원가입 성공","accessToken":"(accessToken)","expiredAt":"2021-06-29T19:56:37.710935"}
+{"status":201,"message":"회원가입 성공","accessToken":"(accessToken)","expiredAt":"2021-06-29T19:58:11.923157"}
 ----
