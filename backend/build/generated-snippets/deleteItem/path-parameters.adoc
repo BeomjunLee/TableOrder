@@ -1,0 +1,8 @@
+.+/items/{itemId}+
+|===
+|Parameter|Description
+
+|`+itemId+`
+|메뉴 고유 id
+
+|===

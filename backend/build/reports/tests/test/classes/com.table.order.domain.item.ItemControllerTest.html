@@ -23,7 +23,7 @@
 <tr>
 <td>
 <div class="infoBox" id="tests">
-<div class="counter">1</div>
+<div class="counter">2</div>
 <p>tests</p>
 </div>
 </td>
@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.025s</div>
+<div class="counter">0.035s</div>
 <p>duration</p>
 </div>
 </td>
@@ -81,7 +81,13 @@
 <tr>
 <td class="success">카테고리 추가 테스트</td>
 <td class="success">addCategory()</td>
-<td class="success">0.025s</td>
+<td class="success">0.023s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">메뉴 삭제 테스트</td>
+<td class="success">deleteItem()</td>
+<td class="success">0.012s</td>
 <td class="success">passed</td>
 </tr>
 </table>
@@ -89,12 +95,12 @@
 <div id="tab1" class="tab">
 <h2>Standard output</h2>
 <span class="code">
-<pre>2021-06-13 03:38:38.684  INFO 89534 --- [    Test worker] .b.t.a.w.s.WebMvcTestContextBootstrapper : Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.table.order.domain.item.ItemControllerTest], using SpringBootContextLoader
-2021-06-13 03:38:38.684  INFO 89534 --- [    Test worker] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [com.table.order.domain.item.ItemControllerTest]: no resource found for suffixes {-context.xml, Context.groovy}.
-2021-06-13 03:38:38.684  INFO 89534 --- [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.table.order.domain.item.ItemControllerTest]: ItemControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-2021-06-13 03:38:38.690  INFO 89534 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.table.order.OrderApplication for test class com.table.order.domain.item.ItemControllerTest
-2021-06-13 03:38:38.690  INFO 89534 --- [    Test worker] .b.t.a.w.s.WebMvcTestContextBootstrapper : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.security.test.context.support.WithSecurityContextTestExecutionListener, org.springframework.security.test.context.support.ReactorContextTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
-2021-06-13 03:38:38.691  INFO 89534 --- [    Test worker] .b.t.a.w.s.WebMvcTestContextBootstrapper : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@3adbe348, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@189cbada, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@683cfce3, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@792e24b0, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@1c0a597e, org.springframework.test.context.support.DirtiesContextTestExecutionListener@613d7a4f, org.springframework.test.context.transaction.TransactionalTestExecutionListener@6ee9496f, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@666aeba6, org.springframework.security.test.context.support.WithSecurityContextTestExecutionListener@28e59fbc, org.springframework.test.context.event.EventPublishingTestExecutionListener@228067ed, org.springframework.security.test.context.support.ReactorContextTestExecutionListener@606f0e3, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@37801c5e, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@331c6d6d, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@1282dbec, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@2332b0b7, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@14e73a63, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@44405a97]
+<pre>2021-06-29 19:47:29.565  INFO 71800 --- [    Test worker] .b.t.a.w.s.WebMvcTestContextBootstrapper : Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.table.order.domain.item.ItemControllerTest], using SpringBootContextLoader
+2021-06-29 19:47:29.566  INFO 71800 --- [    Test worker] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [com.table.order.domain.item.ItemControllerTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+2021-06-29 19:47:29.566  INFO 71800 --- [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.table.order.domain.item.ItemControllerTest]: ItemControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2021-06-29 19:47:29.568  INFO 71800 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.table.order.OrderApplication for test class com.table.order.domain.item.ItemControllerTest
+2021-06-29 19:47:29.568  INFO 71800 --- [    Test worker] .b.t.a.w.s.WebMvcTestContextBootstrapper : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.security.test.context.support.WithSecurityContextTestExecutionListener, org.springframework.security.test.context.support.ReactorContextTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+2021-06-29 19:47:29.568  INFO 71800 --- [    Test worker] .b.t.a.w.s.WebMvcTestContextBootstrapper : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@6792b292, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@387678cb, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@363af81d, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@73eef50b, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@19adfc6, org.springframework.test.context.support.DirtiesContextTestExecutionListener@aa14f1e, org.springframework.test.context.transaction.TransactionalTestExecutionListener@6b3ab447, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@6f784286, org.springframework.security.test.context.support.WithSecurityContextTestExecutionListener@38cbd440, org.springframework.test.context.event.EventPublishingTestExecutionListener@3892b5f8, org.springframework.security.test.context.support.ReactorContextTestExecutionListener@634b621, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@2b75b813, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@4d7a10e9, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@606a41cb, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@43cc6659, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@457feb13, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@589f560d]
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -104,23 +110,23 @@
  =========|_|==============|___/=/_/_/_/
  :: Spring Boot ::                (v2.4.5)
 
-2021-06-13 03:38:38.708  INFO 89534 --- [    Test worker] c.t.o.domain.item.ItemControllerTest     : Starting ItemControllerTest using Java 11.0.10 on ibeomjun-ui-MacBookPro.local with PID 89534 (started by leebeomjun in /Users/leebeomjun/Desktop/git/TableOrder/backend)
-2021-06-13 03:38:38.708  INFO 89534 --- [    Test worker] c.t.o.domain.item.ItemControllerTest     : The following profiles are active: local
-2021-06-13 03:38:38.849  INFO 89534 --- [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@366bb65c' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2021-06-13 03:38:38.854  INFO 89534 --- [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2021-06-13 03:38:38.947  INFO 89534 --- [    Test worker] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/app/customers'] with []
-2021-06-13 03:38:38.947  INFO 89534 --- [    Test worker] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/users/login'] with []
-2021-06-13 03:38:38.947  INFO 89534 --- [    Test worker] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/users'] with []
-2021-06-13 03:38:38.947  INFO 89534 --- [    Test worker] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/docs/**'] with []
-2021-06-13 03:38:38.947  INFO 89534 --- [    Test worker] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/swagger-ui**'] with []
-2021-06-13 03:38:38.984  INFO 89534 --- [    Test worker] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@73d608c6, org.springframework.security.web.context.SecurityContextPersistenceFilter@426f576b, org.springframework.security.web.header.HeaderWriterFilter@10ec3bd7, org.springframework.security.web.authentication.logout.LogoutFilter@592a6f7e, com.table.order.global.security.filter.JwtFilter@3539426a, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@36c392b7, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4700353b, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@61eaebd7, org.springframework.security.web.session.SessionManagementFilter@6248850c, org.springframework.security.web.access.ExceptionTranslationFilter@51f4a594]
-2021-06-13 03:38:39.054  INFO 89534 --- [    Test worker] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2021-06-13 03:38:39.183  INFO 89534 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
-2021-06-13 03:38:39.183  INFO 89534 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
-2021-06-13 03:38:39.183  INFO 89534 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
-2021-06-13 03:38:39.198  INFO 89534 --- [    Test worker] c.t.o.domain.item.ItemControllerTest     : Started ItemControllerTest in 0.505 seconds (JVM running for 8.457)
-2021-06-13 03:38:39.204  INFO 89534 --- [    Test worker] c.t.o.global.security.filter.JwtFilter   : (accessToken) 추출 완료
-2021-06-13 03:38:39.205  INFO 89534 --- [    Test worker] c.t.o.global.security.filter.JwtFilter   : UsernamePasswordAuthenticationToken [Principal=test, Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[ROLE_USER]] Authentication 생성
+2021-06-29 19:47:29.583  INFO 71800 --- [    Test worker] c.t.o.domain.item.ItemControllerTest     : Starting ItemControllerTest using Java 11.0.10 on ibeomjun-ui-MacBookPro.local with PID 71800 (started by leebeomjun in /Users/leebeomjun/Desktop/git/TableOrder/backend)
+2021-06-29 19:47:29.583  INFO 71800 --- [    Test worker] c.t.o.domain.item.ItemControllerTest     : The following profiles are active: local
+2021-06-29 19:47:29.694  INFO 71800 --- [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@5ef04767' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-06-29 19:47:29.698  INFO 71800 --- [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-06-29 19:47:29.799  INFO 71800 --- [    Test worker] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/app/customers'] with []
+2021-06-29 19:47:29.799  INFO 71800 --- [    Test worker] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/users/login'] with []
+2021-06-29 19:47:29.799  INFO 71800 --- [    Test worker] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/users'] with []
+2021-06-29 19:47:29.799  INFO 71800 --- [    Test worker] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/docs/**'] with []
+2021-06-29 19:47:29.799  INFO 71800 --- [    Test worker] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/swagger-ui**'] with []
+2021-06-29 19:47:29.838  INFO 71800 --- [    Test worker] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@26cf920d, org.springframework.security.web.context.SecurityContextPersistenceFilter@3ade38b2, org.springframework.security.web.header.HeaderWriterFilter@1883f8b3, org.springframework.security.web.authentication.logout.LogoutFilter@b281f26, com.table.order.global.security.filter.JwtFilter@508e9ab, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@597e8688, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5e3fab74, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@d48c05, org.springframework.security.web.session.SessionManagementFilter@23f7b5dd, org.springframework.security.web.access.ExceptionTranslationFilter@5ed7b28b]
+2021-06-29 19:47:29.909  INFO 71800 --- [    Test worker] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-06-29 19:47:30.047  INFO 71800 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2021-06-29 19:47:30.047  INFO 71800 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2021-06-29 19:47:30.047  INFO 71800 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+2021-06-29 19:47:30.062  INFO 71800 --- [    Test worker] c.t.o.domain.item.ItemControllerTest     : Started ItemControllerTest in 0.491 seconds (JVM running for 9.211)
+2021-06-29 19:47:30.068  INFO 71800 --- [    Test worker] c.t.o.global.security.filter.JwtFilter   : (accessToken) 추출 완료
+2021-06-29 19:47:30.068  INFO 71800 --- [    Test worker] c.t.o.global.security.filter.JwtFilter   : UsernamePasswordAuthenticationToken [Principal=test, Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[ROLE_USER]] Authentication 생성
 
 MockHttpServletRequest:
       HTTP Method = POST
@@ -158,6 +164,45 @@ MockHttpServletResponse:
     Forwarded URL = null
    Redirected URL = null
           Cookies = []
+2021-06-29 19:47:30.091  INFO 71800 --- [    Test worker] c.t.o.global.security.filter.JwtFilter   : (accessToken) 추출 완료
+2021-06-29 19:47:30.091  INFO 71800 --- [    Test worker] c.t.o.global.security.filter.JwtFilter   : UsernamePasswordAuthenticationToken [Principal=test, Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[ROLE_USER]] Authentication 생성
+
+MockHttpServletRequest:
+      HTTP Method = DELETE
+      Request URI = /items/1
+       Parameters = {}
+          Headers = [Content-Type:&quot;application/json;charset=UTF-8&quot;, Authorization:&quot;Bearer (accessToken)&quot;, Accept:&quot;application/json&quot;]
+             Body = null
+    Session Attrs = {}
+
+Handler:
+             Type = com.table.order.domain.item.controller.ItemController
+           Method = com.table.order.domain.item.controller.ItemController#deleteItem(Long, Authentication)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 200
+    Error message = null
+          Headers = [Content-Type:&quot;application/json&quot;, X-Content-Type-Options:&quot;nosniff&quot;, X-XSS-Protection:&quot;1; mode=block&quot;, Cache-Control:&quot;no-cache, no-store, max-age=0, must-revalidate&quot;, Pragma:&quot;no-cache&quot;, Expires:&quot;0&quot;, X-Frame-Options:&quot;DENY&quot;]
+     Content type = application/json
+             Body = {&quot;status&quot;:200,&quot;message&quot;:&quot;ë©&#x94;ë&#x89;´ ì&#x82;­ì &#x9c; ì&#x84;±ê³µ&quot;}
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
 </pre>
 </span>
 </div>
@@ -169,7 +214,7 @@ MockHttpServletResponse:
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 6.8.3</a> at 2021. 6. 13. 오전 3:38:40</p>
+<a href="http://www.gradle.org">Gradle 6.8.3</a> at 2021. 6. 29. 오후 7:47:31</p>
 </div>
 </div>
 </body>

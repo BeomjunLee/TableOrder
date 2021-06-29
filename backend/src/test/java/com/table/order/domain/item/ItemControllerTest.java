@@ -7,6 +7,7 @@ import com.table.order.domain.item.dto.response.ResponseAddItem;
 import com.table.order.domain.item.service.ItemService;
 import com.table.order.domain.user.entity.UserRole;
 import com.table.order.domain.user.service.SecurityService;
+import com.table.order.global.common.response.ResponseResult;
 import com.table.order.global.security.exception.JwtAccessDeniedHandler;
 import com.table.order.global.security.exception.JwtAuthenticationEntryPoint;
 import com.table.order.global.security.provider.JwtProvider;
@@ -23,17 +24,19 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.ResultActions;
 import static com.table.order.global.common.RoleToCollection.authorities;
-import static com.table.order.global.common.code.ResultCode.RESULT_ADD_ITEM;
+import static com.table.order.global.common.code.ResultCode.*;
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.anyString;
+import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.BDDMockito.given;
 import static org.springframework.restdocs.headers.HeaderDocumentation.headerWithName;
 import static org.springframework.restdocs.headers.HeaderDocumentation.requestHeaders;
 import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.document;
+import static org.springframework.restdocs.mockmvc.RestDocumentationRequestBuilders.delete;
 import static org.springframework.restdocs.mockmvc.RestDocumentationRequestBuilders.post;
 import static org.springframework.restdocs.payload.PayloadDocumentation.*;
 import static org.springframework.restdocs.payload.PayloadDocumentation.fieldWithPath;
+import static org.springframework.restdocs.request.RequestDocumentation.parameterWithName;
+import static org.springframework.restdocs.request.RequestDocumentation.pathParameters;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -116,6 +119,42 @@ class ItemControllerTest {
                                 fieldWithPath("data.description").type(JsonFieldType.STRING).description("설명"),
                                 fieldWithPath("data.price").type(JsonFieldType.NUMBER).description("가격"),
                                 fieldWithPath("data.image").type(JsonFieldType.STRING).description("이미지 주소")
+                        )
+                ));
+    }
+
+    @Test
+    @DisplayName("메뉴 삭제 테스트")
+    public void deleteItem() throws Exception{
+        //given
+        ResponseResult responseResult = ResponseResult.builder()
+                .status(RESULT_DELETE_ITEM.getStatus())
+                .message(RESULT_DELETE_ITEM.getMessage())
+                .build();
+
+        UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken("test", "1234", authorities(UserRole.USER));
+        given(jwtProvider.getAuthentication(anyString())).willReturn(authentication);
+        given(itemService.deleteItem(anyLong(), anyString())).willReturn(responseResult);
+
+        //when
+        ResultActions result = mockMvc.perform(
+                delete("/items/{itemId}", 1L).header("Authorization","Bearer (accessToken)")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .accept(MediaType.APPLICATION_JSON))
+                .andDo(print());
+
+        //then
+        result.andExpect(status().isOk())
+                .andDo(document("deleteItem",
+                        requestHeaders(
+                                headerWithName("Authorization").description("Bearer + (로그인 요청 access 토큰)")
+                        ),
+                        pathParameters(
+                                parameterWithName("itemId").description("메뉴 고유 id")
+                        ),
+                        responseFields(
+                                fieldWithPath("status").type(JsonFieldType.NUMBER).description("상태 코드"),
+                                fieldWithPath("message").type(JsonFieldType.STRING).description("결과 메세지")
                         )
                 ));
     }

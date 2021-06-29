@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.table.order.domain.item.ItemQueryRepositoryTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-06-29T10:47:29" hostname="ibeomjun-ui-MacBookPro.local" time="0.26">
+  <properties/>
+  <testcase name="여러가지 메뉴를 한번에 주문할 때의 동적 쿼리 테스트" classname="com.table.order.domain.item.ItemQueryRepositoryTest" time="0.26"/>
+  <system-out><![CDATA[2021-06-29 19:47:29.296  INFO 71800 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.table.order.domain.item.ItemQueryRepositoryTest], using SpringBootContextLoader
+2021-06-29 19:47:29.296  INFO 71800 --- [    Test worker] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [com.table.order.domain.item.ItemQueryRepositoryTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+2021-06-29 19:47:29.296  INFO 71800 --- [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.table.order.domain.item.ItemQueryRepositoryTest]: ItemQueryRepositoryTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2021-06-29 19:47:29.300  INFO 71800 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.table.order.OrderApplication for test class com.table.order.domain.item.ItemQueryRepositoryTest
+2021-06-29 19:47:29.301  INFO 71800 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.security.test.context.support.WithSecurityContextTestExecutionListener, org.springframework.security.test.context.support.ReactorContextTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+2021-06-29 19:47:29.302  INFO 71800 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@7bf14417, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@20ea7e96, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@39f750f8, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@74163f1b, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@5b61c72, org.springframework.test.context.support.DirtiesContextTestExecutionListener@765bcc9c, org.springframework.test.context.transaction.TransactionalTestExecutionListener@7528323f, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@30032566, org.springframework.security.test.context.support.WithSecurityContextTestExecutionListener@5e3fa98, org.springframework.test.context.event.EventPublishingTestExecutionListener@2df4f994, org.springframework.security.test.context.support.ReactorContextTestExecutionListener@19f99fdf, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@30f8a193, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@2a55aa2e, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@2067dea9, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@75b5aa1d, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@b46901, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@7b7a7e3]
+2021-06-29 19:47:29.311  INFO 71800 --- [    Test worker] o.s.t.c.transaction.TransactionContext   : Began transaction (1) for test context [DefaultTestContext@310d9b95 testClass = ItemQueryRepositoryTest, testInstance = com.table.order.domain.item.ItemQueryRepositoryTest@3b79f658, testMethod = findAllByItemIds@ItemQueryRepositoryTest, testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@12474ea2 testClass = ItemQueryRepositoryTest, locations = '{}', classes = '{class com.table.order.OrderApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.actuate.metrics.MetricsExportContextCustomizerFactory$DisableMetricExportContextCustomizer@146cb5bf, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@3c6dc973, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@457cf187, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@3012fdf1, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@5de8dfa0, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@59b0859d], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -> true, 'org.springframework.test.context.web.ServletTestExecutionListener.populatedRequestContextHolder' -> true, 'org.springframework.test.context.web.ServletTestExecutionListener.resetRequestContextHolder' -> true, 'org.springframework.test.context.event.ApplicationEventsTestExecutionListener.recordApplicationEvents' -> false]]; transaction manager [org.springframework.orm.jpa.JpaTransactionManager@7f5cff57]; rollback [true]
+Hibernate: 
+    call next value for hibernate_sequence
+Hibernate: 
+    call next value for hibernate_sequence
+Hibernate: 
+    call next value for hibernate_sequence
+Hibernate: 
+    call next value for hibernate_sequence
+Hibernate: 
+    call next value for hibernate_sequence
+Hibernate: 
+    insert 
+    into
+        item
+        (created_date, updated_date, category_id, description, image, name, price, store_id, item_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        item
+        (created_date, updated_date, category_id, description, image, name, price, store_id, item_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        item
+        (created_date, updated_date, category_id, description, image, name, price, store_id, item_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        item
+        (created_date, updated_date, category_id, description, image, name, price, store_id, item_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        item
+        (created_date, updated_date, category_id, description, image, name, price, store_id, item_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    select
+        item0_.item_id as item_id1_2_,
+        item0_.created_date as created_2_2_,
+        item0_.updated_date as updated_3_2_,
+        item0_.category_id as category8_2_,
+        item0_.description as descript4_2_,
+        item0_.image as image5_2_,
+        item0_.name as name6_2_,
+        item0_.price as price7_2_,
+        item0_.store_id as store_id9_2_ 
+    from
+        item item0_ 
+    where
+        item0_.item_id=? 
+        or item0_.item_id=? 
+        or item0_.item_id=? 
+        or item0_.item_id=? 
+        or item0_.item_id=?
+Hibernate: 
+    select
+        item0_.item_id as item_id1_2_,
+        item0_.created_date as created_2_2_,
+        item0_.updated_date as updated_3_2_,
+        item0_.category_id as category8_2_,
+        item0_.description as descript4_2_,
+        item0_.image as image5_2_,
+        item0_.name as name6_2_,
+        item0_.price as price7_2_,
+        item0_.store_id as store_id9_2_ 
+    from
+        item item0_ 
+    where
+        item0_.item_id=? 
+        or item0_.item_id=? 
+        or item0_.item_id=?
+2021-06-29 19:47:29.563  INFO 71800 --- [    Test worker] o.s.t.c.transaction.TransactionContext   : Rolled back transaction for test: [DefaultTestContext@310d9b95 testClass = ItemQueryRepositoryTest, testInstance = com.table.order.domain.item.ItemQueryRepositoryTest@3b79f658, testMethod = findAllByItemIds@ItemQueryRepositoryTest, testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@12474ea2 testClass = ItemQueryRepositoryTest, locations = '{}', classes = '{class com.table.order.OrderApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.actuate.metrics.MetricsExportContextCustomizerFactory$DisableMetricExportContextCustomizer@146cb5bf, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@3c6dc973, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@457cf187, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@3012fdf1, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@5de8dfa0, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@59b0859d], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -> true, 'org.springframework.test.context.web.ServletTestExecutionListener.populatedRequestContextHolder' -> true, 'org.springframework.test.context.web.ServletTestExecutionListener.resetRequestContextHolder' -> true, 'org.springframework.test.context.event.ApplicationEventsTestExecutionListener.recordApplicationEvents' -> false]]
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

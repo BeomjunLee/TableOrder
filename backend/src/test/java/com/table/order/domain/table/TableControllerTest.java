@@ -124,7 +124,8 @@ class TableControllerTest {
                                 fieldWithPath("data.name").type(JsonFieldType.STRING).description("테이블명"),
                                 fieldWithPath("data.numberOfPeople").type(JsonFieldType.NUMBER).description("테이블 좌석 수"),
                                 fieldWithPath("data.totalPrice").type(JsonFieldType.NUMBER).description("테이블 총 주문 가격"),
-                                fieldWithPath("data.tableStatus").type(JsonFieldType.STRING).description("테이블 상태")
+                                fieldWithPath("data.tableStatus").type(JsonFieldType.STRING).description("테이블 상태"),
+                                fieldWithPath("data.orders").type(JsonFieldType.NULL).description("테이블 주문 목록")
                         )
                 ));
     }

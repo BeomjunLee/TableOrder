@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.table.order.domain.user.UserServiceTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2021-06-12T18:38:38" hostname="ibeomjun-ui-MacBookPro.local" time="0.049">
+<testsuite name="com.table.order.domain.user.UserServiceTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2021-06-29T10:47:28" hostname="ibeomjun-ui-MacBookPro.local" time="0.049">
   <properties/>
-  <testcase name="회원가입 테스트" classname="com.table.order.domain.user.UserServiceTest" time="0.038"/>
-  <testcase name="회원가입 실패 테스트 (아이디 중복)" classname="com.table.order.domain.user.UserServiceTest" time="0.003"/>
-  <testcase name="로그인 테스트" classname="com.table.order.domain.user.UserServiceTest" time="0.006"/>
+  <testcase name="회원가입 테스트" classname="com.table.order.domain.user.UserServiceTest" time="0.044"/>
+  <testcase name="회원가입 실패 테스트 (아이디 중복)" classname="com.table.order.domain.user.UserServiceTest" time="0.001"/>
+  <testcase name="로그인 테스트" classname="com.table.order.domain.user.UserServiceTest" time="0.003"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

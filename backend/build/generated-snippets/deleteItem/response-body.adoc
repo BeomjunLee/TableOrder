@@ -1,0 +1,4 @@
+[source,options="nowrap"]
+----
+{"status":200,"message":"메뉴 삭제 성공"}
+----
