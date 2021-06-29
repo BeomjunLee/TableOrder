@@ -508,7 +508,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>201 Created</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">새 리소스를 성공적으로 생성함. 응답의 <code>Location</code> 헤더에 해당 리소스의 URI가 담겨있다.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">새 리소스를 성공적으로 생성함.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>204 No Content</code></p></td>
@@ -519,8 +519,20 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <td class="tableblock halign-left valign-top"><p class="tableblock">잘못된 요청을 보낸 경우. 응답 본문에 더 오류에 대한 정보가 담겨있다.</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>401 Unauthorized</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">클라이언트가 해당 리소스에 대한 인증이 필요함.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>403 Forbidden</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">서버가 요청을 이해했지만 승인을 거부함.</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>404 Not Found</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">요청한 리소스가 없음.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>500 Internal Server Error</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">서버 내부의 문제로 오류가 발생한 경우.</p></td>
 </tr>
 </tbody>
 </table>
@@ -648,7 +660,7 @@ Unresolved directive in web.adoc - include::{snippets}/findCategoriesItemsUser/r
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-06-13 01:43:44 KST
+Last updated 2021-06-13 03:37:59 KST
 </div>
 </div>
 </body>

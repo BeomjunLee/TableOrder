@@ -4,5 +4,5 @@ HTTP/1.1 200 OK
 Content-Type: application/json
 Content-Length: 121
 
-{"status":200,"message":"식당 재방문 성공","accessToken":"(accessToken)","expiredAt":"2021-06-13T04:08:39.740209"}
+{"status":200,"message":"식당 재방문 성공","accessToken":"(accessToken)","expiredAt":"2021-06-29T19:56:37.740901"}
 ----

@@ -34,8 +34,6 @@ public class QTable extends EntityPathBase<Table> {
 
     public final EnumPath<TableStatus> tableStatus = createEnum("tableStatus", TableStatus.class);
 
-    public final NumberPath<Integer> totalPrice = createNumber("totalPrice", Integer.class);
-
     public QTable(String variable) {
         this(Table.class, forVariable(variable), INITS);
     }
