@@ -169,24 +169,27 @@ com/table/order/domain/order/entity/QOrder.java
  com.table.order.domain.order.entity.QOrder
 com/table/order/domain/category/entity/QCategory.java
  com.table.order.domain.category.entity.QCategory
-com/table/order/domain/customer/service/CustomerService.java
- com.table.order.domain.customer.service.CustomerService
+com/table/order/domain/table/entity/Table.java
+ com.table.order.domain.table.entity.Table
+ com.table.order.domain.table.entity.Table$TableBuilder
 com/table/order/domain/customer/entity/Customer.java
  com.table.order.domain.customer.entity.Customer
  com.table.order.domain.customer.entity.Customer$CustomerBuilder
 com/table/order/domain/table/dto/response/ResponseAddTable.java
  com.table.order.domain.table.dto.response.ResponseAddTable
  com.table.order.domain.table.dto.response.ResponseAddTable$ResponseAddTableBuilder
-com/table/order/domain/order/service/OrderService.java
- com.table.order.domain.order.service.OrderService
-com/table/order/global/common/code/ResultCode.java
- com.table.order.global.common.code.ResultCode
-com/table/order/domain/user/service/UserService.java
- com.table.order.domain.user.service.UserService
+com/table/order/domain/item/entity/Item.java
+ com.table.order.domain.item.entity.Item
+ com.table.order.domain.item.entity.Item$ItemBuilder
+com/table/order/domain/store/entity/QStore.java
+ com.table.order.domain.store.entity.QStore
+com/table/order/global/common/response/ResponseResult.java
+ com.table.order.global.common.response.ResponseResult
+ com.table.order.global.common.response.ResponseResult$ResponseResultBuilder
 com/table/order/domain/order/repository/OrderQueryRepository.java
  com.table.order.domain.order.repository.OrderQueryRepository
-com/table/order/domain/category/service/CategoryService.java
- com.table.order.domain.category.service.CategoryService
+com/table/order/domain/order/entity/OrderStatus.java
+ com.table.order.domain.order.entity.OrderStatus
 com/table/order/global/common/controller/ExceptionController.java
  com.table.order.global.common.controller.ExceptionController
 com/table/order/domain/item/dto/OrderItemDto.java
@@ -196,34 +199,31 @@ com/table/order/domain/customer/entity/QCustomer.java
  com.table.order.domain.customer.entity.QCustomer
 com/table/order/domain/order/controller/OrderController.java
  com.table.order.domain.order.controller.OrderController
-com/table/order/domain/store/service/StoreService.java
- com.table.order.domain.store.service.StoreService
+com/table/order/domain/order/dto/QOrderDto.java
+ com.table.order.domain.order.dto.QOrderDto
 com/table/order/domain/user/service/SecurityService.java
  com.table.order.domain.user.service.SecurityService
 com/table/order/domain/category/controller/CategoryController.java
  com.table.order.domain.category.controller.CategoryController
-com/table/order/domain/table/service/TableService.java
- com.table.order.domain.table.service.TableService
-com/table/order/domain/order/entity/OrderStatus.java
- com.table.order.domain.order.entity.OrderStatus
-com/table/order/domain/store/entity/QStore.java
- com.table.order.domain.store.entity.QStore
-com/table/order/domain/item/entity/Item.java
- com.table.order.domain.item.entity.Item
- com.table.order.domain.item.entity.Item$ItemBuilder
-com/table/order/domain/order/dto/QOrderDto.java
- com.table.order.domain.order.dto.QOrderDto
 com/table/order/domain/log/entity/QTableLog.java
  com.table.order.domain.log.entity.QTableLog
-com/table/order/domain/table/entity/Table.java
- com.table.order.domain.table.entity.Table
- com.table.order.domain.table.entity.Table$TableBuilder
-com/table/order/domain/customer/controller/CustomerController.java
- com.table.order.domain.customer.controller.CustomerController
-com/table/order/global/common/response/ResponseResult.java
- com.table.order.global.common.response.ResponseResult
- com.table.order.global.common.response.ResponseResult$ResponseResultBuilder
 com/table/order/domain/item/controller/ItemController.java
  com.table.order.domain.item.controller.ItemController
+com/table/order/global/common/code/ResultCode.java
+ com.table.order.global.common.code.ResultCode
+com/table/order/domain/user/service/UserService.java
+ com.table.order.domain.user.service.UserService
+com/table/order/domain/store/service/StoreService.java
+ com.table.order.domain.store.service.StoreService
+com/table/order/domain/customer/service/CustomerService.java
+ com.table.order.domain.customer.service.CustomerService
+com/table/order/domain/table/service/TableService.java
+ com.table.order.domain.table.service.TableService
+com/table/order/domain/customer/controller/CustomerController.java
+ com.table.order.domain.customer.controller.CustomerController
+com/table/order/domain/order/service/OrderService.java
+ com.table.order.domain.order.service.OrderService
 com/table/order/domain/item/service/ItemService.java
  com.table.order.domain.item.service.ItemService
+com/table/order/domain/category/service/CategoryService.java
+ com.table.order.domain.category.service.CategoryService
