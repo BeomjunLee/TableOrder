@@ -12,8 +12,8 @@ com/table/order/domain/order/OrderControllerTest.java
  com.table.order.domain.order.OrderControllerTest
 com/table/order/domain/user/UserControllerTest.java
  com.table.order.domain.user.UserControllerTest
-com/table/order/domain/item/ItemControllerTest.java
- com.table.order.domain.item.ItemControllerTest
+com/table/order/domain/item/ItemServiceTest.java
+ com.table.order.domain.item.ItemServiceTest
 com/table/order/domain/customer/CustomerControllerTest.java
  com.table.order.domain.customer.CustomerControllerTest
 com/table/order/domain/category/CategoryControllerTest.java
@@ -28,5 +28,5 @@ com/table/order/domain/user/UserServiceTest.java
  com.table.order.domain.user.UserServiceTest
 com/table/order/domain/store/StoreControllerTest.java
  com.table.order.domain.store.StoreControllerTest
-com/table/order/domain/item/ItemServiceTest.java
- com.table.order.domain.item.ItemServiceTest
+com/table/order/domain/item/ItemControllerTest.java
+ com.table.order.domain.item.ItemControllerTest

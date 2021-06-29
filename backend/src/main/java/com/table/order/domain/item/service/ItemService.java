@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import static com.table.order.global.common.code.CustomErrorCode.ERROR_NOT_FOUND_STORE;
 import static com.table.order.global.common.code.ResultCode.RESULT_ADD_ITEM;
+import static com.table.order.global.common.code.ResultCode.RESULT_DELETE_ITEM;
 
 @Service
 @RequiredArgsConstructor
@@ -51,4 +52,20 @@ public class ItemService {
                 .build();
     }
 
+    /**
+     * 메뉴 삭제
+     * @param itemId 메뉴 고유 id
+     * @param username 회원 아이디
+     * @return 응답 dto
+     */
+    public ResponseResult deleteItem(Long itemId, String username) {
+        storeQueryRepository.findByUsernameJoinUser(username)
+                .orElseThrow(() -> new CustomIllegalArgumentException(ERROR_NOT_FOUND_STORE.getErrorCode(), ERROR_NOT_FOUND_STORE.getMessage()));
+        itemRepository.deleteById(itemId);
+
+        return ResponseResult.builder()
+                .status(RESULT_DELETE_ITEM.getStatus())
+                .message(RESULT_DELETE_ITEM.getMessage())
+                .build();
+    }
 }

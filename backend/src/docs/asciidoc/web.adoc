@@ -147,6 +147,17 @@ include::{snippets}/addItem/request-fields.adoc[]
 include::{snippets}/addItem/http-response.adoc[]
 include::{snippets}/addItem/response-fields.adoc[]
 
+=== 메뉴 삭제
+
+`DELETE` 회원은 메뉴를 삭제할 수 있다.
+
+include::{snippets}/deleteItem/request-headers.adoc[]
+include::{snippets}/deleteItem/path-parameters.adoc[]
+include::{snippets}/deleteItem/http-request.adoc[]
+include::{snippets}/deleteItem/http-response.adoc[]
+include::{snippets}/deleteItem/response-fields.adoc[]
+
+
 === 전체 카테고리별 메뉴 조회
 
 `GET` 회원은 카테고리별 메뉴들을 조회할 수 있다.

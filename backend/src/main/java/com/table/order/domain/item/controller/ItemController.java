@@ -3,6 +3,7 @@ package com.table.order.domain.item.controller;
 import com.table.order.domain.item.dto.request.RequestAddItem;
 import com.table.order.domain.item.dto.response.ResponseAddItem;
 import com.table.order.domain.item.service.ItemService;
+import com.table.order.global.common.response.ResponseResult;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
@@ -22,5 +23,12 @@ public class ItemController {
     public ResponseAddItem addItem(@RequestBody RequestAddItem requestAddItem,
                                    Authentication authentication) {
         return itemService.addItem(requestAddItem, authentication.getName());
+    }
+
+    @DeleteMapping("/{itemId}")
+    @PreAuthorize("hasRole('ROLE_USER')")
+    public ResponseResult deleteItem(@PathVariable Long itemId,
+                                     Authentication authentication) {
+        return itemService.deleteItem(itemId, authentication.getName());
     }
 }

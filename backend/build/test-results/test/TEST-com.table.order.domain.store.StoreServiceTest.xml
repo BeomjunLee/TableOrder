@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.table.order.domain.store.StoreServiceTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2021-06-29T10:47:31" hostname="ibeomjun-ui-MacBookPro.local" time="0.017">
+  <properties/>
+  <testcase name="식당 생성 테스트" classname="com.table.order.domain.store.StoreServiceTest" time="0.016"/>
+  <testcase name="식당 생성 실패 테스트 (회원 아이디 찾기 실패)" classname="com.table.order.domain.store.StoreServiceTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -12,6 +12,7 @@ import com.table.order.domain.store.exception.CustomAccessDeniedException;
 import com.table.order.domain.store.repository.StoreQueryRepository;
 import com.table.order.global.common.exception.CustomConflictException;
 import com.table.order.global.common.exception.CustomIllegalArgumentException;
+import com.table.order.global.common.response.ResponseResult;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -24,10 +25,10 @@ import java.util.Optional;
 import static com.table.order.global.common.code.CustomErrorCode.ERROR_INVALID_STORE;
 import static com.table.order.global.common.code.CustomErrorCode.ERROR_NOT_FOUND_STORE;
 import static com.table.order.global.common.code.ResultCode.RESULT_ADD_ITEM;
+import static com.table.order.global.common.code.ResultCode.RESULT_DELETE_ITEM;
 import static org.assertj.core.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.anyString;
+import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.BDDMockito.given;
 
 @ExtendWith(MockitoExtension.class)
@@ -133,6 +134,37 @@ class ItemServiceTest {
         //when then
         assertThatThrownBy(() -> {
             itemService.addItem(requestAddItem, anyString());
+        }).isInstanceOf(CustomIllegalArgumentException.class).hasMessageContaining(ERROR_NOT_FOUND_STORE.getMessage());
+    }
+
+    @Test
+    @DisplayName("메뉴 삭제 테스트")
+    public void deleteItem() throws Exception{
+        //given
+        ResponseResult responseResult = ResponseResult.builder()
+                .status(RESULT_DELETE_ITEM.getStatus())
+                .message(RESULT_DELETE_ITEM.getMessage())
+                .build();
+
+        given(storeQueryRepository.findByUsernameJoinUser(anyString())).willReturn(Optional.of(store));
+
+        //when
+        ResponseResult response = itemService.deleteItem(anyLong(), "test");
+
+        //then
+        assertThat(response).extracting("status", "message")
+                .containsExactly(responseResult.getStatus(), responseResult.getMessage());
+    }
+
+    @Test
+    @DisplayName("메뉴 삭제 실패 테스트 (식당을 찾을 수 없음")
+    public void deleteItemNotFoundStore() throws Exception{
+        //given
+        given(storeQueryRepository.findByUsernameJoinUser(anyString())).willReturn(Optional.ofNullable(null));
+
+        //when then
+        assertThatThrownBy(() -> {
+            itemService.deleteItem(anyLong(), "test");
         }).isInstanceOf(CustomIllegalArgumentException.class).hasMessageContaining(ERROR_NOT_FOUND_STORE.getMessage());
     }
 
