@@ -19,7 +19,7 @@ class GoOrderPage : AppCompatActivity() {
         val  name = intent.getStringExtra("no")
 
         tv_name.text= name
-
+        //주석추가
 
 
 
