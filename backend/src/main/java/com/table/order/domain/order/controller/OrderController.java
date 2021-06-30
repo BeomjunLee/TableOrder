@@ -34,4 +34,11 @@ public class OrderController {
                                           Authentication authentication) {
         return orderService.cancelOrderUser(orderId, authentication.getName());
     }
+
+    @PostMapping("/orders/{orderId}/cook")
+    @PreAuthorize("hasRole('ROLE_USER')")
+    public ResponseResult changeOrderStatusCooked(@PathVariable Long orderId,
+                                                  Authentication authentication) {
+        return orderService.changeOrderStatusCooked(orderId, authentication.getName());
+    }
 }

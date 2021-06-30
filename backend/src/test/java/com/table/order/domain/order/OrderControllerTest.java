@@ -214,4 +214,40 @@ class OrderControllerTest {
                                 )
                 ));
     }
+
+    @Test
+    @DisplayName("주문 상태 변경 테스트 (조리중)")
+    public void changeOrderStatusCooked() throws Exception{
+        //given
+        ResponseResult responseResult = ResponseResult.builder()
+                .status(RESULT_COOK_ORDER.getStatus())
+                .message(RESULT_COOK_ORDER.getMessage())
+                .build();
+
+        UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken("test", "1234", authorities(UserRole.USER));
+        given(jwtProvider.getAuthentication(anyString())).willReturn(authentication);
+        given(orderService.changeOrderStatusCooked(anyLong(), anyString())).willReturn(responseResult);
+
+        //when
+        ResultActions result = mockMvc.perform(
+                post("/orders/{orderId}/cook", 1L).header("Authorization","Bearer (accessToken)")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .accept(MediaType.APPLICATION_JSON))
+                .andDo(print());
+
+        //then
+        result.andExpect(status().isOk())
+                .andDo(document("changeOrderStatusCooked",
+                        requestHeaders(
+                                headerWithName("Authorization").description("Bearer + (로그인 요청 access 토큰)")
+                        ),
+                        pathParameters(
+                                parameterWithName("orderId").description("주문 고유 id")
+                        ),
+                        responseFields(
+                                fieldWithPath("status").type(JsonFieldType.NUMBER).description("상태 코드"),
+                                fieldWithPath("message").type(JsonFieldType.STRING).description("결과 메세지")
+                        )
+                ));
+    }
 }

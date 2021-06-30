@@ -110,11 +110,27 @@ public class OrderService {
         Order findOrder = orderQueryRepository.findByIdJoinTableStoreUser(orderId, username)
                 .orElseThrow(() -> new CustomIllegalArgumentException(ERROR_NOT_FOUND_ORDER.getErrorCode(), ERROR_NOT_FOUND_ORDER.getMessage()));
         findOrder.userCanceled();
+
         return ResponseResult.builder()
                 .status(RESULT_CANCEL_ORDER.getStatus())
                 .message(RESULT_CANCEL_ORDER.getMessage())
                 .build();
     }
 
-    //TODO 주문별 조리중 으로 변경
+    /**
+     * 주문 상태 변경 (조리중)
+     * @param orderId 주문 고유 id
+     * @param username 회원 아이디
+     * @return 응답 dto
+     */
+    public ResponseResult changeOrderStatusCooked(Long orderId, String username) {
+        Order findOrder = orderQueryRepository.findByIdJoinTableStoreUser(orderId, username)
+                .orElseThrow(() -> new CustomIllegalArgumentException(ERROR_NOT_FOUND_ORDER.getErrorCode(), ERROR_NOT_FOUND_ORDER.getMessage()));
+        findOrder.cooked();
+
+        return ResponseResult.builder()
+                .status(RESULT_COOK_ORDER.getStatus())
+                .message(RESULT_COOK_ORDER.getMessage())
+                .build();
+    }
 }
