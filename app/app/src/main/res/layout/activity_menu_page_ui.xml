@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#EFEFEF"
+    tools:context=".PageDR.MenuPageUI">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintlayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/iv_hamburger"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="15dp"
+            android:src="@drawable/ic_baseline_menu_24"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginLeft="15dp" />
+
+
+
+        <ImageView
+            android:id="@+id/QR_icon_yeah"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginBottom="15dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:src="@drawable/ic_baseline_qr_code_24"
+            android:layout_marginRight="15dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintlayout">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/viewPager2"
+                android:layout_width="match_parent"
+                android:layout_height="200dp">
+
+            </androidx.viewpager2.widget.ViewPager2>
+
+            <TextView
+                android:id="@+id/tv_page_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@+id/textView"
+                android:layout_alignBottom="@+id/textView"
+                android:text="1"
+                />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="/5"
+                android:layout_marginRight="5dp"
+                android:layout_alignBottom="@+id/tv_see_all"
+                android:layout_toLeftOf="@+id/tv_see_all"
+                 />
+
+            <TextView
+                android:id="@+id/tv_see_all"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:alpha="0.7"
+                android:layout_alignRight="@+id/viewPager2"
+                android:layout_alignBottom="@+id/viewPager2"
+                android:text="모두 보기>"
+                />
+
+
+
+
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/shopinformation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/viewPager2"
+                android:layout_margin="10dp"
+                >
+
+            </androidx.recyclerview.widget.RecyclerView>
+
+
+
+
+
+
+
+            <TextView
+                android:id="@+id/maindish"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="대표 메뉴"
+                android:textSize="25dp"
+                android:textColor="@color/black"
+                android:layout_below="@+id/shopinformation"
+                android:background="@drawable/white_rectangle_top_raidus"/>
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/realmenurecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/maindish"
+                android:background="@drawable/menu_corner_style"
+                />
+
+            <TextView
+                android:id="@+id/sidedish"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginTop="40dp"
+                android:padding="10dp"
+                android:text="사이드메뉴"
+                android:textSize="25dp"
+                android:textColor="@color/black"
+                android:layout_below="@+id/realmenurecyclerView"
+                android:background="@drawable/white_rectangle_top_raidus"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/sidemenurecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/menu_corner_style"
+                android:layout_below="@+id/sidedish"/>
+
+
+            <TextView
+                android:id="@+id/drinkdish"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginTop="40dp"
+                android:padding="10dp"
+                android:text="주류 메뉴"
+                android:textSize="25dp"
+                android:textColor="@color/black"
+                android:layout_below="@+id/sidemenurecyclerView"
+                android:background="@drawable/white_rectangle_top_raidus"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/drinkmenurecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/menu_corner_style"
+                android:layout_below="@+id/drinkdish"/>
+
+
+        </RelativeLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="30dp"
+        >
+
+
+
+        <ImageView
+            android:id="@+id/ohshit23"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/snowflake"
+            tools:ignore="MissingConstraints" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

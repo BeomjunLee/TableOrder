@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <androidx.cardview.widget.CardView
+        android:layout_gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_margin="5dp"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:foregroundGravity="center"
+           >
+
+            <TextView
+                android:id="@+id/store_name_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="네네치킨 권선점"
+                android:textColor="@color/black"
+                android:textSize="30dp"
+                android:textStyle="bold"
+               />
+
+            <TextView
+                android:id="@+id/store_review_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="최근리뷰 2,000 | 최근댓글 3,000"/>
+
+
+        </LinearLayout>
+
+
+
+
+    </androidx.cardview.widget.CardView>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="5dp"
+        >
+
+        <TextView
+            android:id="@+id/menu_price_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="최소주문금액: 6,500원"
+            android:textColor="@color/black"
+
+            android:textSize="15dp"/>
+
+        <TextView
+            android:id="@+id/menu_howsell_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:text="결제방법: 카드결제, 현금결제"
+            android:textSize="15dp"/>
+
+        <TextView
+            android:id="@+id/menu_cooktime_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:text="조리시간: 50분 소요 예상"
+            android:textSize="15dp"/>
+
+
+
+    </LinearLayout>
+
+
+
+
+</LinearLayout>
