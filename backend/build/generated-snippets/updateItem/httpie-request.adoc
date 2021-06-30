@@ -1,0 +1,7 @@
+[source,bash]
+----
+$ echo '{"name":"수정된 메뉴명","description":"수정된 설명","price":100000,"image":"수정된 이미지 주소"}' | http PUT 'http://localhost:8080/items/1' \
+    'Content-Type:application/json;charset=UTF-8' \
+    'Authorization:Bearer (accessToken)' \
+    'Accept:application/json'
+----

@@ -1,0 +1,4 @@
+[source,options="nowrap"]
+----
+{"status":200,"message":"메뉴 수정 성공"}
+----

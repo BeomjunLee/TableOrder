@@ -22,7 +22,8 @@ public enum CustomErrorCode {
     ERROR_UPDATE_CATEGORY(13, BAD_REQUEST.value(), "카테고리 수정 실패"),
     ERROR_NOT_FOUND_ORDER(14, BAD_REQUEST.value(), "주문을 찾을 수 없습니다"),
     ERROR_DENIED_CANCEL_ORDER_BY_COOK(15, CONFLICT.value(), "조리에 들어간 주문은 취소할 수 없습니다"),
-    ERROR_DENIED_CANCEL_ORDER_BY_COMP(16, CONFLICT.value(), "이미 결제가 완료된 주문은 취소할 수 없습니다")
+    ERROR_DENIED_CANCEL_ORDER_BY_COMP(16, CONFLICT.value(), "이미 결제가 완료된 주문은 취소할 수 없습니다"),
+    ERROR_NOT_FOUND_ITEM(17, BAD_REQUEST.value(), "메뉴를 찾을 수 없습니다")
     ;
 
     private final int errorCode;

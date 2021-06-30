@@ -1,0 +1,20 @@
+|===
+|Path|Type|Description
+
+|`+name+`
+|`+String+`
+|메뉴명
+
+|`+description+`
+|`+String+`
+|메뉴 설명
+
+|`+price+`
+|`+Number+`
+|메뉴 가격
+
+|`+image+`
+|`+String+`
+|메뉴 이미지 주소
+
+|===

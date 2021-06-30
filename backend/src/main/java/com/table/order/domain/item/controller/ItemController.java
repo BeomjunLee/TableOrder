@@ -1,6 +1,7 @@
 package com.table.order.domain.item.controller;
 
 import com.table.order.domain.item.dto.request.RequestAddItem;
+import com.table.order.domain.item.dto.request.RequestUpdateItem;
 import com.table.order.domain.item.dto.response.ResponseAddItem;
 import com.table.order.domain.item.service.ItemService;
 import com.table.order.global.common.response.ResponseResult;
@@ -30,5 +31,13 @@ public class ItemController {
     public ResponseResult deleteItem(@PathVariable Long itemId,
                                      Authentication authentication) {
         return itemService.deleteItem(itemId, authentication.getName());
+    }
+
+    @PutMapping("/{itemId}")
+    @PreAuthorize("hasRole('ROLE_USER')")
+    public ResponseResult updateItem(@PathVariable Long itemId,
+                                     @RequestBody RequestUpdateItem requestUpdateItem,
+                                     Authentication authentication) {
+        return itemService.updateItem(itemId, authentication.getName(), requestUpdateItem);
     }
 }

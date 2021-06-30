@@ -4,5 +4,5 @@ HTTP/1.1 200 OK
 Content-Type: application/json
 Content-Length: 117
 
-{"status":200,"message":"재로그인 성공","accessToken":"(accessToken)","expiredAt":"2021-06-29T20:17:30.605907"}
+{"status":200,"message":"재로그인 성공","accessToken":"(accessToken)","expiredAt":"2021-06-30T14:07:20.923008"}
 ----

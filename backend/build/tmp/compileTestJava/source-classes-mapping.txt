@@ -1,7 +1,5 @@
 com/table/order/OrderApplicationTests.java
  com.table.order.OrderApplicationTests
-com/table/order/domain/item/ItemQueryRepositoryTest.java
- com.table.order.domain.item.ItemQueryRepositoryTest
 com/table/order/domain/customer/CustomerServiceTest.java
  com.table.order.domain.customer.CustomerServiceTest
 com/table/order/domain/category/CategoryServiceTest.java
@@ -28,5 +26,7 @@ com/table/order/domain/user/UserServiceTest.java
  com.table.order.domain.user.UserServiceTest
 com/table/order/domain/store/StoreControllerTest.java
  com.table.order.domain.store.StoreControllerTest
+com/table/order/domain/item/ItemQueryRepositoryTest.java
+ com.table.order.domain.item.ItemQueryRepositoryTest
 com/table/order/domain/item/ItemControllerTest.java
  com.table.order.domain.item.ItemControllerTest
