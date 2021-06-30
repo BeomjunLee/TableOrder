@@ -137,6 +137,27 @@ include::{snippets}/addCategory/request-fields.adoc[]
 include::{snippets}/addCategory/http-response.adoc[]
 include::{snippets}/addCategory/response-fields.adoc[]
 
+=== 카테고리 수정
+
+`PUT` 회원은 카테고리를 수정할 수 있다.
+
+include::{snippets}/updateCategory/request-headers.adoc[]
+include::{snippets}/updateCategory/path-parameters.adoc[]
+include::{snippets}/updateCategory/http-request.adoc[]
+include::{snippets}/updateCategory/request-fields.adoc[]
+include::{snippets}/updateCategory/http-response.adoc[]
+include::{snippets}/updateCategory/response-fields.adoc[]
+
+=== 카테고리 삭제
+
+`DELETE` 회원은 카테고리를 삭제할 수 있다. (삭제 시 해당 카테고리 메뉴들은 다 삭제된다.)
+
+include::{snippets}/deleteCategory/request-headers.adoc[]
+include::{snippets}/deleteCategory/path-parameters.adoc[]
+include::{snippets}/deleteCategory/http-request.adoc[]
+include::{snippets}/deleteCategory/http-response.adoc[]
+include::{snippets}/deleteCategory/response-fields.adoc[]
+
 === 메뉴 추가
 
 `POST` 회원은 메뉴를 추가할 수 있다. (식당을 등록한 상태여야 한다, 추가된 카테고리여야 한다)
@@ -146,6 +167,17 @@ include::{snippets}/addItem/http-request.adoc[]
 include::{snippets}/addItem/request-fields.adoc[]
 include::{snippets}/addItem/http-response.adoc[]
 include::{snippets}/addItem/response-fields.adoc[]
+
+=== 메뉴 수정
+
+`PUT` 회원은 메뉴를 수정할 수 있다.
+
+include::{snippets}/updateItem/request-headers.adoc[]
+include::{snippets}/updateItem/path-parameters.adoc[]
+include::{snippets}/updateItem/http-request.adoc[]
+include::{snippets}/updateItem/request-fields.adoc[]
+include::{snippets}/updateItem/http-response.adoc[]
+include::{snippets}/updateItem/response-fields.adoc[]
 
 === 메뉴 삭제
 
@@ -166,27 +198,6 @@ include::{snippets}/findCategoriesItemsUser/request-headers.adoc[]
 include::{snippets}/findCategoriesItemsUser/http-request.adoc[]
 include::{snippets}/findCategoriesItemsUser/http-response.adoc[]
 include::{snippets}/findCategoriesItemsUser/response-fields.adoc[]
-
-=== 카테고리 삭제
-
-`DELETE` 회원은 카테고리를 삭제할 수 있다. (삭제 시 해당 카테고리 메뉴들은 다 삭제된다.)
-
-include::{snippets}/deleteCategory/request-headers.adoc[]
-include::{snippets}/deleteCategory/path-parameters.adoc[]
-include::{snippets}/deleteCategory/http-request.adoc[]
-include::{snippets}/deleteCategory/http-response.adoc[]
-include::{snippets}/deleteCategory/response-fields.adoc[]
-
-=== 카테고리 수정
-
-`DELETE` 회원은 카테고리를 수정할 수 있다.
-
-include::{snippets}/updateCategory/request-headers.adoc[]
-include::{snippets}/updateCategory/path-parameters.adoc[]
-include::{snippets}/updateCategory/http-request.adoc[]
-include::{snippets}/updateCategory/request-fields.adoc[]
-include::{snippets}/updateCategory/http-response.adoc[]
-include::{snippets}/updateCategory/response-fields.adoc[]
 
 === 주문 취소
 

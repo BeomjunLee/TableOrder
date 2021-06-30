@@ -3,6 +3,7 @@ package com.table.order.domain.item.entity;
 import com.table.order.domain.category.entity.Category;
 import com.table.order.domain.BaseEntity;
 import com.table.order.domain.item.dto.request.RequestAddItem;
+import com.table.order.domain.item.dto.request.RequestUpdateItem;
 import com.table.order.domain.store.entity.Store;
 import com.table.order.domain.store.exception.CustomAccessDeniedException;
 import com.table.order.global.common.code.CustomErrorCode;
@@ -70,6 +71,13 @@ public class Item extends BaseEntity {
         item.setCategory(category);
 
         return item;
+    }
+
+    public void updateItem(RequestUpdateItem requestUpdateItem) {
+        this.name = requestUpdateItem.getName();
+        this.description = requestUpdateItem.getDescription();
+        this.price = requestUpdateItem.getPrice();
+        this.image = requestUpdateItem.getImage();
     }
 
     private Category validate(RequestAddItem requestAddItem) {

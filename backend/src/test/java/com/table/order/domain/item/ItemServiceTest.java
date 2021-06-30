@@ -1,9 +1,12 @@
 package com.table.order.domain.item;
+import com.table.order.domain.category.dto.request.RequestUpdateCategory;
 import com.table.order.domain.category.entity.Category;
 import com.table.order.domain.item.dto.ItemDto;
 import com.table.order.domain.item.dto.request.RequestAddItem;
+import com.table.order.domain.item.dto.request.RequestUpdateItem;
 import com.table.order.domain.item.dto.response.ResponseAddItem;
 import com.table.order.domain.item.entity.Item;
+import com.table.order.domain.item.repository.ItemQueryRepository;
 import com.table.order.domain.item.repository.ItemRepository;
 import com.table.order.domain.item.service.ItemService;
 import com.table.order.domain.store.entity.Store;
@@ -22,10 +25,10 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import java.util.Optional;
-import static com.table.order.global.common.code.CustomErrorCode.ERROR_INVALID_STORE;
-import static com.table.order.global.common.code.CustomErrorCode.ERROR_NOT_FOUND_STORE;
-import static com.table.order.global.common.code.ResultCode.RESULT_ADD_ITEM;
-import static com.table.order.global.common.code.ResultCode.RESULT_DELETE_ITEM;
+
+import static com.table.order.global.common.code.CustomErrorCode.*;
+import static com.table.order.global.common.code.ResultCode.*;
+import static com.table.order.global.common.code.ResultCode.RESULT_UPDATE_CATEGORY;
 import static org.assertj.core.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.*;
@@ -39,6 +42,8 @@ class ItemServiceTest {
     private ItemRepository itemRepository;
     @Mock
     private StoreQueryRepository storeQueryRepository;
+    @Mock
+    private ItemQueryRepository itemQueryRepository;
 
     private RequestAddItem requestAddItem;
     private ResponseAddItem responseAddItem;
@@ -168,4 +173,40 @@ class ItemServiceTest {
         }).isInstanceOf(CustomIllegalArgumentException.class).hasMessageContaining(ERROR_NOT_FOUND_STORE.getMessage());
     }
 
+    @Test
+    @DisplayName("메뉴 수정 테스트")
+    public void updateItem() throws Exception{
+        //given
+        ResponseResult responseResult = ResponseResult.builder()
+                .status(RESULT_UPDATE_ITEM.getStatus())
+                .message(RESULT_UPDATE_ITEM.getMessage())
+                .build();
+
+        RequestUpdateItem requestUpdateItem = RequestUpdateItem.builder()
+                .name("수정된 메뉴명")
+                .description("수정된 설명")
+                .price(100000)
+                .image("수정된 이미지 주소")
+                .build();
+
+        given(itemQueryRepository.findByIdJoinStoreUser(anyLong(), anyString())).willReturn(Optional.ofNullable(item));
+
+        //when
+        ResponseResult response = itemService.updateItem(anyLong(), anyString(), requestUpdateItem);
+
+        //then
+        assertThat(response).usingRecursiveComparison().isEqualTo(responseResult);
+    }
+
+    @Test
+    @DisplayName("메뉴 수정 실패 테스트 (메뉴를 찾을 수 없음")
+    public void updateItemNotFoundItem() throws Exception{
+        //given
+        given(itemQueryRepository.findByIdJoinStoreUser(anyLong(), anyString())).willReturn(Optional.ofNullable(null));
+
+        //when then
+        assertThatThrownBy(() -> {
+            itemService.updateItem(anyLong(), "test", any(RequestUpdateItem.class));
+        }).isInstanceOf(CustomIllegalArgumentException.class).hasMessageContaining(ERROR_NOT_FOUND_ITEM.getMessage());
+    }
 }

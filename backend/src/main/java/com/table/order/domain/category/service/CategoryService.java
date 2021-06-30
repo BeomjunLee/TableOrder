@@ -123,6 +123,13 @@ public class CategoryService {
                 .build();
     }
 
+    /**
+     * 카테고리 수정
+     * @param categoryId 카테고리 고유 id
+     * @param username 회원 아이디
+     * @param requestUpdateCategory 수정 form
+     * @return 응답 dto
+     */
     public ResponseResult updateCategory(Long categoryId, String username, RequestUpdateCategory requestUpdateCategory) {
         Category findCategory = categoryQueryRepository.findByIdJoinStoreUser(categoryId, username)
                 .orElseThrow(() -> new CustomIllegalArgumentException(ERROR_UPDATE_CATEGORY.getErrorCode(), ERROR_UPDATE_CATEGORY.getMessage()));
