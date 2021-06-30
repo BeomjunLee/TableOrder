@@ -1,0 +1,12 @@
+|===
+|Path|Type|Description
+
+|`+status+`
+|`+Number+`
+|상태 코드
+
+|`+message+`
+|`+String+`
+|결과 메세지
+
+|===

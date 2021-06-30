@@ -209,3 +209,13 @@ include::{snippets}/cancelOrderUser/http-request.adoc[]
 include::{snippets}/cancelOrderUser/http-response.adoc[]
 include::{snippets}/cancelOrderUser/response-fields.adoc[]
 
+=== 주문 상탵 변경 (ORDER -> COOKED)
+
+`POST` 회원은 손님들의 주문 상태를 조리중으로 변경할 수 있다.
+
+include::{snippets}/changeOrderStatusCooked/request-headers.adoc[]
+include::{snippets}/changeOrderStatusCooked/path-parameters.adoc[]
+include::{snippets}/changeOrderStatusCooked/http-request.adoc[]
+include::{snippets}/changeOrderStatusCooked/http-response.adoc[]
+include::{snippets}/changeOrderStatusCooked/response-fields.adoc[]
+
