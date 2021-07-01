@@ -20,9 +20,7 @@ class GoOrderPage : AppCompatActivity() {
 
         tv_name.text= name
         //주석추가
-
-
-
+        //제발 돼주겠니
 
 
     }
