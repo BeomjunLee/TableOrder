@@ -1,0 +1,8 @@
+[source,bash]
+----
+$ curl 'http://localhost:8080/tables/1' -i -X PUT \
+    -H 'Content-Type: application/json;charset=UTF-8' \
+    -H 'Authorization: Bearer (accessToken)' \
+    -H 'Accept: application/json' \
+    -d '{"name":"수정된 테이블명","numberOfPeople":5}'
+----

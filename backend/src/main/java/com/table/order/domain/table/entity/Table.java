@@ -4,6 +4,7 @@ import com.table.order.domain.order.entity.Order;
 import com.table.order.domain.store.entity.Store;
 import com.table.order.domain.store.exception.CustomAccessDeniedException;
 import com.table.order.domain.table.dto.request.RequestAddTable;
+import com.table.order.domain.table.dto.request.RequestUpdateTable;
 import com.table.order.global.common.exception.CustomConflictException;
 import lombok.AccessLevel;
 import lombok.Builder;
@@ -61,6 +62,11 @@ public class Table {
         table.validate();
 
         return table;
+    }
+
+    public void updateTable(RequestUpdateTable requestUpdateTable) {
+        this.name = requestUpdateTable.getName();
+        this.numberOfPeople = requestUpdateTable.getNumberOfPeople();
     }
 
     private void validate() {

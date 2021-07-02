@@ -1,0 +1,12 @@
+|===
+|Path|Type|Description
+
+|`+name+`
+|`+String+`
+|테이블명
+
+|`+numberOfPeople+`
+|`+Number+`
+|테이블 좌석 수
+
+|===

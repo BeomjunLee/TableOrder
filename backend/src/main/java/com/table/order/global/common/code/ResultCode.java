@@ -16,16 +16,17 @@ public enum ResultCode {
     RESULT_SIGNUP_USER(CREATED.value(), "회원 가입 성공"),
     RESULT_ENROLL_STORE(CREATED.value(), "식당 등록 성공"),
     RESULT_ADD_TABLE(CREATED.value(), "테이블 추가 성공"),
-    RESULT_ADD_CATEGORY(CREATED.value(), "카테고리 추가 성공"),
-    RESULT_ADD_ITEM(CREATED.value(), "메뉴 추가 성공"),
-    RESULT_CREATE_ORDER(CREATED.value(), "주문 생성 성공"),
+    RESULT_UPDATE_TABLE(OK.value(), "테이블 수정 성공"),
     RESULT_FIND_TABLES(OK.value(), "테이블 검색 성공"),
+    RESULT_ADD_ITEM(CREATED.value(), "메뉴 추가 성공"),
+    RESULT_DELETE_ITEM(OK.value(), "메뉴 삭제 성공"),
+    RESULT_UPDATE_ITEM(OK.value(), "메뉴 수정 성공"),
+    RESULT_ADD_CATEGORY(CREATED.value(), "카테고리 추가 성공"),
     RESULT_FIND_CATEGORIES_ITEMS(OK.value(), "카테고리, 메뉴 검색 성공"),
     RESULT_DELETE_CATEGORY(OK.value(), "카테고리 삭제 성공"),
     RESULT_UPDATE_CATEGORY(OK.value(), "카테고리 수정 성공"),
+    RESULT_CREATE_ORDER(CREATED.value(), "주문 생성 성공"),
     RESULT_CANCEL_ORDER(OK.value(), "주문 취소 성공"),
-    RESULT_DELETE_ITEM(OK.value(), "메뉴 삭제 성공"),
-    RESULT_UPDATE_ITEM(OK.value(), "메뉴 수정 성공"),
     RESULT_COOK_ORDER(OK.value(), "주문 상태 변경 성공 (조리중)")
     ;
 
