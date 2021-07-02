@@ -35,12 +35,12 @@ public class TableQueryRepository {
 
     private final JPAQueryFactory queryFactory;
 
-    public Optional<Table> findTableJoinStore(Long tablaId, Long storeId) {
+    public Optional<Table> findTableJoinStore(Long tableId, Long storeId) {
         Table findTable = queryFactory
                 .select(table)
                 .from(table)
                 .join(table.store, store)
-                .where(table.id.eq(tablaId), store.id.eq(storeId))
+                .where(table.id.eq(tableId), store.id.eq(storeId))
                 .fetchOne();
         return Optional.ofNullable(findTable);
     }
@@ -64,5 +64,16 @@ public class TableQueryRepository {
         long total = results.getTotal();
 
         return new PageImpl<>(contents, pageable, total);
+    }
+
+    public Optional<Table> findByIdJoinStoreUser(Long tableId, String username) {
+        Table findTable = queryFactory
+                .select(table)
+                .from(table)
+                .join(table.store, store)
+                .join(store.user, user)
+                .where(table.id.eq(tableId), user.username.eq(username))
+                .fetchOne();
+        return Optional.ofNullable(findTable);
     }
 }

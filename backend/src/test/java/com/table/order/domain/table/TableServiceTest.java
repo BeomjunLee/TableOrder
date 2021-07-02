@@ -10,6 +10,7 @@ import com.table.order.domain.store.exception.CustomAccessDeniedException;
 import com.table.order.domain.store.repository.StoreQueryRepository;
 import com.table.order.domain.table.dto.TableDto;
 import com.table.order.domain.table.dto.request.RequestAddTable;
+import com.table.order.domain.table.dto.request.RequestUpdateTable;
 import com.table.order.domain.table.dto.response.ResponseAddTable;
 import com.table.order.domain.table.dto.response.ResponseTables;
 import com.table.order.domain.table.entity.Table;
@@ -19,6 +20,7 @@ import com.table.order.domain.table.repository.TableRepository;
 import com.table.order.domain.table.service.TableService;
 import com.table.order.global.common.exception.CustomConflictException;
 import com.table.order.global.common.exception.CustomIllegalArgumentException;
+import com.table.order.global.common.response.ResponseResult;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -37,11 +39,9 @@ import java.util.Optional;
 
 import static com.table.order.global.common.code.CustomErrorCode.ERROR_INVALID_STORE;
 import static com.table.order.global.common.code.CustomErrorCode.ERROR_NOT_FOUND_STORE;
-import static com.table.order.global.common.code.ResultCode.RESULT_ADD_TABLE;
-import static com.table.order.global.common.code.ResultCode.RESULT_FIND_TABLES;
+import static com.table.order.global.common.code.ResultCode.*;
 import static org.assertj.core.api.Assertions.*;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.anyString;
+import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.BDDMockito.given;
 
 @ExtendWith(MockitoExtension.class)
@@ -210,5 +210,28 @@ class TableServiceTest {
 
         //then
         assertThat(response).usingRecursiveComparison().isEqualTo(responseTables);
+    }
+
+    @Test
+    @DisplayName("테이블 수정 테스트")
+    public void updateTable() throws Exception{
+        //given
+        ResponseResult responseResult = ResponseResult.builder()
+                .status(RESULT_UPDATE_TABLE.getStatus())
+                .message(RESULT_UPDATE_TABLE.getMessage())
+                .build();
+
+        RequestUpdateTable requestUpdateTable = RequestUpdateTable.builder()
+                .name("수정된 테이블명")
+                .numberOfPeople(5)
+                .build();
+
+        given(tableQueryRepository.findByIdJoinStoreUser(anyLong(), anyString())).willReturn(Optional.ofNullable(table));
+
+        //when
+        ResponseResult response = tableService.updateTable(anyLong(), anyString(), requestUpdateTable);
+
+        //then
+        assertThat(response).usingRecursiveComparison().isEqualTo(responseResult);
     }
 }

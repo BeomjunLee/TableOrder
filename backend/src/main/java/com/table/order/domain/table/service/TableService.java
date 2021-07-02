@@ -7,12 +7,14 @@ import com.table.order.domain.store.entity.Store;
 import com.table.order.domain.store.repository.StoreQueryRepository;
 import com.table.order.domain.table.dto.TableDto;
 import com.table.order.domain.table.dto.request.RequestAddTable;
+import com.table.order.domain.table.dto.request.RequestUpdateTable;
 import com.table.order.domain.table.dto.response.ResponseAddTable;
 import com.table.order.domain.table.dto.response.ResponseTables;
 import com.table.order.domain.table.entity.Table;
 import com.table.order.domain.table.repository.TableQueryRepository;
 import com.table.order.domain.table.repository.TableRepository;
 import com.table.order.global.common.exception.CustomIllegalArgumentException;
+import com.table.order.global.common.response.ResponseResult;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -22,8 +24,8 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.stream.Collectors;
 
 import static com.table.order.global.common.code.CustomErrorCode.ERROR_NOT_FOUND_STORE;
-import static com.table.order.global.common.code.ResultCode.RESULT_ADD_TABLE;
-import static com.table.order.global.common.code.ResultCode.RESULT_FIND_TABLES;
+import static com.table.order.global.common.code.CustomErrorCode.ERROR_NOT_FOUND_TABLE_STORE;
+import static com.table.order.global.common.code.ResultCode.*;
 
 @Service
 @RequiredArgsConstructor
@@ -95,11 +97,26 @@ public class TableService {
                 .build();
     }
 
+    /**
+     * 테이블 수정
+     * @param tableId 테이블 고유 id
+     * @param username 회원 아이디
+     * @param requestUpdateTable 테이블 수정 form
+     * @return 응답 dto
+     */
+    public ResponseResult updateTable(Long tableId, String username, RequestUpdateTable requestUpdateTable) {
+        Table table = tableQueryRepository.findByIdJoinStoreUser(tableId, username)
+                .orElseThrow(() -> new CustomIllegalArgumentException(ERROR_NOT_FOUND_TABLE_STORE.getErrorCode(), ERROR_NOT_FOUND_TABLE_STORE.getMessage()));
+        table.updateTable(requestUpdateTable);
+
+        return ResponseResult.builder()
+                .status(RESULT_UPDATE_TABLE.getStatus())
+                .message(RESULT_UPDATE_TABLE.getMessage())
+                .build();
+    }
+
     //TODO 테이블 오픈 (테이블 초기화)
-    //TODO 조리중
     //TODO 계산 완료
     //TODO 회원들도 테이블 보기 (계산서)
     //TODO 테이블 삭제
-    //TODO 테이블 수정
-    //TODO 조리중 조리완료 뺄지 말지 고민
 }
