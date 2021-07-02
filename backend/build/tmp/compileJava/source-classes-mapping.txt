@@ -217,8 +217,8 @@ com/table/order/domain/table/repository/TableQueryRepository.java
  com.table.order.domain.table.repository.TableQueryRepository
 com/table/order/domain/customer/service/CustomerService.java
  com.table.order.domain.customer.service.CustomerService
-com/table/order/domain/table/controller/TableController.java
- com.table.order.domain.table.controller.TableController
+com/table/order/domain/item/service/ItemService.java
+ com.table.order.domain.item.service.ItemService
 com/table/order/domain/table/entity/Table.java
  com.table.order.domain.table.entity.Table
  com.table.order.domain.table.entity.Table$TableBuilder
@@ -231,5 +231,5 @@ com/table/order/domain/customer/entity/Customer.java
  com.table.order.domain.customer.entity.Customer$CustomerBuilder
 com/table/order/domain/order/service/OrderService.java
  com.table.order.domain.order.service.OrderService
-com/table/order/domain/item/service/ItemService.java
- com.table.order.domain.item.service.ItemService
+com/table/order/domain/table/controller/TableController.java
+ com.table.order.domain.table.controller.TableController

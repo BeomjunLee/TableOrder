@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.table.order.domain.table.TableServiceTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-07-02T10:28:01" hostname="ibeomjun-ui-MacBookPro.local" time="0.589">
-  <properties/>
-  <testcase name="테이블 수정 테스트 (테이블 또는 식당을 찾을 수 없음)" classname="com.table.order.domain.table.TableServiceTest" time="0.589"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>

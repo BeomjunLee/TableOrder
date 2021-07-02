@@ -1,0 +1,4 @@
+[source,options="nowrap"]
+----
+{"name":"수정된 테이블명","numberOfPeople":5}
+----

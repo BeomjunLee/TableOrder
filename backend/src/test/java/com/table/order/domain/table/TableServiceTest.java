@@ -37,8 +37,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-import static com.table.order.global.common.code.CustomErrorCode.ERROR_INVALID_STORE;
-import static com.table.order.global.common.code.CustomErrorCode.ERROR_NOT_FOUND_STORE;
+import static com.table.order.global.common.code.CustomErrorCode.*;
 import static com.table.order.global.common.code.ResultCode.*;
 import static org.assertj.core.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.*;
@@ -234,4 +233,17 @@ class TableServiceTest {
         //then
         assertThat(response).usingRecursiveComparison().isEqualTo(responseResult);
     }
+
+    @Test
+    @DisplayName("테이블 수정 테스트 (테이블 또는 식당을 찾을 수 없음)")
+    public void updateTableNotFoundTableOrStore() throws Exception{
+        //given
+        given(tableQueryRepository.findByIdJoinStoreUser(anyLong(), anyString())).willReturn(Optional.ofNullable(null));
+
+        //when then
+        assertThatThrownBy(() -> {
+            tableService.updateTable(anyLong(), "test", any(RequestUpdateTable.class));
+        }).isInstanceOf(CustomIllegalArgumentException.class).hasMessageContaining(ERROR_NOT_FOUND_TABLE_STORE.getMessage());
+    }
+    
 }

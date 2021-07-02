@@ -1,16 +1,19 @@
 package com.table.order.domain.table;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.table.order.domain.item.dto.request.RequestUpdateItem;
 import com.table.order.domain.order.dto.OrderDto;
 import com.table.order.domain.order.entity.OrderStatus;
 import com.table.order.domain.table.controller.TableController;
 import com.table.order.domain.table.dto.TableDto;
 import com.table.order.domain.table.dto.request.RequestAddTable;
+import com.table.order.domain.table.dto.request.RequestUpdateTable;
 import com.table.order.domain.table.dto.response.ResponseAddTable;
 import com.table.order.domain.table.dto.response.ResponseTables;
 import com.table.order.domain.table.entity.TableStatus;
 import com.table.order.domain.table.service.TableService;
 import com.table.order.domain.user.entity.UserRole;
 import com.table.order.domain.user.service.SecurityService;
+import com.table.order.global.common.response.ResponseResult;
 import com.table.order.global.security.exception.JwtAccessDeniedHandler;
 import com.table.order.global.security.exception.JwtAuthenticationEntryPoint;
 import com.table.order.global.security.provider.JwtProvider;
@@ -35,20 +38,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static com.table.order.global.common.RoleToCollection.authorities;
-import static com.table.order.global.common.code.ResultCode.RESULT_ADD_TABLE;
-import static com.table.order.global.common.code.ResultCode.RESULT_FIND_TABLES;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.anyString;
+import static com.table.order.global.common.code.ResultCode.*;
+import static com.table.order.global.common.code.ResultCode.RESULT_UPDATE_ITEM;
+import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.BDDMockito.given;
 import static org.springframework.restdocs.headers.HeaderDocumentation.headerWithName;
 import static org.springframework.restdocs.headers.HeaderDocumentation.requestHeaders;
 import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.document;
-import static org.springframework.restdocs.mockmvc.RestDocumentationRequestBuilders.get;
-import static org.springframework.restdocs.mockmvc.RestDocumentationRequestBuilders.post;
+import static org.springframework.restdocs.mockmvc.RestDocumentationRequestBuilders.*;
+import static org.springframework.restdocs.payload.JsonFieldType.NUMBER;
+import static org.springframework.restdocs.payload.JsonFieldType.STRING;
 import static org.springframework.restdocs.payload.PayloadDocumentation.*;
 import static org.springframework.restdocs.payload.PayloadDocumentation.fieldWithPath;
-import static org.springframework.restdocs.request.RequestDocumentation.parameterWithName;
-import static org.springframework.restdocs.request.RequestDocumentation.requestParameters;
+import static org.springframework.restdocs.request.RequestDocumentation.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -114,17 +116,17 @@ class TableControllerTest {
                                 headerWithName("Authorization").description("Bearer + (로그인 요청 access 토큰)")
                         ),
                         requestFields(
-                                fieldWithPath("name").type(JsonFieldType.STRING).description("테이블명"),
-                                fieldWithPath("numberOfPeople").type(JsonFieldType.NUMBER).description("테이블 좌석 수")
+                                fieldWithPath("name").type(STRING).description("테이블명"),
+                                fieldWithPath("numberOfPeople").type(NUMBER).description("테이블 좌석 수")
                         ),
                         responseFields(
-                                fieldWithPath("status").type(JsonFieldType.NUMBER).description("상태 코드"),
-                                fieldWithPath("message").type(JsonFieldType.STRING).description("결과 메세지"),
-                                fieldWithPath("data.id").type(JsonFieldType.NUMBER).description("테이블 고유 id"),
-                                fieldWithPath("data.name").type(JsonFieldType.STRING).description("테이블명"),
-                                fieldWithPath("data.numberOfPeople").type(JsonFieldType.NUMBER).description("테이블 좌석 수"),
-                                fieldWithPath("data.totalPrice").type(JsonFieldType.NUMBER).description("테이블 총 주문 가격"),
-                                fieldWithPath("data.tableStatus").type(JsonFieldType.STRING).description("테이블 상태"),
+                                fieldWithPath("status").type(NUMBER).description("상태 코드"),
+                                fieldWithPath("message").type(STRING).description("결과 메세지"),
+                                fieldWithPath("data.id").type(NUMBER).description("테이블 고유 id"),
+                                fieldWithPath("data.name").type(STRING).description("테이블명"),
+                                fieldWithPath("data.numberOfPeople").type(NUMBER).description("테이블 좌석 수"),
+                                fieldWithPath("data.totalPrice").type(NUMBER).description("테이블 총 주문 가격"),
+                                fieldWithPath("data.tableStatus").type(STRING).description("테이블 상태"),
                                 fieldWithPath("data.orders").type(JsonFieldType.NULL).description("테이블 주문 목록")
                         )
                 ));
@@ -195,44 +197,89 @@ class TableControllerTest {
                                 parameterWithName("size").description("한 페이지당 조회할 데이터 개수(생략하면 default 값)")
                         ),
                         responseFields(
-                                fieldWithPath("status").type(JsonFieldType.NUMBER).description("상태 코드"),
-                                fieldWithPath("message").type(JsonFieldType.STRING).description("결과 메세지"),
-                                fieldWithPath("data.content.[].id").type(JsonFieldType.NUMBER).description("테이블 고유 id"),
-                                fieldWithPath("data.content.[].name").type(JsonFieldType.STRING).description("테이블명"),
-                                fieldWithPath("data.content.[].numberOfPeople").type(JsonFieldType.NUMBER).description("테이블 좌석 수"),
-                                fieldWithPath("data.content.[].totalPrice").type(JsonFieldType.NUMBER).description("테이블 총 주문 가격"),
-                                fieldWithPath("data.content.[].tableStatus").type(JsonFieldType.STRING).description("테이블 상태"),
+                                fieldWithPath("status").type(NUMBER).description("상태 코드"),
+                                fieldWithPath("message").type(STRING).description("결과 메세지"),
+                                fieldWithPath("data.content.[].id").type(NUMBER).description("테이블 고유 id"),
+                                fieldWithPath("data.content.[].name").type(STRING).description("테이블명"),
+                                fieldWithPath("data.content.[].numberOfPeople").type(NUMBER).description("테이블 좌석 수"),
+                                fieldWithPath("data.content.[].totalPrice").type(NUMBER).description("테이블 총 주문 가격"),
+                                fieldWithPath("data.content.[].tableStatus").type(STRING).description("테이블 상태"),
 
-                                fieldWithPath("data.content.[].orders.[].id").type(JsonFieldType.NUMBER).description("주문 고유 id"),
-                                fieldWithPath("data.content.[].orders.[].name").type(JsonFieldType.STRING).description("메뉴 이름"),
-                                fieldWithPath("data.content.[].orders.[].orderPrice").type(JsonFieldType.NUMBER).description("주문 가격"),
-                                fieldWithPath("data.content.[].orders.[].count").type(JsonFieldType.NUMBER).description("주문 갯수"),
-                                fieldWithPath("data.content.[].orders.[].request").type(JsonFieldType.STRING).description("주문 요청사항"),
-                                fieldWithPath("data.content.[].orders.[].orderStatus").type(JsonFieldType.STRING).description("주문 상태"),
+                                fieldWithPath("data.content.[].orders.[].id").type(NUMBER).description("주문 고유 id"),
+                                fieldWithPath("data.content.[].orders.[].name").type(STRING).description("메뉴 이름"),
+                                fieldWithPath("data.content.[].orders.[].orderPrice").type(NUMBER).description("주문 가격"),
+                                fieldWithPath("data.content.[].orders.[].count").type(NUMBER).description("주문 갯수"),
+                                fieldWithPath("data.content.[].orders.[].request").type(STRING).description("주문 요청사항"),
+                                fieldWithPath("data.content.[].orders.[].orderStatus").type(STRING).description("주문 상태"),
 
                                 fieldWithPath("data.pageable.sort.sorted").type(JsonFieldType.BOOLEAN).description("정렬 됐는지 여부"),
                                 fieldWithPath("data.pageable.sort.unsorted").type(JsonFieldType.BOOLEAN).description("정렬 안됐는지 여부"),
                                 fieldWithPath("data.pageable.sort.empty").type(JsonFieldType.BOOLEAN).description("데이터가 비었는지 여부"),
 
-                                fieldWithPath("data.pageable.pageNumber").type(JsonFieldType.NUMBER).description("현제 페이지 번호"),
-                                fieldWithPath("data.pageable.pageSize").type(JsonFieldType.NUMBER).description("한 페이지당 조회할 데이터 개수"),
-                                fieldWithPath("data.pageable.offset").type(JsonFieldType.NUMBER).description("몇번째 데이터인지 (0부터 시작)"),
+                                fieldWithPath("data.pageable.pageNumber").type(NUMBER).description("현제 페이지 번호"),
+                                fieldWithPath("data.pageable.pageSize").type(NUMBER).description("한 페이지당 조회할 데이터 개수"),
+                                fieldWithPath("data.pageable.offset").type(NUMBER).description("몇번째 데이터인지 (0부터 시작)"),
                                 fieldWithPath("data.pageable.paged").type(JsonFieldType.BOOLEAN).description("페이징 정보를 포함하는지 여부"),
                                 fieldWithPath("data.pageable.unpaged").type(JsonFieldType.BOOLEAN).description("페이징 정보를 안포함하는지 여부"),
 
                                 fieldWithPath("data.last").type(JsonFieldType.BOOLEAN).description("마지막 페이지인지 여부"),
-                                fieldWithPath("data.totalPages").type(JsonFieldType.NUMBER).description("전체 페이지 개수"),
-                                fieldWithPath("data.totalElements").type(JsonFieldType.NUMBER).description("테이블 총 데이터 개수"),
+                                fieldWithPath("data.totalPages").type(NUMBER).description("전체 페이지 개수"),
+                                fieldWithPath("data.totalElements").type(NUMBER).description("테이블 총 데이터 개수"),
                                 fieldWithPath("data.first").type(JsonFieldType.BOOLEAN).description("첫번째 페이지인지 여부"),
-                                fieldWithPath("data.numberOfElements").type(JsonFieldType.NUMBER).description("요청 페이지에서 조회 된 데이터 개수"),
-                                fieldWithPath("data.number").type(JsonFieldType.NUMBER).description("현제 페이지 번호"),
-                                fieldWithPath("data.size").type(JsonFieldType.NUMBER).description("한 페이지당 조회할 데이터 개수"),
+                                fieldWithPath("data.numberOfElements").type(NUMBER).description("요청 페이지에서 조회 된 데이터 개수"),
+                                fieldWithPath("data.number").type(NUMBER).description("현제 페이지 번호"),
+                                fieldWithPath("data.size").type(NUMBER).description("한 페이지당 조회할 데이터 개수"),
 
                                 fieldWithPath("data.sort.sorted").type(JsonFieldType.BOOLEAN).description("정렬 됐는지 여부"),
                                 fieldWithPath("data.sort.unsorted").type(JsonFieldType.BOOLEAN).description("정렬 안됐는지 여부"),
                                 fieldWithPath("data.sort.empty").type(JsonFieldType.BOOLEAN).description("데이터가 비었는지 여부"),
 
                                 fieldWithPath("data.empty").type(JsonFieldType.BOOLEAN).description("데이터가 비었는지 여부")
+                        )
+                ));
+    }
+
+    @Test
+    @DisplayName("테이블 수정 테스트")
+    public void updateTable() throws Exception{
+        //given
+        ResponseResult responseResult = ResponseResult.builder()
+                .status(RESULT_UPDATE_TABLE.getStatus())
+                .message(RESULT_UPDATE_TABLE.getMessage())
+                .build();
+
+        UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken("test", "1234", authorities(UserRole.USER));
+        given(jwtProvider.getAuthentication(anyString())).willReturn(authentication);
+        given(tableService.updateTable(anyLong(), anyString(), any(RequestUpdateTable.class))).willReturn(responseResult);
+        //when
+        RequestUpdateTable requestUpdateTable = RequestUpdateTable.builder()
+                .name("수정된 테이블명")
+                .numberOfPeople(5)
+                .build();
+
+        ResultActions result = mockMvc.perform(
+                put("/tables/{tableId}", 1L).header("Authorization","Bearer (accessToken)")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .accept(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(requestUpdateTable)))
+                .andDo(print());
+
+        //then
+        result.andExpect(status().isOk())
+                .andDo(document("updateTable",
+                        requestHeaders(
+                                headerWithName("Authorization").description("Bearer + (로그인 요청 access 토큰)")
+                        ),
+                        pathParameters(
+                                parameterWithName("tableId").description("테이블 고유 id")
+                        ),
+                        requestFields(
+                                fieldWithPath("name").type(STRING).description("테이블명"),
+                                fieldWithPath("numberOfPeople").type(NUMBER).description("테이블 좌석 수")
+                        ),
+                        responseFields(
+                                fieldWithPath("status").type(NUMBER).description("상태 코드"),
+                                fieldWithPath("message").type(STRING).description("결과 메세지")
                         )
                 ));
     }

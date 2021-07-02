@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.table.order.domain.table.TableControllerTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-07-02T10:29:06" hostname="ibeomjun-ui-MacBookPro.local" time="0.254">
+  <properties/>
+  <testcase name="테이블 수정 테스트" classname="com.table.order.domain.table.TableControllerTest" time="0.254"/>
+  <system-out><![CDATA[19:29:03.329 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating CacheAwareContextLoaderDelegate from class [org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate]
+19:29:03.343 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating BootstrapContext using constructor [public org.springframework.test.context.support.DefaultBootstrapContext(java.lang.Class,org.springframework.test.context.CacheAwareContextLoaderDelegate)]
+19:29:03.385 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating TestContextBootstrapper for test class [com.table.order.domain.table.TableControllerTest] from class [org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTestContextBootstrapper]
+19:29:03.400 [Test worker] INFO org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.table.order.domain.table.TableControllerTest], using SpringBootContextLoader
+19:29:03.406 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [com.table.order.domain.table.TableControllerTest]: class path resource [com/table/order/domain/table/TableControllerTest-context.xml] does not exist
+19:29:03.406 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [com.table.order.domain.table.TableControllerTest]: class path resource [com/table/order/domain/table/TableControllerTestContext.groovy] does not exist
+19:29:03.407 [Test worker] INFO org.springframework.test.context.support.AbstractContextLoader - Could not detect default resource locations for test class [com.table.order.domain.table.TableControllerTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+19:29:03.407 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.table.order.domain.table.TableControllerTest]: TableControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+19:29:03.485 [Test worker] DEBUG org.springframework.test.context.support.ActiveProfilesUtils - Could not find an 'annotation declaring class' for annotation type [org.springframework.test.context.ActiveProfiles] and class [com.table.order.domain.table.TableControllerTest]
+19:29:03.552 [Test worker] DEBUG org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider - Identified candidate component class: file [/Users/leebeomjun/Desktop/git/TableOrder/backend/build/classes/java/main/com/table/order/OrderApplication.class]
+19:29:03.553 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.table.order.OrderApplication for test class com.table.order.domain.table.TableControllerTest
+19:29:03.556 [Test worker] DEBUG org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTestContextBootstrapper - @TestExecutionListeners is not present for class [com.table.order.domain.table.TableControllerTest]: using defaults.
+19:29:03.556 [Test worker] INFO org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.security.test.context.support.WithSecurityContextTestExecutionListener, org.springframework.security.test.context.support.ReactorContextTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+19:29:03.580 [Test worker] INFO org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@2e0e096, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@327a33f8, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@3f977896, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@8a646d4, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@dc7e306, org.springframework.test.context.support.DirtiesContextTestExecutionListener@6e41f4b5, org.springframework.test.context.transaction.TransactionalTestExecutionListener@6a966223, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@50bc0943, org.springframework.security.test.context.support.WithSecurityContextTestExecutionListener@62510f81, org.springframework.test.context.event.EventPublishingTestExecutionListener@3d4bb22, org.springframework.security.test.context.support.ReactorContextTestExecutionListener@5a0a4601, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@6a4caa12, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@8b9ddd, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@26203b45, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@2e125bce, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@21816824, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@7db87cbc]
+19:29:03.585 [Test worker] DEBUG org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener - Before test class: context [DefaultTestContext@63f641c8 testClass = TableControllerTest, testInstance = [null], testMethod = [null], testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@1bf4c957 testClass = TableControllerTest, locations = '{}', classes = '{class com.table.order.OrderApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.OverrideAutoConfigurationContextCustomizerFactory$DisableAutoConfigurationContextCustomizer@3e13a2a4, org.springframework.boot.test.autoconfigure.actuate.metrics.MetricsExportContextCustomizerFactory$DisableMetricExportContextCustomizer@1233b283, org.springframework.boot.test.autoconfigure.filter.TypeExcludeFiltersContextCustomizer@6a42e614, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@1b614715, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@6d6e8856, [ImportsContextCustomizer@1ed78cb9 key = [@org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureWebMvc(), @org.springframework.test.context.BootstrapWith(value=org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTestContextBootstrapper.class), @org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest(excludeFilters={}, useDefaultFilters=true, controllers={}, excludeAutoConfiguration={}, value={com.table.order.domain.table.controller.TableController.class}, includeFilters={}, properties={}), @org.springframework.context.annotation.Import(value={org.springframework.boot.test.autoconfigure.restdocs.RestDocumentationContextProviderRegistrar.class}), @org.junit.jupiter.api.extension.ExtendWith(value={org.springframework.test.context.junit.jupiter.SpringExtension.class}), @org.springframework.context.annotation.Import(value={org.springframework.boot.autoconfigure.ImportAutoConfigurationImportSelector.class}), @org.springframework.boot.test.autoconfigure.filter.TypeExcludeFilters(value={org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTypeExcludeFilter.class}), @org.springframework.boot.autoconfigure.ImportAutoConfiguration(value={}, exclude={}, classes={}), @org.springframework.boot.test.autoconfigure.properties.PropertyMapping(value="spring.test.mockmvc", skip=NO), @org.springframework.boot.test.autoconfigure.restdocs.AutoConfigureRestDocs(uriScheme="http", outputDir="", uriPort=8080, value="", uriHost="localhost"), @org.springframework.boot.test.autoconfigure.core.AutoConfigureCache(cacheProvider=NONE), @org.apiguardian.api.API(consumers={"*"}, since="5.0", status=STABLE), @org.springframework.boot.test.autoconfigure.OverrideAutoConfiguration(enabled=false), @org.springframework.boot.test.autoconfigure.properties.PropertyMapping(value="spring.test.restdocs", skip=NO), @org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc(webDriverEnabled=true, print=DEFAULT, webClientEnabled=true, printOnlyOnFailure=true, addFilters=true)]], org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@53ad5e1a, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@56a515d7, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@9f429e18, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@0], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map[[empty]]], class annotated with @DirtiesContext [false] with mode [null].
+19:29:03.633 [Test worker] DEBUG org.springframework.test.context.support.TestPropertySourceUtils - Adding inlined properties to environment: {spring.jmx.enabled=false, org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTestContextBootstrapper=true}
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v2.4.5)
+
+2021-07-02 19:29:04.057  INFO 96958 --- [    Test worker] c.t.o.domain.table.TableControllerTest   : Starting TableControllerTest using Java 11.0.10 on ibeomjun-ui-MacBookPro.local with PID 96958 (started by leebeomjun in /Users/leebeomjun/Desktop/git/TableOrder/backend)
+2021-07-02 19:29:04.058  INFO 96958 --- [    Test worker] c.t.o.domain.table.TableControllerTest   : The following profiles are active: local
+2021-07-02 19:29:05.195  INFO 96958 --- [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@278379a6' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-07-02 19:29:05.209  INFO 96958 --- [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-07-02 19:29:05.563  INFO 96958 --- [    Test worker] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/app/customers'] with []
+2021-07-02 19:29:05.563  INFO 96958 --- [    Test worker] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/users/login'] with []
+2021-07-02 19:29:05.563  INFO 96958 --- [    Test worker] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/users'] with []
+2021-07-02 19:29:05.563  INFO 96958 --- [    Test worker] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/docs/**'] with []
+2021-07-02 19:29:05.563  INFO 96958 --- [    Test worker] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/swagger-ui**'] with []
+2021-07-02 19:29:05.631  INFO 96958 --- [    Test worker] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@52897103, org.springframework.security.web.context.SecurityContextPersistenceFilter@113f555b, org.springframework.security.web.header.HeaderWriterFilter@30e53c95, org.springframework.security.web.authentication.logout.LogoutFilter@1ce9ec03, com.table.order.global.security.filter.JwtFilter@15306a5, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5e85e7dc, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5abf6023, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7bba644f, org.springframework.security.web.session.SessionManagementFilter@4237724b, org.springframework.security.web.access.ExceptionTranslationFilter@50d5f871]
+2021-07-02 19:29:05.848  INFO 96958 --- [    Test worker] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-07-02 19:29:06.201  INFO 96958 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2021-07-02 19:29:06.202  INFO 96958 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2021-07-02 19:29:06.203  INFO 96958 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2021-07-02 19:29:06.243  INFO 96958 --- [    Test worker] c.t.o.domain.table.TableControllerTest   : Started TableControllerTest in 2.601 seconds (JVM running for 3.607)
+2021-07-02 19:29:06.340  INFO 96958 --- [    Test worker] c.t.o.global.security.filter.JwtFilter   : (accessToken) 추출 완료
+2021-07-02 19:29:06.343  INFO 96958 --- [    Test worker] c.t.o.global.security.filter.JwtFilter   : UsernamePasswordAuthenticationToken [Principal=test, Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[ROLE_USER]] Authentication 생성
+
+MockHttpServletRequest:
+      HTTP Method = PUT
+      Request URI = /tables/1
+       Parameters = {}
+          Headers = [Content-Type:"application/json;charset=UTF-8", Authorization:"Bearer (accessToken)", Accept:"application/json", Content-Length:"52"]
+             Body = {"name":"수정된 테이블명","numberOfPeople":5}
+    Session Attrs = {}
+
+Handler:
+             Type = com.table.order.domain.table.controller.TableController
+           Method = com.table.order.domain.table.controller.TableController#updateTable(Long, RequestUpdateTable, Authentication)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 200
+    Error message = null
+          Headers = [Content-Type:"application/json", X-Content-Type-Options:"nosniff", X-XSS-Protection:"1; mode=block", Cache-Control:"no-cache, no-store, max-age=0, must-revalidate", Pragma:"no-cache", Expires:"0", X-Frame-Options:"DENY"]
+     Content type = application/json
+             Body = {"status":200,"message":"í]]>&#x8c;<![CDATA[ì]]>&#x9d;<![CDATA[´ë¸]]>&#x94;<![CDATA[ ì]]>&#x88;<![CDATA[]]>&#x98;<![CDATA[ì ]]>&#x95;<![CDATA[ ì]]>&#x84;<![CDATA[±ê³µ"}
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -20,13 +20,13 @@ com/table/order/domain/category/CategoryControllerTest.java
  com.table.order.domain.category.CategoryControllerTest
 com/table/order/domain/store/StoreServiceTest.java
  com.table.order.domain.store.StoreServiceTest
-com/table/order/domain/table/TableControllerTest.java
- com.table.order.domain.table.TableControllerTest
+com/table/order/domain/store/StoreControllerTest.java
+ com.table.order.domain.store.StoreControllerTest
 com/table/order/domain/item/ItemServiceTest.java
  com.table.order.domain.item.ItemServiceTest
 com/table/order/domain/user/UserServiceTest.java
  com.table.order.domain.user.UserServiceTest
-com/table/order/domain/store/StoreControllerTest.java
- com.table.order.domain.store.StoreControllerTest
+com/table/order/domain/table/TableControllerTest.java
+ com.table.order.domain.table.TableControllerTest
 com/table/order/domain/table/TableServiceTest.java
  com.table.order.domain.table.TableServiceTest
