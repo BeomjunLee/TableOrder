@@ -2,7 +2,7 @@
 ----
 HTTP/1.1 201 Created
 Content-Type: application/json
-Content-Length: 117
+Content-Length: 116
 
-{"status":201,"message":"회원가입 성공","accessToken":"(accessToken)","expiredAt":"2021-06-30T23:35:52.822271"}
+{"status":201,"message":"회원가입 성공","accessToken":"(accessToken)","expiredAt":"2021-09-19T21:34:41.32616"}
 ----

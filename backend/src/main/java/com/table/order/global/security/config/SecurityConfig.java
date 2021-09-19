@@ -67,6 +67,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 //필터 무시
                 .ignoring().antMatchers(
     "/app/customers",
+                "/app/customers/test",
                 "/users/login",
                 "/users",
                 "/docs/**",

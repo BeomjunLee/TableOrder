@@ -1,6 +1,6 @@
 spring:
   profiles:
-    active: local
+    active: real
 
 ---
 spring:
@@ -39,7 +39,28 @@ spring:
 spring:
   config:
     activate:
-      on-profile: prod
+      on-profile: real
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: 1234
+    url: jdbc:mysql://ec2-13-124-45-246.ap-northeast-2.compute.amazonaws.com/mysql
+  jpa:
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+
+jwt:
+  header: Authorization
+  secretKey : leebeomjunleebeomjunleebeomjunleebeomjunleebeomjunleebeomjun
+  #3h
+  accessToken-valid-seconds : 10800
+  #24h
+  refreshToken-valid-seconds : 86400
 
 
 
