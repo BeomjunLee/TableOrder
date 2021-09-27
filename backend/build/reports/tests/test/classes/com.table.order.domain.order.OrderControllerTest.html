@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - OrderControllerTest</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>OrderControllerTest</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/com.table.order.domain.order.html">com.table.order.domain.order</a> &gt; OrderControllerTest</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">4</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">0.290s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Tests</a>
+</li>
+<li>
+<a href="#tab1">Standard output</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Method name</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">손님 주문 취소 테스트</td>
+<td class="success">cancelOrderCustomer()</td>
+<td class="success">0.020s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">회원 주문 취소 테스트</td>
+<td class="success">cancelOrderUser()</td>
+<td class="success">0.029s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">주문 상태 변경 테스트 (조리중)</td>
+<td class="success">changeOrderStatusCooked()</td>
+<td class="success">0.018s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">주문 생성 테스트</td>
+<td class="success">createStore()</td>
+<td class="success">0.223s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div id="tab1" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>2021-09-19 21:04:36.107  INFO 11745 --- [    Test worker] .b.t.a.w.s.WebMvcTestContextBootstrapper : Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.table.order.domain.order.OrderControllerTest], using SpringBootContextLoader
+2021-09-19 21:04:36.108  INFO 11745 --- [    Test worker] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [com.table.order.domain.order.OrderControllerTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+2021-09-19 21:04:36.108  INFO 11745 --- [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.table.order.domain.order.OrderControllerTest]: OrderControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2021-09-19 21:04:36.127  INFO 11745 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.table.order.OrderApplication for test class com.table.order.domain.order.OrderControllerTest
+2021-09-19 21:04:36.128  INFO 11745 --- [    Test worker] .b.t.a.w.s.WebMvcTestContextBootstrapper : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.security.test.context.support.WithSecurityContextTestExecutionListener, org.springframework.security.test.context.support.ReactorContextTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+2021-09-19 21:04:36.128  INFO 11745 --- [    Test worker] .b.t.a.w.s.WebMvcTestContextBootstrapper : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@10fdf5c, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@4e631258, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@4494ee37, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@390d434, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@7c1a0e25, org.springframework.test.context.support.DirtiesContextTestExecutionListener@2a3d322c, org.springframework.test.context.transaction.TransactionalTestExecutionListener@49bb840a, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@4c8fc87d, org.springframework.security.test.context.support.WithSecurityContextTestExecutionListener@60c88cef, org.springframework.test.context.event.EventPublishingTestExecutionListener@23a77e88, org.springframework.security.test.context.support.ReactorContextTestExecutionListener@36a92522, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@457cfaa, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@20dc943b, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@3817fd96, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@47e85f83, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@7d78f24b, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@39c1cc93]
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v2.4.5)
+
+2021-09-19 21:04:36.167  INFO 11745 --- [    Test worker] c.t.o.domain.order.OrderControllerTest   : Starting OrderControllerTest using Java 11.0.10 on ibeomjun-ui-MacBookPro.local with PID 11745 (started by leebeomjun in /Users/leebeomjun/Desktop/git/TableOrder/backend)
+2021-09-19 21:04:36.167  INFO 11745 --- [    Test worker] c.t.o.domain.order.OrderControllerTest   : The following profiles are active: real
+2021-09-19 21:04:36.416  INFO 11745 --- [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@20a7af2e' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-09-19 21:04:36.422  INFO 11745 --- [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-09-19 21:04:36.546  INFO 11745 --- [    Test worker] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/app/customers'] with []
+2021-09-19 21:04:36.546  INFO 11745 --- [    Test worker] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/app/customers/test'] with []
+2021-09-19 21:04:36.546  INFO 11745 --- [    Test worker] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/users/login'] with []
+2021-09-19 21:04:36.547  INFO 11745 --- [    Test worker] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/users'] with []
+2021-09-19 21:04:36.547  INFO 11745 --- [    Test worker] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/docs/**'] with []
+2021-09-19 21:04:36.547  INFO 11745 --- [    Test worker] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/swagger-ui**'] with []
+2021-09-19 21:04:36.589  INFO 11745 --- [    Test worker] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@278ae29a, org.springframework.security.web.context.SecurityContextPersistenceFilter@2e11fc7d, org.springframework.security.web.header.HeaderWriterFilter@ee217da, org.springframework.security.web.authentication.logout.LogoutFilter@24eee55e, com.table.order.global.security.filter.JwtFilter@2e49bdba, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@37068c3d, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@29c411c0, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@43059ae0, org.springframework.security.web.session.SessionManagementFilter@8c4923a, org.springframework.security.web.access.ExceptionTranslationFilter@1491b3f9]
+2021-09-19 21:04:36.687  INFO 11745 --- [    Test worker] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-09-19 21:04:36.872  INFO 11745 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2021-09-19 21:04:36.872  INFO 11745 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2021-09-19 21:04:36.873  INFO 11745 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2021-09-19 21:04:36.890  INFO 11745 --- [    Test worker] c.t.o.domain.order.OrderControllerTest   : Started OrderControllerTest in 0.758 seconds (JVM running for 7.692)
+2021-09-19 21:04:36.963  INFO 11745 --- [    Test worker] c.t.o.global.security.filter.JwtFilter   : (accessToken) 추출 완료
+2021-09-19 21:04:36.964  INFO 11745 --- [    Test worker] c.t.o.global.security.filter.JwtFilter   : UsernamePasswordAuthenticationToken [Principal=test, Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[ROLE_USER]] Authentication 생성
+
+MockHttpServletRequest:
+      HTTP Method = POST
+      Request URI = /app/orders
+       Parameters = {}
+          Headers = [Content-Type:&quot;application/json;charset=UTF-8&quot;, Authorization:&quot;Bearer (accessToken)&quot;, Accept:&quot;application/json&quot;, Content-Length:&quot;102&quot;]
+             Body = {&quot;items&quot;:[{&quot;id&quot;:1,&quot;count&quot;:1},{&quot;id&quot;:2,&quot;count&quot;:2},{&quot;id&quot;:3,&quot;count&quot;:3}],&quot;request&quot;:&quot;잘부탁드립니다&quot;}
+    Session Attrs = {}
+
+Handler:
+             Type = com.table.order.domain.order.controller.OrderController
+           Method = com.table.order.domain.order.controller.OrderController#createOrder(RequestCreateOrder, Authentication)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 201
+    Error message = null
+          Headers = [Content-Type:&quot;application/json&quot;, X-Content-Type-Options:&quot;nosniff&quot;, X-XSS-Protection:&quot;1; mode=block&quot;, Cache-Control:&quot;no-cache, no-store, max-age=0, must-revalidate&quot;, Pragma:&quot;no-cache&quot;, Expires:&quot;0&quot;, X-Frame-Options:&quot;DENY&quot;]
+     Content type = application/json
+             Body = {&quot;status&quot;:201,&quot;message&quot;:&quot;ì£¼ë¬¸ ì&#x83;&#x9d;ì&#x84;± ì&#x84;±ê³µ&quot;,&quot;data&quot;:[{&quot;id&quot;:1,&quot;name&quot;:&quot;ë©&#x94;ë&#x89;´1&quot;,&quot;orderPrice&quot;:1000,&quot;count&quot;:1,&quot;request&quot;:&quot;ì&#x9e;&#x98;ë¶&#x80;í&#x83;&#x81;ë&#x93;&#x9c;ë¦½ë&#x8b;&#x88;ë&#x8b;¤&quot;,&quot;orderStatus&quot;:&quot;ORDER&quot;},{&quot;id&quot;:2,&quot;name&quot;:&quot;ë©&#x94;ë&#x89;´2&quot;,&quot;orderPrice&quot;:2000,&quot;count&quot;:2,&quot;request&quot;:&quot;ì&#x9e;&#x98;ë¶&#x80;í&#x83;&#x81;ë&#x93;&#x9c;ë¦½ë&#x8b;&#x88;ë&#x8b;¤&quot;,&quot;orderStatus&quot;:&quot;ORDER&quot;},{&quot;id&quot;:3,&quot;name&quot;:&quot;ë©&#x94;ë&#x89;´3&quot;,&quot;orderPrice&quot;:3000,&quot;count&quot;:3,&quot;request&quot;:&quot;ì&#x9e;&#x98;ë¶&#x80;í&#x83;&#x81;ë&#x93;&#x9c;ë¦½ë&#x8b;&#x88;ë&#x8b;¤&quot;,&quot;orderStatus&quot;:&quot;ORDER&quot;}]}
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+2021-09-19 21:04:37.122  INFO 11745 --- [    Test worker] c.t.o.global.security.filter.JwtFilter   : (accessToken) 추출 완료
+2021-09-19 21:04:37.122  INFO 11745 --- [    Test worker] c.t.o.global.security.filter.JwtFilter   : UsernamePasswordAuthenticationToken [Principal=test, Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[ROLE_USER]] Authentication 생성
+
+MockHttpServletRequest:
+      HTTP Method = POST
+      Request URI = /orders/1/cancel
+       Parameters = {}
+          Headers = [Content-Type:&quot;application/json;charset=UTF-8&quot;, Authorization:&quot;Bearer (accessToken)&quot;, Accept:&quot;application/json&quot;]
+             Body = null
+    Session Attrs = {}
+
+Handler:
+             Type = com.table.order.domain.order.controller.OrderController
+           Method = com.table.order.domain.order.controller.OrderController#cancelOrderUser(Long, Authentication)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 200
+    Error message = null
+          Headers = [Content-Type:&quot;application/json&quot;, X-Content-Type-Options:&quot;nosniff&quot;, X-XSS-Protection:&quot;1; mode=block&quot;, Cache-Control:&quot;no-cache, no-store, max-age=0, must-revalidate&quot;, Pragma:&quot;no-cache&quot;, Expires:&quot;0&quot;, X-Frame-Options:&quot;DENY&quot;]
+     Content type = application/json
+             Body = {&quot;status&quot;:200,&quot;message&quot;:&quot;ì£¼ë¬¸ ì·¨ì&#x86;&#x8c; ì&#x84;±ê³µ&quot;}
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+2021-09-19 21:04:37.152  INFO 11745 --- [    Test worker] c.t.o.global.security.filter.JwtFilter   : (accessToken) 추출 완료
+2021-09-19 21:04:37.152  INFO 11745 --- [    Test worker] c.t.o.global.security.filter.JwtFilter   : UsernamePasswordAuthenticationToken [Principal=test, Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[ROLE_USER]] Authentication 생성
+
+MockHttpServletRequest:
+      HTTP Method = POST
+      Request URI = /orders/1/cook
+       Parameters = {}
+          Headers = [Content-Type:&quot;application/json;charset=UTF-8&quot;, Authorization:&quot;Bearer (accessToken)&quot;, Accept:&quot;application/json&quot;]
+             Body = null
+    Session Attrs = {}
+
+Handler:
+             Type = com.table.order.domain.order.controller.OrderController
+           Method = com.table.order.domain.order.controller.OrderController#changeOrderStatusCooked(Long, Authentication)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 200
+    Error message = null
+          Headers = [Content-Type:&quot;application/json&quot;, X-Content-Type-Options:&quot;nosniff&quot;, X-XSS-Protection:&quot;1; mode=block&quot;, Cache-Control:&quot;no-cache, no-store, max-age=0, must-revalidate&quot;, Pragma:&quot;no-cache&quot;, Expires:&quot;0&quot;, X-Frame-Options:&quot;DENY&quot;]
+     Content type = application/json
+             Body = {&quot;status&quot;:200,&quot;message&quot;:&quot;ì£¼ë¬¸ ì&#x83;&#x81;í&#x83;&#x9c; ë³&#x80;ê²½ ì&#x84;±ê³µ (ì¡°ë¦¬ì¤&#x91;)&quot;}
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+2021-09-19 21:04:37.172  INFO 11745 --- [    Test worker] c.t.o.global.security.filter.JwtFilter   : (accessToken) 추출 완료
+2021-09-19 21:04:37.172  INFO 11745 --- [    Test worker] c.t.o.global.security.filter.JwtFilter   : UsernamePasswordAuthenticationToken [Principal=test, Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[ROLE_USER]] Authentication 생성
+
+MockHttpServletRequest:
+      HTTP Method = POST
+      Request URI = /app/orders/1/cancel
+       Parameters = {}
+          Headers = [Content-Type:&quot;application/json;charset=UTF-8&quot;, Authorization:&quot;Bearer (accessToken)&quot;, Accept:&quot;application/json&quot;]
+             Body = null
+    Session Attrs = {}
+
+Handler:
+             Type = com.table.order.domain.order.controller.OrderController
+           Method = com.table.order.domain.order.controller.OrderController#cancelOrderCustomer(Long, Authentication)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 200
+    Error message = null
+          Headers = [Content-Type:&quot;application/json&quot;, X-Content-Type-Options:&quot;nosniff&quot;, X-XSS-Protection:&quot;1; mode=block&quot;, Cache-Control:&quot;no-cache, no-store, max-age=0, must-revalidate&quot;, Pragma:&quot;no-cache&quot;, Expires:&quot;0&quot;, X-Frame-Options:&quot;DENY&quot;]
+     Content type = application/json
+             Body = {&quot;status&quot;:200,&quot;message&quot;:&quot;ì£¼ë¬¸ ì·¨ì&#x86;&#x8c; ì&#x84;±ê³µ&quot;}
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 6.8.3</a> at 2021. 9. 19. 오후 9:04:42</p>
+</div>
+</div>
+</body>
+</html>

@@ -80,58 +80,66 @@
 
 어플 서비스 api 문서
 
+=== 테스트
+
+`GET` 서버와의 간단한 테스트 용도
+
+include::../../../build/generated-snippets/test/http-request.adoc[]
+include::../../../build/generated-snippets/test/http-response.adoc[]
+include::../../../build/generated-snippets/test/response-fields.adoc[]
+
 === QR 코드 (회원가입 + 로그인)
 
 `POST` QR 코드를 찍고 회원가입 후 accessToken 발급.
 
-include::{snippets}/scanQrCode/http-request.adoc[]
-include::{snippets}/scanQrCode/request-fields.adoc[]
-include::{snippets}/scanQrCode/http-response.adoc[]
-include::{snippets}/scanQrCode/response-fields.adoc[]
+include::../../../build/generated-snippets/scanQrCode/http-request.adoc[]
+include::../../../build/generated-snippets/scanQrCode/request-fields.adoc[]
+include::../../../build/generated-snippets/scanQrCode/http-response.adoc[]
+include::../../../build/generated-snippets/scanQrCode/response-fields.adoc[]
 
 === QR 코드 (재로그인)
 
 `POST` QR 코드를 찍고 accessToken 발급.
 
-include::{snippets}/scanQrCodeReLogin/http-request.adoc[]
-include::{snippets}/scanQrCodeReLogin/request-fields.adoc[]
-include::{snippets}/scanQrCodeReLogin/http-response.adoc[]
-include::{snippets}/scanQrCodeReLogin/response-fields.adoc[]
+include::../../../build/generated-snippets/scanQrCodeReLogin/http-request.adoc[]
+include::../../../build/generated-snippets/scanQrCodeReLogin/request-fields.adoc[]
+include::../../../build/generated-snippets/scanQrCodeReLogin/http-response.adoc[]
+include::../../../build/generated-snippets/scanQrCodeReLogin/response-fields.adoc[]
 
 === QR 코드 (재방문)
 
 `POST` QR 코드를 찍고 accessToken 발급.
 
-include::{snippets}/scanQrCodeReVisit/http-request.adoc[]
-include::{snippets}/scanQrCodeReVisit/request-fields.adoc[]
-include::{snippets}/scanQrCodeReVisit/http-response.adoc[]
-include::{snippets}/scanQrCodeReVisit/response-fields.adoc[]
+include::../../../build/generated-snippets/scanQrCodeReVisit/http-request.adoc[]
+include::../../../build/generated-snippets/scanQrCodeReVisit/request-fields.adoc[]
+include::../../../build/generated-snippets/scanQrCodeReVisit/http-response.adoc[]
+include::../../../build/generated-snippets/scanQrCodeReVisit/response-fields.adoc[]
 
 === 전체 카테고리별 메뉴 조회
 
 `GET` 손님은 카테고리별 메뉴들을 조회할 수 있다.
 
-include::{snippets}/findCategoriesItemsCustomer/request-headers.adoc[]
-include::{snippets}/findCategoriesItemsCustomer/http-request.adoc[]
-include::{snippets}/findCategoriesItemsCustomer/http-response.adoc[]
-include::{snippets}/findCategoriesItemsCustomer/response-fields.adoc[]
+include::../../../build/generated-snippets/findCategoriesItemsCustomer/request-headers.adoc[]
+include::../../../build/generated-snippets/findCategoriesItemsCustomer/http-request.adoc[]
+include::../../../build/generated-snippets/findCategoriesItemsCustomer/http-response.adoc[]
+include::../../../build/generated-snippets/findCategoriesItemsCustomer/response-fields.adoc[]
 
 === 주문 생성
 
 `POST` 손님은 장바구니에 담긴 메뉴들을 한번에 주문할 수 있다.
 
-include::{snippets}/createOrder/request-headers.adoc[]
-include::{snippets}/createOrder/http-request.adoc[]
-include::{snippets}/createOrder/request-fields.adoc[]
-include::{snippets}/createOrder/http-response.adoc[]
-include::{snippets}/createOrder/response-fields.adoc[]
+include::../../../build/generated-snippets/createOrder/request-headers.adoc[]
+include::../../../build/generated-snippets/createOrder/http-request.adoc[]
+include::../../../build/generated-snippets/createOrder/request-fields.adoc[]
+include::../../../build/generated-snippets/createOrder/http-response.adoc[]
+include::../../../build/generated-snippets/createOrder/response-fields.adoc[]
 
 === 주문 취소
 
 `POST` 손님은 주문을 취소할 수 있다. (조리중이거나 이미 결제완료 했을시에는 불가능)
 
-include::{snippets}/cancelOrderCustomer/request-headers.adoc[]
-include::{snippets}/cancelOrderCustomer/path-parameters.adoc[]
-include::{snippets}/cancelOrderCustomer/http-request.adoc[]
-include::{snippets}/cancelOrderCustomer/http-response.adoc[]
-include::{snippets}/cancelOrderCustomer/response-fields.adoc[]
+include::../../../build/generated-snippets/cancelOrderCustomer/request-headers.adoc[]
+include::../../../build/generated-snippets/cancelOrderCustomer/path-parameters.adoc[]
+include::../../../build/generated-snippets/cancelOrderCustomer/http-request.adoc[]
+include::../../../build/generated-snippets/cancelOrderCustomer/http-response.adoc[]
+include::../../../build/generated-snippets/cancelOrderCustomer/response-fields.adoc[]

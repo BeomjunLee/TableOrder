@@ -83,150 +83,150 @@
 
 `POST` 서비스를 이용할 회원은 회원가입할 수 있다.
 
-include::{snippets}/signUpUser/http-request.adoc[]
-include::{snippets}/signUpUser/request-fields.adoc[]
-include::{snippets}/signUpUser/http-response.adoc[]
-include::{snippets}/signUpUser/response-fields.adoc[]
+include::../../../build/generated-snippets/signUpUser/http-request.adoc[]
+include::../../../build/generated-snippets/signUpUser/request-fields.adoc[]
+include::../../../build/generated-snippets/signUpUser/http-response.adoc[]
+include::../../../build/generated-snippets/signUpUser/response-fields.adoc[]
 
 === 로그인
 
 `POST` 아이디와 비밀번호를 이용해 로그인 요청을 보낼 수 있다.
 
-include::{snippets}/loginUser/http-request.adoc[]
-include::{snippets}/loginUser/request-fields.adoc[]
-include::{snippets}/loginUser/http-response.adoc[]
-include::{snippets}/loginUser/response-fields.adoc[]
+include::../../../build/generated-snippets/loginUser/http-request.adoc[]
+include::../../../build/generated-snippets/loginUser/request-fields.adoc[]
+include::../../../build/generated-snippets/loginUser/http-response.adoc[]
+include::../../../build/generated-snippets/loginUser/response-fields.adoc[]
 
 === 식당 등록
 
 `POST` 회원은 식당을 하나만 등록할 수 있다.
 
-include::{snippets}/enrollStore/request-headers.adoc[]
-include::{snippets}/enrollStore/http-request.adoc[]
-include::{snippets}/enrollStore/request-fields.adoc[]
-include::{snippets}/enrollStore/http-response.adoc[]
-include::{snippets}/enrollStore/response-fields.adoc[]
+include::../../../build/generated-snippets/enrollStore/request-headers.adoc[]
+include::../../../build/generated-snippets/enrollStore/http-request.adoc[]
+include::../../../build/generated-snippets/enrollStore/request-fields.adoc[]
+include::../../../build/generated-snippets/enrollStore/http-response.adoc[]
+include::../../../build/generated-snippets/enrollStore/response-fields.adoc[]
 
 === 테이블 추가
 
 `POST` 회원은 테이블을 추가할 수 있다. (식당을 등록한 상태여야 한다)
 
-include::{snippets}/addTable/request-headers.adoc[]
-include::{snippets}/addTable/http-request.adoc[]
-include::{snippets}/addTable/request-fields.adoc[]
-include::{snippets}/addTable/http-response.adoc[]
-include::{snippets}/addTable/response-fields.adoc[]
+include::../../../build/generated-snippets/addTable/request-headers.adoc[]
+include::../../../build/generated-snippets/addTable/http-request.adoc[]
+include::../../../build/generated-snippets/addTable/request-fields.adoc[]
+include::../../../build/generated-snippets/addTable/http-response.adoc[]
+include::../../../build/generated-snippets/addTable/response-fields.adoc[]
 
 === 테이블 수정
 
 `PUT` 회원은 테이블을 수정할 수 있다.
 
-include::{snippets}/updateTable/request-headers.adoc[]
-include::{snippets}/updateTable/path-parameters.adoc[]
-include::{snippets}/updateTable/http-request.adoc[]
-include::{snippets}/updateTable/request-fields.adoc[]
-include::{snippets}/updateTable/http-response.adoc[]
-include::{snippets}/updateTable/response-fields.adoc[]
+include::../../../build/generated-snippets/updateTable/request-headers.adoc[]
+include::../../../build/generated-snippets/updateTable/path-parameters.adoc[]
+include::../../../build/generated-snippets/updateTable/http-request.adoc[]
+include::../../../build/generated-snippets/updateTable/request-fields.adoc[]
+include::../../../build/generated-snippets/updateTable/http-response.adoc[]
+include::../../../build/generated-snippets/updateTable/response-fields.adoc[]
 
 === 전체 테이블 조회
 
 `GET` 회원은 테이블을 전체 조회할 수 있으며 각각의 테이블에 주문이 있을 경우 주문도 포함된다. (페이징 처리)
 
-include::{snippets}/findTables/request-headers.adoc[]
-include::{snippets}/findTables/http-request.adoc[]
-include::{snippets}/findTables/request-parameters.adoc[]
-include::{snippets}/findTables/http-response.adoc[]
-include::{snippets}/findTables/response-fields.adoc[]
+include::../../../build/generated-snippets/findTables/request-headers.adoc[]
+include::../../../build/generated-snippets/findTables/http-request.adoc[]
+include::../../../build/generated-snippets/findTables/request-parameters.adoc[]
+include::../../../build/generated-snippets/findTables/http-response.adoc[]
+include::../../../build/generated-snippets/findTables/response-fields.adoc[]
 
 === 카테고리 추가
 
 `POST` 회원은 필요한 카테고리를 추가할 수 있다. (식당을 등록한 상태여야 한다)
 
-include::{snippets}/addCategory/request-headers.adoc[]
-include::{snippets}/addCategory/http-request.adoc[]
-include::{snippets}/addCategory/request-fields.adoc[]
-include::{snippets}/addCategory/http-response.adoc[]
-include::{snippets}/addCategory/response-fields.adoc[]
+include::../../../build/generated-snippets/addCategory/request-headers.adoc[]
+include::../../../build/generated-snippets/addCategory/http-request.adoc[]
+include::../../../build/generated-snippets/addCategory/request-fields.adoc[]
+include::../../../build/generated-snippets/addCategory/http-response.adoc[]
+include::../../../build/generated-snippets/addCategory/response-fields.adoc[]
 
 === 카테고리 수정
 
 `PUT` 회원은 카테고리를 수정할 수 있다.
 
-include::{snippets}/updateCategory/request-headers.adoc[]
-include::{snippets}/updateCategory/path-parameters.adoc[]
-include::{snippets}/updateCategory/http-request.adoc[]
-include::{snippets}/updateCategory/request-fields.adoc[]
-include::{snippets}/updateCategory/http-response.adoc[]
-include::{snippets}/updateCategory/response-fields.adoc[]
+include::../../../build/generated-snippets/updateCategory/request-headers.adoc[]
+include::../../../build/generated-snippets/updateCategory/path-parameters.adoc[]
+include::../../../build/generated-snippets/updateCategory/http-request.adoc[]
+include::../../../build/generated-snippets/updateCategory/request-fields.adoc[]
+include::../../../build/generated-snippets/updateCategory/http-response.adoc[]
+include::../../../build/generated-snippets/updateCategory/response-fields.adoc[]
 
 === 카테고리 삭제
 
 `DELETE` 회원은 카테고리를 삭제할 수 있다. (삭제 시 해당 카테고리 메뉴들은 다 삭제된다.)
 
-include::{snippets}/deleteCategory/request-headers.adoc[]
-include::{snippets}/deleteCategory/path-parameters.adoc[]
-include::{snippets}/deleteCategory/http-request.adoc[]
-include::{snippets}/deleteCategory/http-response.adoc[]
-include::{snippets}/deleteCategory/response-fields.adoc[]
+include::../../../build/generated-snippets/deleteCategory/request-headers.adoc[]
+include::../../../build/generated-snippets/deleteCategory/path-parameters.adoc[]
+include::../../../build/generated-snippets/deleteCategory/http-request.adoc[]
+include::../../../build/generated-snippets/deleteCategory/http-response.adoc[]
+include::../../../build/generated-snippets/deleteCategory/response-fields.adoc[]
 
 === 메뉴 추가
 
 `POST` 회원은 메뉴를 추가할 수 있다. (식당을 등록한 상태여야 한다, 추가된 카테고리여야 한다)
 
-include::{snippets}/addItem/request-headers.adoc[]
-include::{snippets}/addItem/http-request.adoc[]
-include::{snippets}/addItem/request-fields.adoc[]
-include::{snippets}/addItem/http-response.adoc[]
-include::{snippets}/addItem/response-fields.adoc[]
+include::../../../build/generated-snippets/addItem/request-headers.adoc[]
+include::../../../build/generated-snippets/addItem/http-request.adoc[]
+include::../../../build/generated-snippets/addItem/request-fields.adoc[]
+include::../../../build/generated-snippets/addItem/http-response.adoc[]
+include::../../../build/generated-snippets/addItem/response-fields.adoc[]
 
 === 메뉴 수정
 
 `PUT` 회원은 메뉴를 수정할 수 있다.
 
-include::{snippets}/updateItem/request-headers.adoc[]
-include::{snippets}/updateItem/path-parameters.adoc[]
-include::{snippets}/updateItem/http-request.adoc[]
-include::{snippets}/updateItem/request-fields.adoc[]
-include::{snippets}/updateItem/http-response.adoc[]
-include::{snippets}/updateItem/response-fields.adoc[]
+include::../../../build/generated-snippets/updateItem/request-headers.adoc[]
+include::../../../build/generated-snippets/updateItem/path-parameters.adoc[]
+include::../../../build/generated-snippets/updateItem/http-request.adoc[]
+include::../../../build/generated-snippets/updateItem/request-fields.adoc[]
+include::../../../build/generated-snippets/updateItem/http-response.adoc[]
+include::../../../build/generated-snippets/updateItem/response-fields.adoc[]
 
 === 메뉴 삭제
 
 `DELETE` 회원은 메뉴를 삭제할 수 있다.
 
-include::{snippets}/deleteItem/request-headers.adoc[]
-include::{snippets}/deleteItem/path-parameters.adoc[]
-include::{snippets}/deleteItem/http-request.adoc[]
-include::{snippets}/deleteItem/http-response.adoc[]
-include::{snippets}/deleteItem/response-fields.adoc[]
+include::../../../build/generated-snippets/deleteItem/request-headers.adoc[]
+include::../../../build/generated-snippets/deleteItem/path-parameters.adoc[]
+include::../../../build/generated-snippets/deleteItem/http-request.adoc[]
+include::../../../build/generated-snippets/deleteItem/http-response.adoc[]
+include::../../../build/generated-snippets/deleteItem/response-fields.adoc[]
 
 
 === 전체 카테고리별 메뉴 조회
 
 `GET` 회원은 카테고리별 메뉴들을 조회할 수 있다.
 
-include::{snippets}/findCategoriesItemsUser/request-headers.adoc[]
-include::{snippets}/findCategoriesItemsUser/http-request.adoc[]
-include::{snippets}/findCategoriesItemsUser/http-response.adoc[]
-include::{snippets}/findCategoriesItemsUser/response-fields.adoc[]
+include::../../../build/generated-snippets/findCategoriesItemsUser/request-headers.adoc[]
+include::../../../build/generated-snippets/findCategoriesItemsUser/http-request.adoc[]
+include::../../../build/generated-snippets/findCategoriesItemsUser/http-response.adoc[]
+include::../../../build/generated-snippets/findCategoriesItemsUser/response-fields.adoc[]
 
 === 주문 취소
 
 `POST` 회원은 손님들의 주문을 취소할 수 있다.
 
-include::{snippets}/cancelOrderUser/request-headers.adoc[]
-include::{snippets}/cancelOrderUser/path-parameters.adoc[]
-include::{snippets}/cancelOrderUser/http-request.adoc[]
-include::{snippets}/cancelOrderUser/http-response.adoc[]
-include::{snippets}/cancelOrderUser/response-fields.adoc[]
+include::../../../build/generated-snippets/cancelOrderUser/request-headers.adoc[]
+include::../../../build/generated-snippets/cancelOrderUser/path-parameters.adoc[]
+include::../../../build/generated-snippets/cancelOrderUser/http-request.adoc[]
+include::../../../build/generated-snippets/cancelOrderUser/http-response.adoc[]
+include::../../../build/generated-snippets/cancelOrderUser/response-fields.adoc[]
 
 === 주문 상태 변경 (ORDER -> COOKED)
 
 `POST` 회원은 손님들의 주문 상태를 조리중으로 변경할 수 있다.
 
-include::{snippets}/changeOrderStatusCooked/request-headers.adoc[]
-include::{snippets}/changeOrderStatusCooked/path-parameters.adoc[]
-include::{snippets}/changeOrderStatusCooked/http-request.adoc[]
-include::{snippets}/changeOrderStatusCooked/http-response.adoc[]
-include::{snippets}/changeOrderStatusCooked/response-fields.adoc[]
+include::../../../build/generated-snippets/changeOrderStatusCooked/request-headers.adoc[]
+include::../../../build/generated-snippets/changeOrderStatusCooked/path-parameters.adoc[]
+include::../../../build/generated-snippets/changeOrderStatusCooked/http-request.adoc[]
+include::../../../build/generated-snippets/changeOrderStatusCooked/http-response.adoc[]
+include::../../../build/generated-snippets/changeOrderStatusCooked/response-fields.adoc[]
 

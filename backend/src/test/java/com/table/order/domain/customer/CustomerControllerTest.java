@@ -6,6 +6,7 @@ import com.table.order.domain.customer.dto.request.RequestLoginCustomer;
 import com.table.order.domain.customer.dto.response.ResponseLoginCustomer;
 import com.table.order.domain.customer.service.CustomerService;
 import com.table.order.domain.user.service.SecurityService;
+import com.table.order.global.common.response.ResponseResult;
 import com.table.order.global.security.exception.JwtAccessDeniedHandler;
 import com.table.order.global.security.exception.JwtAuthenticationEntryPoint;
 import com.table.order.global.security.provider.JwtProvider;
@@ -27,6 +28,7 @@ import static org.mockito.BDDMockito.given;
 import static org.springframework.http.MediaType.APPLICATION_JSON;
 import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.document;
 import static org.springframework.restdocs.mockmvc.RestDocumentationRequestBuilders.post;
+import static org.springframework.restdocs.mockmvc.RestDocumentationRequestBuilders.get;
 import static org.springframework.restdocs.payload.PayloadDocumentation.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -182,6 +184,32 @@ class CustomerControllerTest {
                                 fieldWithPath("message").type(JsonFieldType.STRING).description("결과 메세지"),
                                 fieldWithPath("accessToken").type(JsonFieldType.STRING).description("access 토큰"),
                                 fieldWithPath("expiredAt").type(JsonFieldType.STRING).description("토큰 만료 시간")
+                        )
+                ));
+    }
+
+    @Test
+    @DisplayName("테스트")
+    public void test() throws Exception{
+        //given
+
+        ResponseResult responseResult = ResponseResult.builder()
+                .status(200)
+                .message("테스트 성공")
+                .build();
+
+        //when
+        ResultActions result = mockMvc.perform(
+                get("/app/customers/test")
+                        .contentType(APPLICATION_JSON)
+                        .accept(APPLICATION_JSON))
+                .andDo(print());
+        //then
+        result.andExpect(status().isOk())
+                .andDo(document("test",
+                        responseFields(
+                                fieldWithPath("status").type(JsonFieldType.NUMBER).description("상태 코드"),
+                                fieldWithPath("message").type(JsonFieldType.STRING).description("결과 메세지")
                         )
                 ));
     }

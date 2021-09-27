@@ -98,8 +98,8 @@ com/table/order/domain/user/dto/request/RequestLoginUser.java
  com.table.order.domain.user.dto.request.RequestLoginUser$RequestLoginUserBuilder
 com/table/order/global/common/RoleToCollection.java
  com.table.order.global.common.RoleToCollection
-com/table/order/global/security/config/SecurityConfig.java
- com.table.order.global.security.config.SecurityConfig
+com/table/order/domain/customer/controller/CustomerController.java
+ com.table.order.domain.customer.controller.CustomerController
 com/table/order/domain/category/dto/CategoryDto.java
  com.table.order.domain.category.dto.CategoryDto
  com.table.order.domain.category.dto.CategoryDto$CategoryDtoBuilder
@@ -222,14 +222,14 @@ com/table/order/domain/item/service/ItemService.java
 com/table/order/domain/table/entity/Table.java
  com.table.order.domain.table.entity.Table
  com.table.order.domain.table.entity.Table$TableBuilder
-com/table/order/domain/table/service/TableService.java
- com.table.order.domain.table.service.TableService
-com/table/order/domain/customer/controller/CustomerController.java
- com.table.order.domain.customer.controller.CustomerController
+com/table/order/domain/order/service/OrderService.java
+ com.table.order.domain.order.service.OrderService
 com/table/order/domain/customer/entity/Customer.java
  com.table.order.domain.customer.entity.Customer
  com.table.order.domain.customer.entity.Customer$CustomerBuilder
-com/table/order/domain/order/service/OrderService.java
- com.table.order.domain.order.service.OrderService
 com/table/order/domain/table/controller/TableController.java
  com.table.order.domain.table.controller.TableController
+com/table/order/domain/table/service/TableService.java
+ com.table.order.domain.table.service.TableService
+com/table/order/global/security/config/SecurityConfig.java
+ com.table.order.global.security.config.SecurityConfig

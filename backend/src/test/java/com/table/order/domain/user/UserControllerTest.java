@@ -8,6 +8,7 @@ import com.table.order.domain.user.dto.response.ResponseLoginUser;
 import com.table.order.domain.user.dto.response.ResponseSignUpUser;
 import com.table.order.domain.user.service.SecurityService;
 import com.table.order.domain.user.service.UserService;
+import com.table.order.global.common.response.ResponseResult;
 import com.table.order.global.security.exception.JwtAccessDeniedHandler;
 import com.table.order.global.security.exception.JwtAuthenticationEntryPoint;
 import com.table.order.global.security.provider.JwtProvider;
