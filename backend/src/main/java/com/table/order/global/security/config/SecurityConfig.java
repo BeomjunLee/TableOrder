@@ -73,4 +73,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 "/docs/**",
                 "/swagger-ui**");
     }
+
+
 }

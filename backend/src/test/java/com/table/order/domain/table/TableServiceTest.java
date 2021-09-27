@@ -196,7 +196,7 @@ class TableServiceTest {
         }
         Page<Table> pageResultTable = new PageImpl<Table>(tables, pageable, 2);
 
-        given(tableQueryRepository.findAllJoinStoreUserOrder("test", OrderStatus.ORDER, pageable)).willReturn(pageResultTable);
+        given(tableQueryRepository.findAllJoinStoreUserOrder("test", pageable)).willReturn(pageResultTable);
 
         ResponseTables responseTables = ResponseTables.builder()
                 .status(RESULT_FIND_TABLES.getStatus())

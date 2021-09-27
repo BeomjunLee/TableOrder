@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.table.order.domain.category.CategoryServiceTest" tests="9" skipped="0" failures="0" errors="0" timestamp="2021-09-19T12:04:37" hostname="ibeomjun-ui-MacBookPro.local" time="0.078">
+<testsuite name="com.table.order.domain.category.CategoryServiceTest" tests="9" skipped="0" failures="0" errors="0" timestamp="2021-09-27T08:04:24" hostname="ibeomjun-ui-MacBookPro.local" time="0.079">
   <properties/>
-  <testcase name="카테고리 삭제 테스트" classname="com.table.order.domain.category.CategoryServiceTest" time="0.043"/>
-  <testcase name="카테고리 추가 테스트" classname="com.table.order.domain.category.CategoryServiceTest" time="0.005"/>
-  <testcase name="카테고리 삭제 실패 테스트" classname="com.table.order.domain.category.CategoryServiceTest" time="0.003"/>
+  <testcase name="카테고리 삭제 테스트" classname="com.table.order.domain.category.CategoryServiceTest" time="0.046"/>
+  <testcase name="카테고리 추가 테스트" classname="com.table.order.domain.category.CategoryServiceTest" time="0.003"/>
+  <testcase name="카테고리 삭제 실패 테스트" classname="com.table.order.domain.category.CategoryServiceTest" time="0.002"/>
   <testcase name="카테고리 수정 실패 테스트" classname="com.table.order.domain.category.CategoryServiceTest" time="0.003"/>
-  <testcase name="카테고리 수정 테스트" classname="com.table.order.domain.category.CategoryServiceTest" time="0.002"/>
+  <testcase name="카테고리 수정 테스트" classname="com.table.order.domain.category.CategoryServiceTest" time="0.003"/>
   <testcase name="카테고리 추가 실패 테스트 (미승인된 식당)" classname="com.table.order.domain.category.CategoryServiceTest" time="0.002"/>
-  <testcase name="카테고리, 메뉴 전체 조회 (손님)" classname="com.table.order.domain.category.CategoryServiceTest" time="0.009"/>
-  <testcase name="카테고리 추가 실패 테스트 (식당을 찾을 수 없음)" classname="com.table.order.domain.category.CategoryServiceTest" time="0.002"/>
+  <testcase name="카테고리, 메뉴 전체 조회 (손님)" classname="com.table.order.domain.category.CategoryServiceTest" time="0.008"/>
+  <testcase name="카테고리 추가 실패 테스트 (식당을 찾을 수 없음)" classname="com.table.order.domain.category.CategoryServiceTest" time="0.001"/>
   <testcase name="카테고리, 메뉴 전체 조회 (회원)" classname="com.table.order.domain.category.CategoryServiceTest" time="0.006"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
