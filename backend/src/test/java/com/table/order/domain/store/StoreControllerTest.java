@@ -26,6 +26,7 @@ import org.springframework.test.web.servlet.ResultActions;
 
 import static com.table.order.global.common.RoleToCollection.*;
 import static com.table.order.global.common.code.ResultCode.RESULT_ENROLL_STORE;
+import static com.table.order.global.common.code.ResultCode.RESULT_FIND_STORE;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.BDDMockito.given;
@@ -128,8 +129,8 @@ class StoreControllerTest {
                 .build();
 
         ResponseEnrollStore responseEnrollStore = ResponseEnrollStore.builder()
-                .status(RESULT_ENROLL_STORE.getStatus())
-                .message(RESULT_ENROLL_STORE.getMessage())
+                .status(RESULT_FIND_STORE.getStatus())
+                .message(RESULT_FIND_STORE.getMessage())
                 .data(storeDto)
                 .build();
 

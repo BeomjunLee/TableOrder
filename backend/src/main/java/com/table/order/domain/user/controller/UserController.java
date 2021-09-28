@@ -6,6 +6,7 @@ import com.table.order.domain.user.dto.response.ResponseLoginUser;
 import com.table.order.domain.user.dto.response.ResponseSignUpUser;
 import com.table.order.domain.user.service.UserService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
 import static org.springframework.http.HttpStatus.CREATED;
@@ -26,5 +27,10 @@ public class UserController {
     @ResponseStatus(CREATED)
     public ResponseSignUpUser signUpUser(@RequestBody RequestSignUpUser signUpUser) {
         return userService.signUpUser(signUpUser);
+    }
+
+    @GetMapping("")
+    public ResponseSignUpUser findUser(Authentication authentication) {
+        return userService.findUser(authentication.getName());
     }
 }

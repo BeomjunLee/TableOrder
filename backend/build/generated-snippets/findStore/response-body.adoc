@@ -1,4 +1,4 @@
 [source,options="nowrap"]
 ----
-{"status":201,"message":"식당 등록 성공","data":{"id":1,"name":"식당","description":"식당 설명","licenseImage":"이미지 주소"}}
+{"status":200,"message":"식당 조회 성공","data":{"id":1,"name":"식당","description":"식당 설명","licenseImage":"이미지 주소"}}
 ----

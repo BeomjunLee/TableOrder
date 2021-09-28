@@ -6,6 +6,7 @@ import com.table.order.domain.user.dto.request.RequestLoginUser;
 import com.table.order.domain.user.dto.request.RequestSignUpUser;
 import com.table.order.domain.user.dto.response.ResponseLoginUser;
 import com.table.order.domain.user.dto.response.ResponseSignUpUser;
+import com.table.order.domain.user.entity.UserRole;
 import com.table.order.domain.user.service.SecurityService;
 import com.table.order.domain.user.service.UserService;
 import com.table.order.global.common.response.ResponseResult;
@@ -19,17 +20,23 @@ import org.springframework.boot.test.autoconfigure.restdocs.AutoConfigureRestDoc
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.restdocs.payload.JsonFieldType;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.ResultActions;
 import java.time.LocalDateTime;
-import static com.table.order.global.common.code.ResultCode.RESULT_LOGIN;
-import static com.table.order.global.common.code.ResultCode.RESULT_SIGNUP_USER;
+
+import static com.table.order.global.common.RoleToCollection.authorities;
+import static com.table.order.global.common.code.ResultCode.*;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.BDDMockito.given;
 import static org.springframework.http.MediaType.APPLICATION_JSON;
+import static org.springframework.restdocs.headers.HeaderDocumentation.headerWithName;
+import static org.springframework.restdocs.headers.HeaderDocumentation.requestHeaders;
 import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.document;
+import static org.springframework.restdocs.mockmvc.RestDocumentationRequestBuilders.get;
 import static org.springframework.restdocs.mockmvc.RestDocumentationRequestBuilders.post;
 import static org.springframework.restdocs.payload.PayloadDocumentation.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
@@ -153,6 +160,52 @@ class UserControllerTest {
                                 fieldWithPath("accessToken").type(JsonFieldType.STRING).description("access 토큰"),
                                 fieldWithPath("expiredAt").type(JsonFieldType.STRING).description("토큰 만료 시간"),
                                 fieldWithPath("refreshToken").type(JsonFieldType.STRING).description("refresh 토큰")
+                        )
+                ));
+    }
+
+    @Test
+    @DisplayName("회원 조회 테스트")
+    public void findUser() throws Exception{
+        //given
+        UserDto dto = UserDto.builder()
+                .id(1L)
+                .username("beomjun")
+                .name("이범준")
+                .phoneNum("01012345678")
+                .address("서울시 강남구 0000")
+                .build();
+
+        ResponseSignUpUser responseSignUpUser = ResponseSignUpUser.builder()
+                .status(RESULT_FIND_USER.getStatus())
+                .message(RESULT_FIND_USER.getMessage())
+                .data(dto)
+                .build();
+
+        UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken("test", "1234", authorities(UserRole.USER));
+        given(jwtProvider.getAuthentication(anyString())).willReturn(authentication);
+        given(userService.findUser(any()))
+                .willReturn(responseSignUpUser);
+        //when
+        ResultActions result = mockMvc.perform(
+                get("/users").header("Authorization","Bearer (accessToken)")
+                        .contentType(APPLICATION_JSON)
+                        .accept(APPLICATION_JSON))
+                .andDo(print());
+        //then
+        result.andExpect(status().isOk())
+                .andDo(document("findUser",
+                        requestHeaders(
+                                headerWithName("Authorization").description("Bearer + (로그인 요청 access 토큰)")
+                        ),
+                        responseFields(
+                                fieldWithPath("status").type(JsonFieldType.NUMBER).description("상태 코드"),
+                                fieldWithPath("message").type(JsonFieldType.STRING).description("결과 메세지"),
+                                fieldWithPath("data.id").type(JsonFieldType.NUMBER).description("회원 고유 id"),
+                                fieldWithPath("data.username").type(JsonFieldType.STRING).description("아이디"),
+                                fieldWithPath("data.name").type(JsonFieldType.STRING).description("이름"),
+                                fieldWithPath("data.phoneNum").type(JsonFieldType.STRING).description("전화번호"),
+                                fieldWithPath("data.address").type(JsonFieldType.STRING).description("주소")
                         )
                 ));
     }

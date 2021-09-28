@@ -88,6 +88,15 @@ include::../../../build/generated-snippets/signUpUser/request-fields.adoc[]
 include::../../../build/generated-snippets/signUpUser/http-response.adoc[]
 include::../../../build/generated-snippets/signUpUser/response-fields.adoc[]
 
+=== 회원 조회
+
+`GET` 회원은 회원 정보 조히를 할 수 있다.
+
+include::../../../build/generated-snippets/findUser/request-headers.adoc[]
+include::../../../build/generated-snippets/findUser/http-request.adoc[]
+include::../../../build/generated-snippets/findUser/http-response.adoc[]
+include::../../../build/generated-snippets/findUser/response-fields.adoc[]
+
 === 로그인
 
 `POST` 아이디와 비밀번호를 이용해 로그인 요청을 보낼 수 있다.
@@ -96,15 +105,6 @@ include::../../../build/generated-snippets/loginUser/http-request.adoc[]
 include::../../../build/generated-snippets/loginUser/request-fields.adoc[]
 include::../../../build/generated-snippets/loginUser/http-response.adoc[]
 include::../../../build/generated-snippets/loginUser/response-fields.adoc[]
-
-=== 식당 조회
-
-`GET` 회원은 식당정보를 조회할 수 있다.
-
-include::../../../build/generated-snippets/findStore/request-headers.adoc[]
-include::../../../build/generated-snippets/findStore/http-request.adoc[]
-include::../../../build/generated-snippets/findStore/http-response.adoc[]
-include::../../../build/generated-snippets/findStore/response-fields.adoc[]
 
 === 식당 등록
 
@@ -116,15 +116,14 @@ include::../../../build/generated-snippets/enrollStore/request-fields.adoc[]
 include::../../../build/generated-snippets/enrollStore/http-response.adoc[]
 include::../../../build/generated-snippets/enrollStore/response-fields.adoc[]
 
-=== 전체 테이블 조회
+=== 식당 조회
 
-`GET` 회원은 테이블을 전체 조회할 수 있으며 각각의 테이블에 주문이 있을 경우 주문도 포함된다. (페이징 처리)
+`GET` 회원은 식당정보를 조회할 수 있다.
 
-include::../../../build/generated-snippets/findTables/request-headers.adoc[]
-include::../../../build/generated-snippets/findTables/http-request.adoc[]
-include::../../../build/generated-snippets/findTables/request-parameters.adoc[]
-include::../../../build/generated-snippets/findTables/http-response.adoc[]
-include::../../../build/generated-snippets/findTables/response-fields.adoc[]
+include::../../../build/generated-snippets/findStore/request-headers.adoc[]
+include::../../../build/generated-snippets/findStore/http-request.adoc[]
+include::../../../build/generated-snippets/findStore/http-response.adoc[]
+include::../../../build/generated-snippets/findStore/response-fields.adoc[]
 
 === 테이블 추가
 
@@ -146,6 +145,16 @@ include::../../../build/generated-snippets/updateTable/http-request.adoc[]
 include::../../../build/generated-snippets/updateTable/request-fields.adoc[]
 include::../../../build/generated-snippets/updateTable/http-response.adoc[]
 include::../../../build/generated-snippets/updateTable/response-fields.adoc[]
+
+=== 전체 테이블 조회
+
+`GET` 회원은 테이블을 전체 조회할 수 있으며 각각의 테이블에 주문이 있을 경우 주문도 포함된다. (페이징 처리)
+
+include::../../../build/generated-snippets/findTables/request-headers.adoc[]
+include::../../../build/generated-snippets/findTables/http-request.adoc[]
+include::../../../build/generated-snippets/findTables/request-parameters.adoc[]
+include::../../../build/generated-snippets/findTables/http-response.adoc[]
+include::../../../build/generated-snippets/findTables/response-fields.adoc[]
 
 === 전체 카테고리별 메뉴 조회
 

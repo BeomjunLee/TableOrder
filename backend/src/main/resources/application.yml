@@ -44,8 +44,8 @@ spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: admin
-    password: qjawns0577
-    url: jdbc:mysql://tableorder.cz7s6yzgz1yh.ap-northeast-2.rds.amazonaws.com/tableOrder
+    password:
+    url:
   jpa:
     hibernate:
       ddl-auto: none

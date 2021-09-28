@@ -16,6 +16,7 @@ import org.springframework.transaction.annotation.Transactional;
 import static com.table.order.global.common.code.CustomErrorCode.ERROR_NOT_FOUND_STORE;
 import static com.table.order.global.common.code.CustomErrorCode.ERROR_NOT_FOUND_USER;
 import static com.table.order.global.common.code.ResultCode.RESULT_ENROLL_STORE;
+import static com.table.order.global.common.code.ResultCode.RESULT_FIND_STORE;
 
 @Service
 @RequiredArgsConstructor
@@ -69,8 +70,8 @@ public class StoreService {
                 .build();
 
         return ResponseEnrollStore.builder()
-                .status(RESULT_ENROLL_STORE.getStatus())
-                .message(RESULT_ENROLL_STORE.getMessage())
+                .status(RESULT_FIND_STORE.getStatus())
+                .message(RESULT_FIND_STORE.getMessage())
                 .data(dto)
                 .build();
     }
