@@ -33,6 +33,7 @@ import static org.springframework.restdocs.headers.HeaderDocumentation.headerWit
 import static org.springframework.restdocs.headers.HeaderDocumentation.requestHeaders;
 import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.document;
 import static org.springframework.restdocs.mockmvc.RestDocumentationRequestBuilders.post;
+import static org.springframework.restdocs.mockmvc.RestDocumentationRequestBuilders.get;
 import static org.springframework.restdocs.payload.PayloadDocumentation.*;
 import static org.springframework.restdocs.payload.PayloadDocumentation.fieldWithPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
@@ -103,6 +104,51 @@ class StoreControllerTest {
                                 fieldWithPath("name").type(JsonFieldType.STRING).description("식당명"),
                                 fieldWithPath("description").type(JsonFieldType.STRING).description("설명"),
                                 fieldWithPath("licenseImage").type(JsonFieldType.STRING).description("사업자등록증")
+                        ),
+                        responseFields(
+                                fieldWithPath("status").type(JsonFieldType.NUMBER).description("상태 코드"),
+                                fieldWithPath("message").type(JsonFieldType.STRING).description("결과 메세지"),
+                                fieldWithPath("data.id").type(JsonFieldType.NUMBER).description("식당 고유 id"),
+                                fieldWithPath("data.name").type(JsonFieldType.STRING).description("식당명"),
+                                fieldWithPath("data.description").type(JsonFieldType.STRING).description("설명"),
+                                fieldWithPath("data.licenseImage").type(JsonFieldType.STRING).description("사업자등록증")
+                        )
+                ));
+    }
+
+    @Test
+    @DisplayName("식당 조회 테스트")
+    public void findStore() throws Exception{
+        //given
+        StoreDto storeDto = StoreDto.builder()
+                .id(1L)
+                .name("식당")
+                .description("식당 설명")
+                .licenseImage("이미지 주소")
+                .build();
+
+        ResponseEnrollStore responseEnrollStore = ResponseEnrollStore.builder()
+                .status(RESULT_ENROLL_STORE.getStatus())
+                .message(RESULT_ENROLL_STORE.getMessage())
+                .data(storeDto)
+                .build();
+
+        UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken("test", "1234", authorities(UserRole.USER));
+        given(jwtProvider.getAuthentication(anyString())).willReturn(authentication);
+        given(storeService.findStore(anyString())).willReturn(responseEnrollStore);
+
+        //when
+        ResultActions result = mockMvc.perform(
+                get("/stores").header("Authorization","Bearer (accessToken)")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .accept(MediaType.APPLICATION_JSON))
+                .andDo(print());
+
+        //then
+        result.andExpect(status().isOk())
+                .andDo(document("findStore",
+                        requestHeaders(
+                                headerWithName("Authorization").description("Bearer + (로그인 요청 access 토큰)")
                         ),
                         responseFields(
                                 fieldWithPath("status").type(JsonFieldType.NUMBER).description("상태 코드"),

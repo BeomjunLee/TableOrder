@@ -2,8 +2,8 @@ com/table/order/OrderApplication.java
  com.table.order.OrderApplication
 com/table/order/domain/QBaseEntity.java
  com.table.order.domain.QBaseEntity
-com/table/order/domain/store/controller/StoreController.java
- com.table.order.domain.store.controller.StoreController
+com/table/order/global/security/config/SecurityConfig.java
+ com.table.order.global.security.config.SecurityConfig
 com/table/order/domain/user/dto/request/RequestSignUpUser.java
  com.table.order.domain.user.dto.request.RequestSignUpUser
  com.table.order.domain.user.dto.request.RequestSignUpUser$RequestSignUpUserBuilder
@@ -212,8 +212,8 @@ com/table/order/domain/order/entity/Order.java
 com/table/order/domain/table/dto/request/RequestUpdateTable.java
  com.table.order.domain.table.dto.request.RequestUpdateTable
  com.table.order.domain.table.dto.request.RequestUpdateTable$RequestUpdateTableBuilder
-com/table/order/domain/store/service/StoreService.java
- com.table.order.domain.store.service.StoreService
+com/table/order/domain/table/controller/TableController.java
+ com.table.order.domain.table.controller.TableController
 com/table/order/global/config/AppConfig.java
  com.table.order.global.config.AppConfig
 com/table/order/domain/customer/controller/CustomerController.java
@@ -229,9 +229,9 @@ com/table/order/domain/table/repository/TableQueryRepository.java
  com.table.order.domain.table.repository.TableQueryRepository
 com/table/order/domain/customer/service/CustomerService.java
  com.table.order.domain.customer.service.CustomerService
-com/table/order/domain/table/controller/TableController.java
- com.table.order.domain.table.controller.TableController
 com/table/order/global/config/CorsConfig.java
  com.table.order.global.config.CorsConfig
-com/table/order/global/security/config/SecurityConfig.java
- com.table.order.global.security.config.SecurityConfig
+com/table/order/domain/store/service/StoreService.java
+ com.table.order.domain.store.service.StoreService
+com/table/order/domain/store/controller/StoreController.java
+ com.table.order.domain.store.controller.StoreController

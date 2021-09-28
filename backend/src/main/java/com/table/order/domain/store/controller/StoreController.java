@@ -23,4 +23,10 @@ public class StoreController {
                                            Authentication authentication) {
         return storeService.createStore(requestEnrollStore, authentication.getName());
     }
+
+    @GetMapping("")
+    @PreAuthorize("hasRole('ROLE_USER')")
+    public ResponseEnrollStore findStore(Authentication authentication) {
+        return storeService.findStore(authentication.getName());
+    }
 }
