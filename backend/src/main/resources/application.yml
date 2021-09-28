@@ -43,9 +43,9 @@ spring:
 
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    username: root
-    password: 1234
-    url: jdbc:mysql://ec2-13-124-45-246.ap-northeast-2.compute.amazonaws.com/mysql
+    username: admin
+    password:
+    url:
   jpa:
     hibernate:
       ddl-auto: none

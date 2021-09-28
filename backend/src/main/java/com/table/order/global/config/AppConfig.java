@@ -9,12 +9,14 @@ import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.filter.CharacterEncodingFilter;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import javax.persistence.EntityManager;
 
 @Configuration
 @EnableJpaAuditing
-public class AppConfig {
+public class AppConfig{
 
     @Bean
     public CharacterEncodingFilter characterEncodingFilter() {
@@ -33,4 +35,5 @@ public class AppConfig {
     public JPAQueryFactory jpaQueryFactory(EntityManager em) {
         return new JPAQueryFactory(em);
     }
+
 }

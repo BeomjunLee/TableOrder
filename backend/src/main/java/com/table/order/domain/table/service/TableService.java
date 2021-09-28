@@ -73,7 +73,7 @@ public class TableService {
      */
     @Transactional(readOnly = true)
     public ResponseTables findTables(String username, Pageable pageable) {
-        Page<Table> tables = tableQueryRepository.findAllJoinStoreUserOrder(username, OrderStatus.ORDER, pageable);
+        Page<Table> tables = tableQueryRepository.findAllJoinStoreUserOrder(username, pageable);
 
         Page<TableDto> results = tables.map(table -> TableDto.builder()
                 .id(table.getId())

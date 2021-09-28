@@ -1,4 +1,4 @@
 [source,options="nowrap"]
 ----
-{"status":200,"message":"로그인 성공","accessToken":"(accessToken)","expiredAt":"2021-09-19T21:34:38.664048","refreshToken":"(refreshToken)"}
+{"status":200,"message":"로그인 성공","accessToken":"(accessToken)","expiredAt":"2021-09-28T16:42:28.503112","refreshToken":"(refreshToken)"}
 ----
