@@ -73,8 +73,8 @@ com/table/order/domain/table/dto/request/RequestAddTable.java
  com.table.order.domain.table.dto.request.RequestAddTable$RequestAddTableBuilder
 com/table/order/domain/user/controller/UserController.java
  com.table.order.domain.user.controller.UserController
-com/table/order/global/security/config/SecurityConfig.java
- com.table.order.global.security.config.SecurityConfig
+com/table/order/domain/table/service/TableService.java
+ com.table.order.domain.table.service.TableService
 com/table/order/domain/customer/dto/request/RequestLoginCustomer.java
  com.table.order.domain.customer.dto.request.RequestLoginCustomer
  com.table.order.domain.customer.dto.request.RequestLoginCustomer$RequestLoginCustomerBuilder
@@ -216,8 +216,8 @@ com/table/order/domain/store/service/StoreService.java
  com.table.order.domain.store.service.StoreService
 com/table/order/global/config/AppConfig.java
  com.table.order.global.config.AppConfig
-com/table/order/global/config/CorsConfig.java
- com.table.order.global.config.CorsConfig
+com/table/order/domain/customer/controller/CustomerController.java
+ com.table.order.domain.customer.controller.CustomerController
 com/table/order/domain/item/service/ItemService.java
  com.table.order.domain.item.service.ItemService
 com/table/order/domain/table/entity/Table.java
@@ -231,7 +231,7 @@ com/table/order/domain/customer/service/CustomerService.java
  com.table.order.domain.customer.service.CustomerService
 com/table/order/domain/table/controller/TableController.java
  com.table.order.domain.table.controller.TableController
-com/table/order/domain/table/service/TableService.java
- com.table.order.domain.table.service.TableService
-com/table/order/domain/customer/controller/CustomerController.java
- com.table.order.domain.customer.controller.CustomerController
+com/table/order/global/config/CorsConfig.java
+ com.table.order.global.config.CorsConfig
+com/table/order/global/security/config/SecurityConfig.java
+ com.table.order.global.security.config.SecurityConfig
