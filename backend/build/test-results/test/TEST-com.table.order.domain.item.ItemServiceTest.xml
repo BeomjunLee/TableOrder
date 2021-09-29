@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.table.order.domain.item.ItemServiceTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2021-09-28T07:12:30" hostname="ibeomjun-ui-MacBookPro.local" time="0.036">
+<testsuite name="com.table.order.domain.item.ItemServiceTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2021-09-28T11:54:16" hostname="ibeomjun-ui-MacBookPro.local" time="0.042">
   <properties/>
-  <testcase name="메뉴 추가 테스트" classname="com.table.order.domain.item.ItemServiceTest" time="0.024"/>
-  <testcase name="메뉴 삭제 실패 테스트 (식당을 찾을 수 없음" classname="com.table.order.domain.item.ItemServiceTest" time="0.002"/>
-  <testcase name="메뉴 수정 테스트" classname="com.table.order.domain.item.ItemServiceTest" time="0.002"/>
+  <testcase name="메뉴 추가 테스트" classname="com.table.order.domain.item.ItemServiceTest" time="0.025"/>
+  <testcase name="메뉴 삭제 실패 테스트 (식당을 찾을 수 없음" classname="com.table.order.domain.item.ItemServiceTest" time="0.003"/>
+  <testcase name="메뉴 수정 테스트" classname="com.table.order.domain.item.ItemServiceTest" time="0.003"/>
   <testcase name="메뉴 추가 실패 테스트 (미승인된 식당" classname="com.table.order.domain.item.ItemServiceTest" time="0.002"/>
   <testcase name="메뉴 수정 실패 테스트 (메뉴를 찾을 수 없음" classname="com.table.order.domain.item.ItemServiceTest" time="0.002"/>
   <testcase name="메뉴 추가 실패 테스트 (식당을 찾을 수 없음" classname="com.table.order.domain.item.ItemServiceTest" time="0.002"/>
-  <testcase name="메뉴 삭제 테스트" classname="com.table.order.domain.item.ItemServiceTest" time="0.002"/>
+  <testcase name="메뉴 삭제 테스트" classname="com.table.order.domain.item.ItemServiceTest" time="0.001"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

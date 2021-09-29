@@ -20,8 +20,7 @@ import java.time.LocalDateTime;
 
 import static com.table.order.global.common.code.CustomErrorCode.ERROR_DUPLICATE_USERNAME;
 import static com.table.order.global.common.code.CustomErrorCode.ERROR_NOT_FOUND_USER;
-import static com.table.order.global.common.code.ResultCode.RESULT_LOGIN;
-import static com.table.order.global.common.code.ResultCode.RESULT_SIGNUP_USER;
+import static com.table.order.global.common.code.ResultCode.*;
 
 @Service
 @RequiredArgsConstructor
@@ -99,5 +98,28 @@ public class UserService{
             throw new CustomIllegalArgumentException(ERROR_DUPLICATE_USERNAME.getErrorCode(), ERROR_DUPLICATE_USERNAME.getMessage());
     }
 
+    /**
+     * 회원 조회
+     * @param username 회원 아이디
+     * @return 응답 dto
+     */
+    public ResponseSignUpUser findUser(String username) {
+        User user = userRepository.findByUsername(username)
+                .orElseThrow(() -> new CustomIllegalArgumentException(ERROR_NOT_FOUND_USER.getErrorCode(), ERROR_NOT_FOUND_USER.getMessage()));
+
+        UserDto dto = UserDto.builder()
+                .id(user.getId())
+                .username(user.getUsername())
+                .name(user.getName())
+                .phoneNum(user.getPhoneNum())
+                .address(user.getAddress())
+                .build();
+
+        return ResponseSignUpUser.builder()
+                .status(RESULT_FIND_USER.getStatus())
+                .message(RESULT_FIND_USER.getMessage())
+                .data(dto)
+                .build();
+    }
 
 }

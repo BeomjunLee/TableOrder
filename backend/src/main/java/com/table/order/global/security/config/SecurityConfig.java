@@ -9,6 +9,7 @@ import com.table.order.global.security.provider.JwtProvider;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
@@ -69,13 +70,20 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     public void configure(WebSecurity web) throws Exception {
         web
                 //필터 무시
-                .ignoring().antMatchers(
-    "/app/customers",
-                "/app/customers/test",
-                "/users/login",
-                "/users",
-                "/docs/**",
-                "/swagger-ui**");
+                .ignoring()
+                .antMatchers(HttpMethod.POST,
+                        "/app/customers",
+                        "/users/login",
+                        "/users")
+                .and()
+                .ignoring()
+                .antMatchers(HttpMethod.GET,
+                        "/app/customers/test")
+                .and()
+                .ignoring()
+                .antMatchers(
+                        "/docs/**",
+                        "/swagger-ui**");
     }
 
     @Bean

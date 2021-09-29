@@ -4,6 +4,7 @@ import com.table.order.domain.store.dto.StoreDto;
 import com.table.order.domain.store.dto.request.RequestEnrollStore;
 import com.table.order.domain.store.dto.response.ResponseEnrollStore;
 import com.table.order.domain.store.entity.Store;
+import com.table.order.domain.store.repository.StoreQueryRepository;
 import com.table.order.domain.store.repository.StoreRepository;
 import com.table.order.domain.user.entity.User;
 import com.table.order.domain.user.repository.UserRepository;
@@ -12,8 +13,10 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import static com.table.order.global.common.code.CustomErrorCode.ERROR_NOT_FOUND_STORE;
 import static com.table.order.global.common.code.CustomErrorCode.ERROR_NOT_FOUND_USER;
 import static com.table.order.global.common.code.ResultCode.RESULT_ENROLL_STORE;
+import static com.table.order.global.common.code.ResultCode.RESULT_FIND_STORE;
 
 @Service
 @RequiredArgsConstructor
@@ -22,6 +25,7 @@ public class StoreService {
 
     private final StoreRepository storeRepository;
     private final UserRepository userRepository;
+    private final StoreQueryRepository storeQueryRepository;
 
     /**
      * 식당 생성
@@ -49,4 +53,26 @@ public class StoreService {
                 .build();
     }
 
+    /**
+     * 식당 조회
+     * @param username 회원 아이디
+     * @return 응답 dto
+     */
+    public ResponseEnrollStore findStore(String username) {
+        Store store = storeQueryRepository.findByUsernameJoinUser(username)
+                .orElseThrow(() -> new CustomIllegalArgumentException(ERROR_NOT_FOUND_STORE.getErrorCode(), ERROR_NOT_FOUND_STORE.getMessage()));
+
+        StoreDto dto = StoreDto.builder()
+                .id(store.getId())
+                .name(store.getName())
+                .description(store.getDescription())
+                .licenseImage(store.getLicenseImage())
+                .build();
+
+        return ResponseEnrollStore.builder()
+                .status(RESULT_FIND_STORE.getStatus())
+                .message(RESULT_FIND_STORE.getMessage())
+                .data(dto)
+                .build();
+    }
 }

@@ -88,6 +88,15 @@ include::../../../build/generated-snippets/signUpUser/request-fields.adoc[]
 include::../../../build/generated-snippets/signUpUser/http-response.adoc[]
 include::../../../build/generated-snippets/signUpUser/response-fields.adoc[]
 
+=== 회원 조회
+
+`GET` 회원은 회원 정보 조히를 할 수 있다.
+
+include::../../../build/generated-snippets/findUser/request-headers.adoc[]
+include::../../../build/generated-snippets/findUser/http-request.adoc[]
+include::../../../build/generated-snippets/findUser/http-response.adoc[]
+include::../../../build/generated-snippets/findUser/response-fields.adoc[]
+
 === 로그인
 
 `POST` 아이디와 비밀번호를 이용해 로그인 요청을 보낼 수 있다.
@@ -106,6 +115,15 @@ include::../../../build/generated-snippets/enrollStore/http-request.adoc[]
 include::../../../build/generated-snippets/enrollStore/request-fields.adoc[]
 include::../../../build/generated-snippets/enrollStore/http-response.adoc[]
 include::../../../build/generated-snippets/enrollStore/response-fields.adoc[]
+
+=== 식당 조회
+
+`GET` 회원은 식당정보를 조회할 수 있다.
+
+include::../../../build/generated-snippets/findStore/request-headers.adoc[]
+include::../../../build/generated-snippets/findStore/http-request.adoc[]
+include::../../../build/generated-snippets/findStore/http-response.adoc[]
+include::../../../build/generated-snippets/findStore/response-fields.adoc[]
 
 === 테이블 추가
 
@@ -137,6 +155,15 @@ include::../../../build/generated-snippets/findTables/http-request.adoc[]
 include::../../../build/generated-snippets/findTables/request-parameters.adoc[]
 include::../../../build/generated-snippets/findTables/http-response.adoc[]
 include::../../../build/generated-snippets/findTables/response-fields.adoc[]
+
+=== 전체 카테고리별 메뉴 조회
+
+`GET` 회원은 카테고리별 메뉴들을 조회할 수 있다.
+
+include::../../../build/generated-snippets/findCategoriesItemsUser/request-headers.adoc[]
+include::../../../build/generated-snippets/findCategoriesItemsUser/http-request.adoc[]
+include::../../../build/generated-snippets/findCategoriesItemsUser/http-response.adoc[]
+include::../../../build/generated-snippets/findCategoriesItemsUser/response-fields.adoc[]
 
 === 카테고리 추가
 
@@ -199,16 +226,6 @@ include::../../../build/generated-snippets/deleteItem/path-parameters.adoc[]
 include::../../../build/generated-snippets/deleteItem/http-request.adoc[]
 include::../../../build/generated-snippets/deleteItem/http-response.adoc[]
 include::../../../build/generated-snippets/deleteItem/response-fields.adoc[]
-
-
-=== 전체 카테고리별 메뉴 조회
-
-`GET` 회원은 카테고리별 메뉴들을 조회할 수 있다.
-
-include::../../../build/generated-snippets/findCategoriesItemsUser/request-headers.adoc[]
-include::../../../build/generated-snippets/findCategoriesItemsUser/http-request.adoc[]
-include::../../../build/generated-snippets/findCategoriesItemsUser/http-response.adoc[]
-include::../../../build/generated-snippets/findCategoriesItemsUser/response-fields.adoc[]
 
 === 주문 취소
 
