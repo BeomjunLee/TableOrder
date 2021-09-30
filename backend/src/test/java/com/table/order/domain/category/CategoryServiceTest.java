@@ -250,7 +250,7 @@ class CategoryServiceTest {
                 .message(RESULT_DELETE_CATEGORY.getMessage())
                 .build();
 
-        given(categoryQueryRepository.findByIdJoinItemStoreUser(anyLong(), anyString())).willReturn(Optional.ofNullable(category));
+        given(categoryQueryRepository.findByIdJoinStoreUser(anyLong(), anyString())).willReturn(Optional.ofNullable(category));
 
         //when
         ResponseResult response = categoryService.deleteCategory(anyLong(), anyString());
@@ -263,7 +263,7 @@ class CategoryServiceTest {
     @DisplayName("카테고리 삭제 실패 테스트")
     public void deleteCategoryFail() throws Exception{
         //given
-        given(categoryQueryRepository.findByIdJoinItemStoreUser(anyLong(), anyString())).willReturn(Optional.ofNullable(null));
+        given(categoryQueryRepository.findByIdJoinStoreUser(anyLong(), anyString())).willReturn(Optional.ofNullable(null));
 
         //when then
         assertThatThrownBy(() -> {

@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.table.order.domain.order.OrderServiceTest" tests="11" skipped="0" failures="0" errors="0" timestamp="2021-09-28T11:54:10" hostname="ibeomjun-ui-MacBookPro.local" time="0.269">
+<testsuite name="com.table.order.domain.order.OrderServiceTest" tests="11" skipped="0" failures="0" errors="0" timestamp="2021-09-30T09:43:08" hostname="ibeomjun-ui-MacBookPro.local" time="0.114">
   <properties/>
-  <testcase name="손님 주문 취소 실패 테스트 (결제 완료시)" classname="com.table.order.domain.order.OrderServiceTest" time="0.207"/>
-  <testcase name="손님 주문 취소 실패 테스트 (이미 조리중일시)" classname="com.table.order.domain.order.OrderServiceTest" time="0.003"/>
+  <testcase name="손님 주문 취소 실패 테스트 (결제 완료시)" classname="com.table.order.domain.order.OrderServiceTest" time="0.06"/>
+  <testcase name="손님 주문 취소 실패 테스트 (이미 조리중일시)" classname="com.table.order.domain.order.OrderServiceTest" time="0.002"/>
   <testcase name="주문 생성 실패 테스트 (이미 결제된 테이블일시)" classname="com.table.order.domain.order.OrderServiceTest" time="0.005"/>
-  <testcase name="주문 생성 테스트" classname="com.table.order.domain.order.OrderServiceTest" time="0.027"/>
-  <testcase name="회원 주문 취소 테스트" classname="com.table.order.domain.order.OrderServiceTest" time="0.006"/>
-  <testcase name="주문 상태 변경 테스트 (조리중)" classname="com.table.order.domain.order.OrderServiceTest" time="0.005"/>
+  <testcase name="주문 생성 테스트" classname="com.table.order.domain.order.OrderServiceTest" time="0.011"/>
+  <testcase name="회원 주문 취소 테스트" classname="com.table.order.domain.order.OrderServiceTest" time="0.01"/>
+  <testcase name="주문 상태 변경 테스트 (조리중)" classname="com.table.order.domain.order.OrderServiceTest" time="0.004"/>
   <testcase name="회원 주문 취소 실패 테스트 (해당 주문을 찾을 수 없음)" classname="com.table.order.domain.order.OrderServiceTest" time="0.003"/>
-  <testcase name="주문 상태 변경 테스트 (조리중) 실패 (이미 결제 완료)" classname="com.table.order.domain.order.OrderServiceTest" time="0.002"/>
-  <testcase name="손님 주문 취소 테스트" classname="com.table.order.domain.order.OrderServiceTest" time="0.003"/>
+  <testcase name="주문 상태 변경 테스트 (조리중) 실패 (이미 결제 완료)" classname="com.table.order.domain.order.OrderServiceTest" time="0.004"/>
+  <testcase name="손님 주문 취소 테스트" classname="com.table.order.domain.order.OrderServiceTest" time="0.004"/>
   <testcase name="손님 주문 취소 실패 테스트 (해당 주문을 찾을 수 없음)" classname="com.table.order.domain.order.OrderServiceTest" time="0.003"/>
   <testcase name="주문 생성 실패 테스트 (손님 테이블 찾기 실패)" classname="com.table.order.domain.order.OrderServiceTest" time="0.002"/>
   <system-out><![CDATA[]]></system-out>

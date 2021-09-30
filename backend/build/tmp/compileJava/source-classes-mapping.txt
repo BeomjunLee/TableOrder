@@ -177,8 +177,8 @@ com/table/order/global/common/response/ResponseResult.java
  com.table.order.global.common.response.ResponseResult$ResponseResultBuilder
 com/table/order/domain/category/entity/QCategory.java
  com.table.order.domain.category.entity.QCategory
-com/table/order/domain/category/controller/CategoryController.java
- com.table.order.domain.category.controller.CategoryController
+com/table/order/global/security/config/SecurityConfig.java
+ com.table.order.global.security.config.SecurityConfig
 com/table/order/global/security/exception/JwtAuthenticationEntryPoint.java
  com.table.order.global.security.exception.JwtAuthenticationEntryPoint
 com/table/order/global/security/exception/JwtAccessDeniedHandler.java
@@ -211,8 +211,8 @@ com/table/order/domain/table/dto/request/RequestUpdateTable.java
 com/table/order/domain/order/entity/Order.java
  com.table.order.domain.order.entity.Order
  com.table.order.domain.order.entity.Order$OrderBuilder
-com/table/order/domain/category/service/CategoryService.java
- com.table.order.domain.category.service.CategoryService
+com/table/order/domain/item/service/ItemService.java
+ com.table.order.domain.item.service.ItemService
 com/table/order/domain/store/controller/StoreController.java
  com.table.order.domain.store.controller.StoreController
 com/table/order/global/common/code/ResultCode.java
@@ -231,7 +231,7 @@ com/table/order/domain/customer/controller/CustomerController.java
  com.table.order.domain.customer.controller.CustomerController
 com/table/order/domain/order/service/OrderService.java
  com.table.order.domain.order.service.OrderService
-com/table/order/domain/item/service/ItemService.java
- com.table.order.domain.item.service.ItemService
-com/table/order/global/security/config/SecurityConfig.java
- com.table.order.global.security.config.SecurityConfig
+com/table/order/domain/category/controller/CategoryController.java
+ com.table.order.domain.category.controller.CategoryController
+com/table/order/domain/category/service/CategoryService.java
+ com.table.order.domain.category.service.CategoryService

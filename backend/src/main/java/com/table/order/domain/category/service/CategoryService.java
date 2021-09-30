@@ -113,7 +113,7 @@ public class CategoryService {
      * @return 응답 dto
      */
     public ResponseResult deleteCategory(Long categoryId, String username) {
-        Category findCategory = categoryQueryRepository.findByIdJoinItemStoreUser(categoryId, username)
+        Category findCategory = categoryQueryRepository.findByIdJoinStoreUser(categoryId, username)
                 .orElseThrow(() -> new CustomIllegalArgumentException(ERROR_DELETE_CATEGORY.getErrorCode(), ERROR_DELETE_CATEGORY.getMessage()));
 
         categoryRepository.delete(findCategory);
