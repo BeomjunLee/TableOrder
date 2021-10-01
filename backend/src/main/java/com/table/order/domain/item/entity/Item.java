@@ -94,7 +94,7 @@ public class Item extends BaseEntity {
 
     private List<Category> filteringRequestCategory(RequestAddItem requestAddItem) {
         return store.getCategories().stream()
-                .filter(category -> category.getId() == requestAddItem.getCategoryId())
+                .filter(category -> category.getId().equals(requestAddItem.getCategoryId()))
                 .collect(Collectors.toList());
     }
 
