@@ -63,8 +63,9 @@ public class ItemService {
      * @return 응답 dto
      */
     public ResponseResult deleteItem(Long itemId, String username) {
-        storeQueryRepository.findByUsernameJoinUser(username)
-                .orElseThrow(() -> new CustomIllegalArgumentException(ERROR_NOT_FOUND_STORE.getErrorCode(), ERROR_NOT_FOUND_STORE.getMessage()));
+        itemQueryRepository.findByIdJoinStoreUser(itemId, username)
+                .orElseThrow(() -> new CustomIllegalArgumentException(ERROR_NOT_FOUND_ITEM.getErrorCode(), ERROR_NOT_FOUND_ITEM.getMessage()));
+
         itemRepository.deleteById(itemId);
 
         return ResponseResult.builder()
