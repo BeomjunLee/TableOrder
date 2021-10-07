@@ -59,7 +59,7 @@ class ItemServiceTest {
                 .description("메뉴 설명")
                 .price(1000)
                 .image("이미지")
-                .categoryId(null)
+                .categoryId(200L)
                 .build();
 
         itemDto = ItemDto.builder()
@@ -84,6 +84,7 @@ class ItemServiceTest {
                 .build();
 
         category = Category.builder()
+                .id(200L)
                 .name("카테고리 1")
                 .build();
         store.getCategories().add(category);
@@ -151,10 +152,10 @@ class ItemServiceTest {
                 .message(RESULT_DELETE_ITEM.getMessage())
                 .build();
 
-        given(storeQueryRepository.findByUsernameJoinUser(anyString())).willReturn(Optional.of(store));
+        given(itemQueryRepository.findByIdJoinStoreUser(anyLong(), anyString())).willReturn(Optional.of(item));
 
         //when
-        ResponseResult response = itemService.deleteItem(anyLong(), "test");
+        ResponseResult response = itemService.deleteItem(200L, "test");
 
         //then
         assertThat(response).extracting("status", "message")
@@ -165,12 +166,12 @@ class ItemServiceTest {
     @DisplayName("메뉴 삭제 실패 테스트 (식당을 찾을 수 없음")
     public void deleteItemNotFoundStore() throws Exception{
         //given
-        given(storeQueryRepository.findByUsernameJoinUser(anyString())).willReturn(Optional.ofNullable(null));
+        given(itemQueryRepository.findByIdJoinStoreUser(anyLong(), anyString())).willReturn(Optional.ofNullable(null));
 
         //when then
         assertThatThrownBy(() -> {
-            itemService.deleteItem(anyLong(), "test");
-        }).isInstanceOf(CustomIllegalArgumentException.class).hasMessageContaining(ERROR_NOT_FOUND_STORE.getMessage());
+            itemService.deleteItem(200L, "test");
+        }).isInstanceOf(CustomIllegalArgumentException.class).hasMessageContaining(ERROR_NOT_FOUND_ITEM.getMessage());
     }
 
     @Test

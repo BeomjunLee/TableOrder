@@ -69,6 +69,11 @@ public class Table {
         this.numberOfPeople = requestUpdateTable.getNumberOfPeople();
     }
 
+    public void initTable() {
+        this.tableStatus = TableStatus.OPEN;
+        orders.stream().forEach(o -> o.comp());
+    }
+
     private void validate() {
         if(!store.isValid())
             throw new CustomConflictException(ERROR_INVALID_STORE.getErrorCode(), ERROR_INVALID_STORE.getMessage());
@@ -97,5 +102,4 @@ public class Table {
             return true;
         return false;
     }
-
 }

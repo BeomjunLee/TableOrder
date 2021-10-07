@@ -60,13 +60,14 @@ public class StoreService {
      */
     public ResponseEnrollStore findStore(String username) {
         Store store = storeQueryRepository.findByUsernameJoinUser(username)
-                .orElseThrow(() -> new CustomIllegalArgumentException(ERROR_NOT_FOUND_STORE.getErrorCode(), ERROR_NOT_FOUND_STORE.getMessage()));
+                .orElse(Store.builder().build());
 
         StoreDto dto = StoreDto.builder()
                 .id(store.getId())
                 .name(store.getName())
                 .description(store.getDescription())
                 .licenseImage(store.getLicenseImage())
+                .storeStatus(store.getStoreStatus())
                 .build();
 
         return ResponseEnrollStore.builder()

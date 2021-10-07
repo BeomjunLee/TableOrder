@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.table.order.domain.customer.CustomerServiceTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2021-09-30T09:43:14" hostname="ibeomjun-ui-MacBookPro.local" time="0.039">
+<testsuite name="com.table.order.domain.customer.CustomerServiceTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2021-10-07T11:05:28" hostname="ibeomjun-ui-MacBookPro.local" time="0.035">
   <properties/>
-  <testcase name="QR 코드 스캔 실패 테스트 (식당이 미승인 상태일 때)" classname="com.table.order.domain.customer.CustomerServiceTest" time="0.027"/>
+  <testcase name="QR 코드 스캔 실패 테스트 (식당이 미승인 상태일 때)" classname="com.table.order.domain.customer.CustomerServiceTest" time="0.023"/>
   <testcase name="QR 코드 스캔 테스트 (회원가입)" classname="com.table.order.domain.customer.CustomerServiceTest" time="0.003"/>
-  <testcase name="QR 코드 스캔 테스트 (재로그인)" classname="com.table.order.domain.customer.CustomerServiceTest" time="0.001"/>
-  <testcase name="테이블 식당 검증 실패" classname="com.table.order.domain.customer.CustomerServiceTest" time="0.001"/>
+  <testcase name="QR 코드 스캔 테스트 (재로그인)" classname="com.table.order.domain.customer.CustomerServiceTest" time="0.002"/>
+  <testcase name="테이블 식당 검증 실패" classname="com.table.order.domain.customer.CustomerServiceTest" time="0.002"/>
   <testcase name="QR 코드 스캔 테스트 (재방문)" classname="com.table.order.domain.customer.CustomerServiceTest" time="0.002"/>
   <testcase name="QR 코드 스캔 실패 테스트 (테이블 상태가 OPEN 이 아닐 때)" classname="com.table.order.domain.customer.CustomerServiceTest" time="0.002"/>
   <system-out><![CDATA[]]></system-out>

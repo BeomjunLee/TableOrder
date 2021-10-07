@@ -20,6 +20,8 @@ public enum ResultCode {
     RESULT_ADD_TABLE(CREATED.value(), "테이블 추가 성공"),
     RESULT_UPDATE_TABLE(OK.value(), "테이블 수정 성공"),
     RESULT_FIND_TABLES(OK.value(), "테이블 검색 성공"),
+    RESULT_DELETE_TABLE(OK.value(), "테이블 삭제 성공"),
+    RESULT_INIT_TABLE(OK.value(), "테이블 초기화 성공"),
     RESULT_ADD_ITEM(CREATED.value(), "메뉴 추가 성공"),
     RESULT_DELETE_ITEM(OK.value(), "메뉴 삭제 성공"),
     RESULT_UPDATE_ITEM(OK.value(), "메뉴 수정 성공"),
@@ -29,7 +31,9 @@ public enum ResultCode {
     RESULT_UPDATE_CATEGORY(OK.value(), "카테고리 수정 성공"),
     RESULT_CREATE_ORDER(CREATED.value(), "주문 생성 성공"),
     RESULT_CANCEL_ORDER(OK.value(), "주문 취소 성공"),
-    RESULT_COOK_ORDER(OK.value(), "주문 상태 변경 성공 (조리중)")
+    RESULT_COOK_ORDER(OK.value(), "주문 상태 변경 성공 (조리중)"),
+    RESULT_COOK_COMP_ORDER(OK.value(), "주문 상태 변경 성공 (조리 완료)"),
+    RESULT_COMP_ORDER(OK.value(), "주문 상태 변경 성공 (계산 완료)")
     ;
 
     private final int status;

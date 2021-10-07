@@ -1,4 +1,5 @@
 package com.table.order.domain.order.controller;
+import com.table.order.domain.order.dto.request.RequestChangeOrderStatus;
 import com.table.order.domain.order.dto.request.RequestCreateOrder;
 import com.table.order.domain.order.dto.response.ResponseCreateOrder;
 import com.table.order.domain.order.service.OrderService;
@@ -35,10 +36,24 @@ public class OrderController {
         return orderService.cancelOrderUser(orderId, authentication.getName());
     }
 
-    @PostMapping("/orders/{orderId}/cook")
+    @PostMapping("/orders/cook")
     @PreAuthorize("hasRole('ROLE_USER')")
-    public ResponseResult changeOrderStatusCooked(@PathVariable Long orderId,
+    public ResponseResult changeOrderStatusCooked(@RequestBody RequestChangeOrderStatus requestChangeOrderStatus,
                                                   Authentication authentication) {
-        return orderService.changeOrderStatusCooked(orderId, authentication.getName());
+        return orderService.changeOrderStatusCooked(requestChangeOrderStatus, authentication.getName());
+    }
+
+    @PostMapping("/orders/cook_comp")
+    @PreAuthorize("hasRole('ROLE_USER')")
+    public ResponseResult changeOrderStatusCookComp(@RequestBody RequestChangeOrderStatus requestChangeOrderStatus,
+                                                  Authentication authentication) {
+        return orderService.changeOrderStatusCookComp(requestChangeOrderStatus, authentication.getName());
+    }
+
+    @PostMapping("/orders/comp")
+    @PreAuthorize("hasRole('ROLE_USER')")
+    public ResponseResult changeOrderStatusComp(@RequestBody RequestChangeOrderStatus requestChangeOrderStatus,
+                                                  Authentication authentication) {
+        return orderService.changeOrderStatusComp(requestChangeOrderStatus, authentication.getName());
     }
 }

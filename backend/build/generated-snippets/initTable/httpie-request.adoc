@@ -1,0 +1,7 @@
+[source,bash]
+----
+$ http POST 'http://localhost:8080/tables/1/init' \
+    'Content-Type:application/json;charset=UTF-8' \
+    'Authorization:Bearer (accessToken)' \
+    'Accept:application/json'
+----

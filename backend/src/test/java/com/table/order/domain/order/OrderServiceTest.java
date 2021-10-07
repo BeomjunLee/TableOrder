@@ -270,41 +270,4 @@ class OrderServiceTest {
         }).isInstanceOf(CustomIllegalArgumentException.class).hasMessageContaining(ERROR_NOT_FOUND_ORDER.getMessage());
     }
 
-    @Test
-    @DisplayName("주문 상태 변경 테스트 (조리중)")
-    public void changeOrderStatusCooked() throws Exception{
-        //given
-        ResponseResult responseResult = ResponseResult.builder()
-                .status(RESULT_COOK_ORDER.getStatus())
-                .message(RESULT_COOK_ORDER.getMessage())
-                .build();
-
-        given(orderQueryRepository.findByIdJoinTableStoreUser(anyLong(), anyString())).willReturn(Optional.ofNullable(order));
-
-        //when
-        ResponseResult response = orderService.changeOrderStatusCooked(anyLong(), anyString());
-
-        //then
-        assertThat(response).usingRecursiveComparison().isEqualTo(responseResult);
-    }
-
-    @Test
-    @DisplayName("주문 상태 변경 테스트 (조리중) 실패 (이미 결제 완료)")
-    public void changeOrderStatusCookedFailComp() throws Exception{
-        //given
-        order = Order.builder()
-                .request("잘부탁드립니다")
-                .orderPrice(item.getPrice())
-                .orderStatus(OrderStatus.COMP)
-                .item(item)
-                .build();
-
-        given(orderQueryRepository.findByIdJoinTableStoreUser(anyLong(), anyString())).willReturn(Optional.ofNullable(order));
-
-        //when then
-        assertThatThrownBy(() -> orderService.changeOrderStatusCooked(anyLong(), anyString()))
-                .isInstanceOf(CustomConflictException.class)
-                .hasMessageContaining(ERROR_DENIED_CANCEL_ORDER_BY_COMP.getMessage());
-
-    }
 }

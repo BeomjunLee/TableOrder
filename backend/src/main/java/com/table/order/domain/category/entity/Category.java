@@ -37,7 +37,8 @@ public class Category {
     private List<Item> items = new ArrayList<>();
 
     @Builder
-    public Category(String name) {
+    public Category(Long id, String name) {
+        this.id = id;
         this.name = name;
     }
 

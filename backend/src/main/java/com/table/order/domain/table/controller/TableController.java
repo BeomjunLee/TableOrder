@@ -42,4 +42,18 @@ public class TableController {
                                       Authentication authentication) {
         return tableService.updateTable(tableId, authentication.getName(), requestUpdateTable);
     }
+
+    @DeleteMapping("/{tableId}")
+    @PreAuthorize("hasRole('ROLE_USER')")
+    public ResponseResult deleteTable(@PathVariable Long tableId,
+                                      Authentication authentication) {
+        return tableService.deleteTable(tableId, authentication.getName());
+    }
+
+    @PostMapping("/{tableId}/init")
+    @PreAuthorize("hasRole('ROLE_USER')")
+    public ResponseResult initTable(@PathVariable Long tableId,
+                                      Authentication authentication) {
+        return tableService.initTable(tableId, authentication.getName());
+    }
 }
