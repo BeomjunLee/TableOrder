@@ -5,6 +5,7 @@ import com.table.order.domain.store.controller.StoreController;
 import com.table.order.domain.store.dto.StoreDto;
 import com.table.order.domain.store.dto.request.RequestEnrollStore;
 import com.table.order.domain.store.dto.response.ResponseEnrollStore;
+import com.table.order.domain.store.entity.StoreStatus;
 import com.table.order.domain.store.service.StoreService;
 import com.table.order.domain.user.entity.UserRole;
 import com.table.order.domain.user.service.SecurityService;
@@ -69,6 +70,7 @@ class StoreControllerTest {
                 .name("식당")
                 .description("식당 설명")
                 .licenseImage("이미지 주소")
+                .storeStatus(StoreStatus.INVALID)
                 .build();
 
         ResponseEnrollStore responseEnrollStore = ResponseEnrollStore.builder()
@@ -112,7 +114,8 @@ class StoreControllerTest {
                                 fieldWithPath("data.id").type(JsonFieldType.NUMBER).description("식당 고유 id"),
                                 fieldWithPath("data.name").type(JsonFieldType.STRING).description("식당명"),
                                 fieldWithPath("data.description").type(JsonFieldType.STRING).description("설명"),
-                                fieldWithPath("data.licenseImage").type(JsonFieldType.STRING).description("사업자등록증")
+                                fieldWithPath("data.licenseImage").type(JsonFieldType.STRING).description("사업자등록증"),
+                                fieldWithPath("data.storeStatus").type(JsonFieldType.STRING).description("식당 인증상태")
                         )
                 ));
     }
@@ -126,6 +129,7 @@ class StoreControllerTest {
                 .name("식당")
                 .description("식당 설명")
                 .licenseImage("이미지 주소")
+                .storeStatus(StoreStatus.VALID)
                 .build();
 
         ResponseEnrollStore responseEnrollStore = ResponseEnrollStore.builder()
@@ -157,7 +161,8 @@ class StoreControllerTest {
                                 fieldWithPath("data.id").type(JsonFieldType.NUMBER).description("식당 고유 id"),
                                 fieldWithPath("data.name").type(JsonFieldType.STRING).description("식당명"),
                                 fieldWithPath("data.description").type(JsonFieldType.STRING).description("설명"),
-                                fieldWithPath("data.licenseImage").type(JsonFieldType.STRING).description("사업자등록증")
+                                fieldWithPath("data.licenseImage").type(JsonFieldType.STRING).description("사업자등록증"),
+                                fieldWithPath("data.storeStatus").type(JsonFieldType.STRING).description("식당 인증상태")
                         )
                 ));
     }

@@ -1,0 +1,4 @@
+[source,options="nowrap"]
+----
+{"status":200,"message":"주문 상태 변경 성공 (조리 완료)"}
+----

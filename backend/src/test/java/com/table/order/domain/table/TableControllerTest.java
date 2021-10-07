@@ -283,4 +283,76 @@ class TableControllerTest {
                         )
                 ));
     }
+
+    @Test
+    @DisplayName("테이블 삭제 테스트")
+    public void deleteTable() throws Exception{
+        //given
+        ResponseResult responseResult = ResponseResult.builder()
+                .status(RESULT_DELETE_TABLE.getStatus())
+                .message(RESULT_DELETE_TABLE.getMessage())
+                .build();
+
+        UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken("test", "1234", authorities(UserRole.USER));
+        given(jwtProvider.getAuthentication(anyString())).willReturn(authentication);
+        given(tableService.deleteTable(anyLong(), anyString())).willReturn(responseResult);
+
+        //when
+        ResultActions result = mockMvc.perform(
+                delete("/tables/{tableId}", 1L).header("Authorization","Bearer (accessToken)")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .accept(MediaType.APPLICATION_JSON))
+                .andDo(print());
+
+        //then
+        result.andExpect(status().isOk())
+                .andDo(document("deleteTable",
+                        requestHeaders(
+                                headerWithName("Authorization").description("Bearer + (로그인 요청 access 토큰)")
+                        ),
+                        pathParameters(
+                                parameterWithName("tableId").description("테이블 고유 id")
+                        ),
+                        responseFields(
+                                fieldWithPath("status").type(NUMBER).description("상태 코드"),
+                                fieldWithPath("message").type(STRING).description("결과 메세지")
+                        )
+                ));
+    }
+
+    @Test
+    @DisplayName("테이블 초기화 테스트")
+    public void initTable() throws Exception{
+        //given
+        ResponseResult responseResult = ResponseResult.builder()
+                .status(RESULT_INIT_TABLE.getStatus())
+                .message(RESULT_INIT_TABLE.getMessage())
+                .build();
+
+        UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken("test", "1234", authorities(UserRole.USER));
+        given(jwtProvider.getAuthentication(anyString())).willReturn(authentication);
+        given(tableService.initTable(anyLong(), anyString())).willReturn(responseResult);
+
+        //when
+        ResultActions result = mockMvc.perform(
+                post("/tables/{tableId}/init", 1L).header("Authorization","Bearer (accessToken)")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .accept(MediaType.APPLICATION_JSON))
+                .andDo(print());
+
+        //then
+        result.andExpect(status().isOk())
+                .andDo(document("initTable",
+                        requestHeaders(
+                                headerWithName("Authorization").description("Bearer + (로그인 요청 access 토큰)")
+                        ),
+                        pathParameters(
+                                parameterWithName("tableId").description("테이블 고유 id")
+                        ),
+                        responseFields(
+                                fieldWithPath("status").type(NUMBER).description("상태 코드"),
+                                fieldWithPath("message").type(STRING).description("결과 메세지")
+                        )
+                ));
+    }
 }

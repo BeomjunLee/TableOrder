@@ -1,0 +1,8 @@
+[source,bash]
+----
+$ curl 'http://localhost:8080/orders/cook_comp' -i -X POST \
+    -H 'Content-Type: application/json;charset=UTF-8' \
+    -H 'Authorization: Bearer (accessToken)' \
+    -H 'Accept: application/json' \
+    -d '{"ids":[{"id":1},{"id":2},{"id":3}]}'
+----

@@ -1,0 +1,8 @@
+.+/tables/{tableId}+
+|===
+|Parameter|Description
+
+|`+tableId+`
+|테이블 고유 id
+
+|===

@@ -21,12 +21,13 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Collection;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.stream.Collectors;
 
-import static com.table.order.global.common.code.CustomErrorCode.ERROR_NOT_FOUND_STORE;
-import static com.table.order.global.common.code.CustomErrorCode.ERROR_NOT_FOUND_TABLE_STORE;
+import static com.table.order.global.common.code.CustomErrorCode.*;
 import static com.table.order.global.common.code.ResultCode.*;
 
 @Service
@@ -80,16 +81,25 @@ public class TableService {
                 .name(table.getName())
                 .numberOfPeople(table.getNumberOfPeople())
                 .tableStatus(table.getTableStatus())
-                .orders(table.getOrders().stream().map(order -> OrderDto.builder()
-                        .id(order.getId())
-                        .name(order.getItem().getName())
-                        .orderPrice(order.getOrderPrice())
-                        .count(order.getCount())
-                        .request(order.getRequest())
-                        .orderStatus(order.getOrderStatus())
-                        .build())
+                .orders(table.getOrders().stream()
+                        .filter(order -> order.getOrderStatus() == OrderStatus.ORDER
+                                || order.getOrderStatus() == OrderStatus.COOK
+                                || order.getOrderStatus() == OrderStatus.COOK_COMP)
+                        .map(order -> OrderDto.builder()
+                                .id(order.getId())
+                                .name(order.getItem().getName())
+                                .orderPrice(order.getOrderPrice())
+                                .count(order.getCount())
+                                .request(order.getRequest())
+                                .orderStatus(order.getOrderStatus())
+                                .build())
                         .collect(Collectors.toList()))
-                .totalPrice(table.getOrders().stream().mapToInt(order -> order.getOrderPrice()).sum())
+                .totalPrice(table.getOrders().stream()
+                        .filter(order -> order.getOrderStatus() == OrderStatus.ORDER
+                                || order.getOrderStatus() == OrderStatus.COOK
+                                || order.getOrderStatus() == OrderStatus.COOK_COMP)
+                        .mapToInt(order -> order.getOrderPrice())
+                        .sum())
                 .build());
 
         return ResponseTables.builder()
@@ -117,8 +127,40 @@ public class TableService {
                 .build();
     }
 
-    //TODO 테이블 오픈 (테이블 초기화)
-    //TODO 계산 완료
+    /**
+     * 테이블 초기화
+     * @param tableId 테이블 고유 id
+     * @param username 회원 아이디
+     * @return
+     */
+    public ResponseResult initTable(Long tableId, String username) {
+        Table table = tableQueryRepository.findByIdJoinStoreUser(tableId, username)
+                .orElseThrow(() -> new CustomIllegalArgumentException(ERROR_NOT_FOUND_TABLE_STORE.getErrorCode(), ERROR_NOT_FOUND_TABLE_STORE.getMessage()));
+        table.initTable();
+
+        return ResponseResult.builder()
+                .status(RESULT_INIT_TABLE.getStatus())
+                .message(RESULT_INIT_TABLE.getMessage())
+                .build();
+    }
+
+    //TODO 계산 완료 -> 메뉴별 계산 완료로 수정됨
     //TODO 회원들도 테이블 보기 (계산서)
-    //TODO 테이블 삭제
+
+    /**
+     * 테이블 삭제
+     * @param tableId 테이블 id pk
+     * @param username 회원 아이디
+     * @return
+     */
+    public ResponseResult deleteTable(Long tableId, String username) {
+        Table table = tableQueryRepository.findByIdJoinStoreUser(tableId, username)
+                .orElseThrow(() -> new CustomIllegalArgumentException(ERROR_NOT_FOUND_TABLE_STORE.getErrorCode(), ERROR_NOT_FOUND_TABLE_STORE.getMessage()));
+        tableRepository.delete(table);
+
+        return ResponseResult.builder()
+                .status(RESULT_DELETE_TABLE.getStatus())
+                .message(RESULT_DELETE_TABLE.getMessage())
+                .build();
+    }
 }

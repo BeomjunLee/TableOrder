@@ -1,0 +1,4 @@
+[source,options="nowrap"]
+----
+{"status":200,"message":"테이블 삭제 성공"}
+----

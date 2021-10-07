@@ -106,6 +106,16 @@ public class Order extends BaseEntity {
         this.orderStatus = OrderStatus.COOK;
     }
 
+    public void cookComp() {
+        if(orderStatus == OrderStatus.COMP)
+            throw new CustomConflictException(ERROR_DENIED_CANCEL_ORDER_BY_COMP.getErrorCode(), ERROR_DENIED_CANCEL_ORDER_BY_COMP.getMessage());
+        this.orderStatus = OrderStatus.COOK_COMP;
+    }
+
+    public void comp() {
+        this.orderStatus = OrderStatus.COMP;
+    }
+
     public void setTable(Table table) {
         this.table = table;
         table.getOrders().add(this);
