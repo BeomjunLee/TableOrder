@@ -1,0 +1,7 @@
+[source,bash]
+----
+$ echo '{"ids":[{"id":1},{"id":2},{"id":3}]}' | http POST 'http://localhost:8080/orders/cook_comp' \
+    'Content-Type:application/json;charset=UTF-8' \
+    'Authorization:Bearer (accessToken)' \
+    'Accept:application/json'
+----

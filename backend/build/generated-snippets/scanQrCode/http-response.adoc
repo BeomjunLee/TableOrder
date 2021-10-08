@@ -5,7 +5,7 @@ Vary: Origin
 Vary: Access-Control-Request-Method
 Vary: Access-Control-Request-Headers
 Content-Type: application/json
-Content-Length: 117
+Content-Length: 116
 
-{"status":201,"message":"회원가입 성공","accessToken":"(accessToken)","expiredAt":"2021-09-30T19:13:14.115466"}
+{"status":201,"message":"회원가입 성공","accessToken":"(accessToken)","expiredAt":"2021-10-07T20:35:28.02672"}
 ----

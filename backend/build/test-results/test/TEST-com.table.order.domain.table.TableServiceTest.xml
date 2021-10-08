@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.table.order.domain.table.TableServiceTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2021-09-30T09:43:11" hostname="ibeomjun-ui-MacBookPro.local" time="0.046">
+<testsuite name="com.table.order.domain.table.TableServiceTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2021-10-07T11:05:25" hostname="ibeomjun-ui-MacBookPro.local" time="0.059">
   <properties/>
-  <testcase name="테이블 추가 테스트" classname="com.table.order.domain.table.TableServiceTest" time="0.026"/>
+  <testcase name="테이블 추가 테스트" classname="com.table.order.domain.table.TableServiceTest" time="0.033"/>
   <testcase name="테이블 추가 실패 테스트 (승인되지 않은 식당)" classname="com.table.order.domain.table.TableServiceTest" time="0.002"/>
-  <testcase name="테이블 수정 테스트" classname="com.table.order.domain.table.TableServiceTest" time="0.003"/>
+  <testcase name="테이블 수정 테스트" classname="com.table.order.domain.table.TableServiceTest" time="0.004"/>
   <testcase name="테이블 수정 테스트 (테이블 또는 식당을 찾을 수 없음)" classname="com.table.order.domain.table.TableServiceTest" time="0.002"/>
-  <testcase name="테이블 전체 조회 테스트" classname="com.table.order.domain.table.TableServiceTest" time="0.011"/>
-  <testcase name="테이블 추가 테스트 (식당을 찾을 수 없음)" classname="com.table.order.domain.table.TableServiceTest" time="0.001"/>
+  <testcase name="테이블 전체 조회 테스트" classname="com.table.order.domain.table.TableServiceTest" time="0.015"/>
+  <testcase name="테이블 추가 테스트 (식당을 찾을 수 없음)" classname="com.table.order.domain.table.TableServiceTest" time="0.002"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

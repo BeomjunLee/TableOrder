@@ -146,6 +146,26 @@ include::../../../build/generated-snippets/updateTable/request-fields.adoc[]
 include::../../../build/generated-snippets/updateTable/http-response.adoc[]
 include::../../../build/generated-snippets/updateTable/response-fields.adoc[]
 
+=== 테이블 삭제
+
+`DELETE` 회원은 테이블을 삭제할 수 있다.
+
+include::../../../build/generated-snippets/deleteTable/request-headers.adoc[]
+include::../../../build/generated-snippets/updateTable/path-parameters.adoc[]
+include::../../../build/generated-snippets/deleteTable/http-request.adoc[]
+include::../../../build/generated-snippets/deleteTable/http-response.adoc[]
+include::../../../build/generated-snippets/deleteTable/response-fields.adoc[]
+
+=== 테이블 초기화
+
+`POST` 회원은 테이블을 초기화할 수 있다.
+
+include::../../../build/generated-snippets/initTable/request-headers.adoc[]
+include::../../../build/generated-snippets/updateTable/path-parameters.adoc[]
+include::../../../build/generated-snippets/initTable/http-request.adoc[]
+include::../../../build/generated-snippets/initTable/http-response.adoc[]
+include::../../../build/generated-snippets/initTable/response-fields.adoc[]
+
 === 전체 테이블 조회
 
 `GET` 회원은 테이블을 전체 조회할 수 있으며 각각의 테이블에 주문이 있을 경우 주문도 포함된다. (페이징 처리)
@@ -237,7 +257,7 @@ include::../../../build/generated-snippets/cancelOrderUser/http-request.adoc[]
 include::../../../build/generated-snippets/cancelOrderUser/http-response.adoc[]
 include::../../../build/generated-snippets/cancelOrderUser/response-fields.adoc[]
 
-=== 주문 상태 변경 (ORDER -> COOKED)
+=== 주문 상태 변경 (-> COOK)
 
 `POST` 회원은 손님들의 주문 상태를 조리중으로 변경할 수 있다.
 
@@ -246,4 +266,24 @@ include::../../../build/generated-snippets/changeOrderStatusCooked/path-paramete
 include::../../../build/generated-snippets/changeOrderStatusCooked/http-request.adoc[]
 include::../../../build/generated-snippets/changeOrderStatusCooked/http-response.adoc[]
 include::../../../build/generated-snippets/changeOrderStatusCooked/response-fields.adoc[]
+
+=== 주문 상태 변경 (-> COOK_COMP)
+
+`POST` 회원은 손님들의 주문 상태를 조리 완료로 변경할 수 있다.
+
+include::../../../build/generated-snippets/changeOrderStatusCookComp/request-headers.adoc[]
+include::../../../build/generated-snippets/changeOrderStatusCookComp/path-parameters.adoc[]
+include::../../../build/generated-snippets/changeOrderStatusCookComp/http-request.adoc[]
+include::../../../build/generated-snippets/changeOrderStatusCookComp/http-response.adoc[]
+include::../../../build/generated-snippets/changeOrderStatusCookComp/response-fields.adoc[]
+
+=== 주문 상태 변경 (-> COMP)
+
+`POST` 회원은 손님들의 주문 상태를 계산 완료로 변경할 수 있다.
+
+include::../../../build/generated-snippets/changeOrderStatusComp/request-headers.adoc[]
+include::../../../build/generated-snippets/changeOrderStatusComp/path-parameters.adoc[]
+include::../../../build/generated-snippets/changeOrderStatusComp/http-request.adoc[]
+include::../../../build/generated-snippets/changeOrderStatusComp/http-response.adoc[]
+include::../../../build/generated-snippets/changeOrderStatusComp/response-fields.adoc[]
 

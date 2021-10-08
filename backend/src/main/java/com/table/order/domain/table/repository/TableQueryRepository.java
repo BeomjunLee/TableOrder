@@ -53,9 +53,11 @@ public class TableQueryRepository {
                 .join(store.user, user)
                 .leftJoin(table.orders, order).fetchJoin()
                 .leftJoin(order.item, item).fetchJoin()
-                .where(user.username.eq(username))
-                //TODO 테이블 상태별 조회 동적 쿼리 추가
-                //TODO 조리중 조리완료 뺄지 말지 고민
+                .where(user.username.eq(username),
+                        order.orderStatus.eq(OrderStatus.ORDER)
+                                .or(order.orderStatus.eq(OrderStatus.COOK)
+                                        .or(order.orderStatus.eq(OrderStatus.COOK_COMP)
+                                                .or(order.orderStatus.isNull()))))
                 .offset(pageable.getOffset())
                 .limit(pageable.getPageSize())
                 .fetchResults();
@@ -74,6 +76,7 @@ public class TableQueryRepository {
                 .join(store.user, user)
                 .where(table.id.eq(tableId), user.username.eq(username))
                 .fetchOne();
+
         return Optional.ofNullable(findTable);
     }
 }

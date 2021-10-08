@@ -25,4 +25,8 @@
 |`+String+`
 |사업자등록증
 
+|`+data.storeStatus+`
+|`+String+`
+|식당 인증상태
+
 |===

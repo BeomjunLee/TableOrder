@@ -1,0 +1,8 @@
+.+/orders/{orderId}/comp+
+|===
+|Parameter|Description
+
+|`+orderId+`
+|주문 고유 id
+
+|===

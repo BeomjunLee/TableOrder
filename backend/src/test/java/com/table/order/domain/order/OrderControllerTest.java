@@ -4,6 +4,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.table.order.domain.item.dto.OrderItemDto;
 import com.table.order.domain.order.controller.OrderController;
 import com.table.order.domain.order.dto.OrderDto;
+import com.table.order.domain.order.dto.request.OrderIdDto;
+import com.table.order.domain.order.dto.request.RequestChangeOrderStatus;
 import com.table.order.domain.order.dto.request.RequestCreateOrder;
 import com.table.order.domain.order.dto.response.ResponseCreateOrder;
 import com.table.order.domain.order.entity.OrderStatus;
@@ -219,6 +221,14 @@ class OrderControllerTest {
     @DisplayName("주문 상태 변경 테스트 (조리중)")
     public void changeOrderStatusCooked() throws Exception{
         //given
+        List<OrderIdDto> orderDtos = new ArrayList<>();
+        for (int i = 1; i <= 3; i++) {
+            OrderIdDto orderDto = OrderIdDto.builder()
+                    .id((long) i)
+                    .build();
+            orderDtos.add(orderDto);
+        }
+
         ResponseResult responseResult = ResponseResult.builder()
                 .status(RESULT_COOK_ORDER.getStatus())
                 .message(RESULT_COOK_ORDER.getMessage())
@@ -226,12 +236,17 @@ class OrderControllerTest {
 
         UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken("test", "1234", authorities(UserRole.USER));
         given(jwtProvider.getAuthentication(anyString())).willReturn(authentication);
-        given(orderService.changeOrderStatusCooked(anyLong(), anyString())).willReturn(responseResult);
+        given(orderService.changeOrderStatusCooked(any(), anyString())).willReturn(responseResult);
+
+        RequestChangeOrderStatus requestChangeOrderStatus = RequestChangeOrderStatus.builder()
+                .ids(orderDtos)
+                .build();
 
         //when
         ResultActions result = mockMvc.perform(
-                post("/orders/{orderId}/cook", 1L).header("Authorization","Bearer (accessToken)")
+                post("/orders/cook", 1L).header("Authorization","Bearer (accessToken)")
                         .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(requestChangeOrderStatus))
                         .accept(MediaType.APPLICATION_JSON))
                 .andDo(print());
 
@@ -241,8 +256,104 @@ class OrderControllerTest {
                         requestHeaders(
                                 headerWithName("Authorization").description("Bearer + (로그인 요청 access 토큰)")
                         ),
-                        pathParameters(
-                                parameterWithName("orderId").description("주문 고유 id")
+                        requestFields(
+                                fieldWithPath("ids.[].id").type(JsonFieldType.NUMBER).description("메뉴 고유 id")
+                        ),
+                        responseFields(
+                                fieldWithPath("status").type(JsonFieldType.NUMBER).description("상태 코드"),
+                                fieldWithPath("message").type(JsonFieldType.STRING).description("결과 메세지")
+                        )
+                ));
+    }
+
+    @Test
+    @DisplayName("주문 상태 변경 테스트 (조리 완료)")
+    public void changeOrderStatusCookComp() throws Exception{
+        //given
+        List<OrderIdDto> orderDtos = new ArrayList<>();
+        for (int i = 1; i <= 3; i++) {
+            OrderIdDto orderDto = OrderIdDto.builder()
+                    .id((long) i)
+                    .build();
+            orderDtos.add(orderDto);
+        }
+
+        ResponseResult responseResult = ResponseResult.builder()
+                .status(RESULT_COOK_COMP_ORDER.getStatus())
+                .message(RESULT_COOK_COMP_ORDER.getMessage())
+                .build();
+
+        UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken("test", "1234", authorities(UserRole.USER));
+        given(jwtProvider.getAuthentication(anyString())).willReturn(authentication);
+        given(orderService.changeOrderStatusCookComp(any(), anyString())).willReturn(responseResult);
+
+        RequestChangeOrderStatus requestChangeOrderStatus = RequestChangeOrderStatus.builder()
+                .ids(orderDtos)
+                .build();
+        //when
+        ResultActions result = mockMvc.perform(
+                post("/orders/cook_comp", 1L).header("Authorization","Bearer (accessToken)")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(requestChangeOrderStatus))
+                        .accept(MediaType.APPLICATION_JSON))
+                .andDo(print());
+
+        //then
+        result.andExpect(status().isOk())
+                .andDo(document("changeOrderStatusCookComp",
+                        requestHeaders(
+                                headerWithName("Authorization").description("Bearer + (로그인 요청 access 토큰)")
+                        ),
+                        requestFields(
+                                fieldWithPath("ids.[].id").type(JsonFieldType.NUMBER).description("메뉴 고유 id")
+                        ),
+                        responseFields(
+                                fieldWithPath("status").type(JsonFieldType.NUMBER).description("상태 코드"),
+                                fieldWithPath("message").type(JsonFieldType.STRING).description("결과 메세지")
+                        )
+                ));
+    }
+
+    @Test
+    @DisplayName("주문 상태 변경 테스트 (결제 완료)")
+    public void changeOrderStatusComp() throws Exception{
+        //given
+        List<OrderIdDto> orderDtos = new ArrayList<>();
+        for (int i = 1; i <= 3; i++) {
+            OrderIdDto orderDto = OrderIdDto.builder()
+                    .id((long) i)
+                    .build();
+            orderDtos.add(orderDto);
+        }
+
+        ResponseResult responseResult = ResponseResult.builder()
+                .status(RESULT_COMP_ORDER.getStatus())
+                .message(RESULT_COMP_ORDER.getMessage())
+                .build();
+
+        UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken("test", "1234", authorities(UserRole.USER));
+        given(jwtProvider.getAuthentication(anyString())).willReturn(authentication);
+        given(orderService.changeOrderStatusComp(any(), anyString())).willReturn(responseResult);
+
+        RequestChangeOrderStatus requestChangeOrderStatus = RequestChangeOrderStatus.builder()
+                .ids(orderDtos)
+                .build();
+        //when
+        ResultActions result = mockMvc.perform(
+                post("/orders/comp", 1L).header("Authorization","Bearer (accessToken)")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(requestChangeOrderStatus))
+                        .accept(MediaType.APPLICATION_JSON))
+                .andDo(print());
+
+        //then
+        result.andExpect(status().isOk())
+                .andDo(document("changeOrderStatusComp",
+                        requestHeaders(
+                                headerWithName("Authorization").description("Bearer + (로그인 요청 access 토큰)")
+                        ),
+                        requestFields(
+                                fieldWithPath("ids.[].id").type(JsonFieldType.NUMBER).description("메뉴 고유 id")
                         ),
                         responseFields(
                                 fieldWithPath("status").type(JsonFieldType.NUMBER).description("상태 코드"),

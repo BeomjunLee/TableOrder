@@ -1,0 +1,8 @@
+|===
+|Path|Type|Description
+
+|`+ids.[].id+`
+|`+Number+`
+|메뉴 고유 id
+
+|===

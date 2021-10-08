@@ -5,6 +5,7 @@ import com.table.order.domain.item.dto.OrderItemDto;
 import com.table.order.domain.item.entity.Item;
 import com.table.order.domain.item.repository.ItemQueryRepository;
 import com.table.order.domain.order.dto.OrderDto;
+import com.table.order.domain.order.dto.request.RequestChangeOrderStatus;
 import com.table.order.domain.order.dto.request.RequestCreateOrder;
 import com.table.order.domain.order.dto.response.ResponseCreateOrder;
 import com.table.order.domain.order.entity.Order;
@@ -119,18 +120,49 @@ public class OrderService {
 
     /**
      * 주문 상태 변경 (조리중)
-     * @param orderId 주문 고유 id
+     * @param requestChangeOrderStatus 주문 고유 id 리스트
      * @param username 회원 아이디
      * @return 응답 dto
      */
-    public ResponseResult changeOrderStatusCooked(Long orderId, String username) {
-        Order findOrder = orderQueryRepository.findByIdJoinTableStoreUser(orderId, username)
-                .orElseThrow(() -> new CustomIllegalArgumentException(ERROR_NOT_FOUND_ORDER.getErrorCode(), ERROR_NOT_FOUND_ORDER.getMessage()));
-        findOrder.cooked();
+    public ResponseResult changeOrderStatusCooked(RequestChangeOrderStatus requestChangeOrderStatus, String username) {
+        orderQueryRepository.findByIdsJoinTableStoreUserBooleanBuilderOrderStatus(requestChangeOrderStatus.getIds(), username)
+                .stream().forEach(o -> o.cooked());
 
         return ResponseResult.builder()
                 .status(RESULT_COOK_ORDER.getStatus())
                 .message(RESULT_COOK_ORDER.getMessage())
+                .build();
+    }
+
+    /**
+     * 주문 상태 변경 (조리 완료)
+     * @param requestChangeOrderStatus 주문 고유 id 리스트
+     * @param username 회원 아이디
+     * @return 응답 dto
+     */
+    public ResponseResult changeOrderStatusCookComp(RequestChangeOrderStatus requestChangeOrderStatus, String username) {
+        orderQueryRepository.findByIdsJoinTableStoreUserBooleanBuilderOrderStatus(requestChangeOrderStatus.getIds(), username)
+                .stream().forEach(o -> o.cookComp());
+
+        return ResponseResult.builder()
+                .status(RESULT_COOK_COMP_ORDER.getStatus())
+                .message(RESULT_COOK_COMP_ORDER.getMessage())
+                .build();
+    }
+
+    /**
+     * 주문 상태 변경 (조리 완료)
+     * @param requestChangeOrderStatus 주문 고유 id 리스트
+     * @param username 회원 아이디
+     * @return 응답 dto
+     */
+    public ResponseResult changeOrderStatusComp(RequestChangeOrderStatus requestChangeOrderStatus, String username) {
+        orderQueryRepository.findByIdsJoinTableStoreUserBooleanBuilderOrderStatus(requestChangeOrderStatus.getIds(), username)
+                .stream().forEach(o -> o.comp());
+
+        return ResponseResult.builder()
+                .status(RESULT_COMP_ORDER.getStatus())
+                .message(RESULT_COMP_ORDER.getMessage())
                 .build();
     }
 }

@@ -11,7 +11,7 @@ Cache-Control: no-cache, no-store, max-age=0, must-revalidate
 Pragma: no-cache
 Expires: 0
 X-Frame-Options: DENY
-Content-Length: 143
+Content-Length: 165
 
-{"status":200,"message":"식당 조회 성공","data":{"id":1,"name":"식당","description":"식당 설명","licenseImage":"이미지 주소"}}
+{"status":200,"message":"식당 조회 성공","data":{"id":1,"name":"식당","description":"식당 설명","licenseImage":"이미지 주소","storeStatus":"VALID"}}
 ----
