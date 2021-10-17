@@ -16,9 +16,8 @@
 <br>
 
 ## 구성도
-<img src="https://user-images.githubusercontent.com/69130921/123786604-da4d3b80-d914-11eb-8212-39d4051541e6.png">
+<img src="https://user-images.githubusercontent.com/69130921/137612709-e8773a2b-e283-47a4-9b6f-6d86acb5f9cc.png">
 
-<br>
 
 ## APP 이용 방법
 1. 사용자가 매장 QR코드를 인식하면 해당 매장의 메뉴 페이지로 이동한다.
