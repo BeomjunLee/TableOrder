@@ -1,6 +1,5 @@
 package com.table.order.domain.table.dto;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
 import com.querydsl.core.annotations.QueryProjection;
 import com.table.order.domain.order.dto.OrderDto;
 import com.table.order.domain.table.entity.TableStatus;

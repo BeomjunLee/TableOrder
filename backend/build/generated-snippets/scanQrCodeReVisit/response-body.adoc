@@ -1,4 +1,4 @@
 [source,options="nowrap"]
 ----
-{"status":200,"message":"식당 재방문 성공","accessToken":"(accessToken)","expiredAt":"2021-10-07T20:35:28.064285"}
+{"status":200,"message":"식당 재방문 성공","accessToken":"(accessToken)","expiredAt":"2021-10-08T18:11:31.754389"}
 ----

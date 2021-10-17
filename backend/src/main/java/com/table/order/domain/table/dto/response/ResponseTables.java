@@ -1,5 +1,6 @@
 package com.table.order.domain.table.dto.response;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.table.order.domain.table.dto.TableDto;
 import lombok.AccessLevel;
 import lombok.Builder;
