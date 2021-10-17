@@ -53,11 +53,7 @@ public class TableQueryRepository {
                 .join(store.user, user)
                 .leftJoin(table.orders, order).fetchJoin()
                 .leftJoin(order.item, item).fetchJoin()
-                .where(user.username.eq(username),
-                        order.orderStatus.eq(OrderStatus.ORDER)
-                                .or(order.orderStatus.eq(OrderStatus.COOK)
-                                        .or(order.orderStatus.eq(OrderStatus.COOK_COMP)
-                                                .or(order.orderStatus.isNull()))))
+                .where(user.username.eq(username))
                 .offset(pageable.getOffset())
                 .limit(pageable.getPageSize())
                 .fetchResults();

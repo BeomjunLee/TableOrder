@@ -21,6 +21,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Collection;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.stream.Collectors;
@@ -79,16 +81,25 @@ public class TableService {
                 .name(table.getName())
                 .numberOfPeople(table.getNumberOfPeople())
                 .tableStatus(table.getTableStatus())
-                .orders(table.getOrders().stream().map(order -> OrderDto.builder()
-                        .id(order.getId())
-                        .name(order.getItem().getName())
-                        .orderPrice(order.getOrderPrice())
-                        .count(order.getCount())
-                        .request(order.getRequest())
-                        .orderStatus(order.getOrderStatus())
-                        .build())
+                .orders(table.getOrders().stream()
+                        .filter(order -> order.getOrderStatus() == OrderStatus.ORDER
+                                || order.getOrderStatus() == OrderStatus.COOK
+                                || order.getOrderStatus() == OrderStatus.COOK_COMP)
+                        .map(order -> OrderDto.builder()
+                                .id(order.getId())
+                                .name(order.getItem().getName())
+                                .orderPrice(order.getOrderPrice())
+                                .count(order.getCount())
+                                .request(order.getRequest())
+                                .orderStatus(order.getOrderStatus())
+                                .build())
                         .collect(Collectors.toList()))
-                .totalPrice(table.getOrders().stream().mapToInt(order -> order.getOrderPrice()).sum())
+                .totalPrice(table.getOrders().stream()
+                        .filter(order -> order.getOrderStatus() == OrderStatus.ORDER
+                                || order.getOrderStatus() == OrderStatus.COOK
+                                || order.getOrderStatus() == OrderStatus.COOK_COMP)
+                        .mapToInt(order -> order.getOrderPrice())
+                        .sum())
                 .build());
 
         return ResponseTables.builder()
